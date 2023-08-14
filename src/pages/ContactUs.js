@@ -1,3 +1,4 @@
+import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import Footer from "@/components/Footer/Footer";
 import StickyFooter from "@/components/Footer/StickyFooter";
 
@@ -12,14 +13,7 @@ const ContactUs = () => {
                 </div>
             </div>
 
-            <nav class="breadcrumb-nav mb-10 pb-1">
-                <div class="container">
-                    <ul class="breadcrumb">
-                        <li><a href="demo1.html">خانه </a></li>
-                        <li>تماس با ما</li>
-                    </ul>
-                </div>
-            </nav>
+            <Breadcrumb />
 
             <div class="page-content contact-us">
                 <div class="container">
