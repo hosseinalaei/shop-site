@@ -1,3 +1,4 @@
+'use client'
 import Footer from "@/components/Footer/Footer";
 import StickyFooter from "@/components/Footer/StickyFooter";
 
