@@ -1,4 +1,6 @@
 import TopHeader from "./TopHeader";
+import logo from "../../assets/images/logo.png";
+import Image from "next/image";
 
 const Header = () => {
   return (
@@ -8,13 +10,8 @@ const Header = () => {
         <div className="container-fluid">
           <div className="header-left mr-md-4">
             <a href="#" className="mobile-menu-toggle  w-icon-hamburger"></a>
-            <a href="demo15.html" className="logo ml-lg-0">
-              <img
-                src="assets/images/demos/demo15/logo.png"
-                alt="logo"
-                width="144"
-                height="45"
-              />
+            <a href="/" className="logo ml-lg-0">
+              <Image src={logo} alt="logo" width="144" height="45" />
             </a>
             <form
               method="get"
