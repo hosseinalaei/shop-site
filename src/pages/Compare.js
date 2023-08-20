@@ -5,18 +5,17 @@ import MobileMenu from "@/components/Menu/MobileMenu";
 const Compare = () => {
   return (
     <>
-      <div class="page-wrapper">
-
-        <main class="main">
-          <div class="page-header">
-            <div class="container">
-              <h1 class="page-title">مقایسه کردن</h1>
+      <div className="page-wrapper">
+        <main className="main">
+          <div className="page-header">
+            <div className="container">
+              <h1 className="page-title">مقایسه کردن</h1>
             </div>
           </div>
 
-          <nav class="breadcrumb-nav mb-2">
-            <div class="container">
-              <ul class="breadcrumb">
+          <nav className="breadcrumb-nav mb-2">
+            <div className="container">
+              <ul className="breadcrumb">
                 <li>
                   <a href="demo1.html">خانه </a>
                 </li>
@@ -25,17 +24,17 @@ const Compare = () => {
             </div>
           </nav>
 
-          <div class="page-content mb-10 pb-2">
-            <div class="container">
-              <div class="compare-table">
-                <div class="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-products">
-                  <div class="compare-col compare-field">محصول</div>
-                  <div class="compare-col compare-product">
-                    <a href="#" class="btn remove-product">
-                      <i class="w-icon-times-solid"></i>
+          <div className="page-content mb-10 pb-2">
+            <div className="container">
+              <div className="compare-table">
+                <div className="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-products">
+                  <div className="compare-col compare-field">محصول</div>
+                  <div className="compare-col compare-product">
+                    <a href="#" className="btn remove-product">
+                      <i className="w-icon-times-solid"></i>
                     </a>
-                    <div class="product text-center">
-                      <figure class="product-media">
+                    <div className="product text-center">
+                      <figure className="product-media">
                         <a href="product-default.html">
                           <img
                             src="assets/images/products/elements/1.jpg"
@@ -44,19 +43,19 @@ const Compare = () => {
                             height="257"
                           />
                         </a>
-                        <div class="product-action-vertical">
+                        <div className="product-action-vertical">
                           <a
                             href="#"
-                            class="btn-product-icon btn-cart w-icon-cart"
+                            className="btn-product-icon btn-cart w-icon-cart"
                           ></a>
                           <a
                             href="#"
-                            class="btn-product-icon btn-wishlist w-icon-heart"
+                            className="btn-product-icon btn-wishlist w-icon-heart"
                           ></a>
                         </div>
                       </figure>
-                      <div class="product-details">
-                        <h3 class="product-name">
+                      <div className="product-details">
+                        <h3 className="product-name">
                           <a href="product-default.html">
                             ساعت مچی مشکی الکترونیکی
                           </a>
@@ -64,12 +63,12 @@ const Compare = () => {
                       </div>
                     </div>
                   </div>
-                  <div class="compare-col compare-product">
-                    <a href="#" class="btn remove-product">
-                      <i class="w-icon-times-solid"></i>
+                  <div className="compare-col compare-product">
+                    <a href="#" className="btn remove-product">
+                      <i className="w-icon-times-solid"></i>
                     </a>
-                    <div class="product text-center">
-                      <figure class="product-media">
+                    <div className="product text-center">
+                      <figure className="product-media">
                         <a href="product-default.html">
                           <img
                             src="assets/images/products/elements/2.jpg"
@@ -78,30 +77,30 @@ const Compare = () => {
                             height="257"
                           />
                         </a>
-                        <div class="product-action-vertical">
+                        <div className="product-action-vertical">
                           <a
                             href="#"
-                            class="btn-product-icon btn-cart w-icon-cart"
+                            className="btn-product-icon btn-cart w-icon-cart"
                           ></a>
                           <a
                             href="#"
-                            class="btn-product-icon btn-wishlist w-icon-heart"
+                            className="btn-product-icon btn-wishlist w-icon-heart"
                           ></a>
                         </div>
                       </figure>
-                      <div class="product-details">
-                        <h3 class="product-name">
+                      <div className="product-details">
+                        <h3 className="product-name">
                           <a href="product-default.html">کفش ورزشی تابستانی </a>
                         </h3>
                       </div>
                     </div>
                   </div>
-                  <div class="compare-col compare-product">
-                    <a href="#" class="btn remove-product">
-                      <i class="w-icon-times-solid"></i>
+                  <div className="compare-col compare-product">
+                    <a href="#" className="btn remove-product">
+                      <i className="w-icon-times-solid"></i>
                     </a>
-                    <div class="product text-center">
-                      <figure class="product-media">
+                    <div className="product text-center">
+                      <figure className="product-media">
                         <a href="product-default.html">
                           <img
                             src="assets/images/products/elements/3.jpg"
@@ -110,30 +109,30 @@ const Compare = () => {
                             height="257"
                           />
                         </a>
-                        <div class="product-action-vertical">
+                        <div className="product-action-vertical">
                           <a
                             href="#"
-                            class="btn-product-icon btn-cart w-icon-cart"
+                            className="btn-product-icon btn-cart w-icon-cart"
                           ></a>
                           <a
                             href="#"
-                            class="btn-product-icon btn-wishlist w-icon-heart"
+                            className="btn-product-icon btn-wishlist w-icon-heart"
                           ></a>
                         </div>
                       </figure>
-                      <div class="product-details">
-                        <h3 class="product-name">
+                      <div className="product-details">
+                        <h3 className="product-name">
                           <a href="product-default.html">ساعت طراحی جذاب</a>
                         </h3>
                       </div>
                     </div>
                   </div>
-                  <div class="compare-col compare-product">
-                    <a href="#" class="btn remove-product">
-                      <i class="w-icon-times-solid"></i>
+                  <div className="compare-col compare-product">
+                    <a href="#" className="btn remove-product">
+                      <i className="w-icon-times-solid"></i>
                     </a>
-                    <div class="product text-center">
-                      <figure class="product-media">
+                    <div className="product text-center">
+                      <figure className="product-media">
                         <a href="product-default.html">
                           <img
                             src="assets/images/products/elements/4-1.jpg"
@@ -142,60 +141,60 @@ const Compare = () => {
                             height="257"
                           />
                         </a>
-                        <div class="product-action-vertical">
+                        <div className="product-action-vertical">
                           <a
                             href="#"
-                            class="btn-product-icon btn-cart w-icon-cart"
+                            className="btn-product-icon btn-cart w-icon-cart"
                           ></a>
                           <a
                             href="#"
-                            class="btn-product-icon btn-wishlist w-icon-heart"
+                            className="btn-product-icon btn-wishlist w-icon-heart"
                           ></a>
                         </div>
                       </figure>
-                      <div class="product-details">
-                        <h3 class="product-name">
+                      <div className="product-details">
+                        <h3 className="product-name">
                           <a href="product-default.html">موس بازی پرجمعیت</a>
                         </h3>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-price">
-                  <div class="compare-col compare-field">قیمت </div>
-                  <div class="compare-col compare-value">
-                    <div class="product-price">
-                      <span class="new-price">80000 تومان </span>
+                <div className="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-price">
+                  <div className="compare-col compare-field">قیمت </div>
+                  <div className="compare-col compare-value">
+                    <div className="product-price">
+                      <span className="new-price">80000 تومان </span>
                     </div>
                   </div>
-                  <div class="compare-col compare-value">
-                    <div class="product-price">
-                      <span class="new-price">86000 تومان</span>
-                      <span class="old-price">120000 تومان</span>
+                  <div className="compare-col compare-value">
+                    <div className="product-price">
+                      <span className="new-price">86000 تومان</span>
+                      <span className="old-price">120000 تومان</span>
                     </div>
                   </div>
-                  <div class="compare-col compare-value">
-                    <div class="product-price">
-                      <span class="new-price">30000 تومان</span>
+                  <div className="compare-col compare-value">
+                    <div className="product-price">
+                      <span className="new-price">30000 تومان</span>
                     </div>
                   </div>
-                  <div class="compare-col compare-value">
-                    <div class="product-price">
-                      <span class="new-price">220000 تومان</span>
+                  <div className="compare-col compare-value">
+                    <div className="product-price">
+                      <span className="new-price">220000 تومان</span>
                     </div>
                   </div>
                 </div>
-                <div class="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-availability">
-                  <div class="compare-col compare-field">دسترسی</div>
-                  <div class="compare-col compare-value">در انبار</div>
-                  <div class="compare-col compare-value">در انبار</div>
-                  <div class="compare-col compare-value">در انبار</div>
-                  <div class="compare-col compare-value">در انبار</div>
+                <div className="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-availability">
+                  <div className="compare-col compare-field">دسترسی</div>
+                  <div className="compare-col compare-value">در انبار</div>
+                  <div className="compare-col compare-value">در انبار</div>
+                  <div className="compare-col compare-value">در انبار</div>
+                  <div className="compare-col compare-value">در انبار</div>
                 </div>
-                <div class="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-description">
-                  <div class="compare-col compare-field">توضیحات</div>
-                  <div class="compare-col compare-value">
-                    <ul class="list-style-none list-type-check">
+                <div className="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-description">
+                  <div className="compare-col compare-field">توضیحات</div>
+                  <div className="compare-col compare-value">
+                    <ul className="list-style-none list-type-check">
                       <li>
                         لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
                         چاپ و با استفاده از طراحان گرافیک است. با تولید سادگی
@@ -212,8 +211,8 @@ const Compare = () => {
                       </li>
                     </ul>
                   </div>
-                  <div class="compare-col compare-value">
-                    <ul class="list-style-none list-type-check">
+                  <div className="compare-col compare-value">
+                    <ul className="list-style-none list-type-check">
                       <li>
                         لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
                         چاپ و با استفاده از طراحان گرافیک است. با تولید سادگی
@@ -230,8 +229,8 @@ const Compare = () => {
                       </li>
                     </ul>
                   </div>
-                  <div class="compare-col compare-value">
-                    <ul class="list-style-none list-type-check">
+                  <div className="compare-col compare-value">
+                    <ul className="list-style-none list-type-check">
                       <li>
                         لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
                         چاپ و با استفاده از طراحان گرافیک است. با تولید سادگی
@@ -248,8 +247,8 @@ const Compare = () => {
                       </li>
                     </ul>
                   </div>
-                  <div class="compare-col compare-value">
-                    <ul class="list-style-none list-type-check">
+                  <div className="compare-col compare-value">
+                    <ul className="list-style-none list-type-check">
                       <li>
                         لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
                         چاپ و با استفاده از طراحان گرافیک است. با تولید سادگی
@@ -267,173 +266,185 @@ const Compare = () => {
                     </ul>
                   </div>
                 </div>
-                <div class="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-reviews">
-                  <div class="compare-col compare-field">
+                <div className="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-reviews">
+                  <div className="compare-col compare-field">
                     رتبه بندی ها و نظرات
                   </div>
-                  <div class="compare-col compare-rating">
-                    <div class="ratings-container">
-                      <div class="ratings-full">
-                        <span class="ratings" style={{"width": "80%"}}></span>
-                        <span class="tooltiptext tooltip-top"></span>
+                  <div className="compare-col compare-rating">
+                    <div className="ratings-container">
+                      <div className="ratings-full">
+                        <span
+                          className="ratings"
+                          style={{ width: "80%" }}
+                        ></span>
+                        <span className="tooltiptext tooltip-top"></span>
                       </div>
-                      <a href="#" class="rating-reviews">
+                      <a href="#" className="rating-reviews">
                         (3 نظر )
                       </a>
                     </div>
                   </div>
-                  <div class="compare-col compare-rating">
-                    <div class="ratings-container">
-                      <div class="ratings-full">
-                        <span class="ratings" style={{"width": "100%"}}></span>
-                        <span class="tooltiptext tooltip-top"></span>
+                  <div className="compare-col compare-rating">
+                    <div className="ratings-container">
+                      <div className="ratings-full">
+                        <span
+                          className="ratings"
+                          style={{ width: "100%" }}
+                        ></span>
+                        <span className="tooltiptext tooltip-top"></span>
                       </div>
-                      <a href="#" class="rating-reviews">
+                      <a href="#" className="rating-reviews">
                         (5 نظر )
                       </a>
                     </div>
                   </div>
-                  <div class="compare-col compare-rating">
-                    <div class="ratings-container">
-                      <div class="ratings-full">
-                        <span class="ratings" style={{"width": "60%"}}></span>
-                        <span class="tooltiptext tooltip-top"></span>
+                  <div className="compare-col compare-rating">
+                    <div className="ratings-container">
+                      <div className="ratings-full">
+                        <span
+                          className="ratings"
+                          style={{ width: "60%" }}
+                        ></span>
+                        <span className="tooltiptext tooltip-top"></span>
                       </div>
-                      <a href="#" class="rating-reviews">
+                      <a href="#" className="rating-reviews">
                         (8 نظر )
                       </a>
                     </div>
                   </div>
-                  <div class="compare-col compare-rating">
-                    <div class="ratings-container">
-                      <div class="ratings-full">
-                        <span class="ratings" style={{"width": "80%"}}></span>
-                        <span class="tooltiptext tooltip-top"></span>
+                  <div className="compare-col compare-rating">
+                    <div className="ratings-container">
+                      <div className="ratings-full">
+                        <span
+                          className="ratings"
+                          style={{ width: "80%" }}
+                        ></span>
+                        <span className="tooltiptext tooltip-top"></span>
                       </div>
-                      <a href="#" class="rating-reviews">
+                      <a href="#" className="rating-reviews">
                         (3 نظر )
                       </a>
                     </div>
                   </div>
                 </div>
-                <div class="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-category">
-                  <div class="compare-col compare-field">دسته </div>
-                  <div class="compare-col compare-value">ساعت</div>
-                  <div class="compare-col compare-value">کفش</div>
-                  <div class="compare-col compare-value">ساعت مچی</div>
-                  <div class="compare-col compare-value">الکترونیک</div>
+                <div className="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-category">
+                  <div className="compare-col compare-field">دسته </div>
+                  <div className="compare-col compare-value">ساعت</div>
+                  <div className="compare-col compare-value">کفش</div>
+                  <div className="compare-col compare-value">ساعت مچی</div>
+                  <div className="compare-col compare-value">الکترونیک</div>
                 </div>
-                <div class="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-meta">
-                  <div class="compare-col compare-field">کدها</div>
-                  <div class="compare-col compare-value">MS46891344</div>
-                  <div class="compare-col compare-value">MS46891389</div>
-                  <div class="compare-col compare-value">MS46891349</div>
-                  <div class="compare-col compare-value">MS4689158</div>
+                <div className="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-meta">
+                  <div className="compare-col compare-field">کدها</div>
+                  <div className="compare-col compare-value">MS46891344</div>
+                  <div className="compare-col compare-value">MS46891389</div>
+                  <div className="compare-col compare-value">MS46891349</div>
+                  <div className="compare-col compare-value">MS4689158</div>
                 </div>
-                <div class="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-color">
-                  <div class="compare-col compare-field">رنگ</div>
-                  <div class="compare-col compare-value">
+                <div className="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-color">
+                  <div className="compare-col compare-field">رنگ</div>
+                  <div className="compare-col compare-value">
                     <span
-                      class="swatch"
-                      style={{"backgroundColor": "#ff0000"}}
+                      className="swatch"
+                      style={{ backgroundColor: "#ff0000" }}
                       title="قرمز"
                     ></span>
                     <span
-                      class="swatch"
-                      style={{"backgroundColor": "#00ff00"}}
+                      className="swatch"
+                      style={{ backgroundColor: "#00ff00" }}
                       title="قرمز"
                     ></span>
                     <span
-                      class="swatch"
-                      style={{"backgroundColor": "#0000ff"}}
+                      className="swatch"
+                      style={{ backgroundColor: "#0000ff" }}
                       title="قرمز"
                     ></span>
                     <span
-                      class="swatch"
-                      style={{"backgroundColor": "#ECEC23"}}
+                      className="swatch"
+                      style={{ backgroundColor: "#ECEC23" }}
                       title="قرمز"
                     ></span>
                   </div>
-                  <div class="compare-col compare-value">
+                  <div className="compare-col compare-value">
                     <span
-                      class="swatch"
-                      style={{"backgroundColor": "#000000"}}
+                      className="swatch"
+                      style={{ backgroundColor: "#000000" }}
                       title="قرمز"
                     ></span>
                     <span
-                      class="swatch"
-                      style={{"backgroundColor": "#C0C0C0"}}
+                      className="swatch"
+                      style={{ backgroundColor: "#C0C0C0" }}
                       title="قرمز"
                     ></span>
                     <span
-                      class="swatch"
-                      style={{"backgroundColor": "#808080"}}
+                      className="swatch"
+                      style={{ backgroundColor: "#808080" }}
                       title="قرمز"
                     ></span>
                     <span
-                      class="swatch"
-                      style={{"backgroundColor": "#0080C0"}}
-                      title="قرمز"
-                    ></span>
-                  </div>
-                  <div class="compare-col compare-value">
-                    <span
-                      class="swatch"
-                      style={{"backgroundColor": "#000000"}}
-                      title="قرمز"
-                    ></span>
-                    <span
-                      class="swatch"
-                      style={{"backgroundColor": "#95E8E8"}}
-                      title="قرمز"
-                    ></span>
-                    <span
-                      class="swatch"
-                      style={{"backgroundColor": "#FA0AF3"}}
-                      title="قرمز"
-                    ></span>
-                    <span
-                      class="swatch"
-                      style={{"backgroundColor": "#0A4BFA"}}
+                      className="swatch"
+                      style={{ backgroundColor: "#0080C0" }}
                       title="قرمز"
                     ></span>
                   </div>
-                  <div class="compare-col compare-value">
+                  <div className="compare-col compare-value">
                     <span
-                      class="swatch"
-                      style={{"backgroundColor": "#000000"}}
+                      className="swatch"
+                      style={{ backgroundColor: "#000000" }}
                       title="قرمز"
                     ></span>
                     <span
-                      class="swatch"
-                      style={{"backgroundColor": "#0000A0"}}
+                      className="swatch"
+                      style={{ backgroundColor: "#95E8E8" }}
                       title="قرمز"
                     ></span>
                     <span
-                      class="swatch"
-                      style={{"backgroundColor": "#42FDF9"}}
+                      className="swatch"
+                      style={{ backgroundColor: "#FA0AF3" }}
                       title="قرمز"
                     ></span>
                     <span
-                      class="swatch"
-                      style={{"backgroundColor": "#9BA3A4"}}
+                      className="swatch"
+                      style={{ backgroundColor: "#0A4BFA" }}
+                      title="قرمز"
+                    ></span>
+                  </div>
+                  <div className="compare-col compare-value">
+                    <span
+                      className="swatch"
+                      style={{ backgroundColor: "#000000" }}
+                      title="قرمز"
+                    ></span>
+                    <span
+                      className="swatch"
+                      style={{ backgroundColor: "#0000A0" }}
+                      title="قرمز"
+                    ></span>
+                    <span
+                      className="swatch"
+                      style={{ backgroundColor: "#42FDF9" }}
+                      title="قرمز"
+                    ></span>
+                    <span
+                      className="swatch"
+                      style={{ backgroundColor: "#9BA3A4" }}
                       title="قرمز"
                     ></span>
                   </div>
                 </div>
-                <div class="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-size">
-                  <div class="compare-col compare-field">سایز</div>
-                  <div class="compare-col compare-value">متوسط ، کوچک</div>
-                  <div class="compare-col compare-value">متوسط ، بزرگ</div>
-                  <div class="compare-col compare-value">کوچک</div>
-                  <div class="compare-col compare-value">متوسط</div>
+                <div className="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-size">
+                  <div className="compare-col compare-field">سایز</div>
+                  <div className="compare-col compare-value">متوسط ، کوچک</div>
+                  <div className="compare-col compare-value">متوسط ، بزرگ</div>
+                  <div className="compare-col compare-value">کوچک</div>
+                  <div className="compare-col compare-value">متوسط</div>
                 </div>
-                <div class="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-brand">
-                  <div class="compare-col compare-field">برند</div>
-                  <div class="compare-col compare-value">اپل</div>
-                  <div class="compare-col compare-value">New Balance</div>
-                  <div class="compare-col compare-value">Node Js</div>
-                  <div class="compare-col compare-value">Green Grass</div>
+                <div className="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-brand">
+                  <div className="compare-col compare-field">برند</div>
+                  <div className="compare-col compare-value">اپل</div>
+                  <div className="compare-col compare-value">New Balance</div>
+                  <div className="compare-col compare-value">Node Js</div>
+                  <div className="compare-col compare-value">Green Grass</div>
                 </div>
               </div>
             </div>
@@ -441,16 +452,16 @@ const Compare = () => {
         </main>
         <Footer />
       </div>
-    <StickyFooter />
-    <a
+      <StickyFooter />
+      <a
         id="scroll-top"
-        className="scroll-top"
+        classNameName="scroll-top"
         href="#top"
         title="بالا"
         role="button"
       >
         {" "}
-        <i className="w-icon-angle-up"></i>{" "}
+        <i classNameName="w-icon-angle-up"></i>{" "}
         <svg
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
