@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Footer from "@/components/Footer/Footer";
 import StickyFooter from "@/components/Footer/StickyFooter";
 import LoginComponent from "@/components/Login/LoginComponent";
@@ -30,9 +30,7 @@ const Login = () => {
             </div>
           </div>
         </main>
-        <Footer />
       </div>
-      <StickyFooter />
     </>
   );
 };
