@@ -511,7 +511,7 @@ const AboutUs = () => {
             cx="35"
             cy="35"
             r="34"
-            style={{ "stroke-dasharray": "16.4198, 400" }}
+            style={{ "strokeDasharray": "16.4198, 400" }}
           ></circle>{" "}
         </svg>{" "}
       </a>
