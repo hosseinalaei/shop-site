@@ -2737,7 +2737,7 @@ blockquote {
   right: 0;
   top: 1px;
   content: "";
-  font-family: yekan;
+  font-family: "wolmart";
   font-weight: 600;
   font-size: 1.3rem;
 }
@@ -3230,7 +3230,7 @@ blockquote {
 }
 .swiper-button-next::before,
 .swiper-button-prev::before {
-  font-family: yekan;
+  font-family: "wolmart";
 }
 .swiper-button-next.swiper-button-disabled,
 .swiper-button-prev.swiper-button-disabled {
@@ -10354,7 +10354,7 @@ body .product-popup {
 .ratings-full,
 .ratings {
   position: relative;
-  font-family: yekan;
+  font-family: "wolmart";
   letter-spacing: 0.2em;
 }
 
