@@ -1,7 +1,35 @@
+"use client";
+import { useParams, usePathname } from "next/navigation";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import product from "../../assets/images/product1.jpeg";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Link from "next/link";
 
-const categoryProducts = ({ id }) => {
+const categoryProducts = () => {
+  const [data, setData] = useState([]);
+  const router = useRouter();
+  const { id } = router.query;
+
+  const getProdcts = async () => {
+    try {
+      // console.log("process.env.BASE_URL", process.env.BASE_URL);
+      const response = await axios.get(
+        `http://138.201.167.230:5050/Products/product-by-categories/${id}`
+      );
+      if (response.status === 200) {
+        console.log("responseresponse", response.data.data);
+        setData(response.data.data);
+      }
+      // setData(response.data.data);
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
+  useEffect(() => {
+    id && getProdcts();
+  }, [id]);
   return (
     <main className="main">
       <nav className="breadcrumb-nav">
@@ -581,787 +609,81 @@ const categoryProducts = ({ id }) => {
                 </div>
               </nav>
               <div className="product-wrapper row cols-md-3 cols-sm-2 cols-2">
-                <div className="product-wrap">
-                  <div className="product text-center">
-                    <figure className="product-media">
-                      <a href="product-default.html">
-                        <Image
-                          src={product}
-                          alt="Product"
-                          width="300"
-                          height="338"
-                        />
-                      </a>
-                      <div className="product-action-horizontal">
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-cart w-icon-cart"
-                          title="افزودن به سبد "
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-wishlist w-icon-heart"
-                          title="علاقه مندیها"
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-compare w-icon-compare"
-                          title="مقایسه"
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-quickview w-icon-search"
-                          title="نمایش سریع"
-                        ></a>
-                      </div>
-                    </figure>
-                    <div className="product-details">
-                      <div className="product-cat">
-                        <a href="shop-banner-sidebar.html">الکترونیکی </a>
-                      </div>
-                      <h3 className="product-name">
-                        <a href="product-default.html">تلویزیون 3 بعدی</a>
-                      </h3>
-                      <div className="ratings-container">
-                        <div className="ratings-full">
-                          <span
-                            className="ratings"
-                            style={{ width: "100%" }}
-                          ></span>
-                          <span className="tooltiptext tooltip-top"></span>
-                        </div>
-                        <a
-                          href="product-default.html"
-                          className="rating-reviews"
-                        >
-                          (3 نظر )
-                        </a>
-                      </div>
-                      <div className="product-pa-wrapper">
-                        <div className="product-price">
-                          480000 - 850000 تومان
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="product-wrap">
-                  <div className="product text-center">
-                    <figure className="product-media">
-                      <a href="product-default.html">
-                        <Image
-                          src={product}
-                          alt="Product"
-                          width="300"
-                          height="338"
-                        />
-                        <Image
-                          src={product}
-                          alt="Product"
-                          width="300"
-                          height="338"
-                        />
-                      </a>
-                      <div className="product-countdown-container">
-                        <div
-                          className="product-countdown countdown-compact"
-                          data-until="2021, 9, 9"
-                          data-format="DHMS"
-                          data-compact="false"
-                          data-labels-short="Days, Hours, Mins, Secs"
-                        >
-                          00:00:00:00
+                {data.length > 0 &&
+                  data.map((item) => {
+                    console.log("item", item);
+                    return (
+                      <div className="product-wrap" key={item.id}>
+                        <div className="product text-center">
+                          <figure className="product-media">
+                            <Link href={`/product/${item.id}`}>
+                              <Image
+                                src={product}
+                                alt="Product"
+                                width="300"
+                                height="338"
+                              />
+                            </Link>
+                            <div className="product-action-horizontal">
+                              <a
+                                href="#"
+                                className="btn-product-icon btn-cart w-icon-cart"
+                                title="افزودن به سبد "
+                              ></a>
+                              <a
+                                href="#"
+                                className="btn-product-icon btn-wishlist w-icon-heart"
+                                title="علاقه مندیها"
+                              ></a>
+                              <a
+                                href="#"
+                                className="btn-product-icon btn-compare w-icon-compare"
+                                title="مقایسه"
+                              ></a>
+                              <a
+                                href="#"
+                                className="btn-product-icon btn-quickview w-icon-search"
+                                title="نمایش سریع"
+                              ></a>
+                            </div>
+                          </figure>
+                          <div className="product-details">
+                            {/* <div className="product-cat">
+                              <a href="shop-banner-sidebar.html">الکترونیکی </a>
+                            </div> */}
+                            <h3 className="product-name">
+                              <Link href={`/product/${item.id}`}>
+                                {item.productName}
+                              </Link>
+                            </h3>
+                            {/* <div className="ratings-container">
+                              <div className="ratings-full">
+                                <span
+                                  className="ratings"
+                                  style={{ width: "100%" }}
+                                ></span>
+                                <span className="tooltiptext tooltip-top"></span>
+                              </div>
+                              <a
+                                href="product-default.html"
+                                className="rating-reviews"
+                              >
+                                (3 نظر )
+                              </a>
+                            </div> */}
+                            <div className="product-pa-wrapper">
+                              <div className="product-price">
+                                {item.price} تومان
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                      <div className="product-action-horizontal">
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-cart w-icon-cart"
-                          title="افزودن به سبد "
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-wishlist w-icon-heart"
-                          title="علاقه مندیها"
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-compare w-icon-compare"
-                          title="مقایسه"
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-quickview w-icon-search"
-                          title="نمایش سریع"
-                        ></a>
-                      </div>
-                    </figure>
-                    <div className="product-details">
-                      <div className="product-cat">
-                        <a href="shop-banner-sidebar.html">الکترونیکی </a>
-                      </div>
-                      <h3 className="product-name">
-                        <a href="product-default.html">ساعت زنگ دار با لامپ</a>
-                      </h3>
-                      <div className="ratings-container">
-                        <div className="ratings-full">
-                          <span
-                            className="ratings"
-                            style={{ width: "100%" }}
-                          ></span>
-                          <span className="tooltiptext tooltip-top"></span>
-                        </div>
-                        <a
-                          href="product-default.html"
-                          className="rating-reviews"
-                        >
-                          (10 نظر )
-                        </a>
-                      </div>
-                      <div className="product-pa-wrapper">
-                        <div className="product-price">
-                          <ins className="new-price">30000 تومان</ins>
-                          <del className="old-price">50000 تومان</del>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="product-wrap">
-                  <div className="product text-center">
-                    <figure className="product-media">
-                      <a href="product-default.html">
-                        <Image
-                          src={product}
-                          alt="Product"
-                          width="300"
-                          height="338"
-                        />
-                      </a>
-                      <div className="product-action-horizontal">
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-cart w-icon-cart"
-                          title="افزودن به سبد "
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-wishlist w-icon-heart"
-                          title="علاقه مندیها"
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-compare w-icon-compare"
-                          title="مقایسه"
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-quickview w-icon-search"
-                          title="نمایش سریع"
-                        ></a>
-                      </div>
-                    </figure>
-                    <div className="product-details">
-                      <div className="product-cat">
-                        <a href="shop-banner-sidebar.html">الکترونیکی </a>
-                      </div>
-                      <h3 className="product-name">
-                        <a href="product-default.html">لپ تاپ اپل </a>
-                      </h3>
-                      <div className="ratings-container">
-                        <div className="ratings-full">
-                          <span
-                            className="ratings"
-                            style={{ width: "80%" }}
-                          ></span>
-                          <span className="tooltiptext tooltip-top"></span>
-                        </div>
-                        <a
-                          href="product-default.html"
-                          className="rating-reviews"
-                        >
-                          (5 نظر )
-                        </a>
-                      </div>
-                      <div className="product-pa-wrapper">
-                        <div className="product-price">4000000 تومان</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="product-wrap">
-                  <div className="product text-center">
-                    <figure className="product-media">
-                      <a href="product-default.html">
-                        <Image
-                          src={product}
-                          alt="Product"
-                          width="300"
-                          height="338"
-                        />
-                      </a>
-                      <div className="product-action-horizontal">
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-cart w-icon-cart"
-                          title="افزودن به سبد "
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-wishlist w-icon-heart"
-                          title="علاقه مندیها"
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-compare w-icon-compare"
-                          title="مقایسه"
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-quickview w-icon-search"
-                          title="نمایش سریع"
-                        ></a>
-                      </div>
-                    </figure>
-                    <div className="product-details">
-                      <div className="product-cat">
-                        <a href="shop-banner-sidebar.html">الکترونیکی </a>
-                      </div>
-                      <h3 className="product-name">
-                        <a href="product-default.html">هشدار شارژ قابل اتصال</a>
-                      </h3>
-                      <div className="ratings-container">
-                        <div className="ratings-full">
-                          <span
-                            className="ratings"
-                            style={{ width: "60%" }}
-                          ></span>
-                          <span className="tooltiptext tooltip-top"></span>
-                        </div>
-                        <a
-                          href="product-default.html"
-                          className="rating-reviews"
-                        >
-                          (7 نظر )
-                        </a>
-                      </div>
-                      <div className="product-pa-wrapper">
-                        <div className="product-price">78000 تومان</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="product-wrap">
-                  <div className="product text-center">
-                    <figure className="product-media">
-                      <a href="product-default.html">
-                        <Image
-                          src={product}
-                          alt="Product"
-                          width="300"
-                          height="338"
-                        />
-                      </a>
-                      <div className="product-action-horizontal">
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-cart w-icon-cart"
-                          title="افزودن به سبد "
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-wishlist w-icon-heart"
-                          title="علاقه مندیها"
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-compare w-icon-compare"
-                          title="مقایسه"
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-quickview w-icon-search"
-                          title="نمایش سریع"
-                        ></a>
-                      </div>
-                    </figure>
-                    <div className="product-details">
-                      <div className="product-cat">
-                        <a href="shop-banner-sidebar.html">مد </a>
-                      </div>
-                      <h3 className="product-name">
-                        <a href="product-default.html">بهترین کیف مسافرتی</a>
-                      </h3>
-                      <div className="ratings-container">
-                        <div className="ratings-full">
-                          <span
-                            className="ratings"
-                            style={{ width: "80%" }}
-                          ></span>
-                          <span className="tooltiptext tooltip-top"></span>
-                        </div>
-                        <a
-                          href="product-default.html"
-                          className="rating-reviews"
-                        >
-                          (4 نظر )
-                        </a>
-                      </div>
-                      <div className="product-pa-wrapper">
-                        <div className="product-price">89000 تومان</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="product-wrap">
-                  <div className="product text-center">
-                    <figure className="product-media">
-                      <a href="product-default.html">
-                        <Image
-                          src={product}
-                          alt="Product"
-                          width="300"
-                          height="338"
-                        />
-                      </a>
-                      <div className="product-action-horizontal">
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-cart w-icon-cart"
-                          title="افزودن به سبد "
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-wishlist w-icon-heart"
-                          title="علاقه مندیها"
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-compare w-icon-compare"
-                          title="مقایسه"
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-quickview w-icon-search"
-                          title="نمایش سریع"
-                        ></a>
-                      </div>
-                    </figure>
-                    <div className="product-details">
-                      <div className="product-cat">
-                        <a href="shop-banner-sidebar.html">ورزشی </a>
-                      </div>
-                      <h3 className="product-name">
-                        <a href="product-default.html">موتور بدلکاری مشکی</a>
-                      </h3>
-                      <div className="ratings-container">
-                        <div className="ratings-full">
-                          <span
-                            className="ratings"
-                            style={{ width: "100%" }}
-                          ></span>
-                          <span className="tooltiptext tooltip-top"></span>
-                        </div>
-                        <a
-                          href="product-default.html"
-                          className="rating-reviews"
-                        >
-                          (12 نظر )
-                        </a>
-                      </div>
-                      <div className="product-pa-wrapper">
-                        <div className="product-price">180000 تومان</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="product-wrap">
-                  <div className="product text-center">
-                    <figure className="product-media">
-                      <a href="product-default.html">
-                        <Image
-                          src={product}
-                          alt="Product"
-                          width="300"
-                          height="338"
-                        />
-                        <Image
-                          src={product}
-                          alt="Product"
-                          width="300"
-                          height="338"
-                        />
-                      </a>
-                      <div className="product-action-horizontal">
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-cart w-icon-cart"
-                          title="افزودن به سبد "
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-wishlist w-icon-heart"
-                          title="علاقه مندیها"
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-compare w-icon-compare"
-                          title="مقایسه"
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-quickview w-icon-search"
-                          title="نمایش سریع"
-                        ></a>
-                      </div>
-                    </figure>
-                    <div className="product-details">
-                      <div className="product-cat">
-                        <a href="shop-banner-sidebar.html">مد </a>
-                      </div>
-                      <h3 className="product-name">
-                        <a href="product-default.html">تنه آسمان آبی</a>
-                      </h3>
-                      <div className="ratings-container">
-                        <div className="ratings-full">
-                          <span
-                            className="ratings"
-                            style={{ width: "100%" }}
-                          ></span>
-                          <span className="tooltiptext tooltip-top"></span>
-                        </div>
-                        <a
-                          href="product-default.html"
-                          className="rating-reviews"
-                        >
-                          (9 نظر )
-                        </a>
-                      </div>
-                      <div className="product-pa-wrapper">
-                        <div className="product-price">85000 تومان</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="product-wrap">
-                  <div className="product text-center">
-                    <figure className="product-media">
-                      <a href="product-default.html">
-                        <Image
-                          src={product}
-                          alt="Product"
-                          width="300"
-                          height="338"
-                        />
-                      </a>
-                      <div className="product-action-horizontal">
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-cart w-icon-cart"
-                          title="افزودن به سبد "
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-wishlist w-icon-heart"
-                          title="علاقه مندیها"
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-compare w-icon-compare"
-                          title="مقایسه"
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-quickview w-icon-search"
-                          title="نمایش سریع"
-                        ></a>
-                      </div>
-                    </figure>
-                    <div className="product-details">
-                      <div className="product-cat">
-                        <a href="shop-banner-sidebar.html">زیبایی </a>
-                      </div>
-                      <h3 className="product-name">
-                        <a href="product-default.html">مراقبت از بدن صاف</a>
-                      </h3>
-                      <div className="ratings-container">
-                        <div className="ratings-full">
-                          <span
-                            className="ratings"
-                            style={{ width: "60%" }}
-                          ></span>
-                          <span className="tooltiptext tooltip-top"></span>
-                        </div>
-                        <a
-                          href="product-default.html"
-                          className="rating-reviews"
-                        >
-                          (4 نظر )
-                        </a>
-                      </div>
-                      <div className="product-pa-wrapper">
-                        <div className="product-price">29000 تومان</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="product-wrap">
-                  <div className="product text-center">
-                    <figure className="product-media">
-                      <a href="product-default.html">
-                        <Image
-                          src={product}
-                          alt="Product"
-                          width="300"
-                          height="338"
-                        />
-                      </a>
-                      <div className="product-action-horizontal">
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-cart w-icon-cart"
-                          title="افزودن به سبد "
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-wishlist w-icon-heart"
-                          title="علاقه مندیها"
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-compare w-icon-compare"
-                          title="مقایسه"
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-quickview w-icon-search"
-                          title="نمایش سریع"
-                        ></a>
-                      </div>
-                    </figure>
-                    <div className="product-details">
-                      <div className="product-cat">
-                        <a href="shop-banner-sidebar.html">الکترونیکی </a>
-                      </div>
-                      <h3 className="product-name">
-                        <a href="product-default.html">آیفون سبز روشن</a>
-                      </h3>
-                      <div className="ratings-container">
-                        <div className="ratings-full">
-                          <span
-                            className="ratings"
-                            style={{ width: "80%" }}
-                          ></span>
-                          <span className="tooltiptext tooltip-top"></span>
-                        </div>
-                        <a
-                          href="product-default.html"
-                          className="rating-reviews"
-                        >
-                          (4 نظر )
-                        </a>
-                      </div>
-                      <div className="product-pa-wrapper">
-                        <div className="product-price">980000 تومان</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="product-wrap">
-                  <div className="product text-center">
-                    <figure className="product-media">
-                      <a href="product-default.html">
-                        <Image
-                          src={product}
-                          alt="Product"
-                          width="300"
-                          height="338"
-                        />
-                      </a>
-                      <div className="product-action-horizontal">
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-cart w-icon-cart"
-                          title="افزودن به سبد "
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-wishlist w-icon-heart"
-                          title="علاقه مندیها"
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-compare w-icon-compare"
-                          title="مقایسه"
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-quickview w-icon-search"
-                          title="نمایش سریع"
-                        ></a>
-                      </div>
-                    </figure>
-                    <div className="product-details">
-                      <div className="product-cat">
-                        <a href="shop-banner-sidebar.html">مد </a>
-                      </div>
-                      <h3 className="product-name">
-                        <a href="product-default.html">جیر مد کیف دستی</a>
-                      </h3>
-                      <div className="ratings-container">
-                        <div className="ratings-full">
-                          <span
-                            className="ratings"
-                            style={{ width: "80%" }}
-                          ></span>
-                          <span className="tooltiptext tooltip-top"></span>
-                        </div>
-                        <a
-                          href="product-default.html"
-                          className="rating-reviews"
-                        >
-                          (4 نظر )
-                        </a>
-                      </div>
-                      <div className="product-pa-wrapper">
-                        <div className="product-price">180000 تومان</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="product-wrap">
-                  <div className="product text-center">
-                    <figure className="product-media">
-                      <a href="product-default.html">
-                        <Image
-                          src={product}
-                          alt="Product"
-                          width="300"
-                          height="338"
-                        />
-                        <Image
-                          src={product}
-                          alt="Product"
-                          width="300"
-                          height="338"
-                        />
-                      </a>
-                      <div className="product-action-horizontal">
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-cart w-icon-cart"
-                          title="افزودن به سبد "
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-wishlist w-icon-heart"
-                          title="علاقه مندیها"
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-compare w-icon-compare"
-                          title="مقایسه"
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-quickview w-icon-search"
-                          title="نمایش سریع"
-                        ></a>
-                      </div>
-                    </figure>
-                    <div className="product-details">
-                      <div className="product-cat">
-                        <a href="shop-banner-sidebar.html">الکترونیکی </a>
-                      </div>
-                      <h3 className="product-name">
-                        <a href="product-default.html">ساعت طراحی جذاب</a>
-                      </h3>
-                      <div className="ratings-container">
-                        <div className="ratings-full">
-                          <span
-                            className="ratings"
-                            style={{ width: "100%" }}
-                          ></span>
-                          <span className="tooltiptext tooltip-top"></span>
-                        </div>
-                        <a
-                          href="product-default.html"
-                          className="rating-reviews"
-                        >
-                          (10 نظر )
-                        </a>
-                      </div>
-                      <div className="product-pa-wrapper">
-                        <div className="product-price">30000 تومان</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="product-wrap">
-                  <div className="product text-center">
-                    <figure className="product-media">
-                      <a href="product-default.html">
-                        <Image
-                          src={product}
-                          alt="Product"
-                          width="300"
-                          height="338"
-                        />
-                      </a>
-                      <div className="product-action-horizontal">
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-cart w-icon-cart"
-                          title="افزودن به سبد "
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-wishlist w-icon-heart"
-                          title="علاقه مندیها"
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-compare w-icon-compare"
-                          title="مقایسه"
-                        ></a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-quickview w-icon-search"
-                          title="نمایش سریع"
-                        ></a>
-                      </div>
-                    </figure>
-                    <div className="product-details">
-                      <div className="product-cat">
-                        <a href="shop-banner-sidebar.html">مد </a>
-                      </div>
-                      <h3 className="product-name">
-                        <a href="product-default.html">کوله پشتی ساده کلاسیک</a>
-                      </h3>
-                      <div className="ratings-container">
-                        <div className="ratings-full">
-                          <span
-                            className="ratings"
-                            style={{ width: "100%" }}
-                          ></span>
-                          <span className="tooltiptext tooltip-top"></span>
-                        </div>
-                        <a
-                          href="product-default.html"
-                          className="rating-reviews"
-                        >
-                          (9 نظر )
-                        </a>
-                      </div>
-                      <div className="product-pa-wrapper">
-                        <div className="product-price">85000 تومان</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                    );
+                  })}
               </div>
 
-              <div className="toolbox toolbox-pagination justify-content-between">
+              {/* <div className="toolbox toolbox-pagination justify-content-between">
                 <p className="showing-info mb-2 mb-sm-0">
                   نمایش <span>1-12 از 60</span>محصولات
                 </p>
@@ -1392,7 +714,7 @@ const categoryProducts = ({ id }) => {
                     </a>
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

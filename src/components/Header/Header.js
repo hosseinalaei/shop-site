@@ -1,6 +1,7 @@
 import TopHeader from "./TopHeader";
 import logo from "../../assets/images/logo.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const Header = () => {
   return (
@@ -200,17 +201,17 @@ const Header = () => {
                   <ul className="menu vertical-menu category-menu">
                     <li>
                       <a href="shop-fullwidth-banner.html">
-                        <i className="w-icon-tshirt2"></i>مدل
+                        <i className="w-icon-tshirt2"></i>موبایل
                       </a>
                       <ul className="megamenu">
                         <li>
-                          <h4 className="menu-title">زنانه </h4>
+                          <h4 className="menu-title">براساس برند </h4>
                           <hr className="divider" />
                           <ul>
                             <li>
-                              <a href="shop-fullwidth-banner.html">
-                                تازه رسیده ها{" "}
-                              </a>
+                              <Link href="/category/5cca1646-1a2f-41d1-804f-578ef7ae7f9f">
+                                سامسونگ
+                              </Link>
                             </li>
                             <li>
                               <a href="shop-fullwidth-banner.html">
