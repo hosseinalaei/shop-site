@@ -1,10 +1,9 @@
 "use client";
-import Image from "next/image";
+
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import productImage from "../../assets/images/product1.jpeg";
-import Loading from "@/components/Loading/Loading";
+import ProductImage from "@/components/Product/ProductImage";
 
 const product = () => {
   const [data, setData] = useState(null);
@@ -35,7 +34,7 @@ const product = () => {
       const response = await axios.post(
         "http://138.201.167.230:5050/Get/GetMedia",
         {
-          id: "e0dfb37a-31a3-4b99-803e-29e56b95ee97",
+          id: id,
           mediaFieldName: "productImageName",
         }
       );
@@ -45,8 +44,7 @@ const product = () => {
     }
   };
   useEffect(() => {
-    id && getProdctData();
-    getMedia();
+    id && getProdctData() && getMedia();
   }, [id]);
   return (
     <div className="page-content">
@@ -67,13 +65,13 @@ const product = () => {
                   <div className="swiper-wrapper row cols-1 gutter-no">
                     <div className="swiper-slide">
                       <figure className="product-image">
-                        <Image
-                          unoptimized
+                        <ProductImage src={media} />
+                        {/* <Image
                           src={`data:image/jpeg;base64,${media}`}
                           alt="product image"
                           width={300}
                           height={300}
-                        />
+                        /> */}
                       </figure>
                     </div>
                     {/* <div className="swiper-slide">
