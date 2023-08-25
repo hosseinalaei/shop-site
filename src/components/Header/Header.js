@@ -2,8 +2,33 @@ import TopHeader from "./TopHeader";
 import logo from "../../assets/images/logo.png";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const Header = () => {
+  const [catMenu, setCatMenu] = useState([]);
+  const [subMenu, setSubMenu] = useState([]);
+
+  const getCategories = async () => {
+    try {
+      const response = await fetch(
+        "http://138.201.167.230:5050/Products/product-active-categories"
+      );
+      const resData = await response.json();
+      const categoryData = await resData.data.filter(
+        (item) => item.parentId === null
+      );
+      const subCategory = await resData.data.filter(
+        (item) => item.parentId !== null
+      );
+      setCatMenu(categoryData);
+      setSubMenu(subCategory);
+    } catch (error) {
+      console.log("getCategories error", error);
+    }
+  };
+  useEffect(() => {
+    getCategories();
+  }, []);
   return (
     <header className="header">
       <TopHeader />
@@ -200,24 +225,30 @@ const Header = () => {
                 <div className="dropdown-box text-default">
                   <ul className="menu vertical-menu category-menu">
                     <li>
-                      <a href="shop-fullwidth-banner.html">
-                        <i className="w-icon-ios"></i>موبایل
-                      </a>
+                      {catMenu?.map((item) => {
+                        return (
+                          <Link href={`/category/${item.urlTitle}`}>
+                            {item.title}
+                          </Link>
+                        );
+                      })}
+
                       <ul className="megamenu">
                         <li>
                           <h4 className="menu-title">براساس برند </h4>
                           <hr className="divider" />
                           <ul>
-                            <li>
-                              <Link href="/category/5cca1646-1a2f-41d1-804f-578ef7ae7f9f">
-                                سامسونگ
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/category/36218688-7e4a-4d37-852d-d89b394feb6a">
-                                شیائومی
-                              </Link>
-                            </li>
+                            {subMenu?.map((item) => {
+                              return (
+                                <li>
+                                  <Link
+                                    href={`/category/${item.urlTitle}/${item.id}/`}
+                                  >
+                                    {item.title}
+                                  </Link>
+                                </li>
+                              );
+                            })}
                           </ul>
                         </li>
                         <li>

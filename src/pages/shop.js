@@ -3,20 +3,20 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import shopBanner from "../assets/images/shop-banner.jpeg";
-import axios from "axios";
 import ProductWrap from "@/components/Product/ProductWrap";
 
 const Shop = () => {
   const [data, setData] = useState([]);
   const [media, setMedia] = useState(null);
 
-  const getProdcts = async () => {
+  const getData = async () => {
     try {
-      const response = await axios.get(
+      const response = await fetch(
         "http://138.201.167.230:5050/Products/getLastProduct"
       );
+      const resData = await response.json();
       if (response.status === 200) {
-        setData(response.data.data);
+        setData(resData.data);
       }
     } catch (error) {
       console.log(error.response);
@@ -24,21 +24,27 @@ const Shop = () => {
   };
   const getMedia = async (id) => {
     try {
-      const response = await axios.post(
-        "http://138.201.167.230:5050/Get/GetMedia",
-        {
+      const response = await fetch("http://138.201.167.230:5050/Get/GetMedia", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
           id: id,
           mediaFieldName: "productImageName",
-        }
-      );
-      setMedia(response.data.data.result);
+        }),
+      });
+      const resData = await response.json();
+      if (response.status === 200) {
+        setMedia(resData.data.result);
+      }
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    getProdcts();
+    getData();
   }, []);
 
   return (
@@ -309,11 +315,9 @@ const Shop = () => {
                   </div>
                 </nav>
                 <div className="product-wrapper row cols-xl-6 cols-lg-4 cols-md-3 cols-2">
-                  {data?.length > 0 &&
+                  {data.length > 0 &&
                     data.map((item) => {
-                      // {
-                      //   getMedia(item.id);
-                      // }
+                      // getMedia(item.id);
                       return (
                         <ProductWrap
                           key={item.id}

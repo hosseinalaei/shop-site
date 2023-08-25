@@ -22,11 +22,13 @@ const categoryProducts = () => {
 
   const getProdcts = async () => {
     try {
-      const response = await axios.get(
-        `http://138.201.167.230:5050/Products/product-by-categories/${id}`
+      setData([]);
+      const response = await fetch(
+        `http://138.201.167.230:5050/Products/product-by-categories/${id[1]}`
       );
+      const resDate = await response.json();
       if (response.status === 200) {
-        setData(response.data.data);
+        setData(resDate.data);
       }
     } catch (error) {
       console.log(error.response);
@@ -507,7 +509,6 @@ const categoryProducts = () => {
                     {
                       getMedia(item.id);
                     }
-                    console.log("item", item);
                     return (
                       <ProductWrap
                         key={item.id}
