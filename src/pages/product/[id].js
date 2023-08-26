@@ -1,88 +1,138 @@
+"use client";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import productImage from "../../assets/images/product1.jpeg";
+import Loading from "@/components/Loading/Loading";
 
-const product = ({ id }) => {
+const product = () => {
+  const [data, setData] = useState(null);
+  const [media, setMedia] = useState("");
+  const router = useRouter();
+  const { id } = router.query;
+
+  const getProdctData = async () => {
+    try {
+      // console.log("process.env.BASE_URL", process.env.BASE_URL);
+      const response = await axios.post(
+        "http://138.201.167.230:5050/Products/single-product",
+        {
+          productId: id,
+        }
+      );
+      if (response.status === 200) {
+        console.log("responseresponse", response.data.data);
+        setData(response.data.data);
+      }
+      // setData(response.data.data);
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
+  const getMedia = async () => {
+    try {
+      const response = await axios.post(
+        "http://138.201.167.230:5050/Get/GetMedia",
+        {
+          id: "e0dfb37a-31a3-4b99-803e-29e56b95ee97",
+          mediaFieldName: "productImageName",
+        }
+      );
+      setMedia(response.data.data.result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    id && getProdctData();
+    getMedia();
+  }, [id]);
   return (
     <div className="page-content">
       <div className="container">
-        <div className="product product-single row">
-          <div className="col-md-6 mb-6">
-            <div className="product-gallery product-gallery-sticky product-gallery-vertical">
-              <div
-                className="swiper-container product-single-swiper swiper-theme nav-inner"
-                data-swiper-options="{
+        {data && (
+          <div className="product product-single row">
+            <div className="col-md-6 mb-6">
+              <div className="product-gallery product-gallery-sticky product-gallery-vertical">
+                <div
+                  className="swiper-container product-single-swiper swiper-theme nav-inner"
+                  data-swiper-options="{
                                     'navigation': {
                                         'nextEl': '.swiper-button-next',
                                         'prevEl': '.swiper-button-prev'
                                     }
                                 }"
-              >
-                <div className="swiper-wrapper row cols-1 gutter-no">
-                  <div className="swiper-slide">
-                    <figure className="product-image">
-                      <Image
-                        src={productImage}
-                        data-zoom-image={productImage}
-                        alt="آیفون سبز روشن"
-                        width="800"
-                        height="900"
-                      />
-                    </figure>
+                >
+                  <div className="swiper-wrapper row cols-1 gutter-no">
+                    <div className="swiper-slide">
+                      <figure className="product-image">
+                        <Image
+                          unoptimized
+                          src={`data:image/jpeg;base64,${media}`}
+                          alt="product image"
+                          width={300}
+                          height={300}
+                        />
+                      </figure>
+                    </div>
+                    {/* <div className="swiper-slide">
+                      <figure className="product-image">
+                        <Image
+                          src={productImage}
+                          data-zoom-image={productImage}
+                          alt=""
+                          width="488"
+                          height="549"
+                        />
+                      </figure>
+                    </div> */}
+                    {/* <div className="swiper-slide">
+                      <figure className="product-image">
+                        <Image
+                          src={productImage}
+                          data-zoom-image={productImage}
+                          alt=""
+                          width="800"
+                          height="900"
+                        />
+                      </figure>
+                    </div> */}
+                    {/* <div className="swiper-slide">
+                      <figure className="product-image">
+                        <Image
+                          src={productImage}
+                          data-zoom-image={productImage}
+                          alt=""
+                          width="800"
+                          height="900"
+                        />
+                      </figure>
+                    </div> */}
+                    {/* <div className="swiper-slide">
+                      <figure className="product-image">
+                        <Image
+                          src={productImage}
+                          data-zoom-image={productImage}
+                          alt=""
+                          width="800"
+                          height="900"
+                        />
+                      </figure>
+                    </div> */}
                   </div>
-                  <div className="swiper-slide">
-                    <figure className="product-image">
-                      <Image
-                        src={productImage}
-                        data-zoom-image={productImage}
-                        alt="آیفون سبز روشن"
-                        width="488"
-                        height="549"
-                      />
-                    </figure>
-                  </div>
-                  <div className="swiper-slide">
-                    <figure className="product-image">
-                      <Image
-                        src={productImage}
-                        data-zoom-image={productImage}
-                        alt="آیفون سبز روشن"
-                        width="800"
-                        height="900"
-                      />
-                    </figure>
-                  </div>
-                  <div className="swiper-slide">
-                    <figure className="product-image">
-                      <Image
-                        src={productImage}
-                        data-zoom-image={productImage}
-                        alt="آیفون سبز روشن"
-                        width="800"
-                        height="900"
-                      />
-                    </figure>
-                  </div>
-                  <div className="swiper-slide">
-                    <figure className="product-image">
-                      <Image
-                        src={productImage}
-                        data-zoom-image={productImage}
-                        alt="آیفون سبز روشن"
-                        width="800"
-                        height="900"
-                      />
-                    </figure>
-                  </div>
+                  <button className="swiper-button-next"></button>
+                  <button className="swiper-button-prev"></button>
+                  <a
+                    href="#"
+                    className="product-gallery-btn product-image-full"
+                  >
+                    <i className="w-icon-zoom"></i>
+                  </a>
                 </div>
-                <button className="swiper-button-next"></button>
-                <button className="swiper-button-prev"></button>
-                <a href="#" className="product-gallery-btn product-image-full">
-                  <i className="w-icon-zoom"></i>
-                </a>
-              </div>
-              <div
-                className="product-thumbs-wrap swiper-container"
-                data-swiper-options="{
+                {/* <div
+                  className="product-thumbs-wrap swiper-container"
+                  data-swiper-options="{
                                     'navigation': {
                                         'nextEl': '.swiper-button-next',
                                         'prevEl': '.swiper-button-prev'
@@ -94,67 +144,67 @@ const product = ({ id }) => {
                                         }
                                     }
                                 }"
-              >
-                <div className="product-thumbs swiper-wrapper row cols-lg-1 cols-4 gutter-sm">
-                  <div className="product-thumb swiper-slide">
-                    <Image
-                      src={productImage}
-                      alt="Product Thumb"
-                      width="800"
-                      height="900"
-                    />
+                >
+                  <div className="product-thumbs swiper-wrapper row cols-lg-1 cols-4 gutter-sm">
+                    <div className="product-thumb swiper-slide">
+                      <Image
+                        src={productImage}
+                        alt="Product Thumb"
+                        width="800"
+                        height="900"
+                      />
+                    </div>
+                    <div className="product-thumb swiper-slide">
+                      <Image
+                        src={productImage}
+                        alt="Product Thumb"
+                        width="800"
+                        height="900"
+                      />
+                    </div>
+                    <div className="product-thumb swiper-slide">
+                      <Image
+                        src={productImage}
+                        alt="Product Thumb"
+                        width="800"
+                        height="900"
+                      />
+                    </div>
+                    <div className="product-thumb swiper-slide">
+                      <Image
+                        src={productImage}
+                        alt="Product Thumb"
+                        width="800"
+                        height="900"
+                      />
+                    </div>
+                    <div className="product-thumb swiper-slide">
+                      <Image
+                        src={productImage}
+                        alt="Product Thumb"
+                        width="800"
+                        height="900"
+                      />
+                    </div>
                   </div>
-                  <div className="product-thumb swiper-slide">
-                    <Image
-                      src={productImage}
-                      alt="Product Thumb"
-                      width="800"
-                      height="900"
-                    />
-                  </div>
-                  <div className="product-thumb swiper-slide">
-                    <Image
-                      src={productImage}
-                      alt="Product Thumb"
-                      width="800"
-                      height="900"
-                    />
-                  </div>
-                  <div className="product-thumb swiper-slide">
-                    <Image
-                      src={productImage}
-                      alt="Product Thumb"
-                      width="800"
-                      height="900"
-                    />
-                  </div>
-                  <div className="product-thumb swiper-slide">
-                    <Image
-                      src={productImage}
-                      alt="Product Thumb"
-                      width="800"
-                      height="900"
-                    />
-                  </div>
-                </div>
-                <button className="swiper-button-prev"></button>
-                <button className="swiper-button-next"></button>
+                  <button className="swiper-button-prev"></button>
+                  <button className="swiper-button-next"></button>
+                </div> */}
               </div>
             </div>
-          </div>
-          <div className="col-md-6 mb-4 mb-md-6">
-            <div className="product-details">
-              <h1 className="product-title">آیفون سبز روشن</h1>
-              <div className="product-bm-wrapper">
-                <figure className="brand">
-                  {/* <Image
+            <div className="col-md-6 mb-4 mb-md-6">
+              <div className="product-details">
+                <h1 className="product-title">{data?.product?.productName}</h1>
+                <div className="product-bm-wrapper">
+                  <figure className="brand">
+                    {/* <Image
                     src="assets/images/products/brand/brand-2.jpg"
                     alt="Brand"
                     width="105"
                     height="48"
                   /> */}
-                </figure>
-                <div className="product-meta">
+                  </figure>
+                  {/* <div className="product-meta">
                   <div className="product-categories">
                     دسته بندی:
                     <span className="product-category">
@@ -164,111 +214,100 @@ const product = ({ id }) => {
                   <div className="product-sku">
                     کد: <span>MS46891383</span>
                   </div>
+                </div> */}
                 </div>
-              </div>
 
-              <hr className="product-divider" />
+                <hr className="product-divider" />
 
-              <div className="product-price">
-                <ins className="new-price">980000 تومان</ins>
-              </div>
-
-              <div className="ratings-container">
-                <div className="ratings-full">
-                  <span className="ratings" style={{ width: "80%" }}></span>
-                  <span className="tooltiptext tooltip-top"></span>
+                <div className="product-price">
+                  <ins className="new-price">{data?.product?.price} تومان</ins>
                 </div>
-                <a href="#" className="rating-reviews">
-                  (1 نظر )
-                </a>
-              </div>
 
-              <div className="product-short-desc lh-2">
-                <ul className="list-type-check list-style-none">
-                  <li>
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-                    با استفاده از طراحان گرافیک است. با تولید سادگی نامفهوم از
-                    صنعت چاپ و با استفاده از طراحان گرافیک است..
-                  </li>
-                  <li>
-                    چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که
-                    لازم است و برای شرایط فعلی.
-                  </li>
-                  <li>
-                    مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات
-                    پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد..
-                  </li>
-                </ul>
-              </div>
+                <div className="ratings-container">
+                  <div className="ratings-full">
+                    <span className="ratings" style={{ width: "80%" }}></span>
+                    <span className="tooltiptext tooltip-top"></span>
+                  </div>
+                  <a href="#" className="rating-reviews">
+                    (1 نظر )
+                  </a>
+                </div>
 
-              <hr className="product-divider" />
+                <div className="product-short-desc lh-2">
+                  <ul className="list-type-check list-style-none">
+                    <li>{data?.product?.shortDescription}</li>
+                  </ul>
+                </div>
 
-              <div className="fix-bottom product-sticky-content sticky-content">
-                <div className="product-form container">
-                  <div className="product-qty-form with-label">
-                    <label>تعداد:</label>
-                    <div className="input-group">
-                      <input
-                        className="quantity form-control"
-                        type="number"
-                        min="1"
-                        max="10000000"
-                      />
-                      <button className="quantity-plus w-icon-plus"></button>
-                      <button className="quantity-minus w-icon-minus"></button>
+                <hr className="product-divider" />
+
+                <div className="fix-bottom product-sticky-content sticky-content">
+                  <div className="product-form container">
+                    <div className="product-qty-form with-label">
+                      <label>تعداد:</label>
+                      <div className="input-group">
+                        <input
+                          className="quantity form-control"
+                          type="number"
+                          min="1"
+                          max="10000000"
+                        />
+                        <button className="quantity-plus w-icon-plus"></button>
+                        <button className="quantity-minus w-icon-minus"></button>
+                      </div>
+                    </div>
+                    <button className="btn btn-primary btn-cart">
+                      <i className="w-icon-cart"></i>
+                      <span>افزودن به سبد </span>
+                    </button>
+                  </div>
+                </div>
+
+                <div className="social-links-wrapper">
+                  <div className="social-links">
+                    <div className="social-icons social-no-color border-thin">
+                      <a
+                        href="#"
+                        className="social-icon social-facebook w-icon-facebook"
+                      ></a>
+                      <a
+                        href="#"
+                        className="social-icon social-twitter w-icon-twitter"
+                      ></a>
+                      <a
+                        href="#"
+                        className="social-icon social-pinterest fab fa-pinterest-p"
+                      ></a>
+                      <a
+                        href="#"
+                        className="social-icon social-whatsapp fab fa-whatsapp"
+                      ></a>
+                      <a
+                        href="#"
+                        className="social-icon social-youtube fab fa-linkedin-in"
+                      ></a>
                     </div>
                   </div>
-                  <button className="btn btn-primary btn-cart">
-                    <i className="w-icon-cart"></i>
-                    <span>افزودن به سبد </span>
-                  </button>
-                </div>
-              </div>
-
-              <div className="social-links-wrapper">
-                <div className="social-links">
-                  <div className="social-icons social-no-color border-thin">
+                  <span className="divider d-xs-show"></span>
+                  <div className="product-link-wrapper d-flex">
                     <a
                       href="#"
-                      className="social-icon social-facebook w-icon-facebook"
-                    ></a>
+                      className="btn-product-icon btn-wishlist w-icon-heart"
+                    >
+                      <span></span>
+                    </a>
                     <a
                       href="#"
-                      className="social-icon social-twitter w-icon-twitter"
-                    ></a>
-                    <a
-                      href="#"
-                      className="social-icon social-pinterest fab fa-pinterest-p"
-                    ></a>
-                    <a
-                      href="#"
-                      className="social-icon social-whatsapp fab fa-whatsapp"
-                    ></a>
-                    <a
-                      href="#"
-                      className="social-icon social-youtube fab fa-linkedin-in"
-                    ></a>
+                      className="btn-product-icon btn-compare btn-icon-left w-icon-compare"
+                    >
+                      <span></span>
+                    </a>
                   </div>
-                </div>
-                <span className="divider d-xs-show"></span>
-                <div className="product-link-wrapper d-flex">
-                  <a
-                    href="#"
-                    className="btn-product-icon btn-wishlist w-icon-heart"
-                  >
-                    <span></span>
-                  </a>
-                  <a
-                    href="#"
-                    className="btn-product-icon btn-compare btn-icon-left w-icon-compare"
-                  >
-                    <span></span>
-                  </a>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
         <div className="tab tab-nav-boxed tab-nav-underline product-tabs mt-3">
           <ul className="nav nav-tabs" role="tablist">
             <li className="nav-item">
@@ -289,31 +328,7 @@ const product = ({ id }) => {
                   <h4 className="title tab-pane-title font-weight-bold mb-2">
                     جزئیات{" "}
                   </h4>
-                  <p className="mb-4">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-                    با استفاده از طراحان گرافیک است. با تولید سادگی, لورم ایپسوم
-                    متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-                    از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در
-                    ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
-                    نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می
-                    باشد..
-                  </p>
-                  <ul className="list-type-check">
-                    <li>
-                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
-                      و با استفاده از طراحان گرافیک است. .
-                    </li>
-                    <li>
-                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
-                      و با استفاده از طراحان گرافیک است. با تولید سادگی نامفهوم
-                      از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                    </li>
-                    <li>
-                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
-                      و با استفاده از طراحان گرافیک است. با تولید سادگی نامفهوم
-                      از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                    </li>
-                  </ul>
+                  <p className="mb-4">{data?.product?.description}</p>
                 </div>
                 <div className="col-md-6 mb-5">
                   <div className="banner banner-video product-video br-xs">
@@ -335,37 +350,37 @@ const product = ({ id }) => {
                   </div>
                 </div>
               </div>
-              <div className="row cols-md-3">
-                <div className="mb-3">
-                  <h5 className="sub-title font-weight-bold">
-                    <span className="mr-3">1.</span>ارسال رایگان و برگشت
-                  </h5>
-                  <p className="detail pl-5">
-                    ما برای سفارش های بالای 50 دلار ارسال رایگان برای محصولات
-                    ارائه می دهیم و برای همه سفارش ها در ایالات متحده تحویل
-                    رایگان ارائه می دهیم.
-                  </p>
-                </div>
-                <div className="mb-3">
-                  <h5 className="sub-title font-weight-bold">
-                    <span>2.</span>بازگشت رایگان و آسان
-                  </h5>
-                  <p className="detail pl-5">
-                    ما محصولات خود را تضمین می کنیم و شما می توانید در 30 روز هر
-                    زمان که بخواهید تمام پول خود را پس بگیرید.
-                  </p>
-                </div>
-                <div className="mb-3">
-                  <h5 className="sub-title font-weight-bold">
-                    <span>3.</span>تامین مالی ویژه
-                  </h5>
-                  <p className="detail pl-5">
-                    با کارت اعتباری ویژه ما اقلام تخفیف 20 تا 50 درصدی بیش از 50
-                    دلار برای یک ماه یا بیش از 250 دلار برای یک سال دریافت
-                    کنید..
-                  </p>
-                </div>
-              </div>
+              {/* <div className="row cols-md-3">
+                  <div className="mb-3">
+                    <h5 className="sub-title font-weight-bold">
+                      <span className="mr-3">1.</span>ارسال رایگان و برگشت
+                    </h5>
+                    <p className="detail pl-5">
+                      ما برای سفارش های بالای 50 دلار ارسال رایگان برای محصولات
+                      ارائه می دهیم و برای همه سفارش ها در ایالات متحده تحویل
+                      رایگان ارائه می دهیم.
+                    </p>
+                  </div>
+                  <div className="mb-3">
+                    <h5 className="sub-title font-weight-bold">
+                      <span>2.</span>بازگشت رایگان و آسان
+                    </h5>
+                    <p className="detail pl-5">
+                      ما محصولات خود را تضمین می کنیم و شما می توانید در 30 روز
+                      هر زمان که بخواهید تمام پول خود را پس بگیرید.
+                    </p>
+                  </div>
+                  <div className="mb-3">
+                    <h5 className="sub-title font-weight-bold">
+                      <span>3.</span>تامین مالی ویژه
+                    </h5>
+                    <p className="detail pl-5">
+                      با کارت اعتباری ویژه ما اقلام تخفیف 20 تا 50 درصدی بیش از
+                      50 دلار برای یک ماه یا بیش از 250 دلار برای یک سال دریافت
+                      کنید..
+                    </p>
+                  </div>
+                </div> */}
             </div>
             <div className="tab-pane" id="product-tab-reviews">
               <div className="row mb-4">
