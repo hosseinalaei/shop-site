@@ -1,54 +1,85 @@
 "use client";
-import { useParams, usePathname } from "next/navigation";
+
 import { useRouter } from "next/router";
-import Image from "next/image";
-import product from "../../assets/images/product1.jpeg";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import ProductWrap from "@/components/Product/ProductWrap";
 import Link from "next/link";
+import Image from "next/image";
+import appleLogo from "../../assets/images/apple_logo_1988.webp";
+import sumsungLogo from "../../assets/images/Samsung-Logo.jpeg";
+import xiaomiLogo from "../../assets/images/xiaomi-logo.jpeg";
+import huaweiLogo from "../../assets/images/huawei-logo.jpeg";
+import dariaLogo from "../../assets/images/daria-logo.webp";
+import onePlus from "../../assets/images/Oneplus-logo.webp";
+import nokia from "../../assets/images/nokia-logo.webp";
 
 const categoryProducts = () => {
   const [data, setData] = useState([]);
+  const [media, setMedia] = useState(null);
   const router = useRouter();
   const { id } = router.query;
 
   const getProdcts = async () => {
     try {
-      // console.log("process.env.BASE_URL", process.env.BASE_URL);
-      const response = await axios.get(
-        `http://138.201.167.230:5050/Products/product-by-categories/${id}`
+      setData([]);
+      const response = await fetch(
+        `http://138.201.167.230:5050/Products/product-by-categories/${id[1]}`
       );
+      const resDate = await response.json();
       if (response.status === 200) {
-        console.log("responseresponse", response.data.data);
-        setData(response.data.data);
+        setData(resDate.data);
       }
-      // setData(response.data.data);
     } catch (error) {
       console.log(error.response);
+    }
+  };
+  const getMedia = async (id) => {
+    try {
+      const response = await axios.post(
+        "http://138.201.167.230:5050/Get/GetMedia",
+        {
+          id: id,
+          mediaFieldName: "productImageName",
+        }
+      );
+      setMedia(response.data.data.result);
+    } catch (error) {
+      console.log(error);
     }
   };
   useEffect(() => {
     id && getProdcts();
   }, [id]);
+
+  const mobileCompany = [
+    { name: "اپل", logo: appleLogo },
+    { name: "سامسونگ", logo: sumsungLogo },
+    { name: "شیائومی", logo: xiaomiLogo },
+    { name: "هوآوی", logo: huaweiLogo },
+    { name: "داریا", logo: dariaLogo },
+    { name: "ریلمی", logo: xiaomiLogo },
+    { name: "وان پلاس", logo: onePlus },
+    { name: "نوکیا", logo: nokia },
+  ];
   return (
     <main className="main">
       <nav className="breadcrumb-nav">
         <div className="container">
           <ul className="breadcrumb bb-no">
             <li>
-              <a href="demo1.html">خانه </a>
+              <Link href="/">خانه </Link>
             </li>
-            <li>
-              <a href="shop-banner-sidebar.html">فروشگاه </a>
-            </li>
-            <li>3 ستون </li>
+            {/* <li>
+              <a href="/">فروشگاه </a>
+            </li> */}
           </ul>
         </div>
       </nav>
 
       <div className="page-content">
         <div className="container">
-          <div
+          {/* <div
             className="shop-default-banner banner d-flex align-items-center mb-5 br-xs"
             style={{
               backgroundImage: "url(../../assets/images/product1.jpeg)",
@@ -69,9 +100,9 @@ const categoryProducts = () => {
                 اکنون کشف کنید<i className="w-icon-long-arrow-left"></i>
               </a>
             </div>
-          </div>
+          </div> */}
 
-          <div className="shop-default-brands mb-5">
+          {/* <div className="shop-default-brands mb-5">
             <div
               className="brands-swiper swiper-container swiper-theme "
               data-swiper-options="{
@@ -170,7 +201,7 @@ const categoryProducts = () => {
               </div>
               <div className="swiper-pagination"></div>
             </div>
-          </div>
+          </div> */}
 
           <div className="shop-default-category category-ellipse-section mb-6">
             <div
@@ -199,166 +230,30 @@ const categoryProducts = () => {
                 }"
             >
               <div className="swiper-wrapper row gutter-lg cols-xl-8 cols-lg-7 cols-md-6 cols-sm-4 cols-xs-3 cols-2">
-                <div className="swiper-slide category-wrap">
-                  <div className="category category-ellipse">
-                    <figure className="category-media">
-                      <a href="shop-banner-sidebar.html">
-                        <img
-                          src="assets/images/categories/category-4.jpg"
-                          alt="Categroy"
-                          width="190"
-                          height="190"
-                          style={{ backgroundColor: "#5C92C0" }}
-                        />
-                      </a>
-                    </figure>
-                    <div className="category-content">
-                      <h4 className="category-name">
-                        <a href="shop-banner-sidebar.html">ورزشی </a>
-                      </h4>
+                {mobileCompany.map((item) => {
+                  return (
+                    <div className="swiper-slide category-wrap" key={item.name}>
+                      <div className="category category-ellipse">
+                        <figure className="category-media">
+                          <Link href="#">
+                            <Image
+                              src={item.logo}
+                              alt="Categroy"
+                              width="190"
+                              height="190"
+                              style={{ backgroundColor: "#5C92C0" }}
+                            />
+                          </Link>
+                        </figure>
+                        <div className="category-content">
+                          <h4 className="category-name">
+                            <Link href="#">{item.name}</Link>
+                          </h4>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div className="swiper-slide category-wrap">
-                  <div className="category category-ellipse">
-                    <figure className="category-media">
-                      <a href="shop-banner-sidebar.html">
-                        <img
-                          src="assets/images/categories/category-5.jpg"
-                          alt="Categroy"
-                          width="190"
-                          height="190"
-                          style={{ backgroundColor: "#B8BDC1" }}
-                        />
-                      </a>
-                    </figure>
-                    <div className="category-content">
-                      <h4 className="category-name">
-                        <a href="shop-banner-sidebar.html">نوزادان </a>
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-                <div className="swiper-slide category-wrap">
-                  <div className="category category-ellipse">
-                    <figure className="category-media">
-                      <a href="shop-banner-sidebar.html">
-                        <img
-                          src="assets/images/categories/category-6.jpg"
-                          alt="Categroy"
-                          width="190"
-                          height="190"
-                          style={{ backgroundColor: "#99C4CA" }}
-                        />
-                      </a>
-                    </figure>
-                    <div className="category-content">
-                      <h4 className="category-name">
-                        <a href="shop-banner-sidebar.html">کفش ورزشی </a>
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-                <div className="swiper-slide category-wrap">
-                  <div className="category category-ellipse">
-                    <figure className="category-media">
-                      <a href="shop-banner-sidebar.html">
-                        <img
-                          src="assets/images/categories/category-7.jpg"
-                          alt="Categroy"
-                          width="190"
-                          height="190"
-                          style={{ backgroundColor: "#4E5B63" }}
-                        />
-                      </a>
-                    </figure>
-                    <div className="category-content">
-                      <h4 className="category-name">
-                        <a href="shop-banner-sidebar.html">دوربین ها </a>
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-                <div className="swiper-slide category-wrap">
-                  <div className="category category-ellipse">
-                    <figure className="category-media">
-                      <a href="shop-banner-sidebar.html">
-                        <img
-                          src="assets/images/categories/category-8.jpg"
-                          alt="Categroy"
-                          width="190"
-                          height="190"
-                          style={{ backgroundColor: "#D3E5EF" }}
-                        />
-                      </a>
-                    </figure>
-                    <div className="category-content">
-                      <h4 className="category-name">
-                        <a href="shop-banner-sidebar.html">بازی ها </a>
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-                <div className="swiper-slide category-wrap">
-                  <div className="category category-ellipse">
-                    <figure className="category-media">
-                      <a href="shop-banner-sidebar.html">
-                        <img
-                          src="assets/images/categories/category-9.jpg"
-                          alt="Categroy"
-                          width="190"
-                          height="190"
-                          style={{ backgroundColor: "#65737C" }}
-                        />
-                      </a>
-                    </figure>
-                    <div className="category-content">
-                      <h4 className="category-name">
-                        <a href="shop-banner-sidebar.html">آشپزخانه </a>
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-                <div className="swiper-slide category-wrap">
-                  <div className="category category-ellipse">
-                    <figure className="category-media">
-                      <a href="shop-banner-sidebar.html">
-                        <img
-                          src="assets/images/categories/category-20.jpg"
-                          alt="Categroy"
-                          width="190"
-                          height="190"
-                          style={{ backgroundColor: "#E4E4E4" }}
-                        />
-                      </a>
-                    </figure>
-                    <div className="category-content">
-                      <h4 className="category-name">
-                        <a href="shop-banner-sidebar.html">ساعت </a>
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-                <div className="swiper-slide category-wrap">
-                  <div className="category category-ellipse">
-                    <figure className="category-media">
-                      <a href="shop-banner-sidebar.html">
-                        <img
-                          src="assets/images/categories/category-21.jpg"
-                          alt="Categroy"
-                          width="190"
-                          height="190"
-                          style={{ backgroundColor: "#D3D8DE" }}
-                        />
-                      </a>
-                    </figure>
-                    <div className="category-content">
-                      <h4 className="category-name">
-                        <a href="shop-banner-sidebar.html">لباس ها </a>
-                      </h4>
-                    </div>
-                  </div>
-                </div>
+                  );
+                })}
               </div>
               <div className="swiper-pagination"></div>
             </div>
@@ -611,74 +506,78 @@ const categoryProducts = () => {
               <div className="product-wrapper row cols-md-3 cols-sm-2 cols-2">
                 {data.length > 0 &&
                   data.map((item) => {
-                    console.log("item", item);
+                    {
+                      getMedia(item.id);
+                    }
                     return (
-                      <div className="product-wrap" key={item.id}>
-                        <div className="product text-center">
-                          <figure className="product-media">
-                            <Link href={`/product/${item.id}`}>
-                              <Image
-                                src={product}
-                                alt="Product"
-                                width="300"
-                                height="338"
-                              />
-                            </Link>
-                            <div className="product-action-horizontal">
-                              <a
-                                href="#"
-                                className="btn-product-icon btn-cart w-icon-cart"
-                                title="افزودن به سبد "
-                              ></a>
-                              <a
-                                href="#"
-                                className="btn-product-icon btn-wishlist w-icon-heart"
-                                title="علاقه مندیها"
-                              ></a>
-                              <a
-                                href="#"
-                                className="btn-product-icon btn-compare w-icon-compare"
-                                title="مقایسه"
-                              ></a>
-                              <a
-                                href="#"
-                                className="btn-product-icon btn-quickview w-icon-search"
-                                title="نمایش سریع"
-                              ></a>
-                            </div>
-                          </figure>
-                          <div className="product-details">
-                            {/* <div className="product-cat">
-                              <a href="shop-banner-sidebar.html">الکترونیکی </a>
-                            </div> */}
-                            <h3 className="product-name">
-                              <Link href={`/product/${item.id}`}>
-                                {item.productName}
-                              </Link>
-                            </h3>
-                            {/* <div className="ratings-container">
-                              <div className="ratings-full">
-                                <span
-                                  className="ratings"
-                                  style={{ width: "100%" }}
-                                ></span>
-                                <span className="tooltiptext tooltip-top"></span>
-                              </div>
-                              <a
-                                href="product-default.html"
-                                className="rating-reviews"
-                              >
-                                (3 نظر )
-                              </a>
-                            </div> */}
-                            <div className="product-pa-wrapper">
-                              <div className="product-price">
-                                {item.price} تومان
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                      <ProductWrap
+                        key={item.id}
+                        id={item.id}
+                        media={media}
+                        productName={item.productName}
+                        price={item.price}
+                      />
+                      // <div className="product-wrap" key={item.id}>
+                      //   <div className="product text-center">
+                      //     <figure className="product-media">
+                      //       <Link href={`/product/${item.id}`}>
+                      //         <ProductImage src={media} />
+                      //       </Link>
+                      //       <div className="product-action-horizontal">
+                      //         <a
+                      //           href="#"
+                      //           className="btn-product-icon btn-cart w-icon-cart"
+                      //           title="افزودن به سبد "
+                      //         ></a>
+                      //         <a
+                      //           href="#"
+                      //           className="btn-product-icon btn-wishlist w-icon-heart"
+                      //           title="علاقه مندیها"
+                      //         ></a>
+                      //         <a
+                      //           href="#"
+                      //           className="btn-product-icon btn-compare w-icon-compare"
+                      //           title="مقایسه"
+                      //         ></a>
+                      //         <a
+                      //           href="#"
+                      //           className="btn-product-icon btn-quickview w-icon-search"
+                      //           title="نمایش سریع"
+                      //         ></a>
+                      //       </div>
+                      //     </figure>
+                      //     <div className="product-details">
+                      //       {/* <div className="product-cat">
+                      //         <a href="shop-banner-sidebar.html">الکترونیکی </a>
+                      //       </div> */}
+                      //       <h3 className="product-name">
+                      //         <Link href={`/product/${item.id}`}>
+                      //           {item.productName}
+                      //         </Link>
+                      //       </h3>
+                      //       {/* <div className="ratings-container">
+                      //         <div className="ratings-full">
+                      //           <span
+                      //             className="ratings"
+                      //             style={{ width: "100%" }}
+                      //           ></span>
+                      //           <span className="tooltiptext tooltip-top"></span>
+                      //         </div>
+                      //         <a
+                      //           href="product-default.html"
+                      //           className="rating-reviews"
+                      //         >
+                      //           (3 نظر )
+                      //         </a>
+                      //       </div> */}
+                      //       <div className="product-pa-wrapper">
+                      //         <div className="product-price">
+                      //           {item.price} تومان
+                      //         </div>
+                      //       </div>
+                      //     </div>
+                      //   </div>
+                      // </div>
                     );
                   })}
               </div>

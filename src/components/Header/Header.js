@@ -2,8 +2,33 @@ import TopHeader from "./TopHeader";
 import logo from "../../assets/images/logo.png";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const Header = () => {
+  const [catMenu, setCatMenu] = useState([]);
+  const [subMenu, setSubMenu] = useState([]);
+
+  const getCategories = async () => {
+    try {
+      const response = await fetch(
+        "http://138.201.167.230:5050/Products/product-active-categories"
+      );
+      const resData = await response.json();
+      const categoryData = await resData.data.filter(
+        (item) => item.parentId === null
+      );
+      const subCategory = await resData.data.filter(
+        (item) => item.parentId !== null
+      );
+      setCatMenu(categoryData);
+      setSubMenu(subCategory);
+    } catch (error) {
+      console.log("getCategories error", error);
+    }
+  };
+  useEffect(() => {
+    getCategories();
+  }, []);
   return (
     <header className="header">
       <TopHeader />
@@ -52,15 +77,15 @@ const Header = () => {
               <div className="call-info d-lg-show">
                 <h4 className="chat font-weight-normal font-size-md text-normal text-light mb-0">
                   <a href="mailto:#">
-                    چت زنده
-                    <span className="ls-normal">یا :</span>
+                    پشتیبانی
+                    <span className="ls-normal">:</span>
                   </a>
                 </h4>
                 <a
                   href="tel:#"
                   className="phone-number font-weight-bolder ls-50"
                 >
-                  0(800)123-456
+                  021-43000470
                 </a>
               </div>
             </div>
@@ -200,642 +225,44 @@ const Header = () => {
                 <div className="dropdown-box text-default">
                   <ul className="menu vertical-menu category-menu">
                     <li>
-                      <a href="shop-fullwidth-banner.html">
-                        <i className="w-icon-tshirt2"></i>موبایل
-                      </a>
+                      {catMenu?.map((item) => {
+                        return (
+                          <Link href={`/category/${item.urlTitle}`}>
+                            {item.title}
+                          </Link>
+                        );
+                      })}
+
                       <ul className="megamenu">
                         <li>
                           <h4 className="menu-title">براساس برند </h4>
                           <hr className="divider" />
                           <ul>
-                            <li>
-                              <Link href="/category/5cca1646-1a2f-41d1-804f-578ef7ae7f9f">
-                                سامسونگ
-                              </Link>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                پرفروش ترین ها{" "}
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                پر طرفدار{" "}
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">تن پوش </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">کفش ها </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">کیسه ها </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                تجهیزات جانبی{" "}
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                جواهرات و ساعت
-                              </a>
-                            </li>
+                            {subMenu?.map((item) => {
+                              return (
+                                <li>
+                                  <Link
+                                    href={`/category/${item.urlTitle}/${item.id}/`}
+                                  >
+                                    {item.title}
+                                  </Link>
+                                </li>
+                              );
+                            })}
                           </ul>
                         </li>
                         <li>
-                          <h4 className="menu-title">زنانه </h4>
+                          <h4 className="menu-title">براساس قیمت </h4>
                           <hr className="divider" />
                           <ul>
                             <li>
                               <a href="shop-fullwidth-banner.html">
-                                تازه رسیده ها{" "}
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                پرفروش ترین ها{" "}
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                پر طرفدار{" "}
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">تن پوش </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">کفش ها </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">کیسه ها </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                تجهیزات جانبی{" "}
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                جواهرات و ساعت
+                                کمتر از ۵ میلیون
                               </a>
                             </li>
                           </ul>
-                        </li>
-                        <li>
-                          <div className="banner-fixed menu-banner menu-banner2">
-                            <figure>
-                              <img
-                                src="assets/images/menu/banner-2.jpg"
-                                alt="Menu Banner"
-                                width="235"
-                                height="347"
-                              />
-                            </figure>
-                            <div className="banner-content">
-                              <div className="banner-price-info mb-1 ls-normal">
-                                دریافت کنید
-                                <strong className="text-primary text-uppercase">
-                                  20 % تخفیف
-                                </strong>
-                              </div>
-                              <h3 className="banner-title">فروش داغ </h3>
-                              <a
-                                href="demo15-shop.html"
-                                className="btn btn-dark btn-sm btn-link btn-slide-right btn-icon-right"
-                              >
-                                اکنون بخرید{" "}
-                                <i className="w-icon-long-arrow-left"></i>
-                              </a>
-                            </div>
-                          </div>
                         </li>
                       </ul>
-                    </li>
-                    <li>
-                      <a href="shop-fullwidth-banner.html">
-                        <i className="w-icon-home"></i>خانه و باغ
-                      </a>
-                      <ul className="megamenu">
-                        <li>
-                          <h4 className="menu-title">بدروم </h4>
-                          <hr className="divider" />
-                          <ul>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                تخت، قاب و پایه
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">کمد </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                {" "}
-                                میزهای خواب{" "}
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">تخت کودک</a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">اسلحه </a>
-                            </li>
-                          </ul>
-
-                          <h4 className="menu-title mt-1">هال </h4>
-                          <hr className="divider" />
-                          <ul>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                میز های قهوه{" "}
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">صندلی </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">جداول </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                فوتون و مبل تختخواب شو
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                کابینت و صندوقچه
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <h4 className="menu-title">دفتر </h4>
-                          <hr className="divider" />
-                          <ul>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                صندلی های اداری{" "}
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">میز </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                قفسه های کتاب{" "}
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                قفسه پوشه ها{" "}
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                اتاق استراحت جداول{" "}
-                              </a>
-                            </li>
-                          </ul>
-
-                          <h4 className="menu-title mt-1">
-                            آشپزخانه و غذاخوری
-                          </h4>
-                          <hr className="divider" />
-                          <ul>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                ست های غذاخوری{" "}
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                کابینت های نگهداری آشپزخانه
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                قفسه های بشرز{" "}
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                صندلی های غذاخوری{" "}
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                اتاق غذاخوری جداول{" "}
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                چهارپایه بار{" "}
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <div className="menu-banner banner-fixed menu-banner3">
-                            <figure>
-                              <img
-                                src="assets/images/menu/banner-3.jpg"
-                                alt="Menu Banner"
-                                width="235"
-                                height="461"
-                              />
-                            </figure>
-                            <div className="banner-content">
-                              <h4 className="banner-subtitle font-weight-normal text-white mb-1">
-                                سرویس بهداشتی{" "}
-                              </h4>
-                              <h3 className="banner-title text-white">
-                                فروش مبلمان{" "}
-                              </h3>
-                              <div className="banner-price-info text-white font-weight-normal ls-25">
-                                تا{" "}
-                                <span className="text-primary text-uppercase font-weight-bold">
-                                  25% تخفیف
-                                </span>
-                              </div>
-                              <a
-                                href="demo15-shop.html"
-                                className="btn btn-white btn-link btn-sm btn-slide-right btn-icon-right"
-                              >
-                                اکنون بخرید{" "}
-                                <i className="w-icon-long-arrow-left"></i>
-                              </a>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="shop-fullwidth-banner.html">
-                        <i className="w-icon-electronics"></i>الکترونیک
-                      </a>
-                      <ul className="megamenu">
-                        <li>
-                          <h4 className="menu-title">لپ تاپ و کامپیوتر</h4>
-                          <hr className="divider" />
-                          <ul>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                کامپیوترهای رومیزی
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">مانیتور </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">لپ تاپ </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                هارد دیسک و فضای ذخیره سازی
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                کامپیوتر تجهیزات جانبی{" "}
-                              </a>
-                            </li>
-                          </ul>
-
-                          <h4 className="menu-title mt-1">تلویزیون و ویدئو</h4>
-                          <hr className="divider" />
-                          <ul>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                تلویزیون ها{" "}
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                بلندگوهای صوتی خانگی
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                پروژکتورها{" "}
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                دستگاه های پخش رسانه
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <h4 className="menu-title">دوربین های دیجیتال </h4>
-                          <hr className="divider" />
-                          <ul>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                دوربین های دیجیتال SLR
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                دوربین های ورزشی و اکشن
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                لنزهای دوربین{" "}
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                چاپگر عکس{" "}
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                کارت های حافظه دیجیتال
-                              </a>
-                            </li>
-                          </ul>
-
-                          <h4 className="menu-title mt-1">تلفن های همراه </h4>
-                          <hr className="divider" />
-                          <ul>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                تلفن های حامل{" "}
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                گوشی های قفل نشده{" "}
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                قاب های گوشی و موبایل
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                شارژر تلفن همراه
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <div className="menu-banner banner-fixed menu-banner4">
-                            <figure>
-                              <img
-                                src="assets/images/menu/banner-4.jpg"
-                                alt="Menu Banner"
-                                width="235"
-                                height="433"
-                              />
-                            </figure>
-                            <div className="banner-content">
-                              <h4 className="banner-subtitle font-weight-normal">
-                                معاملات هفته
-                              </h4>
-                              <h3 className="banner-title text-white">
-                                صرفه جویی در گوشی هوشمند
-                              </h3>
-                              <div className="banner-price-info text-primary font-weight-bolder text-uppercase text-primary">
-                                20% تخفیف
-                              </div>
-                              <a
-                                href="demo15-shop.html"
-                                className="btn btn-white btn-outline btn-sm btn-rounded"
-                              >
-                                اکنون بخرید
-                              </a>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="shop-fullwidth-banner.html">
-                        <i className="w-icon-furniture"></i> مبلمان
-                      </a>
-                      <ul className="megamenu type2">
-                        <li className="row">
-                          <div className="col-md-3 col-lg-3 col-6">
-                            <h4 className="menu-title">مبلمان </h4>
-                            <hr className="divider" />
-                            <ul>
-                              <li>
-                                <a href="shop-fullwidth-banner.html">
-                                  مبل و کاناپه
-                                </a>
-                              </li>
-                              <li>
-                                <a href="shop-fullwidth-banner.html">صندلی </a>
-                              </li>
-                              <li>
-                                <a href="shop-fullwidth-banner.html">
-                                  چارچوب های تخت{" "}
-                                </a>
-                              </li>
-                              <li>
-                                <a href="shop-fullwidth-banner.html">
-                                  میزهای کنار تخت{" "}
-                                </a>
-                              </li>
-                              <li>
-                                <a href="shop-fullwidth-banner.html">
-                                  میز آرایش
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                          <div className="col-md-3 col-lg-3 col-6">
-                            <h4 className="menu-title">نورپردازی </h4>
-                            <hr className="divider" />
-                            <ul>
-                              <li>
-                                <a href="shop-fullwidth-banner.html">لامپ </a>
-                              </li>
-                              <li>
-                                <a href="shop-fullwidth-banner.html">
-                                  لامپ ها{" "}
-                                </a>
-                              </li>
-                              <li>
-                                <a href="shop-fullwidth-banner.html">
-                                  چراغ های سقفی{" "}
-                                </a>
-                              </li>
-                              <li>
-                                <a href="shop-fullwidth-banner.html">
-                                  چراغ های دیواری{" "}
-                                </a>
-                              </li>
-                              <li>
-                                <a href="shop-fullwidth-banner.html">
-                                  روشنایی حمام
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                          <div className="col-md-3 col-lg-3 col-6">
-                            <h4 className="menu-title">لوازم جانبی خانه </h4>
-                            <hr className="divider" />
-                            <ul>
-                              <li>
-                                <a href="shop-fullwidth-banner.html">
-                                  تجهیزات جانبی تزئینی{" "}
-                                </a>
-                              </li>
-                              <li>
-                                <a href="shop-fullwidth-banner.html">
-                                  شمع و نگهدارنده
-                                </a>
-                              </li>
-                              <li>
-                                <a href="shop-fullwidth-banner.html">
-                                  عطر خانگی{" "}
-                                </a>
-                              </li>
-                              <li>
-                                <a href="shop-fullwidth-banner.html">آینه </a>
-                              </li>
-                              <li>
-                                <a href="shop-fullwidth-banner.html">
-                                  ساعت ها{" "}
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                          <div className="col-md-3 col-lg-3 col-6">
-                            <h4 className="menu-title">باغ و فضای باز</h4>
-                            <hr className="divider" />
-                            <ul>
-                              <li>
-                                <a href="shop-fullwidth-banner.html">
-                                  تجهیزات باغی
-                                </a>
-                              </li>
-                              <li>
-                                <a href="shop-fullwidth-banner.html">
-                                  ماشین های چمن زنی{" "}
-                                </a>
-                              </li>
-                              <li>
-                                <a href="shop-fullwidth-banner.html">
-                                  واشرهای تحت فشار
-                                </a>
-                              </li>
-                              <li>
-                                <a href="shop-fullwidth-banner.html">
-                                  تمام ابزار باغبانی
-                                </a>
-                              </li>
-                              <li>
-                                <a href="shop-fullwidth-banner.html">
-                                  غذاخوری در فضای باز
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </li>
-                        <li className="row">
-                          <div className="col-6">
-                            <div className="banner banner-fixed menu-banner5 br-xs">
-                              <figure>
-                                <img
-                                  src="assets/images/menu/banner-5.jpg"
-                                  alt="Banner"
-                                  width="410"
-                                  height="123"
-                                  style={{ backgroundColor: "#D2D2D2" }}
-                                />
-                              </figure>
-                              <div className="banner-content text-right y-50">
-                                <h4 className="banner-subtitle font-weight-normal text-default text-capitalize">
-                                  تازه رسیده ها{" "}
-                                </h4>
-                                <h3 className="banner-title text-capitalize">
-                                  مبل شگفت انگیز{" "}
-                                </h3>
-                                <div className="banner-price-info font-weight-normal ls-normal">
-                                  شروع در <strong>125000 تومان</strong>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-6">
-                            <div className="banner banner-fixed menu-banner5 br-xs">
-                              <figure>
-                                <img
-                                  src="assets/images/menu/banner-6.jpg"
-                                  alt="Banner"
-                                  width="410"
-                                  height="123"
-                                  style={{ backgroundColor: "#9F9888" }}
-                                />
-                              </figure>
-                              <div className="banner-content y-50">
-                                <h4 className="banner-subtitle font-weight-normal text-white text-capitalize">
-                                  پرفروش{" "}
-                                </h4>
-                                <h3 className="banner-title text-capitalize text-white">
-                                  صندلی و لامپ
-                                </h3>
-                                <div className="banner-price-info font-weight-normal ls-normal text-white">
-                                  از جانب <strong>165000 تومان</strong>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="shop-fullwidth-banner.html">
-                        <i className="w-icon-heartbeat"></i>سلامت و زیبایی
-                      </a>
-                    </li>
-                    <li>
-                      <a href="shop-fullwidth-banner.html">
-                        <i className="w-icon-gift"></i>ایده های هدیه
-                      </a>
-                    </li>
-                    <li>
-                      <a href="shop-fullwidth-banner.html">
-                        <i className="w-icon-gamepad"></i>اسباب بازی و بازی
-                      </a>
-                    </li>
-                    <li>
-                      <a href="shop-fullwidth-banner.html">
-                        <i className="w-icon-ice-cream"></i>آشپزی
-                      </a>
-                    </li>
-                    <li>
-                      <a href="shop-fullwidth-banner.html">
-                        <i className="w-icon-ios"></i>گوشی های هوشمند
-                      </a>
-                    </li>
-                    <li>
-                      <a href="shop-fullwidth-banner.html">
-                        <i className="w-icon-camera"></i>دوربین و عکس
-                      </a>
-                    </li>
-                    <li>
-                      <a href="shop-fullwidth-banner.html">
-                        <i className="w-icon-ruby"></i>تجهیزات جانبی
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="demo15-shop.html"
-                        className="font-weight-bold text-uppercase text-primary ls-25"
-                      >
-                        نمایش همه دسته بندیها{" "}
-                        <i className="w-icon-angle-left"></i>
-                      </a>
                     </li>
                   </ul>
                 </div>
@@ -843,68 +270,10 @@ const Header = () => {
               <nav className="main-nav ml-0">
                 <ul className="menu">
                   <li className="active">
-                    <a href="demo15.html">خانه </a>
+                    <Link href="/">خانه </Link>
                   </li>
                   <li>
-                    <a href="vendor-dokan-store.html">فروشنده </a>
-                    <ul>
-                      <li>
-                        <a href="vendor-dokan-store-list.html">
-                          فهرست فروشگاه{" "}
-                        </a>
-                        <ul>
-                          <li>
-                            <a href="vendor-dokan-store-list.html">
-                              فهرست فروشگاه 1
-                            </a>
-                          </li>
-                          <li>
-                            <a href="vendor-wcfm-store-list.html">
-                              فهرست فروشگاه 2
-                            </a>
-                          </li>
-                          <li>
-                            <a href="vendor-wcmp-store-list.html">
-                              فهرست فروشگاه 3
-                            </a>
-                          </li>
-                          <li>
-                            <a href="vendor-wc-store-list.html">
-                              فهرست فروشگاه 4
-                            </a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a href="vendor-dokan-store.html">فروشگاه فروشنده </a>
-                        <ul>
-                          <li>
-                            <a href="vendor-dokan-store.html">
-                              فروشگاه فروشنده 1
-                            </a>
-                          </li>
-                          <li>
-                            <a href="vendor-wcfm-store-product-grid.html">
-                              فروشگاه فروشنده 2
-                            </a>
-                          </li>
-                          <li>
-                            <a href="vendor-wcmp-store-product-grid.html">
-                              فروشگاه فروشنده 3
-                            </a>
-                          </li>
-                          <li>
-                            <a href="vendor-wc-store-product-grid.html">
-                              فروشگاه فروشنده 4
-                            </a>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="demo15-shop.html">فروشگاه </a>
-
+                    <Link href="/shop">فروشگاه </Link>
                     <ul className="megamenu">
                       <li>
                         <h4 className="menu-title">صفحات فروشگاه </h4>
@@ -1057,44 +426,6 @@ const Header = () => {
                     </ul>
                   </li>
                   <li>
-                    <a href="about-us.html">صفحات </a>
-                    <ul>
-                      <li>
-                        <a href="about-us.html">درباره ما </a>
-                      </li>
-                      <li>
-                        <a href="become-a-vendor.html">فروشنده شوید </a>
-                      </li>
-                      <li>
-                        <a href="contact-us.html">تماس با ما </a>
-                      </li>
-                      <li>
-                        <a href="faq.html">نقل و قل </a>
-                      </li>
-                      <li>
-                        <a href="error-404.html">ارور 404</a>
-                      </li>
-                      <li>
-                        <a href="coming-soon.html">به زودی </a>
-                      </li>
-                      <li>
-                        <a href="wishlist.html">علاقه مندیها </a>
-                      </li>
-                      <li>
-                        <a href="cart.html">سبد خرید </a>
-                      </li>
-                      <li>
-                        <a href="checkout.html">پرداخت </a>
-                      </li>
-                      <li>
-                        <a href="my-account.html">حساب من </a>
-                      </li>
-                      <li>
-                        <a href="compare.html">مقایسه </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
                     <a href="blog.html">بلاگ </a>
                     <ul>
                       <li>
@@ -1165,68 +496,10 @@ const Header = () => {
                       </li>
                     </ul>
                   </li>
-                  <li>
-                    <a href="elements.html">المنت ها </a>
-                    <ul>
-                      <li>
-                        <a href="element-accordions.html">آکاردئون </a>
-                      </li>
-                      <li>
-                        <a href="element-alerts.html">هشدار و اعلان</a>
-                      </li>
-                      <li>
-                        <a href="element-blog-posts.html">پست های وبلاگ </a>
-                      </li>
-                      <li>
-                        <a href="element-buttons.html">دکمه ها </a>
-                      </li>
-                      <li>
-                        <a href="element-cta.html">دکمه اقدام تماس</a>
-                      </li>
-                      <li>
-                        <a href="element-icons.html">آیکن ها </a>
-                      </li>
-                      <li>
-                        <a href="element-icon-boxes.html">آیکن باکس </a>
-                      </li>
-                      <li>
-                        <a href="element-instagrams.html">اینستاگرام </a>
-                      </li>
-                      <li>
-                        <a href="element-categories.html">دسته بندی محصول </a>
-                      </li>
-                      <li>
-                        <a href="element-products.html">محصولات </a>
-                      </li>
-                      <li>
-                        <a href="element-tabs.html">زبانه ها </a>
-                      </li>
-                      <li>
-                        <a href="element-testimonials.html">مشتریان </a>
-                      </li>
-                      <li>
-                        <a href="element-titles.html">عناوین </a>
-                      </li>
-                      <li>
-                        <a href="element-typography.html">تایپوگرافی </a>
-                      </li>
-
-                      <li>
-                        <a href="element-vendors.html">فروشندگان </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="#">خرید وولمارت!</a>
-                  </li>
                 </ul>
               </nav>
             </div>
             <div className="header-right pr-0">
-              <a href="#">
-                <i className="w-icon-lightning mt-0"></i>
-                <span>فروش فلش</span>
-              </a>
               <a href="#">
                 <i className="w-icon-sale"></i>
                 <span>پیشنهادهای ویژه</span>
