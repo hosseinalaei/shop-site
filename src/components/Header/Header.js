@@ -3,10 +3,12 @@ import logo from "../../assets/images/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useCartContext } from "@/contex";
 
 const Header = () => {
   const [catMenu, setCatMenu] = useState([]);
   const [subMenu, setSubMenu] = useState([]);
+  const { cart } = useCartContext();
 
   const getCategories = async () => {
     try {
@@ -103,7 +105,7 @@ const Header = () => {
             </a>
             <div className="dropdown cart-dropdown cart-offcanvas d-flex mr-0 mr-lg-2">
               <div className="cart-overlay"></div>
-              <a href="#" className="cart-toggle label-down link">
+              <Link href="/cart" className="cart-toggle label-down link">
                 <span className="cart-label d-flex flex-column justify-content-center text-right d-lg-show">
                   سبد خرید
                   <b className="cart-price d-block font-weight-bolder">
@@ -111,9 +113,9 @@ const Header = () => {
                   </b>
                 </span>
                 <i className="w-icon-cart">
-                  <span className="cart-count">2</span>
+                  <span className="cart-count">{cart.length}</span>
                 </i>
-              </a>
+              </Link>
               <div className="dropdown-box">
                 <div className="cart-header">
                   <span>سبد خرید </span>
