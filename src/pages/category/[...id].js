@@ -2,10 +2,10 @@
 
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import ProductWrap from "@/components/Product/ProductWrap";
 import Link from "next/link";
 import Image from "next/image";
+import axios from "axios";
 import appleLogo from "../../assets/images/apple_logo_1988.webp";
 import sumsungLogo from "../../assets/images/Samsung-Logo.jpeg";
 import xiaomiLogo from "../../assets/images/xiaomi-logo.jpeg";
@@ -16,7 +16,6 @@ import nokia from "../../assets/images/nokia-logo.webp";
 
 const categoryProducts = () => {
   const [data, setData] = useState([]);
-  const [media, setMedia] = useState(null);
   const router = useRouter();
   const { id } = router.query;
 
@@ -34,20 +33,7 @@ const categoryProducts = () => {
       console.log(error.response);
     }
   };
-  const getMedia = async (id) => {
-    try {
-      const response = await axios.post(
-        "http://138.201.167.230:5050/Get/GetMedia",
-        {
-          id: id,
-          mediaFieldName: "productImageName",
-        }
-      );
-      setMedia(response.data.data.result);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+
   useEffect(() => {
     id && getProdcts();
   }, [id]);
@@ -506,14 +492,10 @@ const categoryProducts = () => {
               <div className="product-wrapper row cols-md-3 cols-sm-2 cols-2">
                 {data.length > 0 &&
                   data.map((item) => {
-                    {
-                      getMedia(item.id);
-                    }
                     return (
                       <ProductWrap
                         key={item.id}
                         id={item.id}
-                        media={media}
                         productName={item.productName}
                         price={item.price}
                       />

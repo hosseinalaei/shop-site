@@ -46,35 +46,35 @@ const product = () => {
   useEffect(() => {
     id && getProdctData() && getMedia();
   }, [id]);
+
   return (
     <div className="page-content">
       <div className="container">
-        {data && (
-          <div className="product product-single row">
-            <div className="col-md-6 mb-6">
-              <div className="product-gallery product-gallery-sticky product-gallery-vertical">
-                <div
-                  className="swiper-container product-single-swiper swiper-theme nav-inner"
-                  data-swiper-options="{
+        <div className="product product-single row">
+          <div className="col-md-6 mb-6">
+            <div className="product-gallery product-gallery-sticky product-gallery-vertical">
+              <div
+                className="swiper-container product-single-swiper swiper-theme nav-inner"
+                data-swiper-options="{
                                     'navigation': {
                                         'nextEl': '.swiper-button-next',
                                         'prevEl': '.swiper-button-prev'
                                     }
                                 }"
-                >
-                  <div className="swiper-wrapper row cols-1 gutter-no">
-                    <div className="swiper-slide">
-                      <figure className="product-image">
-                        <ProductImage src={media} />
-                        {/* <Image
+              >
+                <div className="swiper-wrapper row cols-1 gutter-no">
+                  <div className="swiper-slide">
+                    <figure className="product-image">
+                      <ProductImage src={media} />
+                      {/* <Image
                           src={`data:image/jpeg;base64,${media}`}
                           alt="product image"
                           width={300}
                           height={300}
                         /> */}
-                      </figure>
-                    </div>
-                    {/* <div className="swiper-slide">
+                    </figure>
+                  </div>
+                  {/* <div className="swiper-slide">
                       <figure className="product-image">
                         <Image
                           src={productImage}
@@ -85,7 +85,7 @@ const product = () => {
                         />
                       </figure>
                     </div> */}
-                    {/* <div className="swiper-slide">
+                  {/* <div className="swiper-slide">
                       <figure className="product-image">
                         <Image
                           src={productImage}
@@ -96,7 +96,7 @@ const product = () => {
                         />
                       </figure>
                     </div> */}
-                    {/* <div className="swiper-slide">
+                  {/* <div className="swiper-slide">
                       <figure className="product-image">
                         <Image
                           src={productImage}
@@ -107,7 +107,7 @@ const product = () => {
                         />
                       </figure>
                     </div> */}
-                    {/* <div className="swiper-slide">
+                  {/* <div className="swiper-slide">
                       <figure className="product-image">
                         <Image
                           src={productImage}
@@ -118,17 +118,14 @@ const product = () => {
                         />
                       </figure>
                     </div> */}
-                  </div>
-                  <button className="swiper-button-next"></button>
-                  <button className="swiper-button-prev"></button>
-                  <a
-                    href="#"
-                    className="product-gallery-btn product-image-full"
-                  >
-                    <i className="w-icon-zoom"></i>
-                  </a>
                 </div>
-                {/* <div
+                <button className="swiper-button-next"></button>
+                <button className="swiper-button-prev"></button>
+                <a href="#" className="product-gallery-btn product-image-full">
+                  <i className="w-icon-zoom"></i>
+                </a>
+              </div>
+              {/* <div
                   className="product-thumbs-wrap swiper-container"
                   data-swiper-options="{
                                     'navigation': {
@@ -188,21 +185,21 @@ const product = () => {
                   <button className="swiper-button-prev"></button>
                   <button className="swiper-button-next"></button>
                 </div> */}
-              </div>
             </div>
-            <div className="col-md-6 mb-4 mb-md-6">
-              <div className="product-details">
-                <h1 className="product-title">{data?.product?.productName}</h1>
-                <div className="product-bm-wrapper">
-                  <figure className="brand">
-                    {/* <Image
+          </div>
+          <div className="col-md-6 mb-4 mb-md-6">
+            <div className="product-details">
+              <h1 className="product-title">{data?.product?.productName}</h1>
+              <div className="product-bm-wrapper">
+                <figure className="brand">
+                  {/* <Image
                     src="assets/images/products/brand/brand-2.jpg"
                     alt="Brand"
                     width="105"
                     height="48"
                   /> */}
-                  </figure>
-                  {/* <div className="product-meta">
+                </figure>
+                {/* <div className="product-meta">
                   <div className="product-categories">
                     دسته بندی:
                     <span className="product-category">
@@ -213,99 +210,99 @@ const product = () => {
                     کد: <span>MS46891383</span>
                   </div>
                 </div> */}
+              </div>
+
+              <hr className="product-divider" />
+
+              <div className="product-price">
+                <ins className="new-price">{data?.product?.price} تومان</ins>
+              </div>
+
+              <div className="ratings-container">
+                <div className="ratings-full">
+                  <span className="ratings" style={{ width: "80%" }}></span>
+                  <span className="tooltiptext tooltip-top"></span>
                 </div>
+                <a href="#" className="rating-reviews">
+                  (1 نظر )
+                </a>
+              </div>
 
-                <hr className="product-divider" />
+              <div className="product-short-desc lh-2">
+                <ul className="list-type-check list-style-none">
+                  <li>{data?.product?.shortDescription}</li>
+                </ul>
+              </div>
 
-                <div className="product-price">
-                  <ins className="new-price">{data?.product?.price} تومان</ins>
-                </div>
+              <hr className="product-divider" />
 
-                <div className="ratings-container">
-                  <div className="ratings-full">
-                    <span className="ratings" style={{ width: "80%" }}></span>
-                    <span className="tooltiptext tooltip-top"></span>
+              <div className="fix-bottom product-sticky-content sticky-content">
+                <div className="product-form container">
+                  <div className="product-qty-form with-label">
+                    <label>تعداد:</label>
+                    <div className="input-group">
+                      <input
+                        className="quantity form-control"
+                        type="number"
+                        min="1"
+                        max="10000000"
+                      />
+                      <button className="quantity-plus w-icon-plus"></button>
+                      <button className="quantity-minus w-icon-minus"></button>
+                    </div>
                   </div>
-                  <a href="#" className="rating-reviews">
-                    (1 نظر )
+                  <button className="btn btn-primary btn-cart">
+                    <i className="w-icon-cart"></i>
+                    <span>افزودن به سبد </span>
+                  </button>
+                </div>
+              </div>
+
+              <div className="social-links-wrapper">
+                <div className="social-links">
+                  <div className="social-icons social-no-color border-thin">
+                    <a
+                      href="#"
+                      className="social-icon social-facebook w-icon-facebook"
+                    ></a>
+                    <a
+                      href="#"
+                      className="social-icon social-twitter w-icon-twitter"
+                    ></a>
+                    <a
+                      href="#"
+                      className="social-icon social-pinterest fab fa-pinterest-p"
+                    ></a>
+                    <a
+                      href="#"
+                      className="social-icon social-whatsapp fab fa-whatsapp"
+                    ></a>
+                    <a
+                      href="#"
+                      className="social-icon social-youtube fab fa-linkedin-in"
+                    ></a>
+                  </div>
+                </div>
+                <span className="divider d-xs-show"></span>
+                <div className="product-link-wrapper d-flex">
+                  <a
+                    href="#"
+                    className="btn-product-icon btn-wishlist w-icon-heart"
+                  >
+                    <span></span>
                   </a>
-                </div>
-
-                <div className="product-short-desc lh-2">
-                  <ul className="list-type-check list-style-none">
-                    <li>{data?.product?.shortDescription}</li>
-                  </ul>
-                </div>
-
-                <hr className="product-divider" />
-
-                <div className="fix-bottom product-sticky-content sticky-content">
-                  <div className="product-form container">
-                    <div className="product-qty-form with-label">
-                      <label>تعداد:</label>
-                      <div className="input-group">
-                        <input
-                          className="quantity form-control"
-                          type="number"
-                          min="1"
-                          max="10000000"
-                        />
-                        <button className="quantity-plus w-icon-plus"></button>
-                        <button className="quantity-minus w-icon-minus"></button>
-                      </div>
-                    </div>
-                    <button className="btn btn-primary btn-cart">
-                      <i className="w-icon-cart"></i>
-                      <span>افزودن به سبد </span>
-                    </button>
-                  </div>
-                </div>
-
-                <div className="social-links-wrapper">
-                  <div className="social-links">
-                    <div className="social-icons social-no-color border-thin">
-                      <a
-                        href="#"
-                        className="social-icon social-facebook w-icon-facebook"
-                      ></a>
-                      <a
-                        href="#"
-                        className="social-icon social-twitter w-icon-twitter"
-                      ></a>
-                      <a
-                        href="#"
-                        className="social-icon social-pinterest fab fa-pinterest-p"
-                      ></a>
-                      <a
-                        href="#"
-                        className="social-icon social-whatsapp fab fa-whatsapp"
-                      ></a>
-                      <a
-                        href="#"
-                        className="social-icon social-youtube fab fa-linkedin-in"
-                      ></a>
-                    </div>
-                  </div>
-                  <span className="divider d-xs-show"></span>
-                  <div className="product-link-wrapper d-flex">
-                    <a
-                      href="#"
-                      className="btn-product-icon btn-wishlist w-icon-heart"
-                    >
-                      <span></span>
-                    </a>
-                    <a
-                      href="#"
-                      className="btn-product-icon btn-compare btn-icon-left w-icon-compare"
-                    >
-                      <span></span>
-                    </a>
-                  </div>
+                  <a
+                    href="#"
+                    className="btn-product-icon btn-compare btn-icon-left w-icon-compare"
+                  >
+                    <span></span>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
-        )}
+        </div>
+        )
         <div className="tab tab-nav-boxed tab-nav-underline product-tabs mt-3">
           <ul className="nav nav-tabs" role="tablist">
             <li className="nav-item">
