@@ -149,7 +149,7 @@ const LoginComponent = () => {
           <a href="#" className="social-icon social-google fab fa-google"></a>
         </div> */}
       </div>
-      <ToastContainer />;
+      <ToastContainer />
     </div>
   );
 };

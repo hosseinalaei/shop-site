@@ -71,13 +71,13 @@ const TopHeader = () => {
           <Link href="/login" className="d-lg-show login sign-in">
             <i className="w-icon-account mr-1"></i>ورود{" "}
           </Link>
-          <span className="delimiter d-lg-show bg-">/</span>
+          {/* <span className="delimiter d-lg-show bg-">/</span>
           <a
             href="assets/ajax/login.html"
             className="ml-0 d-lg-show login register"
           >
             ثبت نام{" "}
-          </a>
+          </a> */}
         </div>
       </div>
     </div>
