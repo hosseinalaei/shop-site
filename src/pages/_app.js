@@ -5,6 +5,7 @@ import Layout from "@/components/Layout/Layout";
 import "../assets/fontawesome-free/css/all.min.css";
 import { CartProvider } from "@/contex";
 // import Providers from "@/providers";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function App({ Component, pageProps }) {
   return (

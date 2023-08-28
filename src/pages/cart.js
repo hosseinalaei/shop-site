@@ -1,7 +1,8 @@
 import { useCartContext } from "@/contex";
 
 const Cart = () => {
-  const { cart, clearCart, remove, changeQuantity, total } = useCartContext();
+  const { cart, clearCart, remove, changeQuantity, total, addToCart } =
+    useCartContext();
 
   let renderedContent = (
     <>
