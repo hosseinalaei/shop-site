@@ -1,6 +1,75 @@
+
+import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import cat1 from'../../assets/images/demos/demo15/categories/cat-1.jpg';
+import cat2 from'../../assets/images/demos/demo15/categories/cat-2.jpg';
+import cat3 from'../../assets/images/demos/demo15/categories/cat-3.jpg';
+import cat4 from'../../assets/images/demos/demo15/categories/cat-4.jpg';
+import cat5 from'../../assets/images/demos/demo15/categories/cat-5.jpg';
+import cat6 from'../../assets/images/demos/demo15/categories/cat-6.jpg';
+import cat7 from'../../assets/images/demos/demo15/categories/cat-7.jpg';
+import cat8 from'../../assets/images/demos/demo15/categories/cat-8.jpg';
+
 const TopCategories = () => {
     return (  
         <div className="container-fluid">
+          <Swiper 
+          loop= {false}
+          spaceBetween={0}
+          breakpoints= {
+             { 0 : {
+                  slidesPerView: 1
+              },
+              576: {
+                  slidesPerView: 2
+              },
+              992: {
+                  slidesPerView: 3
+              },
+              1200: {
+                  slidesPerView: 4
+              }}}
+          >
+            <SwiperSlide>
+            <span className="icon-box-icon icon-shipping">
+                  <i className="w-icon-truck"></i>
+                </span>
+                <div className="icon-box-content">
+                  <h4 className="icon-box-title">ارسال رایگان و مرجوعی</h4>
+                  <p className="text-default">برای تمام سفارشات بیش از 99 دلار</p>
+                </div>
+            </SwiperSlide>
+            <SwiperSlide>
+            <span className="icon-box-icon icon-payment">
+                  <i className="w-icon-bag"></i>
+                </span>
+                <div className="icon-box-content">
+                  <h4 className="icon-box-title">پرداخت امن</h4>
+                  <p className="text-default">ما تضمین می کنیم</p>
+                </div>
+            </SwiperSlide>
+            <SwiperSlide>
+            <span className="icon-box-icon icon-money">
+                  <i className="w-icon-money"></i>
+                </span>
+                <div className="icon-box-content">
+                  <h4 className="icon-box-title">تضمین بازگشت پول</h4>
+                  <p className="text-default">پس از 30 روز بازگشت</p>
+                </div>
+            </SwiperSlide>
+            <SwiperSlide>
+            <span className="icon-box-icon icon-chat">
+                  <i className="w-icon-chat"></i>
+                </span>
+                <div className="icon-box-content">
+                  <h4 className="icon-box-title">پشتیبانی مشتری</h4>
+                  <p className="text-default">
+                    24/7 با ما تماس بگیرید یا ایمیل بزنید
+                  </p>
+                </div>
+            </SwiperSlide>
+          </Swiper>
           {/* <div
             className="swiper-container swiper-theme icon-box-wrapper appear-animate br-sm bg-white mt-2 mb-8"
             data-swiper-options="{
@@ -64,7 +133,7 @@ const TopCategories = () => {
             </div>
           </div> */}
 
-          <div className="top-categories-wrapper appear-animate">
+          <div className="top-categories-wrapper ">
             <h2 className="title title-center text-capitalize pt-7 mb-7">
               دسته بندی های برتر ماه
             </h2>
@@ -96,8 +165,8 @@ const TopCategories = () => {
                   <div className="swiper-slide category category-ellipse">
                     <figure className="category-media">
                       <a href="demo15-shop.html">
-                        <img
-                          src="assets/images/demos/demo15/categories/cat-1.jpg"
+                        <Image
+                          src={cat1}
                           alt="Categroy"
                           width="190"
                           height="190"
@@ -114,8 +183,8 @@ const TopCategories = () => {
                   <div className="swiper-slide category category-ellipse">
                     <figure className="category-media">
                       <a href="demo15-shop.html">
-                        <img
-                          src="assets/images/demos/demo15/categories/cat-2.jpg"
+                        <Image
+                          src={cat2}
                           alt="Categroy"
                           width="190"
                           height="190"
@@ -132,8 +201,8 @@ const TopCategories = () => {
                   <div className="swiper-slide category category-ellipse">
                     <figure className="category-media">
                       <a href="demo15-shop.html">
-                        <img
-                          src="assets/images/demos/demo15/categories/cat-3.jpg"
+                        <Image
+                          src={cat3}
                           alt="Categroy"
                           width="190"
                           height="190"
@@ -150,8 +219,8 @@ const TopCategories = () => {
                   <div className="swiper-slide category category-ellipse">
                     <figure className="category-media">
                       <a href="demo15-shop.html">
-                        <img
-                          src="assets/images/demos/demo15/categories/cat-4.jpg"
+                        <Image
+                          src={cat4}
                           alt="Categroy"
                           width="190"
                           height="190"
@@ -168,8 +237,8 @@ const TopCategories = () => {
                   <div className="swiper-slide category category-ellipse">
                     <figure className="category-media">
                       <a href="demo15-shop.html">
-                        <img
-                          src="assets/images/demos/demo15/categories/cat-5.jpg"
+                        <Image
+                          src={cat5}
                           alt="Categroy"
                           width="190"
                           height="190"
@@ -186,8 +255,8 @@ const TopCategories = () => {
                   <div className="swiper-slide category category-ellipse">
                     <figure className="category-media">
                       <a href="demo15-shop.html">
-                        <img
-                          src="assets/images/demos/demo15/categories/cat-6.jpg"
+                        <Image
+                          src={cat6}
                           alt="Categroy"
                           width="190"
                           height="190"
@@ -204,8 +273,8 @@ const TopCategories = () => {
                   <div className="swiper-slide category category-ellipse">
                     <figure className="category-media">
                       <a href="demo15-shop.html">
-                        <img
-                          src="assets/images/demos/demo15/categories/cat-7.jpg"
+                        <Image
+                          src={cat7}
                           alt="Categroy"
                           width="190"
                           height="190"
@@ -222,8 +291,8 @@ const TopCategories = () => {
                   <div className="swiper-slide category category-ellipse">
                     <figure className="category-media">
                       <a href="demo15-shop.html">
-                        <img
-                          src="assets/images/demos/demo15/categories/cat-8.jpg"
+                        <Image
+                          src={cat8}
                           alt="Categroy"
                           width="190"
                           height="190"
