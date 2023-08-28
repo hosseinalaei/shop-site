@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const TopHeader = () => {
   return (
     <div className="header-top">
@@ -66,16 +68,16 @@ const TopHeader = () => {
           <a href="contact-us.html" className="d-lg-show">
             تماس با ما{" "}
           </a>
-          <a href="assets/ajax/login.html" className="d-lg-show login sign-in">
+          <Link href="/login" className="d-lg-show login sign-in">
             <i className="w-icon-account mr-1"></i>ورود{" "}
-          </a>
-          <span className="delimiter d-lg-show bg-">/</span>
+          </Link>
+          {/* <span className="delimiter d-lg-show bg-">/</span>
           <a
             href="assets/ajax/login.html"
             className="ml-0 d-lg-show login register"
           >
             ثبت نام{" "}
-          </a>
+          </a> */}
         </div>
       </div>
     </div>

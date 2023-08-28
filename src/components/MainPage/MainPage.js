@@ -5,11 +5,11 @@ import SpecialOffers from "./SpecialOffers";
 import SpecialProducts from "./SpecialProducts";
 import TopCategories from "./TopCategories";
 // import 'swiper/react';
-import 'swiper/css';
+import "swiper/css";
 const MainPage = () => {
   return (
     <div className="page-wrapper">
-      <h1 className="d-none">قالب فروشگاهی چند فروشندگی وولمارت</h1>
+      <h1 className="d-none">فروشگاه شاپ آی آر</h1>
       <main className="main">
         <IntroSection />
         <TopCategories />
