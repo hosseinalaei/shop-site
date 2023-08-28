@@ -229,7 +229,7 @@ const Header = () => {
                     <li>
                       {catMenu?.map((item) => {
                         return (
-                          <Link href={`/category/${item.urlTitle}`}>
+                          <Link href={`/category/${item.urlTitle}`} key={item.id}>
                             {item.title}
                           </Link>
                         );
@@ -242,9 +242,10 @@ const Header = () => {
                           <ul>
                             {subMenu?.map((item) => {
                               return (
-                                <li>
+                                <li key={item.id}>
                                   <Link
                                     href={`/category/${item.urlTitle}/${item.id}/`}
+                                    
                                   >
                                     {item.title}
                                   </Link>

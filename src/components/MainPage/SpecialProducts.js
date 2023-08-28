@@ -1,8 +1,49 @@
+
+import Image from 'next/image'
+import banner1 from '../../assets/images/demos/demo15/banner/banner-1.jpg'
+import banner2 from '../../assets/images/demos/demo15/banner/banner-2.jpg'
+import banner3 from '../../assets/images/demos/demo15/banner/banner-3.jpg'
+import banner4 from '../../assets/images/demos/demo15/banner/banner-4.jpg'
+import banner5 from '../../assets/images/demos/demo15/banner/banner-5.jpg'
+import banner6 from '../../assets/images/demos/demo15/banner/banner-6.jpg'
+import banner7 from '../../assets/images/demos/demo15/banner/banner-7.jpg'
+
+import prod1 from '../../assets/images/demos/demo15/products/2-9-1.jpg'
+import prod1s from '../../assets/images/demos/demo15/products/2-9-2.jpg'
+
+import prod2 from '../../assets/images/demos/demo15/products/2-2-1.jpg'
+import prod2s from '../../assets/images/demos/demo15/products/2-2-2.jpg'
+
+import prod3 from '../../assets/images/demos/demo15/products/2-3-1.jpg'
+import prod3s from '../../assets/images/demos/demo15/products/2-3-2.jpg'
+
+import prod4 from '../../assets/images/demos/demo15/products/2-4-1.jpg'
+import prod4s from '../../assets/images/demos/demo15/products/2-4-2.jpg'
+
+import prod5 from '../../assets/images/demos/demo15/products/2-5-1.jpg'
+import prod5s from '../../assets/images/demos/demo15/products/2-5-2.jpg'
+
+import prod6 from '../../assets/images/demos/demo15/products/2-6-1.jpg'
+import prod6s from '../../assets/images/demos/demo15/products/2-6-2.jpg'
+
+
+import prod7 from '../../assets/images/demos/demo15/products/2-7-1.jpg'
+import prod7s from '../../assets/images/demos/demo15/products/2-7-2.jpg'
+
+import prod8 from '../../assets/images/demos/demo15/products/2-8-1.jpg'
+import prod8s from '../../assets/images/demos/demo15/products/2-8-2.jpg'
+
+import prod9 from '../../assets/images/demos/demo15/products/2-9-1.jpg'
+import prod9s from '../../assets/images/demos/demo15/products/2-9-2.jpg'
+
+import prod10 from '../../assets/images/demos/demo15/products/2-10-1.jpg'
+import prod10s from '../../assets/images/demos/demo15/products/2-10-2.jpg'
+
 const SpecialProducts = () => {
     return ( 
         <div className="container-fluid">
-          {/* <div
-            className="swiper-container swiper-theme category-banner-wrapper appear-animate pt-2 pb-2 mt-10 mb-10"
+          <div
+            className="swiper-container swiper-theme category-banner-wrapper pt-2 pb-2 mt-10 mb-10"
             data-swiper-options="{
         'spaceBetween': 20,
         'slidesPerView': 3,
@@ -22,8 +63,8 @@ const SpecialProducts = () => {
             <div className="swiper-wrapper row cols-md-3 cols-sm-2 cols-1">
               <div className="swiper-slide banner banner-1 banner-fixed br-sm">
                 <figure className="banner-media">
-                  <img
-                    src="assets/images/demos/demo15/banner/banner-1.jpg"
+                  <Image
+                    src={banner1}
                     alt="Category Banner"
                     width="580"
                     height="300"
@@ -53,8 +94,8 @@ const SpecialProducts = () => {
               </div>
               <div className="swiper-slide banner banner-2 banner-fixed br-sm">
                 <figure className="banner-media">
-                  <img
-                    src="assets/images/demos/demo15/banner/banner-2.jpg"
+                  <Image
+                    src={banner2}
                     alt="Category Banner"
                     width="580"
                     height="300"
@@ -83,71 +124,71 @@ const SpecialProducts = () => {
               </div>
               <div className="swiper-slide banner banner-3 banner-fixed br-sm">
                 <figure className="banner-media">
-                  <img
-                    src="assets/images/demos/demo15/banner/banner-3.jpg"
+                  <Image
+                    src={banner3}
                     alt="Category Banner"
                     width="580"
                     height="300"
                     style={{ bacgroundColor: "#EAEAEA" }}
                   />
                 </figure>
-                <div class="banner-content y-50">
-                  <h4 class="banner-subtitle text-capitalize font-weight-normal">
+                <div className="banner-content y-50">
+                  <h4 className="banner-subtitle text-capitalize font-weight-normal">
                     تازه رسیده ها{" "}
                   </h4>
-                  <h3 class="banner-title text-capitalize ls-25 mb-0">
+                  <h3 className="banner-title text-capitalize ls-25 mb-0">
                     مردانه زنانه{" "}
                   </h3>
-                  <h5 class="banner-price-info font-weight-normal ls-25">
+                  <h5 className="banner-price-info font-weight-normal ls-25">
                     تا{" "}
-                    <span class="text-primary font-weight-bolder">
+                    <span className="text-primary font-weight-bolder">
                       50% تخفیف
                     </span>
                   </h5>
                   <a
                     href="demo15-shop.html"
-                    class="btn btn-dark btn-outline btn-rounded btn-icon-right"
+                    className="btn btn-dark btn-outline btn-rounded btn-icon-right"
                   >
-                    اکنون بخرید <i class="w-icon-long-arrow-left"></i>
+                    اکنون بخرید <i className="w-icon-long-arrow-left"></i>
                   </a>
                 </div>
               </div>
             </div>
-          </div> */}
+          </div>
 
-          {/* <div class="row banner-product-wrapper appear-animate pb-1 mb-10">
-            <div class="banner-product col-xl-3 col-md-4 mb-4 mb-md-0">
-              <h2 class="title pt-3 mb-5 appear-animate">محصولات ویژه</h2>
-              <div class="banner banner-fixed overlay-zoom br-xs">
-                <figure class="banner-media h-100">
-                  <img
-                    src="assets/images/demos/demo15/banner/banner-4.jpg"
+          <div className="row banner-product-wrapper pb-1 mb-10">
+            <div className="banner-product col-xl-3 col-md-4 mb-4 mb-md-0">
+              <h2 className="title pt-3 mb-5">محصولات ویژه</h2>
+              <div className="banner banner-fixed overlay-zoom br-xs">
+                <figure className="banner-media h-100">
+                  <Image
+                    src={banner4}
                     alt="Product Banner"
                     width="431"
                     height="610"
                     style={{ bacgroundColor: "#E2E2E2" }}
                   />
                 </figure>
-                <div class="banner-content">
-                  <h5 class="banner-subtitle text-uppercase font-weight-bold">
+                <div className="banner-content">
+                  <h5 className="banner-subtitle text-uppercase font-weight-bold">
                     تجهیزات جانبی{" "}
                   </h5>
-                  <h3 class="banner-title text-capitalize ls-25">
+                  <h3 className="banner-title text-capitalize ls-25">
                     همه ساعت های هوشمند
                     <br />
                     تخفیف{" "}
                   </h3>
                   <a
                     href="demo15-shop.html"
-                    class="btn btn-dark btn-md btn-outline btn-rounded btn-icon-right"
+                    className="btn btn-dark btn-md btn-outline btn-rounded btn-icon-right"
                   >
-                    اکنون بخرید <i class="w-icon-long-arrow-left"></i>
+                    اکنون بخرید <i className="w-icon-long-arrow-left"></i>
                   </a>
                 </div>
               </div>
             </div>
-            <div class="product-wrapper col-xl-9 col-md-8">
-              <ul class="nav-links list-style-none d-flex flex-wrap filter-random-order">
+            <div className="product-wrapper col-xl-9 col-md-8">
+              <ul className="nav-links list-style-none d-flex flex-wrap filter-random-order">
                 <li>
                   <a href="demo15-shop.html">ساعت </a>
                 </li>
@@ -171,7 +212,7 @@ const SpecialProducts = () => {
                 </li>
               </ul>
               <div
-                class="swiper-container swiper-theme"
+                className="swiper-container swiper-theme"
                 data-swiper-options="{
                 'spaceBetween': 20,
                 'breakpoints': {
@@ -190,263 +231,263 @@ const SpecialProducts = () => {
                 }
                 }"
               >
-                <div class="swiper-wrapper row cols-xl-4 cols-lg-3 cols-2">
-                  <div class="swiper-slide product-col">
-                    <div class="product-wrap">
-                      <div class="product text-center">
-                        <figure class="product-media">
+                <div className="swiper-wrapper row cols-xl-4 cols-lg-3 cols-2">
+                  <div className="swiper-slide product-col">
+                    <div className="product-wrap">
+                      <div className="product text-center">
+                        <figure className="product-media">
                           <a href="product-default.html">
-                            <img
-                              src="assets/images/demos/demo15/products/2-1-1.jpg"
+                            <Image
+                              src={prod1}
                               alt="Product"
                               width="300"
                               height="337"
                             />
-                            <img
-                              src="assets/images/demos/demo15/products/2-1-2.jpg"
+                            <Image
+                              src={prod1s}
                               alt="Product"
                               width="300"
                               height="337"
                             />
                           </a>
-                          <div class="product-action-horizontal">
+                          <div className="product-action-horizontal">
                             <a
                               href="#"
-                              class="btn-product-icon btn-cart w-icon-cart"
+                              className="btn-product-icon btn-cart w-icon-cart"
                               title="افزودن به سبد "
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-wishlist w-icon-heart"
+                              className="btn-product-icon btn-wishlist w-icon-heart"
                               title="علاقه مندیها"
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-compare w-icon-compare"
+                              className="btn-product-icon btn-compare w-icon-compare"
                               title="مقایسه"
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-quickview w-icon-search"
+                              className="btn-product-icon btn-quickview w-icon-search"
                               title="نمایش سریع"
                             ></a>
                           </div>
                         </figure>
-                        <div class="product-details">
-                          <h4 class="product-name">
+                        <div className="product-details">
+                          <h4 className="product-name">
                             <a href="product-default.html">صدا ساز </a>
                           </h4>
-                          <div class="product-price">
-                            <ins class="new-price">60000 تومان</ins>
-                            <del class="old-price">64000 تومان</del>
+                          <div className="product-price">
+                            <ins className="new-price">60000 تومان</ins>
+                            <del className="old-price">64000 تومان</del>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="product-wrap">
-                      <div class="product text-center">
-                        <figure class="product-media">
+                    <div className="product-wrap">
+                      <div className="product text-center">
+                        <figure className="product-media">
                           <a href="product-default.html">
-                            <img
-                              src="assets/images/demos/demo15/products/2-2-1.jpg"
+                            <Image
+                              src={prod2}
                               alt="Product"
                               width="300"
                               height="337"
                             />
-                            <img
-                              src="assets/images/demos/demo15/products/2-2-2.jpg"
+                            <Image
+                              src={prod2s}
                               alt="Product"
                               width="300"
                               height="337"
                             />
                           </a>
-                          <div class="product-action-horizontal">
+                          <div className="product-action-horizontal">
                             <a
                               href="#"
-                              class="btn-product-icon btn-cart w-icon-cart"
+                              className="btn-product-icon btn-cart w-icon-cart"
                               title="افزودن به سبد "
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-wishlist w-icon-heart"
+                              className="btn-product-icon btn-wishlist w-icon-heart"
                               title="علاقه مندیها"
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-compare w-icon-compare"
+                              className="btn-product-icon btn-compare w-icon-compare"
                               title="مقایسه"
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-quickview w-icon-search"
+                              className="btn-product-icon btn-quickview w-icon-search"
                               title="نمایش سریع"
                             ></a>
                           </div>
                         </figure>
-                        <div class="product-details">
-                          <h4 class="product-name">
+                        <div className="product-details">
+                          <h4 className="product-name">
                             <a href="product-default.html">تسلی دهنده زنانه</a>
                           </h4>
-                          <div class="product-price">
-                            <ins class="new-price">60000 تومان</ins>
-                            <del class="old-price">64000 تومان</del>
+                          <div className="product-price">
+                            <ins className="new-price">60000 تومان</ins>
+                            <del className="old-price">64000 تومان</del>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="swiper-slide product-col">
-                    <div class="product-wrap">
-                      <div class="product text-center">
-                        <figure class="product-media">
+                  <div className="swiper-slide product-col">
+                    <div className="product-wrap">
+                      <div className="product text-center">
+                        <figure className="product-media">
                           <a href="product-default.html">
-                            <img
-                              src="assets/images/demos/demo15/products/2-3-1.jpg"
+                            <Image
+                              src={prod3}
                               alt="Product"
                               width="300"
                               height="337"
                             />
-                            <img
-                              src="assets/images/demos/demo15/products/2-3-2.jpg"
+                            <Image
+                              src={prod3s}
                               alt="Product"
                               width="300"
                               height="337"
                             />
                           </a>
-                          <div class="product-action-horizontal">
+                          <div className="product-action-horizontal">
                             <a
                               href="#"
-                              class="btn-product-icon btn-cart w-icon-cart"
+                              className="btn-product-icon btn-cart w-icon-cart"
                               title="افزودن به سبد "
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-wishlist w-icon-heart"
+                              className="btn-product-icon btn-wishlist w-icon-heart"
                               title="علاقه مندیها"
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-compare w-icon-compare"
+                              className="btn-product-icon btn-compare w-icon-compare"
                               title="مقایسه"
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-quickview w-icon-search"
+                              className="btn-product-icon btn-quickview w-icon-search"
                               title="نمایش سریع"
                             ></a>
                           </div>
                         </figure>
-                        <div class="product-details">
-                          <h4 class="product-name">
+                        <div className="product-details">
+                          <h4 className="product-name">
                             <a href="product-default.html">جام </a>
                           </h4>
-                          <div class="product-price">
-                            <ins class="new-price">60000 تومان</ins>
-                            <del class="old-price">64000 تومان</del>
+                          <div className="product-price">
+                            <ins className="new-price">60000 تومان</ins>
+                            <del className="old-price">64000 تومان</del>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="product-wrap">
-                      <div class="product text-center">
-                        <figure class="product-media">
+                    <div className="product-wrap">
+                      <div className="product text-center">
+                        <figure className="product-media">
                           <a href="product-default.html">
-                            <img
-                              src="assets/images/demos/demo15/products/2-4-1.jpg"
+                            <Image
+                              src={prod4}
                               alt="Product"
                               width="300"
                               height="337"
                             />
-                            <img
-                              src="assets/images/demos/demo15/products/2-4-2.jpg"
+                            <Image
+                              src={prod4s}
                               alt="Product"
                               width="300"
                               height="337"
                             />
                           </a>
-                          <div class="product-action-horizontal">
+                          <div className="product-action-horizontal">
                             <a
                               href="#"
-                              class="btn-product-icon btn-cart w-icon-cart"
+                              className="btn-product-icon btn-cart w-icon-cart"
                               title="افزودن به سبد "
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-wishlist w-icon-heart"
+                              className="btn-product-icon btn-wishlist w-icon-heart"
                               title="علاقه مندیها"
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-compare w-icon-compare"
+                              className="btn-product-icon btn-compare w-icon-compare"
                               title="مقایسه"
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-quickview w-icon-search"
+                              className="btn-product-icon btn-quickview w-icon-search"
                               title="نمایش سریع"
                             ></a>
                           </div>
                         </figure>
-                        <div class="product-details">
-                          <h4 class="product-name">
+                        <div className="product-details">
+                          <h4 className="product-name">
                             <a href="product-default.html">ضبط کننده بی سیم</a>
                           </h4>
-                          <div class="product-price">
-                            <ins class="new-price">60000 تومان</ins>
-                            <del class="old-price">64000 تومان</del>
+                          <div className="product-price">
+                            <ins className="new-price">60000 تومان</ins>
+                            <del className="old-price">64000 تومان</del>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="swiper-slide product-col">
-                    <div class="product-wrap">
-                      <div class="product text-center">
-                        <figure class="product-media">
+                  <div className="swiper-slide product-col">
+                    <div className="product-wrap">
+                      <div className="product text-center">
+                        <figure className="product-media">
                           <a href="product-default.html">
-                            <img
-                              src="assets/images/demos/demo15/products/2-5-1.jpg"
+                            <Image
+                              src={prod5}
                               alt="Product"
                               width="300"
                               height="337"
                             />
-                            <img
-                              src="assets/images/demos/demo15/products/2-5-2.jpg"
+                            <Image
+                              src={prod5s}
                               alt="Product"
                               width="300"
                               height="337"
                             />
                           </a>
-                          <div class="product-label-group">
-                            <label class="product-label label-sale">
+                          <div className="product-label-group">
+                            <label className="product-label label-sale">
                               12% تخفیف{" "}
                             </label>
                           </div>
-                          <div class="product-action-horizontal">
+                          <div className="product-action-horizontal">
                             <a
                               href="#"
-                              class="btn-product-icon btn-cart w-icon-cart"
+                              className="btn-product-icon btn-cart w-icon-cart"
                               title="افزودن به سبد "
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-wishlist w-icon-heart"
+                              className="btn-product-icon btn-wishlist w-icon-heart"
                               title="علاقه مندیها"
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-compare w-icon-compare"
+                              className="btn-product-icon btn-compare w-icon-compare"
                               title="مقایسه"
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-quickview w-icon-search"
+                              className="btn-product-icon btn-quickview w-icon-search"
                               title="نمایش سریع"
                             ></a>
                           </div>
-                          <div class="product-countdown-container">
+                          <div className="product-countdown-container">
                             <div
-                              class="product-countdown countdown-compact"
+                              className="product-countdown countdown-compact"
                               data-until="2021, 9, 9"
                               data-format="DHMS"
                               data-compact="false"
@@ -456,119 +497,119 @@ const SpecialProducts = () => {
                             </div>
                           </div>
                         </figure>
-                        <div class="product-details">
-                          <h4 class="product-name">
+                        <div className="product-details">
+                          <h4 className="product-name">
                             <a href="product-default.html">ساعت طلا </a>
                           </h4>
-                          <div class="product-price">
-                            <ins class="new-price">60000 تومان</ins>
-                            <del class="old-price">64000 تومان</del>
+                          <div className="product-price">
+                            <ins className="new-price">60000 تومان</ins>
+                            <del className="old-price">64000 تومان</del>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="product-wrap">
-                      <div class="product text-center">
-                        <figure class="product-media">
+                    <div className="product-wrap">
+                      <div className="product text-center">
+                        <figure className="product-media">
                           <a href="product-default.html">
-                            <img
-                              src="assets/images/demos/demo15/products/2-6-1.jpg"
+                            <Image
+                              src={prod6}
                               alt="Product"
                               width="300"
                               height="337"
                             />
-                            <img
-                              src="assets/images/demos/demo15/products/2-6-2.jpg"
+                            <Image
+                              src={prod6s}
                               alt="Product"
                               width="300"
                               height="337"
                             />
                           </a>
-                          <div class="product-action-horizontal">
+                          <div className="product-action-horizontal">
                             <a
                               href="#"
-                              class="btn-product-icon btn-cart w-icon-cart"
+                              className="btn-product-icon btn-cart w-icon-cart"
                               title="افزودن به سبد "
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-wishlist w-icon-heart"
+                              className="btn-product-icon btn-wishlist w-icon-heart"
                               title="علاقه مندیها"
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-compare w-icon-compare"
+                              className="btn-product-icon btn-compare w-icon-compare"
                               title="مقایسه"
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-quickview w-icon-search"
+                              className="btn-product-icon btn-quickview w-icon-search"
                               title="نمایش سریع"
                             ></a>
                           </div>
                         </figure>
-                        <div class="product-details">
-                          <h4 class="product-name">
+                        <div className="product-details">
+                          <h4 className="product-name">
                             <a href="product-default.html">
                               جعبه شارژر مغناطیسی
                             </a>
                           </h4>
-                          <div class="product-price">
-                            <ins class="new-price">60000 تومان</ins>
-                            <del class="old-price">64000 تومان</del>
+                          <div className="product-price">
+                            <ins className="new-price">60000 تومان</ins>
+                            <del className="old-price">64000 تومان</del>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="swiper-slide product-col">
-                    <div class="product-wrap">
-                      <div class="product text-center">
-                        <figure class="product-media">
+                  <div className="swiper-slide product-col">
+                    <div className="product-wrap">
+                      <div className="product text-center">
+                        <figure className="product-media">
                           <a href="product-default.html">
-                            <img
-                              src="assets/images/demos/demo15/products/2-7-1.jpg"
+                            <Image
+                              src={prod7}
                               alt="Product"
                               width="300"
                               height="337"
                             />
-                            <img
-                              src="assets/images/demos/demo15/products/2-7-2.jpg"
+                            <Image
+                              src={prod7s}
                               alt="Product"
                               width="300"
                               height="337"
                             />
                           </a>
-                          <div class="product-label-group">
-                            <label class="product-label label-sale">
+                          <div className="product-label-group">
+                            <label className="product-label label-sale">
                               19% تخفیف{" "}
                             </label>
                           </div>
-                          <div class="product-action-horizontal">
+                          <div className="product-action-horizontal">
                             <a
                               href="#"
-                              class="btn-product-icon btn-cart w-icon-cart"
+                              className="btn-product-icon btn-cart w-icon-cart"
                               title="افزودن به سبد "
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-wishlist w-icon-heart"
+                              className="btn-product-icon btn-wishlist w-icon-heart"
                               title="علاقه مندیها"
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-compare w-icon-compare"
+                              className="btn-product-icon btn-compare w-icon-compare"
                               title="مقایسه"
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-quickview w-icon-search"
+                              className="btn-product-icon btn-quickview w-icon-search"
                               title="نمایش سریع"
                             ></a>
                           </div>
-                          <div class="product-countdown-container">
+                          <div className="product-countdown-container">
                             <div
-                              class="product-countdown countdown-compact"
+                              className="product-countdown countdown-compact"
                               data-until="2021, 9, 9"
                               data-format="DHMS"
                               data-compact="false"
@@ -578,181 +619,181 @@ const SpecialProducts = () => {
                             </div>
                           </div>
                         </figure>
-                        <div class="product-details">
-                          <h4 class="product-name">
+                        <div className="product-details">
+                          <h4 className="product-name">
                             <a href="product-default.html">
                               باتری با ظرفیت انبوه
                             </a>
                           </h4>
-                          <div class="product-price">
-                            <ins class="new-price">60000 تومان</ins>
-                            <del class="old-price">64000 تومان</del>
+                          <div className="product-price">
+                            <ins className="new-price">60000 تومان</ins>
+                            <del className="old-price">64000 تومان</del>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="product-wrap">
-                      <div class="product text-center">
-                        <figure class="product-media">
+                    <div className="product-wrap">
+                      <div className="product text-center">
+                        <figure className="product-media">
                           <a href="product-default.html">
-                            <img
-                              src="assets/images/demos/demo15/products/2-8-1.jpg"
+                            <Image
+                              src={prod8}
                               alt="Product"
                               width="300"
                               height="337"
                             />
-                            <img
-                              src="assets/images/demos/demo15/products/2-8-2.jpg"
+                            <Image
+                              src={prod8s}
                               alt="Product"
                               width="300"
                               height="337"
                             />
                           </a>
-                          <div class="product-action-horizontal">
+                          <div className="product-action-horizontal">
                             <a
                               href="#"
-                              class="btn-product-icon btn-cart w-icon-cart"
+                              className="btn-product-icon btn-cart w-icon-cart"
                               title="افزودن به سبد "
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-wishlist w-icon-heart"
+                              className="btn-product-icon btn-wishlist w-icon-heart"
                               title="علاقه مندیها"
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-compare w-icon-compare"
+                              className="btn-product-icon btn-compare w-icon-compare"
                               title="مقایسه"
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-quickview w-icon-search"
+                              className="btn-product-icon btn-quickview w-icon-search"
                               title="نمایش سریع"
                             ></a>
                           </div>
                         </figure>
-                        <div class="product-details">
-                          <h4 class="product-name">
+                        <div className="product-details">
+                          <h4 className="product-name">
                             <a href="product-default.html">
                               اندازه گیری دیده بان
                             </a>
                           </h4>
-                          <div class="product-price">
-                            <ins class="new-price">60000 تومان</ins>
-                            <del class="old-price">64000 تومان</del>
+                          <div className="product-price">
+                            <ins className="new-price">60000 تومان</ins>
+                            <del className="old-price">64000 تومان</del>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="swiper-slide product-col">
-                    <div class="product-wrap">
-                      <div class="product text-center">
-                        <figure class="product-media">
+                  <div className="swiper-slide product-col">
+                    <div className="product-wrap">
+                      <div className="product text-center">
+                        <figure className="product-media">
                           <a href="product-default.html">
-                            <img
-                              src="assets/images/demos/demo15/products/2-9-1.jpg"
+                            <Image
+                              src={prod9}
                               alt="Product"
                               width="300"
                               height="337"
                             />
-                            <img
-                              src="assets/images/demos/demo15/products/2-9-2.jpg"
+                            <Image
+                              src={prod9s}
                               alt="Product"
                               width="300"
                               height="337"
                             />
                           </a>
-                          <div class="product-action-horizontal">
+                          <div className="product-action-horizontal">
                             <a
                               href="#"
-                              class="btn-product-icon btn-cart w-icon-cart"
+                              className="btn-product-icon btn-cart w-icon-cart"
                               title="افزودن به سبد "
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-wishlist w-icon-heart"
+                              className="btn-product-icon btn-wishlist w-icon-heart"
                               title="علاقه مندیها"
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-compare w-icon-compare"
+                              className="btn-product-icon btn-compare w-icon-compare"
                               title="مقایسه"
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-quickview w-icon-search"
+                              className="btn-product-icon btn-quickview w-icon-search"
                               title="نمایش سریع"
                             ></a>
                           </div>
                         </figure>
-                        <div class="product-details">
-                          <h4 class="product-name">
+                        <div className="product-details">
+                          <h4 className="product-name">
                             <a href="product-default.html">کیف اسپرت مردانه</a>
                           </h4>
-                          <div class="product-price">
-                            <ins class="new-price">60000 تومان</ins>
-                            <del class="old-price">64000 تومان</del>
+                          <div className="product-price">
+                            <ins className="new-price">60000 تومان</ins>
+                            <del className="old-price">64000 تومان</del>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="product-wrap">
-                      <div class="product text-center">
-                        <figure class="product-media">
+                    <div className="product-wrap">
+                      <div className="product text-center">
+                        <figure className="product-media">
                           <a href="product-default.html">
-                            <img
-                              src="assets/images/demos/demo15/products/2-10-1.jpg"
+                            <Image
+                              src={prod10}
                               alt="Product"
                               width="300"
                               height="337"
                             />
-                            <img
-                              src="assets/images/demos/demo15/products/2-10-2.jpg"
+                            <Image
+                              src={prod10s}
                               alt="Product"
                               width="300"
                               height="337"
                             />
                           </a>
-                          <div class="product-action-horizontal">
+                          <div className="product-action-horizontal">
                             <a
                               href="#"
-                              class="btn-product-icon btn-cart w-icon-cart"
+                              className="btn-product-icon btn-cart w-icon-cart"
                               title="افزودن به سبد "
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-wishlist w-icon-heart"
+                              className="btn-product-icon btn-wishlist w-icon-heart"
                               title="علاقه مندیها"
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-compare w-icon-compare"
+                              className="btn-product-icon btn-compare w-icon-compare"
                               title="مقایسه"
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-quickview w-icon-search"
+                              className="btn-product-icon btn-quickview w-icon-search"
                               title="نمایش سریع"
                             ></a>
                           </div>
                         </figure>
-                        <div class="product-details">
-                          <h4 class="product-name">
+                        <div className="product-details">
+                          <h4 className="product-name">
                             <a href="product-default.html">گوشی مینی بی سیم </a>
                           </h4>
-                          <div class="product-price">
-                            <ins class="new-price">60000 تومان</ins>
-                            <del class="old-price">64000 تومان</del>
+                          <div className="product-price">
+                            <ins className="new-price">60000 تومان</ins>
+                            <del className="old-price">64000 تومان</del>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="swiper-slide product-col">
-                    <div class="product-wrap">
-                      <div class="product text-center">
-                        <figure class="product-media">
+                  <div className="swiper-slide product-col">
+                    <div className="product-wrap">
+                      <div className="product text-center">
+                        <figure className="product-media">
                           <a href="product-default.html">
                             <img
                               src="assets/images/demos/demo15/products/2-11-1.jpg"
@@ -767,45 +808,45 @@ const SpecialProducts = () => {
                               height="337"
                             />
                           </a>
-                          <div class="product-action-horizontal">
+                          <div className="product-action-horizontal">
                             <a
                               href="#"
-                              class="btn-product-icon btn-cart w-icon-cart"
+                              className="btn-product-icon btn-cart w-icon-cart"
                               title="افزودن به سبد "
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-wishlist w-icon-heart"
+                              className="btn-product-icon btn-wishlist w-icon-heart"
                               title="علاقه مندیها"
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-compare w-icon-compare"
+                              className="btn-product-icon btn-compare w-icon-compare"
                               title="مقایسه"
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-quickview w-icon-search"
+                              className="btn-product-icon btn-quickview w-icon-search"
                               title="نمایش سریع"
                             ></a>
                           </div>
                         </figure>
-                        <div class="product-details">
-                          <h4 class="product-name">
+                        <div className="product-details">
+                          <h4 className="product-name">
                             <a href="product-default.html">
                               دستگاه ضبط الکترونیکی موبایل
                             </a>
                           </h4>
-                          <div class="product-price">
-                            <ins class="new-price">60000 تومان</ins>
-                            <del class="old-price">64000 تومان</del>
+                          <div className="product-price">
+                            <ins className="new-price">60000 تومان</ins>
+                            <del className="old-price">64000 تومان</del>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="product-wrap">
-                      <div class="product text-center">
-                        <figure class="product-media">
+                    <div className="product-wrap">
+                      <div className="product text-center">
+                        <figure className="product-media">
                           <a href="product-default.html">
                             <img
                               src="assets/images/demos/demo15/products/2-12-1.jpg"
@@ -820,36 +861,36 @@ const SpecialProducts = () => {
                               height="337"
                             />
                           </a>
-                          <div class="product-action-horizontal">
+                          <div className="product-action-horizontal">
                             <a
                               href="#"
-                              class="btn-product-icon btn-cart w-icon-cart"
+                              className="btn-product-icon btn-cart w-icon-cart"
                               title="افزودن به سبد "
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-wishlist w-icon-heart"
+                              className="btn-product-icon btn-wishlist w-icon-heart"
                               title="علاقه مندیها"
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-compare w-icon-compare"
+                              className="btn-product-icon btn-compare w-icon-compare"
                               title="مقایسه"
                             ></a>
                             <a
                               href="#"
-                              class="btn-product-icon btn-quickview w-icon-search"
+                              className="btn-product-icon btn-quickview w-icon-search"
                               title="نمایش سریع"
                             ></a>
                           </div>
                         </figure>
-                        <div class="product-details">
-                          <h4 class="product-name">
+                        <div className="product-details">
+                          <h4 className="product-name">
                             <a href="product-default.html">ست دوربین حرفه ای</a>
                           </h4>
-                          <div class="product-price">
-                            <ins class="new-price">60000 تومان</ins>
-                            <del class="old-price">64000 تومان</del>
+                          <div className="product-price">
+                            <ins className="new-price">60000 تومان</ins>
+                            <del className="old-price">64000 تومان</del>
                           </div>
                         </div>
                       </div>
@@ -858,12 +899,12 @@ const SpecialProducts = () => {
                 </div>
               </div>
             </div>
-          </div> */}
-          <div className="category-banner-wrapper2 row cols-md-2 appear-animate">
+          </div>
+          <div className="category-banner-wrapper2 row cols-md-2">
             <div className="banner banner-1 banner-fixed br-sm mb-4">
               <figure className="banner-media br-sm">
-                <img
-                  src="assets/images/demos/demo15/banner/banner-5.jpg"
+                <Image
+                  src={banner5}
                   alt="Category Banner"
                   width="880"
                   height="300"
@@ -890,8 +931,8 @@ const SpecialProducts = () => {
             </div>
             <div className="banner banner-2 banner-fixed br-sm mb-4">
               <figure className="banner-media br-sm">
-                <img
-                  src="assets/images/demos/demo15/banner/banner-6.jpg"
+                <Image
+                  src={banner6}
                   alt="Category Banner"
                   width="880"
                   height="300"
@@ -917,13 +958,13 @@ const SpecialProducts = () => {
               </div>
             </div>
           </div>
-          <div className="row banner-product-wrapper banner-product-wrapper2 appear-animate pb-1 mb-10">
+          {/* <div className="row banner-product-wrapper banner-product-wrapper2 pb-1 mb-10">
             <div className="banner-product col-xl-3 col-md-4 mb-4 mb-md-0">
-              <h2 className="title pt-3 mb-5 appear-animate">محصولات پرفروش</h2>
+              <h2 className="title pt-3 mb-5">محصولات پرفروش</h2>
               <div className="banner banner-fixed overlay-zoom br-xs">
                 <figure className="banner-media h-100">
-                  <img
-                    src="assets/images/demos/demo15/banner/banner-7.jpg"
+                  <Image
+                    src={banner7}
                     alt="Product Banner"
                     width="431"
                     height="610"
@@ -1485,14 +1526,14 @@ const SpecialProducts = () => {
                       <div className="product text-center">
                         <figure className="product-media">
                           <a href="product-default.html">
-                            <img
-                              src="assets/images/demos/demo15/products/2-6-1.jpg"
+                            <Image
+                              src={prod6}
                               alt="Product"
                               width="300"
                               height="337"
                             />
-                            <img
-                              src="assets/images/demos/demo15/products/2-6-2.jpg"
+                            <Image
+                              src={prod6s}
                               alt="Product"
                               width="300"
                               height="337"
@@ -1651,7 +1692,7 @@ const SpecialProducts = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
      );
 }
