@@ -9,6 +9,13 @@ import prod4 from "../../assets/images/demos/demo15/products/1-2-2.jpg"
 import prod5 from "../../assets/images/demos/demo15/products/1-3-1.jpg"
 import prod6 from "../../assets/images/demos/demo15/products/1-3-2.jpg"
 
+import prod7 from '../../assets/images/demos/demo15/products/1-4-1.jpg'
+import prod8 from '../../assets/images/demos/demo15/products/1-4-2.jpg'
+
+import prod9 from '../../assets/images/demos/demo15/products/1-5-1.jpg'
+import prod10 from '../../assets/images/demos/demo15/products/1-5-2.jpg'
+
+
 
 const SpecialOffers = () => {
     return ( 
@@ -40,7 +47,7 @@ const SpecialOffers = () => {
               </div>
               <div className="col-xxl-10 col-xl-9 col-lg-8 col-md-7">
                 <div
-                  className="swiper-container swiper-theme appear-animate"
+                  className="swiper-container swiper-theme"
                   data-swiper-options="{
                 'spaceBetween': 20,
                 'breakpoints': {
@@ -217,14 +224,14 @@ const SpecialOffers = () => {
                       <div className="product text-center">
                         <figure className="product-media">
                           <a href="product-default.html">
-                            <img
-                              src="assets/images/demos/demo15/products/1-4-1.jpg"
+                            <Image
+                              src={prod7}
                               alt="Product"
                               width="300"
                               height="337"
                             />
-                            <img
-                              src="assets/images/demos/demo15/products/1-4-2.jpg"
+                            <Image
+                              src={prod8}
                               alt="Product"
                               width="300"
                               height="337"
@@ -268,14 +275,14 @@ const SpecialOffers = () => {
                       <div className="product text-center">
                         <figure className="product-media">
                           <a href="product-default.html">
-                            <img
-                              src="assets/images/demos/demo15/products/1-5-1.jpg"
+                            <Image
+                              src={prod9}
                               alt="Product"
                               width="300"
                               height="337"
                             />
-                            <img
-                              src="assets/images/demos/demo15/products/1-5-2.jpg"
+                            <Image
+                              src={prod10}
                               alt="Product"
                               width="300"
                               height="337"
@@ -321,7 +328,7 @@ const SpecialOffers = () => {
             </div>
 
             <div
-              className="notification-wrapper d-flex bg-dark br-sm mb-10 appear-animate justify-content-center"
+              className="notification-wrapper d-flex bg-dark br-sm mb-10 justify-content-center"
               style={{ animationDuration: "1.2s" }}
             >
               <div className="content d-flex align-items-center">
