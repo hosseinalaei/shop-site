@@ -493,7 +493,7 @@ const product = () => {
                     </p>
                     <form action="#" method="POST" className="review-form">
                       <div className="rating-form">
-                        <label for="rating">امتیاز شما به این محصول :</label>
+                        <label htmlFor="rating">امتیاز شما به این محصول :</label>
                         <span className="rating-stars">
                           <a className="star-1" href="#">
                             1
@@ -556,7 +556,7 @@ const product = () => {
                           className="custom-checkbox"
                           id="save-checkbox"
                         />
-                        <label for="save-checkbox">
+                        <label htmlFor="save-checkbox">
                           برای دفعه بعد که نظر می دهم نام، ایمیل و وب سایت من را
                           در این مرورگر ذخیره کنید.
                         </label>
