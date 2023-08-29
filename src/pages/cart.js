@@ -1,8 +1,11 @@
 import { useCartContext } from "@/contex";
+import { useState } from "react";
 
 const Cart = () => {
   const { cart, clearCart, remove, changeQuantity, total, addToCart } =
     useCartContext();
+
+    
 
   let renderedContent = (
     <>
@@ -30,21 +33,21 @@ const Cart = () => {
             </a>
           </div> */}
 
-        <div class="col-lg-8 pr-lg-4 mb-6">
-          <table class="shop-table cart-table">
+        <div className="col-lg-8 pr-lg-4 mb-6">
+          <table className="shop-table cart-table">
             <thead>
               <tr>
-                <th class="product-name">
+                <th className="product-name">
                   <span>محصول </span>
                 </th>
                 <th></th>
-                <th class="product-price">
+                <th className="product-price">
                   <span>قیمت </span>
                 </th>
-                <th class="product-quantity">
+                <th className="product-quantity">
                   <span>تعداد </span>
                 </th>
-                <th class="product-subtotal">
+                <th className="product-subtotal">
                   <span>جمع فرعی </span>
                 </th>
               </tr>
@@ -53,8 +56,8 @@ const Cart = () => {
               {cart.map((item) => {
                 return (
                   <tr key={item.id}>
-                    <td class="product-thumbnail">
-                      <div class="p-relative">
+                    <td className="product-thumbnail">
+                      <div className="p-relative">
                         <a href="product-default.html">
                           <figure>
                             <img
@@ -67,24 +70,24 @@ const Cart = () => {
                         </a>
                         <button
                           type="submit"
-                          class="btn btn-close"
+                          className="btn btn-close"
                           onClick={() => remove(item.id)}
                         >
-                          <i class="fas fa-times"></i>
+                          <i className="fas fa-times"></i>
                         </button>
                       </div>
                     </td>
-                    <td class="product-name">
+                    <td className="product-name">
                       <a href="product-default.html">{item.title}</a>
                     </td>
-                    <td class="product-price">
-                      <span class="amount">{item.price} تومان </span>
+                    <td className="product-price">
+                      <span className="amount">{item.price} تومان </span>
                     </td>
-                    <td class="product-quantity">
-                      <div class="input-group">
+                    <td className="product-quantity">
+                      <div className="input-group">
                         <input
                           value={item.quantity}
-                          class="quantity form-control"
+                          className="quantity form-control"
                           type="number"
                           min="1"
                           max="100000"
@@ -95,12 +98,12 @@ const Cart = () => {
                             })
                           }
                         />
-                        <button class="quantity-plus w-icon-plus"></button>
-                        <button class="quantity-minus w-icon-minus"></button>
+                        <button className="quantity-plus w-icon-plus" onClick={() => {addToCart(item)}}></button>
+                        <button className="quantity-minus w-icon-minus"></button>
                       </div>
                     </td>
-                    <td class="product-subtotal">
-                      <span class="amount">{item.price} تومان </span>
+                    <td className="product-subtotal">
+                      <span className="amount">{item.price} تومان </span>
                     </td>
                   </tr>
                 );
@@ -108,17 +111,17 @@ const Cart = () => {
             </tbody>
           </table>
 
-          <div class="cart-action mb-6">
+          <div className="cart-action mb-6">
             <a
               href="#"
-              class="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto"
+              className="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto"
             >
-              <i class="w-icon-long-arrow-left"></i>ادامه خرید کردن{" "}
+              <i className="w-icon-long-arrow-left"></i>ادامه خرید کردن{" "}
             </a>
             <button
               onClick={clearCart}
               type="submit"
-              class="btn btn-rounded btn-default btn-clear"
+              className="btn btn-rounded btn-default btn-clear"
               name="clear_cart"
               value="پاک کردن سبد "
             >
@@ -126,7 +129,7 @@ const Cart = () => {
             </button>
             <button
               type="submit"
-              class="btn btn-rounded btn-update disabled"
+              className="btn btn-rounded btn-update disabled"
               name="update_cart"
               value="بروز کردن سبد"
             >
@@ -134,17 +137,17 @@ const Cart = () => {
             </button>
           </div>
 
-          {/* <form class="coupon">
-                <h5 class="title coupon-title font-weight-bold text-uppercase">
+          {/* <form className="coupon">
+                <h5 className="title coupon-title font-weight-bold text-uppercase">
                   جشنواره کوپن با{" "}
                 </h5>
                 <input
                   type="text"
-                  class="form-control mb-4"
+                  className="form-control mb-4"
                   placeholder="کد تخفیف را وارد کنید..."
                   required
                 />
-                <button class="btn btn-dark btn-outline btn-rounded">
+                <button className="btn btn-dark btn-outline btn-rounded">
                   اعمال کد
                 </button>
               </form> */}
@@ -153,11 +156,11 @@ const Cart = () => {
     );
   }
   return (
-    <main class="main cart">
-      <nav class="breadcrumb-nav">
-        <div class="container">
-          <ul class="breadcrumb shop-breadcrumb bb-no">
-            <li class="active">
+    <main className="main cart">
+      <nav className="breadcrumb-nav">
+        <div className="container">
+          <ul className="breadcrumb shop-breadcrumb bb-no">
+            <li className="active">
               <a href="cart.html">فروشگاه شاپ آی آر سبد خرید </a>
             </li>
             <li>
@@ -169,70 +172,70 @@ const Cart = () => {
           </ul>
         </div>
       </nav>
-      <div class="page-content">
-        <div class="container">
-          <div class="row gutter-lg mb-10">
+      <div className="page-content">
+        <div className="container">
+          <div className="row gutter-lg mb-10">
             {renderedContent}
-            <div class="col-lg-4 sticky-sidebar-wrapper">
-              <div class="sticky-sidebar">
-                <div class="cart-summary mb-4">
-                  <h3 class="cart-title text-uppercase">مجموع سبد </h3>
-                  <div class="cart-subtotal d-flex align-items-center justify-content-between">
-                    <label class="ls-25">جمع فرعی </label>
+            <div className="col-lg-4 sticky-sidebar-wrapper">
+              <div className="sticky-sidebar">
+                <div className="cart-summary mb-4">
+                  <h3 className="cart-title text-uppercase">مجموع سبد </h3>
+                  <div className="cart-subtotal d-flex align-items-center justify-content-between">
+                    <label className="ls-25">جمع فرعی </label>
                     <span>{total.toLocaleString()} تومان</span>
                   </div>
 
-                  <hr class="divider" />
+                  <hr className="divider" />
 
-                  {/* <ul class="shipping-methods mb-2">
+                  {/* <ul className="shipping-methods mb-2">
                     <li>
-                      <label class="shipping-title text-dark font-weight-bold">
+                      <label className="shipping-title text-dark font-weight-bold">
                         حمل و نقل
                       </label>
                     </li>
                     <li>
-                      <div class="custom-radio">
+                      <div className="custom-radio">
                         <input
                           type="radio"
                           id="free-shipping"
-                          class="custom-control-input"
+                          className="custom-control-input"
                           name="shipping"
                         />
                         <label
                           htmlFor="free-shipping"
-                          class="custom-control-label color-dark"
+                          className="custom-control-label color-dark"
                         >
                           حمل و نقل رایگان
                         </label>
                       </div>
                     </li>
                     <li>
-                      <div class="custom-radio">
+                      <div className="custom-radio">
                         <input
                           type="radio"
                           id="local-pickup"
-                          class="custom-control-input"
+                          className="custom-control-input"
                           name="shipping"
                         />
                         <label
                           for="local-pickup"
-                          class="custom-control-label color-dark"
+                          className="custom-control-label color-dark"
                         >
                           وانت محلی
                         </label>
                       </div>
                     </li>
                     <li>
-                      <div class="custom-radio">
+                      <div className="custom-radio">
                         <input
                           type="radio"
                           id="flat-rate"
-                          class="custom-control-input"
+                          className="custom-control-input"
                           name="shipping"
                         />
                         <label
                           for="flat-rate"
-                          class="custom-control-label color-dark"
+                          className="custom-control-label color-dark"
                         >
                           نرخ ثابت: 78000 تومان
                         </label>
@@ -240,17 +243,17 @@ const Cart = () => {
                     </li>
                   </ul>
 
-                  <div class="shipping-calculator">
-                    <p class="shipping-destination lh-1">
+                  <div className="shipping-calculator">
+                    <p className="shipping-destination lh-1">
                       حمل و نقل به <strong>CA</strong>.
                     </p>
 
-                    <form class="shipping-calculator-form">
-                      <div class="form-group">
-                        <div class="select-box">
+                    <form className="shipping-calculator-form">
+                      <div className="form-group">
+                        <div className="select-box">
                           <select
                             name="country"
-                            class="form-control form-control-md"
+                            className="form-control form-control-md"
                           >
                             <option value="default" selected="selected">
                               ایالات متحده (US)
@@ -262,11 +265,11 @@ const Cart = () => {
                           </select>
                         </div>
                       </div>
-                      <div class="form-group">
-                        <div class="select-box">
+                      <div className="form-group">
+                        <div className="select-box">
                           <select
                             name="state"
-                            class="form-control form-control-md"
+                            className="form-control form-control-md"
                           >
                             <option value="default" selected="selected">
                               {" "}
@@ -276,17 +279,17 @@ const Cart = () => {
                           </select>
                         </div>
                       </div>
-                      <div class="form-group">
+                      <div className="form-group">
                         <input
-                          class="form-control form-control-md"
+                          className="form-control form-control-md"
                           type="text"
                           name="town-city"
                           placeholder="خانه / شهر"
                         />
                       </div>
-                      <div class="form-group">
+                      <div className="form-group">
                         <input
-                          class="form-control form-control-md"
+                          className="form-control form-control-md"
                           type="text"
                           name="zipcode"
                           placeholder="کد پستی"
@@ -294,23 +297,23 @@ const Cart = () => {
                       </div>
                       <button
                         type="submit"
-                        class="btn btn-dark btn-outline btn-rounded"
+                        className="btn btn-dark btn-outline btn-rounded"
                       >
                         آپدیت مجموع
                       </button>
                     </form>
                   </div> */}
 
-                  <hr class="divider mb-6" />
-                  <div class="order-total d-flex justify-content-between align-items-center">
+                  <hr className="divider mb-6" />
+                  <div className="order-total d-flex justify-content-between align-items-center">
                     <label>مجموع</label>
-                    <span class="ls-50">{total.toLocaleString()} تومان</span>
+                    <span className="ls-50">{total.toLocaleString()} تومان</span>
                   </div>
                   <a
                     href="#"
-                    class="btn btn-block btn-dark btn-icon-right btn-rounded  btn-checkout"
+                    className="btn btn-block btn-dark btn-icon-right btn-rounded  btn-checkout"
                   >
-                    پردازش و پرداخت<i class="w-icon-long-arrow-left"></i>
+                    پردازش و پرداخت<i className="w-icon-long-arrow-left"></i>
                   </a>
                 </div>
               </div>
