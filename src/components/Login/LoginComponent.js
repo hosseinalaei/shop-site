@@ -88,7 +88,7 @@ const LoginComponent = () => {
                 <>
                   <label>شماره موبایل:</label>
                   <input
-                    type="number"
+                    type="text"
                     className="form-control"
                     name="mobile"
                     id="mobile"
