@@ -4,6 +4,7 @@ const reducer = (state, action) => {
       return { ...state, cart: [] };
     }
     case "REMOVE": {
+      console.log(state);
       return {
         ...state,
         cart: state.cart.filter((item) => item.id !== action.payload),
@@ -16,6 +17,7 @@ const reducer = (state, action) => {
         }
         return item;
       });
+
       return { ...state, cart: tempCart };
     }
     case "GET_TOTALS": {
@@ -34,6 +36,20 @@ const reducer = (state, action) => {
       );
 
       return { ...state, total, quantity };
+    }
+    case "ADD_TO_CART" :{
+      if(state.cart.filter(item => item.id === action.payload.id).length === 0){
+        return {...state, cart:[...state.cart, action.payload]}
+      } else{
+        const tempCart = state.cart.map((item) => {
+          if (item.id === action.payload.id && action.payload.quantity > 0) {
+            return { ...item, quantity: item.quantity+1 };
+          }
+          return item;
+        });
+        console.log(tempCart);
+        return { ...state, cart: tempCart };
+      }
     }
   }
 };
