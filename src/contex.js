@@ -14,8 +14,8 @@ const initialState = {
 const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const addToCart = () => {
-    dispatch({ type: "ADD_TO_CART" });
+  const addToCart = (newItem) => {
+    dispatch({ type: "ADD_TO_CART", payload: newItem });
   };
   const clearCart = () => {
     dispatch({ type: "CLEAR_CART" });
@@ -34,7 +34,7 @@ const CartProvider = ({ children }) => {
   }, [state.cart]);
   return (
     <CartContext.Provider
-      value={{ ...state, clearCart, remove, changeQuantity }}
+      value={{ ...state, clearCart, remove, changeQuantity, addToCart }}
     >
       {children}
     </CartContext.Provider>
