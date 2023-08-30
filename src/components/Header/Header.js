@@ -3,7 +3,7 @@ import logo from "../../assets/images/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useCartContext } from "@/contex";
+import { useCartContext } from "@/contexts/contex";
 
 const Header = () => {
   const [catMenu, setCatMenu] = useState([]);

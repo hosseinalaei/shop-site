@@ -51,9 +51,7 @@ const reducer = (state, action) => {
       }
     }
     case "DEDUCTION" :{
-      console.log(action.payload.quantity);
       if(action.payload.quantity === 1){
-        console.log(action.payload);
         return {...state, cart: state.cart.filter(item => item.id !== action.payload.id)}
       } 
       else{

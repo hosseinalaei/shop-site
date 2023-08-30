@@ -3,7 +3,7 @@ import "@/styles/demo.css";
 import Layout from "@/components/Layout/Layout";
 // import "@/styles/style-rtl.min.css";
 import "../assets/fontawesome-free/css/all.min.css";
-import { CartProvider } from "@/contex";
+import { CartProvider } from "@/contexts/contex";
 // import Providers from "@/providers";
 import "react-toastify/dist/ReactToastify.css";
 
