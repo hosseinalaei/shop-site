@@ -1,8 +1,8 @@
-import { useCartContext } from "@/contex";
+import { useCartContext } from "@/contexts/contex";
 import { useState } from "react";
 
 const Cart = () => {
-  const { cart, clearCart, remove, changeQuantity, total, addToCart } =
+  const { cart, clearCart, remove, changeQuantity, total, addToCart, deduction } =
     useCartContext();
 
     
@@ -99,7 +99,7 @@ const Cart = () => {
                           }
                         />
                         <button className="quantity-plus w-icon-plus" onClick={() => {addToCart(item)}}></button>
-                        <button className="quantity-minus w-icon-minus"></button>
+                        <button className="quantity-minus w-icon-minus" onClick={() =>{deduction(item)}}></button>
                       </div>
                     </td>
                     <td className="product-subtotal">
