@@ -21,7 +21,7 @@ const ProductWrap = (props) => {
       });
       const resData = await response.json();
       if (response.status === 200) {
-        setMedia(resData.data.result);
+        setMedia(resData.data);
       }
     } catch (error) {
       console.log(error);

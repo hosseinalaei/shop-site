@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import { v4 as uuidv4 } from "uuid";
 
 const LoginComponent = () => {
   const [phoneNumber, setPhoneNumber] = useState(null);
@@ -47,7 +46,6 @@ const LoginComponent = () => {
           body: JSON.stringify({
             mobile: phoneNumber,
             verifyCode: verifyCode,
-            createDate: new Date().toISOString(),
           }),
         }
       );
@@ -57,9 +55,7 @@ const LoginComponent = () => {
           position: toast.POSITION.TOP_CENTER,
           theme: "colored",
         });
-        const userId = uuidv4();
-        localStorage.setItem("token", resData.data.token);
-        localStorage.setItem("id", userId);
+        localStorage.setItem("user", JSON.stringify(resData.data));
         router.push("/");
       }
     } catch (error) {

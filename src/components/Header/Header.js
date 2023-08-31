@@ -116,7 +116,7 @@ const Header = () => {
                   <span className="cart-count">{cart.length}</span>
                 </i>
               </Link>
-              <div className="dropdown-box">
+              {/* <div className="dropdown-box">
                 <div className="cart-header">
                   <span>سبد خرید </span>
                   <a href="#" className="btn-close">
@@ -199,7 +199,7 @@ const Header = () => {
                     پرداخت{" "}
                   </a>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -229,7 +229,10 @@ const Header = () => {
                     <li>
                       {catMenu?.map((item) => {
                         return (
-                          <Link href={`/category/${item.urlTitle}`} key={item.id}>
+                          <Link
+                            href={`/category/${item.urlTitle}`}
+                            key={item.id}
+                          >
                             {item.title}
                           </Link>
                         );
@@ -245,7 +248,6 @@ const Header = () => {
                                 <li key={item.id}>
                                   <Link
                                     href={`/category/${item.urlTitle}/${item.id}/`}
-                                    
                                   >
                                     {item.title}
                                   </Link>
@@ -277,7 +279,7 @@ const Header = () => {
                   </li>
                   <li>
                     <Link href="/shop">فروشگاه </Link>
-                    <ul className="megamenu">
+                    {/* <ul className="megamenu">
                       <li>
                         <h4 className="menu-title">صفحات فروشگاه </h4>
                         <ul>
@@ -426,11 +428,11 @@ const Header = () => {
                           </li>
                         </ul>
                       </li>
-                    </ul>
+                    </ul> */}
                   </li>
                   <li>
-                    <a href="blog.html">بلاگ </a>
-                    <ul>
+                    <Link href="/blog">بلاگ </Link>
+                    {/* <ul>
                       <li>
                         <a href="blog.html">کلاسیک </a>
                       </li>
@@ -497,7 +499,7 @@ const Header = () => {
                       <li>
                         <a href="post-single.html">تک نوشته </a>
                       </li>
-                    </ul>
+                    </ul> */}
                   </li>
                 </ul>
               </nav>
