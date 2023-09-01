@@ -1,7 +1,30 @@
 import Image from "next/image";
 import shopBanner from "../assets/images/shop-banner.jpeg";
+import { useEffect, useState } from "react";
+import ProductWrap from "@/components/Product/ProductWrap";
 
 const shop2 = () => {
+  const [data, setData] = useState([]);
+  const [showFilters, setShowFilters] = useState(false);
+
+  const getData = async () => {
+    try {
+      const response = await fetch(
+        "http://138.201.167.230:5050/Products/getLastProduct"
+      );
+      const resData = await response.json();
+      if (response.status === 200) {
+        setData(resData.data);
+      }
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div className="page-content mb-10">
       <div
@@ -30,14 +53,13 @@ const shop2 = () => {
           <div className="main-content">
             <nav className="toolbox sticky-toolbox sticky-content fix-top">
               <div className="toolbox-left">
-                <a
-                  href="#"
-                  className="btn btn-primary btn-outline btn-rounded left-sidebar-toggle 
-                                        btn-icon-left"
+                <div
+                  onClick={() => setShowFilters(true)}
+                  className="btn btn-primary btn-outline btn-rounded left-sidebar-toggle btn-icon-left"
                 >
                   <i className="w-icon-category"></i>
                   <span>فیلتر ها </span>
-                </a>
+                </div>
                 <div className="toolbox-item toolbox-sort select-box text-dark">
                   <label>مرتب سازی با اساس :</label>
                   <select name="orderby" className="form-control">
@@ -88,120 +110,17 @@ const shop2 = () => {
               </div>
             </nav>
             <div className="product-wrapper row cols-xl-6 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
-              <div className="product-wrap">
-                <div className="product text-center">
-                  <figure className="product-media">
-                    <a href="product-default.html">
-                      <img
-                        src="assets/images/shop/1.jpg"
-                        alt="Product"
-                        width="300"
-                        height="338"
-                      />
-                    </a>
-                    <div className="product-action-horizontal">
-                      <a
-                        href="#"
-                        className="btn-product-icon btn-cart w-icon-cart"
-                        title="افزودن به سبد "
-                      ></a>
-                      <a
-                        href="#"
-                        className="btn-product-icon btn-wishlist w-icon-heart"
-                        title="علاقه مندیها"
-                      ></a>
-                      <a
-                        href="#"
-                        className="btn-product-icon btn-compare w-icon-compare"
-                        title="مقایسه"
-                      ></a>
-                      <a
-                        href="#"
-                        className="btn-product-icon btn-quickview w-icon-search"
-                        title="نمایش سریع"
-                      ></a>
-                    </div>
-                  </figure>
-                  <div className="product-details">
-                    <div className="product-cat">
-                      <a href="shop-banner-sidebar.html">الکترونیکی </a>
-                    </div>
-                    <h3 className="product-name">
-                      <a href="product-default.html">تلویزیون 3 بعدی</a>
-                    </h3>
-                    <div className="ratings-container">
-                      <div className="ratings-full">
-                        <span
-                          className="ratings"
-                          style={{ width: "100%" }}
-                        ></span>
-                        <span className="tooltiptext tooltip-top"></span>
-                      </div>
-                      <a href="product-default.html" className="rating-reviews">
-                        (3 نظر )
-                      </a>
-                    </div>
-                    <div className="product-pa-wrapper">
-                      <div className="product-price">480000 - 850000 تومان</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="product text-center">
-                <figure className="product-media">
-                  <a href="product-default.html">
-                    <img
-                      src="assets/images/shop/4.jpg"
-                      alt="Product"
-                      width="300"
-                      height="338"
+              {data.length > 0 &&
+                data.map((item) => {
+                  return (
+                    <ProductWrap
+                      key={item.id}
+                      id={item.id}
+                      productName={item.productName}
+                      price={item.price}
                     />
-                  </a>
-                  <div className="product-action-horizontal">
-                    <a
-                      href="#"
-                      className="btn-product-icon btn-cart w-icon-cart"
-                      title="افزودن به سبد "
-                    ></a>
-                    <a
-                      href="#"
-                      className="btn-product-icon btn-wishlist w-icon-heart"
-                      title="علاقه مندیها"
-                    ></a>
-                    <a
-                      href="#"
-                      className="btn-product-icon btn-compare w-icon-compare"
-                      title="مقایسه"
-                    ></a>
-                    <a
-                      href="#"
-                      className="btn-product-icon btn-quickview w-icon-search"
-                      title="نمایش سریع"
-                    ></a>
-                  </div>
-                </figure>
-                <div className="product-details">
-                  <div className="product-cat">
-                    <a href="shop-banner-sidebar.html">الکترونیکی </a>
-                  </div>
-                  <h3 className="product-name">
-                    <a href="product-default.html">هشدار شارژ قابل اتصال</a>
-                  </h3>
-                  <div className="ratings-container">
-                    <div className="ratings-full">
-                      <span className="ratings" style={{ width: "60%" }}></span>
-                      <span className="tooltiptext tooltip-top"></span>
-                    </div>
-                    <a href="product-default.html" className="rating-reviews">
-                      (7 نظر )
-                    </a>
-                  </div>
-                  <div className="product-pa-wrapper">
-                    <div className="product-price">78000 تومان</div>
-                  </div>
-                </div>
-              </div>
+                  );
+                })}
             </div>
 
             <div className="toolbox toolbox-pagination justify-content-between">
@@ -237,187 +156,188 @@ const shop2 = () => {
               </ul>
             </div>
           </div>
+          {showFilters && (
+            <aside className="sidebar shop-sidebar left-sidebar sticky-sidebar-wrapper">
+              <div className="sidebar-overlay"></div>
+              <a className="sidebar-close" href="#">
+                <i className="close-icon"></i>
+              </a>
 
-          <aside className="sidebar shop-sidebar left-sidebar sticky-sidebar-wrapper">
-            <div className="sidebar-overlay"></div>
-            <a className="sidebar-close" href="#">
-              <i className="close-icon"></i>
-            </a>
+              <div className="sidebar-content scrollable">
+                <div className="filter-actions">
+                  <label>فیلتر :</label>
+                  <a href="#" className="btn btn-dark btn-link filter-clean">
+                    پاک کردن همه{" "}
+                  </a>
+                </div>
 
-            <div className="sidebar-content scrollable">
-              <div className="filter-actions">
-                <label>فیلتر :</label>
-                <a href="#" className="btn btn-dark btn-link filter-clean">
-                  پاک کردن همه{" "}
-                </a>
-              </div>
-
-              <div className="widget widget-collapsible">
-                <h3 className="widget-title">
-                  <span>تمام دسته بندیها</span>
-                </h3>
-                <ul className="widget-body filter-items search-ul">
-                  <li>
-                    <a href="#">تجهیزات جانبی </a>
-                  </li>
-                  <li>
-                    <a href="#">نوزادان </a>
-                  </li>
-                  <li>
-                    <a href="#">زیبایی </a>
-                  </li>
-                  <li>
-                    <a href="#">تزیین </a>
-                  </li>
-                  <li>
-                    <a href="#">الکترونیکی </a>
-                  </li>
-                  <li>
-                    <a href="#">مد </a>
-                  </li>
-                  <li>
-                    <a href="#">غذا </a>
-                  </li>
-                  <li>
-                    <a href="#">مبلمان </a>
-                  </li>
-                  <li>
-                    <a href="#">آشپزخانه </a>
-                  </li>
-                  <li>
-                    <a href="#">مدیکال </a>
-                  </li>
-                  <li>
-                    <a href="#">ورزشی </a>
-                  </li>
-                  <li>
-                    <a href="#">ساعت </a>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="widget widget-collapsible">
-                <h3 className="widget-title">
-                  <span>قیمت </span>
-                </h3>
-                <div className="widget-body">
-                  <ul className="filter-items search-ul">
+                <div className="widget widget-collapsible">
+                  <h3 className="widget-title">
+                    <span>تمام دسته بندیها</span>
+                  </h3>
+                  <ul className="widget-body filter-items search-ul">
                     <li>
-                      <a href="#">0 - 99000 تومان</a>
+                      <a href="#">تجهیزات جانبی </a>
                     </li>
                     <li>
-                      <a href="#">100000 - 500000 تومان</a>
+                      <a href="#">نوزادان </a>
                     </li>
                     <li>
-                      <a href="#">500000 - 1000000 تومان</a>
+                      <a href="#">زیبایی </a>
                     </li>
                     <li>
-                      <a href="#">1000000 - 5000000 تومان</a>
+                      <a href="#">تزیین </a>
                     </li>
                     <li>
-                      <a href="#">5000000 تومان +</a>
+                      <a href="#">الکترونیکی </a>
+                    </li>
+                    <li>
+                      <a href="#">مد </a>
+                    </li>
+                    <li>
+                      <a href="#">غذا </a>
+                    </li>
+                    <li>
+                      <a href="#">مبلمان </a>
+                    </li>
+                    <li>
+                      <a href="#">آشپزخانه </a>
+                    </li>
+                    <li>
+                      <a href="#">مدیکال </a>
+                    </li>
+                    <li>
+                      <a href="#">ورزشی </a>
+                    </li>
+                    <li>
+                      <a href="#">ساعت </a>
                     </li>
                   </ul>
-                  <form className="price-range">
-                    <input
-                      type="number"
-                      name="min_price"
-                      className="min_price text-center"
-                      placeholder="$min"
-                    />
-                    <span className="delimiter">-</span>
-                    <input
-                      type="number"
-                      name="max_price"
-                      className="max_price text-center"
-                      placeholder="$max"
-                    />
-                    <a href="#" className="btn btn-primary btn-rounded">
-                      برو{" "}
-                    </a>
-                  </form>
+                </div>
+
+                <div className="widget widget-collapsible">
+                  <h3 className="widget-title">
+                    <span>قیمت </span>
+                  </h3>
+                  <div className="widget-body">
+                    <ul className="filter-items search-ul">
+                      <li>
+                        <a href="#">0 - 99000 تومان</a>
+                      </li>
+                      <li>
+                        <a href="#">100000 - 500000 تومان</a>
+                      </li>
+                      <li>
+                        <a href="#">500000 - 1000000 تومان</a>
+                      </li>
+                      <li>
+                        <a href="#">1000000 - 5000000 تومان</a>
+                      </li>
+                      <li>
+                        <a href="#">5000000 تومان +</a>
+                      </li>
+                    </ul>
+                    <form className="price-range">
+                      <input
+                        type="number"
+                        name="min_price"
+                        className="min_price text-center"
+                        placeholder="$min"
+                      />
+                      <span className="delimiter">-</span>
+                      <input
+                        type="number"
+                        name="max_price"
+                        className="max_price text-center"
+                        placeholder="$max"
+                      />
+                      <a href="#" className="btn btn-primary btn-rounded">
+                        برو{" "}
+                      </a>
+                    </form>
+                  </div>
+                </div>
+
+                <div className="widget widget-collapsible">
+                  <h3 className="widget-title">
+                    <span>سایز </span>
+                  </h3>
+                  <ul className="widget-body filter-items item-check mt-1">
+                    <li>
+                      <a href="#">خبلی بزرگ </a>
+                    </li>
+                    <li>
+                      <a href="#">بزرگ </a>
+                    </li>
+                    <li>
+                      <a href="#">متوسط </a>
+                    </li>
+                    <li>
+                      <a href="#">کوچک </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="widget widget-collapsible">
+                  <h3 className="widget-title">
+                    <span>برند </span>
+                  </h3>
+                  <ul className="widget-body filter-items item-check mt-1">
+                    <li>
+                      <a href="#">گروه خودرو زیبا </a>
+                    </li>
+                    <li>
+                      <a href="#">علف سبز </a>
+                    </li>
+                    <li>
+                      <a href="#">Node Js</a>
+                    </li>
+                    <li>
+                      <a href="#">NS8</a>
+                    </li>
+                    <li>
+                      <a href="#">Red</a>
+                    </li>
+                    <li>
+                      <a href="#">Skysuite Tech</a>
+                    </li>
+                    <li>
+                      <a href="#">Sterling</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="widget widget-collapsible">
+                  <h3 className="widget-title">
+                    <span>رنگ </span>
+                  </h3>
+                  <ul className="widget-body filter-items item-check">
+                    <li>
+                      <a href="#">سیاه</a>
+                    </li>
+                    <li>
+                      <a href="#">آبی</a>
+                    </li>
+                    <li>
+                      <a href="#">قهوه ای</a>
+                    </li>
+                    <li>
+                      <a href="#">سبز </a>
+                    </li>
+                    <li>
+                      <a href="#">خاکستری </a>
+                    </li>
+                    <li>
+                      <a href="#">نارنجی </a>
+                    </li>
+                    <li>
+                      <a href="#">زرد </a>
+                    </li>
+                  </ul>
                 </div>
               </div>
-
-              <div className="widget widget-collapsible">
-                <h3 className="widget-title">
-                  <span>سایز </span>
-                </h3>
-                <ul className="widget-body filter-items item-check mt-1">
-                  <li>
-                    <a href="#">خبلی بزرگ </a>
-                  </li>
-                  <li>
-                    <a href="#">بزرگ </a>
-                  </li>
-                  <li>
-                    <a href="#">متوسط </a>
-                  </li>
-                  <li>
-                    <a href="#">کوچک </a>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="widget widget-collapsible">
-                <h3 className="widget-title">
-                  <span>برند </span>
-                </h3>
-                <ul className="widget-body filter-items item-check mt-1">
-                  <li>
-                    <a href="#">گروه خودرو زیبا </a>
-                  </li>
-                  <li>
-                    <a href="#">علف سبز </a>
-                  </li>
-                  <li>
-                    <a href="#">Node Js</a>
-                  </li>
-                  <li>
-                    <a href="#">NS8</a>
-                  </li>
-                  <li>
-                    <a href="#">Red</a>
-                  </li>
-                  <li>
-                    <a href="#">Skysuite Tech</a>
-                  </li>
-                  <li>
-                    <a href="#">Sterling</a>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="widget widget-collapsible">
-                <h3 className="widget-title">
-                  <span>رنگ </span>
-                </h3>
-                <ul className="widget-body filter-items item-check">
-                  <li>
-                    <a href="#">سیاه</a>
-                  </li>
-                  <li>
-                    <a href="#">آبی</a>
-                  </li>
-                  <li>
-                    <a href="#">قهوه ای</a>
-                  </li>
-                  <li>
-                    <a href="#">سبز </a>
-                  </li>
-                  <li>
-                    <a href="#">خاکستری </a>
-                  </li>
-                  <li>
-                    <a href="#">نارنجی </a>
-                  </li>
-                  <li>
-                    <a href="#">زرد </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </aside>
+            </aside>
+          )}
         </div>
       </div>
     </div>
