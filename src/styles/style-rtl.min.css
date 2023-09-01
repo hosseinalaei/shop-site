@@ -11042,7 +11042,7 @@ body .product-popup {
   right: 0;
   height: 14px;
   line-height: 1;
-  font-family: yekan;
+  font-family: "wolmart";
   text-indent: 0;
   overflow: hidden;
   white-space: nowrap;
@@ -15137,12 +15137,12 @@ body .product-popup {
   font-weight: 600;
   font-size: 0.9rem;
 }
-.category-dropdown > a:not(.btn):hover {
+/* .category-dropdown > a:not(.btn):hover {
   color: #fff;
-}
+} */
 .category-dropdown:hover > a,
 .category-dropdown.show > a {
-  color: #fff;
+  /* color: #fff; */
   background-color: #336699;
 }
 .category-dropdown .dropdown-box {
