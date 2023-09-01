@@ -257,7 +257,7 @@ const Header = () => {
                           </ul>
                         </li>
                         <li>
-                          <h4 className="menu-title">براساس قیمت </h4>
+                          {/* <h4 className="menu-title">براساس قیمت </h4>
                           <hr className="divider" />
                           <ul>
                             <li>
@@ -265,7 +265,7 @@ const Header = () => {
                                 کمتر از ۵ میلیون
                               </a>
                             </li>
-                          </ul>
+                          </ul> */}
                         </li>
                       </ul>
                     </li>

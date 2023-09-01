@@ -14867,9 +14867,9 @@ body .product-popup {
   font-weight: 600;
   font-size: 0.9rem;
 }
-.category-dropdown > a:not(.btn):hover {
+/* .category-dropdown > a:not(.btn):hover {
   color: #fff;
-}
+} */
 .category-dropdown:hover > a,
 .category-dropdown.show > a {
   color: #ec7a5c;
