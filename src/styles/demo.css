@@ -10301,11 +10301,11 @@ body .product-popup {
   bottom: 0;
   width: 31rem;
   padding: 2rem;
-  -webkit-transform: translateX(100%);
-  transform: translateX(100%);
+  /* -webkit-transform: translateX(100%); */
+  /* transform: translateX(100%); */
   overflow: auto;
-  background-color: #fff;
-  opacity: 0;
+  /* background-color: #fff; */
+  /* opacity: 0; */
   line-height: 1.3;
   -webkit-transition: opacity 0.4s, -webkit-transform 0.4s;
   transition: opacity 0.4s, -webkit-transform 0.4s;
