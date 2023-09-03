@@ -165,12 +165,12 @@ const TopCategories = () => {
                         'slidesPerView': 6
                     },
                     '1200': {
-                        'slidesPerView': 8
+                        'slidesPerView': 6
                     }
                     }
                 }"
           >
-            <div className="swiper-wrapper row cols-xl-8 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
+            <div className="swiper-wrapper row cols-xl-8 cols-lg-4 cols-md-4 cols-sm-3 cols-2 justify-content-between">
               {data?.map((item, index) => {
                 return (
                   <div
