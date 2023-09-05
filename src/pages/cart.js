@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useCartContext } from "@/contexts/contex";
 import axios from "axios";
 import Link from "next/link";
+import Modal from "@/components/Modal/Modal";
 
 const Cart = () => {
   const [data, setData] = useState(null);
@@ -632,7 +633,7 @@ const Cart = () => {
                     </span>
                   </div>
                   <Link
-                    href="/checkout"
+                    href="#"
                     className="btn btn-block btn-dark btn-icon-right btn-rounded  btn-checkout"
                   >
                     پردازش و پرداخت<i className="w-icon-long-arrow-left"></i>

@@ -9,7 +9,6 @@ import Modal from "../Modal/Modal";
 const Header = () => {
   const [catMenu, setCatMenu] = useState([]);
   const [subMenu, setSubMenu] = useState([]);
-  const [showModal, setShowModal] = useState(false);
   const { cart } = useCartContext();
 
   const getCategories = async () => {
@@ -33,9 +32,9 @@ const Header = () => {
   useEffect(() => {
     getCategories();
   }, []);
-  const closeModal = () => {
-    setShowModal(false);
-  };
+  // const closeModal = () => {
+  //   setShowModal(false);
+  // };
   return (
     <header className="header">
       <TopHeader />
@@ -509,10 +508,7 @@ const Header = () => {
                 </ul>
               </nav>
             </div>
-            <div
-              className="header-right pr-0"
-              onClick={() => setShowModal(true)}
-            >
+            <div className="header-right pr-0">
               <a href="#">
                 <i className="w-icon-sale"></i>
                 <span>پیشنهادهای ویژه</span>
@@ -521,11 +517,6 @@ const Header = () => {
           </div>
         </div>
       </div>
-      {showModal && (
-        <Modal show={showModal} modalClosed={closeModal}>
-          <p>پیشنهادهای شگفت انگیز</p>
-        </Modal>
-      )}
     </header>
   );
 };

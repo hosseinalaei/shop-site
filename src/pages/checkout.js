@@ -1,8 +1,42 @@
 import Footer from "@/components/Footer/Footer";
 import StickyFooter from "@/components/Footer/StickyFooter";
 import MobileMenu from "@/components/Menu/MobileMenu";
+import Modal from "@/components/Modal/Modal";
+import { useState } from "react";
+import axios from "axios";
 
 const Checkout = () => {
+  const [nationalCode, setNationalCode] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [estelam, setEstelam] = useState("");
+
+  const getEstelam = async () => {
+    try {
+      const response = await axios.post(
+        "https://138.201.167.230:5050/Get/Inquiry",
+        {
+          id: "5cd472c4-1584-45ac-8906-89655742a005",
+          isDelete: false,
+          createDate: "2023-09-05T13:03:42.869Z",
+          lastUpdateDate: "2023-09-05T13:03:42.869Z",
+          phoneNumber: phoneNumber,
+          nationalId: nationalCode,
+        }
+      );
+      if (response.status === 200) {
+        setEstelam(response.data.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const estelamFunc = () => {
+    setShowModal(true);
+    getEstelam();
+  };
+
   return (
     <>
       <div class="page-wrapper">
@@ -27,7 +61,7 @@ const Checkout = () => {
 
           <div class="page-content">
             <div class="container">
-              <div class="login-toggle">
+              {/* <div class="login-toggle">
                 مشتری بازگشتی؟{" "}
                 <a
                   href="#"
@@ -109,7 +143,7 @@ const Checkout = () => {
                     اعمال کد
                   </button>
                 </div>
-              </div>
+              </div> */}
               <form class="form checkout-form" action="#" method="post">
                 <div class="row mb-9">
                   <div class="col-lg-7 pr-lg-4 mb-4">
@@ -124,7 +158,6 @@ const Checkout = () => {
                             type="text"
                             class="form-control form-control-md"
                             name="firstname"
-                            required
                           />
                         </div>
                       </div>
@@ -135,20 +168,43 @@ const Checkout = () => {
                             type="text"
                             class="form-control form-control-md"
                             name="lastname"
-                            required
                           />
                         </div>
                       </div>
                     </div>
-                    <div class="form-group">
+                    <div class="row gutter-sm">
+                      <div class="col-xs-6">
+                        <div class="form-group">
+                          <label>شماره تلفن *</label>
+                          <input
+                            type="text"
+                            class="form-control form-control-md"
+                            name="firstname"
+                            onChange={(e) => setPhoneNumber(e.target.value)}
+                          />
+                        </div>
+                      </div>
+                      <div class="col-xs-6">
+                        <div class="form-group">
+                          <label> کد ملی *</label>
+                          <input
+                            type="text"
+                            class="form-control form-control-md"
+                            name="lastname"
+                            onChange={(e) => setNationalCode(e.target.value)}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    {/* <div class="form-group">
                       <label>نام شرکت (اختیاری)</label>
                       <input
                         type="text"
                         class="form-control form-control-md"
                         name="company-name"
                       />
-                    </div>
-                    <div class="form-group">
+                    </div> */}
+                    {/* <div class="form-group">
                       <label>کشور / منطقه *</label>
                       <div class="select-box">
                         <select
@@ -164,8 +220,8 @@ const Checkout = () => {
                           <option value="aus">استرالیا </option>
                         </select>
                       </div>
-                    </div>
-                    <div class="form-group">
+                    </div> */}
+                    {/* <div class="form-group">
                       <label>آدرس خیابان *</label>
                       <input
                         type="text"
@@ -181,8 +237,8 @@ const Checkout = () => {
                         name="street-address-2"
                         required
                       />
-                    </div>
-                    <div class="row gutter-sm">
+                    </div> */}
+                    {/* <div class="row gutter-sm">
                       <div class="col-md-6">
                         <div class="form-group">
                           <label>خانه / شهر *</label>
@@ -231,7 +287,7 @@ const Checkout = () => {
                           />
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                     <div class="form-group mb-7">
                       <label>آدرس ایمیل *</label>
                       <input
@@ -241,7 +297,7 @@ const Checkout = () => {
                         required
                       />
                     </div>
-                    <div class="form-group checkbox-toggle pb-2">
+                    {/* <div class="form-group checkbox-toggle pb-2">
                       <input
                         type="checkbox"
                         class="custom-checkbox"
@@ -251,8 +307,8 @@ const Checkout = () => {
                       <label for="shipping-toggle">
                         به آدرس دیگری ارسال شود؟
                       </label>
-                    </div>
-                    <div class="checkbox-content">
+                    </div> */}
+                    {/* <div class="checkbox-content">
                       <div class="row gutter-sm">
                         <div class="col-xs-6">
                           <div class="form-group">
@@ -352,7 +408,7 @@ const Checkout = () => {
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
 
                     <div class="form-group mt-3">
                       <label for="order-notes">
@@ -383,24 +439,24 @@ const Checkout = () => {
                           <tbody>
                             <tr class="bb-no">
                               <td class="product-name">
-                                کت چاپ نخل <i class="fas fa-times"></i>{" "}
+                                گلکسی s21 <i class="fas fa-times"></i>{" "}
                                 <span class="product-quantity">1</span>
                               </td>
-                              <td class="product-total">80000 تومان </td>
+                              <td class="product-total">25000000 تومان </td>
                             </tr>
                             <tr class="bb-no">
                               <td class="product-name">
-                                کوله پشتی قهوه ای <i class="fas fa-times"></i>
+                                ایفون ۱۳ پرو<i class="fas fa-times"></i>
                                 <span class="product-quantity">1</span>
                               </td>
-                              <td class="product-total">50000 تومان</td>
+                              <td class="product-total">50000000 تومان</td>
                             </tr>
                             <tr class="cart-subtotal bb-no">
                               <td>
                                 <b>مجموع</b>
                               </td>
                               <td>
-                                <b>100000 تومان</b>
+                                <b>75000000 تومان</b>
                               </td>
                             </tr>
                           </tbody>
@@ -473,7 +529,7 @@ const Checkout = () => {
                           </tfoot>
                         </table>
 
-                        <div class="payment-methods" id="payment_method">
+                        {/* <div class="payment-methods" id="payment_method">
                           <h4 class="title font-weight-bold ls-25 pb-0 mb-1">
                             روش های پرداخت{" "}
                           </h4>
@@ -544,12 +600,13 @@ const Checkout = () => {
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </div> */}
 
                         <div class="form-group place-order pt-6">
                           <button
                             type="submit"
                             class="btn btn-dark btn-block btn-rounded"
+                            onClick={estelamFunc}
                           >
                             سفارش
                           </button>
@@ -561,6 +618,14 @@ const Checkout = () => {
               </form>
             </div>
           </div>
+          {showModal && (
+            <Modal show={showModal} modalClosed={() => setShowModal(false)}>
+              <div style={{ textAlign: "center" }}>
+                <h2>:وضعیت استعلام</h2>
+                <h4>{estelam}</h4>
+              </div>
+            </Modal>
+          )}
         </main>
 
         <Footer />
