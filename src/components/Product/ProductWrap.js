@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import Link from "next/link";
 import ProductImage from "./ProductImage";
@@ -9,16 +9,19 @@ const ProductWrap = (props) => {
 
   const getMedia = async () => {
     try {
-      const response = await fetch("http://138.201.167.230:5050/Get/GetMedia", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({
-          id: props.id,
-          mediaFieldName: "productImageName",
-        }),
-      });
+      const response = await fetch(
+        "https://138.201.167.230:5050/Get/GetMedia",
+        {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({
+            id: props.id,
+            mediaFieldName: "productImageName",
+          }),
+        }
+      );
       const resData = await response.json();
       if (response.status === 200) {
         setMedia(resData.data);

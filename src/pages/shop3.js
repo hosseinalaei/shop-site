@@ -9,7 +9,7 @@ const Shop = () => {
   const getData = async () => {
     try {
       const response = await fetch(
-        "http://138.201.167.230:5050/Products/getLastProduct"
+        "https://138.201.167.230:5050/Products/getLastProduct"
       );
       const resData = await response.json();
       if (response.status === 200) {

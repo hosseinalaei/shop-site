@@ -9,6 +9,8 @@ import "react-toastify/dist/ReactToastify.css";
 import "react-tabs/style/react-tabs.css";
 import "../components/FiltersDrawer/Backdrop.css";
 import "../components/FiltersDrawer/FiltersDrawer.css";
+import "../components/Modal/Modal.css";
+import "../components/Modal/backdrop/Backdrop.css";
 
 export default function App({ Component, pageProps }) {
   return (

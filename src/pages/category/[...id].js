@@ -23,7 +23,7 @@ const categoryProducts = () => {
     try {
       setData([]);
       const response = await fetch(
-        `http://138.201.167.230:5050/Products/product-by-categories/${id[1]}`
+        `https://138.201.167.230:5050/Products/product-by-categories/${id[1]}`
       );
       const resDate = await response.json();
       if (response.status === 200) {

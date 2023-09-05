@@ -15,10 +15,12 @@ const moreProduct = [
   { title: "2محصول تست", price: 10000000, cat: "هواوی", imgSrc: productImage },
   { title: "3محصول تست", price: 35000000, cat: "اپل", imgSrc: productImage },
 ];
+
 const product = () => {
   const [data, setData] = useState(null);
   const [media, setMedia] = useState("");
   const [count, setCount] = useState(1);
+  // const [user, setUser] = useState({});
   const {
     cart,
     clearCart,
@@ -31,11 +33,15 @@ const product = () => {
   const router = useRouter();
   const { id } = router.query;
 
+  // if (typeof window !== "undefined") {
+  //   setUser(localStorage.getItem("user"));
+  // }
+
   const getProdctData = async () => {
     try {
       // console.log("process.env.BASE_URL", process.env.BASE_URL);
       const response = await axios.post(
-        "http://138.201.167.230:5050/Products/single-product",
+        "https://138.201.167.230:5050/Products/single-product",
         {
           productId: id,
         }
@@ -52,7 +58,7 @@ const product = () => {
   const getMedia = async () => {
     try {
       const response = await axios.post(
-        "http://138.201.167.230:5050/Get/GetMedia",
+        "https://138.201.167.230:5050/Get/GetMedia",
         {
           id: id,
           mediaFieldName: "productImageName",
@@ -66,6 +72,36 @@ const product = () => {
   useEffect(() => {
     id && getProdctData() && getMedia();
   }, [id]);
+
+  const addOrder = async () => {
+    // if (typeof window !== "undefined") {
+    //   setUser(localStorage.getItem("user"));
+    // }
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    try {
+      const response = await axios.post(
+        "https://138.201.167.230:5050/Order/add-order",
+        {
+          ProductId: id,
+          count: count,
+          userId: user.userId,
+          isUser: true,
+        }
+      );
+      if (response.status === 200) {
+        console.log(response.data.data.details);
+        addToCart(id);
+        localStorage.setItem(
+          "order",
+          JSON.stringify(response.data.data.details)
+        );
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="page-content">
       <div className="container">
@@ -256,7 +292,7 @@ const product = () => {
                       </div>
                       <button
                         className="btn btn-primary btn-cart"
-                        onClick={() => addToCart(id)}
+                        onClick={addOrder}
                       >
                         <i className="w-icon-cart"></i>
                         <span>افزودن به سبد </span>

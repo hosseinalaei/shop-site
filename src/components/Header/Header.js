@@ -4,16 +4,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useCartContext } from "@/contexts/contex";
+import Modal from "../Modal/Modal";
 
 const Header = () => {
   const [catMenu, setCatMenu] = useState([]);
   const [subMenu, setSubMenu] = useState([]);
+  const [showModal, setShowModal] = useState(false);
   const { cart } = useCartContext();
 
   const getCategories = async () => {
     try {
       const response = await fetch(
-        "http://138.201.167.230:5050/Products/product-active-categories"
+        "https://138.201.167.230:5050/Products/product-active-categories"
       );
       const resData = await response.json();
       const categoryData = await resData.data.filter(
@@ -31,6 +33,9 @@ const Header = () => {
   useEffect(() => {
     getCategories();
   }, []);
+  const closeModal = () => {
+    setShowModal(false);
+  };
   return (
     <header className="header">
       <TopHeader />
@@ -504,7 +509,10 @@ const Header = () => {
                 </ul>
               </nav>
             </div>
-            <div className="header-right pr-0">
+            <div
+              className="header-right pr-0"
+              onClick={() => setShowModal(true)}
+            >
               <a href="#">
                 <i className="w-icon-sale"></i>
                 <span>پیشنهادهای ویژه</span>
@@ -513,6 +521,11 @@ const Header = () => {
           </div>
         </div>
       </div>
+      {showModal && (
+        <Modal show={showModal} modalClosed={closeModal}>
+          <p>پیشنهادهای شگفت انگیز</p>
+        </Modal>
+      )}
     </header>
   );
 };
