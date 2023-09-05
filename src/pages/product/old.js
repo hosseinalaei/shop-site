@@ -25,7 +25,7 @@ const product = () => {
     try {
       // console.log("process.env.BASE_URL", process.env.BASE_URL);
       const response = await axios.post(
-        "http://138.201.167.230:5050/Products/single-product",
+        "https://138.201.167.230:5050/Products/single-product",
         {
           productId: id,
         }
@@ -42,7 +42,7 @@ const product = () => {
   const getMedia = async () => {
     try {
       const response = await axios.post(
-        "http://138.201.167.230:5050/Get/GetMedia",
+        "https://138.201.167.230:5050/Get/GetMedia",
         {
           id: id,
           mediaFieldName: "productImageName",

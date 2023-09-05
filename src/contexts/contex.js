@@ -11,25 +11,25 @@ import reducer from "../utils/reducer";
 const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
 
-  const getData = async () => {
-    try {
-      const response = await fetch(
-        "http://138.201.167.230:5050/Products/getLastProduct"
-      );
-      const resData = await response.json();
-      if (response.status === 200) {
-        setData(resData.data);
-      }
-    } catch (error) {
-      console.log(error.response);
-    }
-  };
+  // const getData = async () => {
+  //   try {
+  //     const response = await fetch(
+  //       "https://138.201.167.230:5050/Products/getLastProduct"
+  //     );
+  //     const resData = await response.json();
+  //     if (response.status === 200) {
+  //       setData(resData.data);
+  //     }
+  //   } catch (error) {
+  //     console.log(error.response);
+  //   }
+  // };
 
-  useEffect(() => {
-    getData();
-  }, []);
+  // useEffect(() => {
+  //   getData();
+  // }, []);
 
   const initialState = {
     loading: false,

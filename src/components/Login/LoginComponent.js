@@ -11,7 +11,7 @@ const LoginComponent = () => {
   const submitPhoneNumber = async () => {
     try {
       const response = await fetch(
-        "http://138.201.167.230:5050/Account/checkMobile",
+        "https://138.201.167.230:5050/Account/checkMobile",
         {
           method: "POST",
           headers: {
@@ -37,7 +37,7 @@ const LoginComponent = () => {
   const submitVerifyCode = async () => {
     try {
       const response = await fetch(
-        "http://138.201.167.230:5050/Account/login",
+        "https://138.201.167.230:5050/Account/login",
         {
           method: "POST",
           headers: {

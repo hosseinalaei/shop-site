@@ -1,11 +1,38 @@
+import { useEffect, useState } from "react";
 import { useCartContext } from "@/contexts/contex";
-import { useState } from "react";
+import axios from "axios";
+import Link from "next/link";
 
 const Cart = () => {
-  const { cart, clearCart, remove, changeQuantity, total, addToCart, deduction } =
-    useCartContext();
+  const [data, setData] = useState(null);
+  const getOrderDetail = async () => {
+    const order = JSON.parse(localStorage.getItem("order"));
+    const user = JSON.parse(localStorage.getItem("user"));
+    try {
+      const response = await axios.get(
+        `https://138.201.167.230:5050/Order/get-order-details/${order.id}?userId=${user.userId}`
+      );
+      if (response.status === 200) {
+        setData(response.data.data);
+      }
+    } catch (error) {
+      console.log("eror cart", error);
+    }
+  };
 
-    
+  useEffect(() => {
+    getOrderDetail();
+  }, []);
+
+  const {
+    cart,
+    clearCart,
+    remove,
+    changeQuantity,
+    total,
+    addToCart,
+    deduction,
+  } = useCartContext();
 
   let renderedContent = (
     <>
@@ -53,7 +80,7 @@ const Cart = () => {
               </tr>
             </thead>
             <tbody>
-              {cart.map((item) => {
+              {/* {cart.map((item) => {
                 return (
                   <tr key={item.id}>
                     <td className="product-thumbnail">
@@ -98,12 +125,87 @@ const Cart = () => {
                             })
                           }
                         />
-                        <button className="quantity-plus w-icon-plus" onClick={() => {addToCart(item)}}></button>
-                        <button className="quantity-minus w-icon-minus" onClick={() =>{deduction(item)}}></button>
+                        <button
+                          className="quantity-plus w-icon-plus"
+                          onClick={() => {
+                            addToCart(item);
+                          }}
+                        ></button>
+                        <button
+                          className="quantity-minus w-icon-minus"
+                          onClick={() => {
+                            deduction(item);
+                          }}
+                        ></button>
                       </div>
                     </td>
                     <td className="product-subtotal">
                       <span className="amount">{item.price} تومان </span>
+                    </td>
+                  </tr>
+                );
+              })} */}
+              {data?.orderDetails.map((item) => {
+                return (
+                  <tr key={item.productId}>
+                    <td className="product-thumbnail">
+                      <div className="p-relative">
+                        <a href="product-default.html">
+                          <figure>
+                            <img
+                              src={item.img}
+                              alt="product"
+                              width="300"
+                              height="338"
+                            />
+                          </figure>
+                        </a>
+                        <button
+                          type="submit"
+                          className="btn btn-close"
+                          onClick={() => remove(item.productId)}
+                        >
+                          <i className="fas fa-times"></i>
+                        </button>
+                      </div>
+                    </td>
+                    <td className="product-name">
+                      <a href="product-default.html">{item.title}</a>
+                    </td>
+                    <td className="product-price">
+                      <span className="amount">{item.productPrice} تومان </span>
+                    </td>
+                    <td className="product-quantity">
+                      <div className="input-group">
+                        <input
+                          value={item.count}
+                          className="quantity form-control"
+                          type="number"
+                          min="1"
+                          max="100000"
+                          onChange={(e) =>
+                            changeQuantity({
+                              id: item.id,
+                              quantity: +e.target.value,
+                            })
+                          }
+                        />
+                        <button
+                          className="quantity-plus w-icon-plus"
+                          onClick={() => {
+                            addToCart(item);
+                          }}
+                        ></button>
+                        <button
+                          className="quantity-minus w-icon-minus"
+                          onClick={() => {
+                            deduction(item);
+                          }}
+                        ></button>
+                      </div>
+                    </td>
+                    <td className="product-subtotal">
+                      <span className="amount">{item.productPrice} تومان </span>
                     </td>
                   </tr>
                 );
@@ -176,6 +278,224 @@ const Cart = () => {
         <div className="container">
           <div className="row gutter-lg mb-10">
             {renderedContent}
+
+            {/* <div className="col-lg-8 col-md-7 pt-sm-2">
+            {cart.map((item) => {
+              return <CartItem key={item.id} {...item} />;
+            })}
+          </div>
+          <div className="col-lg-4 col-md-5 pt-3 pt-sm-4 border-end">
+            <div className="text-center mb-4 pb-3 border-bottom">
+              <h3 className="h5 mb-3 pb-1">جمع کل</h3>
+              <h4 className="fw-normal">{total.toLocaleString()} تومان</h4>
+            </div>
+            <a
+              onClick={clearCart}
+              className="btn btn-primary btn-shadow d-block w-100 mt-4"
+            >
+              حذف همه آیتم ها
+            </a>
+          </div> */}
+
+            <div className="col-lg-8 pr-lg-4 mb-6">
+              <table className="shop-table cart-table">
+                <thead>
+                  <tr>
+                    <th className="product-name">
+                      <span>محصول </span>
+                    </th>
+                    <th></th>
+                    <th className="product-price">
+                      <span>قیمت </span>
+                    </th>
+                    <th className="product-quantity">
+                      <span>تعداد </span>
+                    </th>
+                    <th className="product-subtotal">
+                      <span>جمع فرعی </span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {/* {cart.map((item) => {
+                return (
+                  <tr key={item.id}>
+                    <td className="product-thumbnail">
+                      <div className="p-relative">
+                        <a href="product-default.html">
+                          <figure>
+                            <img
+                              src={item.img}
+                              alt="product"
+                              width="300"
+                              height="338"
+                            />
+                          </figure>
+                        </a>
+                        <button
+                          type="submit"
+                          className="btn btn-close"
+                          onClick={() => remove(item.id)}
+                        >
+                          <i className="fas fa-times"></i>
+                        </button>
+                      </div>
+                    </td>
+                    <td className="product-name">
+                      <a href="product-default.html">{item.title}</a>
+                    </td>
+                    <td className="product-price">
+                      <span className="amount">{item.price} تومان </span>
+                    </td>
+                    <td className="product-quantity">
+                      <div className="input-group">
+                        <input
+                          value={item.quantity}
+                          className="quantity form-control"
+                          type="number"
+                          min="1"
+                          max="100000"
+                          onChange={(e) =>
+                            changeQuantity({
+                              id: item.id,
+                              quantity: +e.target.value,
+                            })
+                          }
+                        />
+                        <button
+                          className="quantity-plus w-icon-plus"
+                          onClick={() => {
+                            addToCart(item);
+                          }}
+                        ></button>
+                        <button
+                          className="quantity-minus w-icon-minus"
+                          onClick={() => {
+                            deduction(item);
+                          }}
+                        ></button>
+                      </div>
+                    </td>
+                    <td className="product-subtotal">
+                      <span className="amount">{item.price} تومان </span>
+                    </td>
+                  </tr>
+                );
+              })} */}
+                  {data?.orderDetails.map((item) => {
+                    return (
+                      <tr key={item.productId}>
+                        <td className="product-thumbnail">
+                          <div className="p-relative">
+                            <a href="product-default.html">
+                              <figure>
+                                <img
+                                  src={item.img}
+                                  alt="product"
+                                  width="300"
+                                  height="338"
+                                />
+                              </figure>
+                            </a>
+                            <button
+                              type="submit"
+                              className="btn btn-close"
+                              onClick={() => remove(item.productId)}
+                            >
+                              <i className="fas fa-times"></i>
+                            </button>
+                          </div>
+                        </td>
+                        <td className="product-name">
+                          <a href="product-default.html">{item.title}</a>
+                        </td>
+                        <td className="product-price">
+                          <span className="amount">
+                            {item.productPrice} تومان{" "}
+                          </span>
+                        </td>
+                        <td className="product-quantity">
+                          <div className="input-group">
+                            <input
+                              value={item.count}
+                              className="quantity form-control"
+                              type="number"
+                              min="1"
+                              max="100000"
+                              onChange={(e) =>
+                                changeQuantity({
+                                  id: item.id,
+                                  quantity: +e.target.value,
+                                })
+                              }
+                            />
+                            <button
+                              className="quantity-plus w-icon-plus"
+                              onClick={() => {
+                                addToCart(item);
+                              }}
+                            ></button>
+                            <button
+                              className="quantity-minus w-icon-minus"
+                              onClick={() => {
+                                deduction(item);
+                              }}
+                            ></button>
+                          </div>
+                        </td>
+                        <td className="product-subtotal">
+                          <span className="amount">
+                            {item.productPrice} تومان{" "}
+                          </span>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+
+              <div className="cart-action mb-6">
+                <a
+                  href="#"
+                  className="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto"
+                >
+                  <i className="w-icon-long-arrow-left"></i>ادامه خرید کردن{" "}
+                </a>
+                <button
+                  onClick={clearCart}
+                  type="submit"
+                  className="btn btn-rounded btn-default btn-clear"
+                  name="clear_cart"
+                  value="پاک کردن سبد "
+                >
+                  پاک کردن سبد{" "}
+                </button>
+                <button
+                  type="submit"
+                  className="btn btn-rounded btn-update disabled"
+                  name="update_cart"
+                  value="بروز کردن سبد"
+                >
+                  بروز کردن سبد
+                </button>
+              </div>
+
+              {/* <form className="coupon">
+                <h5 className="title coupon-title font-weight-bold text-uppercase">
+                  جشنواره کوپن با{" "}
+                </h5>
+                <input
+                  type="text"
+                  className="form-control mb-4"
+                  placeholder="کد تخفیف را وارد کنید..."
+                  required
+                />
+                <button className="btn btn-dark btn-outline btn-rounded">
+                  اعمال کد
+                </button>
+              </form> */}
+            </div>
+
             <div className="col-lg-4 sticky-sidebar-wrapper">
               <div className="sticky-sidebar">
                 <div className="cart-summary mb-4">
@@ -307,14 +627,16 @@ const Cart = () => {
                   <hr className="divider mb-6" />
                   <div className="order-total d-flex justify-content-between align-items-center">
                     <label>مجموع</label>
-                    <span className="ls-50">{total.toLocaleString()} تومان</span>
+                    <span className="ls-50">
+                      {total.toLocaleString()} تومان
+                    </span>
                   </div>
-                  <a
-                    href="#"
+                  <Link
+                    href="/checkout"
                     className="btn btn-block btn-dark btn-icon-right btn-rounded  btn-checkout"
                   >
                     پردازش و پرداخت<i className="w-icon-long-arrow-left"></i>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
