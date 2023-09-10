@@ -1,0 +1,297 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: yekan;
+  font-style: normal;
+  font-weight: bold;
+  src: url("../assets/fonts/iranyekanfanum/eot/iranyekanwebboldfanum.eot");
+  src: url("../assets/fonts/iranyekanfanum/eot/iranyekanwebboldfanum.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-8 */
+      url("../assets/fonts/iranyekanfanum/woff/iranyekanwebboldfanum.woff")
+      format("woff"),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+      url("../assets/fonts/iranyekanfanum/ttf/iranyekanwebboldfanum.ttf")
+      format("truetype");
+}
+
+@font-face {
+  font-family: yekan;
+  font-style: normal;
+  font-weight: 100;
+  src: url("../assets/fonts/iranyekanfanum/eot/iranyekanwebthinfanum.eot");
+  src: url("../assets/fonts/iranyekanfanum/eot/iranyekanwebthinfanum.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-8 */
+      url("../assets/fonts/iranyekanfanum/woff/iranyekanwebthinfanum.woff")
+      format("woff"),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+      url("../assets/fonts/iranyekanfanum/ttf/iranyekanwebthinfanum.ttf")
+      format("truetype");
+}
+
+@font-face {
+  font-family: yekan;
+  font-style: normal;
+  font-weight: 300;
+  src: url("../assets/fonts/iranyekanfanum/eot/iranyekanweblightfanum.eot");
+  src: url("../assets/fonts/iranyekanfanum/eot/iranyekanweblightfanum.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-8 */
+      url("../assets/fonts/iranyekanfanum/woff/iranyekanweblightfanum.woff")
+      format("woff"),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+      url("../assets/fonts/iranyekanfanum/ttf/iranyekanweblightfanum.ttf")
+      format("truetype");
+}
+
+@font-face {
+  font-family: yekan;
+  font-style: normal;
+  font-weight: normal;
+  src: url("../assets/fonts/iranyekanfanum/eot/iranyekanwebregularfanum.eot");
+  src: url("../assets/fonts/iranyekanfanum/eot/iranyekanwebregularfanum.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-8 */
+      url("../assets/fonts/iranyekanfanum/woff/iranyekanwebregularfanum.woff")
+      format("woff"),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+      url("../assets/fonts/iranyekanfanum/ttf/iranyekanwebregularfanum.ttf")
+      format("truetype");
+}
+
+@font-face {
+  font-family: yekan;
+  font-style: normal;
+  font-weight: 500;
+  src: url("../assets/fonts/iranyekanfanum/eot/iranyekanwebmediumfanum.eot");
+  src: url("../assets/fonts/iranyekanfanum/eot/iranyekanwebmediumfanum.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-8 */
+      url("../assets/fonts/iranyekanfanum/woff/iranyekanwebmediumfanum.woff")
+      format("woff"),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+      url("../assets/fonts/iranyekanfanum/ttf/iranyekanwebmediumfanum.ttf")
+      format("truetype");
+}
+
+@font-face {
+  font-family: yekan;
+  font-style: normal;
+  font-weight: 800;
+  src: url("../assets/fonts/iranyekanfanum/eot/iranyekanwebextraboldfanum.eot");
+  src: url("../assets/fonts/iranyekanfanum/eot/iranyekanwebextraboldfanum.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-8 */
+      url("../assets/fonts/iranyekanfanum/woff/iranyekanwebextraboldfanum.woff")
+      format("woff"),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+      url("../assets/fonts/iranyekanfanum/ttf/iranyekanwebextraboldfanum.ttf")
+      format("truetype");
+}
+
+@font-face {
+  font-family: yekan;
+  font-style: normal;
+  font-weight: 900;
+  src: url("../assets/fonts/iranyekanfanum/eot/iranyekanwebblackfanum.eot");
+  src: url("../assets/fonts/iranyekanfanum/eot/iranyekanwebblackfanum.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-8 */
+      url("../assets/fonts/iranyekanfanum/woff/iranyekanwebblackfanum.woff")
+      format("woff"),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+      url("../assets/fonts/iranyekanfanum/ttf/iranyekanwebblackfanum.ttf")
+      format("truetype");
+}
+
+@font-face {
+  font-family: yekan;
+  font-style: normal;
+  font-weight: 950;
+  src: url("../assets/fonts/iranyekanfanum/eot/iranyekanwebextrablackfanum.eot");
+  src: url("../assets/fonts/iranyekanfanum/eot/iranyekanwebextrablackfanum.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-8 */
+      url("../assets/fonts/iranyekanfanum/woff/iranyekanwebextrablackfanum.woff")
+      format("woff"),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+      url("../assets/fonts/iranyekanfanum/ttf/iranyekanwebextrablackfanum.ttf")
+      format("truetype");
+}
+
+*{
+  font-family: yekan;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888888;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
+
+.down-2 {
+  position: relative;
+}
+.down-2:hover .txt-2 {
+  display: flex;
+}
+.down-2 .txt-2 {
+  box-shadow: 0 0 1px black;
+  display: none;
+  top: 15px;
+  position: absolute;
+  z-index: 1;
+  background-color: #ffffff;
+  width: 800px;
+}
+
+.head {
+  background-color: #f5f6f8;
+  font-family: "wolmart";
+}
+.head .font-head {
+  font-size: 11px;
+  margin: -3px;
+}
+.head .down {
+  position: relative;
+}
+.head .down:hover .txt {
+  display: block;
+}
+.head .down .txt {
+  box-shadow: 0 0 1px black;
+  display: none;
+  top: 15px;
+  position: absolute;
+  z-index: 1;
+  background-color: #ffffff;
+}
+.head .down .link-down {
+  font-size: 11px;
+  color: black;
+  text-decoration: none;
+}
+.head .down .link-down:hover {
+  color: #2266cc;
+}
+
+.flag {
+  height: 0.5rem;
+}
+
+.link {
+  font-size: 11px;
+  color: black;
+}
+.link:hover {
+  color: #2266cc;
+}
+
+.logo {
+  height: 2.9rem;
+}
+
+.input {
+  border: none;
+  outline: none;
+}
+
+.input-2 {
+  border: none;
+  outline: none;
+  width: 75vw;
+}
+
+.font {
+  font-size: 11px;
+}
+
+::placeholder {
+  font-size: 11px;
+}
+
+.link-4 {
+  color: black;
+  font-size: 25px;
+}
+.link-4:hover {
+  color: #2266cc;
+}
+
+.link-2 {
+  font-size: 13px;
+  color: black;
+}
+.link-2:hover {
+  color: #2266cc;
+}
+
+.link-3 {
+  color: rgb(255, 255, 255);
+  font-size: 13px;
+}
+.link-3:hover {
+  color: #2266cc;
+}
+
+.position {
+  right: 10px;
+  top: 7px;
+}
+
+.icon {
+  font-size: 30px;
+}
+
+.icon-2 {
+  font-size: 30px;
+}
+.icon-2:hover {
+  transform: translateY(-5px);
+}
+
+.bg-icon {
+  background-color: #333;
+}
+
+.fs-normal {
+  font-size: 15px;
+}
+
+.bi-facebook:hover {
+  color: blue;
+}
+
+.bi-twitter:hover {
+  color: aqua;
+}
+
+.bi-instagram:hover {
+  color: purple;
+}
+
+.bi-youtube:hover {
+  color: red;
+}
+
+.bi-pinterest:hover {
+  color: orange;
+}
+
+.pay {
+  height: 1.4rem;
+}
+
+/*# sourceMappingURL=h-header.css.map */

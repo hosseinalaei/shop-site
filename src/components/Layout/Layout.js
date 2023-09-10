@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
       <Header />
       <Suspense fallback={<Loading />}>{children}</Suspense>
       <Footer />
-      <StickyFooter />
+      {/* <StickyFooter /> */}
     </>
   );
 };

@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+
 
 import prod1 from "../../assets/images/demos/demo15/products/1-1-1.jpg"
 import prod2 from "../../assets/images/demos/demo15/products/1-1-2.jpg"
@@ -46,28 +48,28 @@ const SpecialOffers = () => {
                 </div>
               </div>
               <div className="col-xxl-10 col-xl-9 col-lg-8 col-md-7">
-                <div
-                  className="swiper-container swiper-theme"
-                  data-swiper-options="{
-                'spaceBetween': 20,
-                'breakpoints': {
-                    '0': {
-                        'slidesPerView': 2
+                <Swiper
+                  // className="swiper-container swiper-theme"
+                  spaceBetween= {20}
+                breakpoints= {
+                    {0: {
+                        slidesPerView: 2
                     },
-                    '768': {
-                        'slidesPerView': 3
+                    768: {
+                        slidesPerView: 3
                     },
-                    '992': {
-                        'slidesPerView': 4
+                    992: {
+                        slidesPerView: 4
                     },
-                    '1200': {
-                        'slidesPerView': 5
-                    }
+                    1200: {
+                        slidesPerView: 5
+                    }}
                 }
-                }"
                 >
                   <div className="swiper-wrapper row cols-lg-5 cols-md-4 cols-sm-3 cols-2">
-                    <div className="swiper-slide product-wrap">
+                    <SwiperSlide 
+                    // className="swiper-slide product-wrap"
+                    >
                       <div className="product text-center">
                         <figure className="product-media">
                           <a href="product-default.html">
@@ -117,8 +119,10 @@ const SpecialOffers = () => {
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="swiper-slide product-wrap">
+                    </SwiperSlide>
+                    <SwiperSlide 
+                    // className="swiper-slide product-wrap"
+                    >
                       <div className="product text-center">
                         <figure className="product-media">
                           <a href="product-default.html">
@@ -168,7 +172,7 @@ const SpecialOffers = () => {
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </SwiperSlide>
                     <div className="swiper-slide product-wrap">
                       <div className="product text-center">
                         <figure className="product-media">
@@ -220,7 +224,9 @@ const SpecialOffers = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="swiper-slide product-wrap">
+                    <SwiperSlide 
+                    // className="swiper-slide product-wrap"
+                    >
                       <div className="product text-center">
                         <figure className="product-media">
                           <a href="product-default.html">
@@ -270,8 +276,10 @@ const SpecialOffers = () => {
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="swiper-slide product-wrap">
+                    </SwiperSlide>
+                    <SwiperSlide 
+                    // className="swiper-slide product-wrap"
+                    >
                       <div className="product text-center">
                         <figure className="product-media">
                           <a href="product-default.html">
@@ -321,9 +329,9 @@ const SpecialOffers = () => {
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </SwiperSlide>
                   </div>
-                </div>
+                </Swiper>
               </div>
             </div>
 

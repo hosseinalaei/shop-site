@@ -147,36 +147,55 @@ const TopCategories = () => {
           دسته بندی محصولات
         </h2>
         <div className="pl-2 pr-2">
-          <div
-            className="swiper-container swiper-theme shadow-swiper"
-            data-swiper-options="{
-                'spaceBetween': 40,
-                'breakpoints': {
-                    '0': {
-                        'slidesPerView': 2
+          <Swiper
+            // className="swiper-container swiper-theme shadow-swiper"
+            spaceBetween= {40}
+                breakpoints={
+                    {0: {
+                        slidesPerView: 2
                     },
-                    '576': {
-                        'slidesPerView': 3
+                    576: {
+                        slidesPerView: 3
                     },
-                    '768': {
-                        'slidesPerView': 4
+                    768: {
+                        slidesPerView: 4
                     },
-                    '992': {
-                        'slidesPerView': 6
+                    992: {
+                        slidesPerView: 6
                     },
-                    '1200': {
-                        'slidesPerView': 6
+                    1200: {
+                        slidesPerView: 6
+                    }}
                     }
-                    }
-                }"
+            // data-swiper-options="{
+            //     'spaceBetween': 40,
+            //     'breakpoints': {
+            //         '0': {
+            //             'slidesPerView': 2
+            //         },
+            //         '576': {
+            //             'slidesPerView': 3
+            //         },
+            //         '768': {
+            //             'slidesPerView': 4
+            //         },
+            //         '992': {
+            //             'slidesPerView': 6
+            //         },
+            //         '1200': {
+            //             'slidesPerView': 6
+            //         }
+            //         }
+            //     }"
           >
             <div className="swiper-wrapper row cols-xl-8 cols-lg-4 cols-md-4 cols-sm-3 cols-2 justify-content-between">
               {data?.map((item, index) => {
                 return (
-                  <div
-                    className="swiper-slide category category-ellipse"
+                  <SwiperSlide
+                    // className="swiper-slide category category-ellipse"
                     key={index}
                   >
+                    <div className="category category-ellipse">
                     <figure className="category-media">
                       <Link href={item.Link}>
                         <Image
@@ -193,7 +212,9 @@ const TopCategories = () => {
                         <Link href="demo15-shop.html">{item.title} </Link>
                       </h4>
                     </div>
-                  </div>
+
+                    </div>
+                  </SwiperSlide>
                 );
               })}
               {/* <div className="swiper-slide category category-ellipse">
@@ -342,7 +363,7 @@ const TopCategories = () => {
               </div> */}
             </div>
             <div className="swiper-pagination"></div>
-          </div>
+          </Swiper>
         </div>
       </div>
     </div>

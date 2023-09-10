@@ -11,10 +11,10 @@ const MainPage = () => {
     <div className="page-wrapper">
       <h1 className="d-none">فروشگاه شاپ آی آر</h1>
       <main className="main">
-        <IntroSection />
+        {/* <IntroSection />
         <TopCategories />
         <SpecialOffers />
-        <SpecialProducts />
+        <SpecialProducts /> */}
         {/* <MiddleBanner />
         <NewProducts /> */}
       </main>

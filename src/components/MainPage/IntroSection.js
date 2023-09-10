@@ -13,12 +13,19 @@ import slide3 from "../../assets/images/demos/demo9/slides/slide-image-3.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import "swiper/css/autoplay";
+import { useRef } from "react";
 
 const IntroSection = () => {
+  const swiperRef = useRef(null)
+
+  const toSlide = (num) => {
+    swiperRef.current?.swiper.slideTo(num);
+  };
   return (
     <section className="intro-section mb-6">
       <Swiper
         // className="swiper-container swiper-theme animation-slider swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events swiper-container-rtl"
+        ref={swiperRef}
         slidesPerView={1}
         loop={true}
         autoplay= {
@@ -26,12 +33,15 @@ const IntroSection = () => {
           disableOnInteraction: false}
       }
       modules={[Autoplay]}
-
+      hashNavigation={{
+        watchState: true
+      }}
+      pagination={{el: '.swiper-img-dots', clickable: true}}
       >
+        
         <div className="swiper-wrapper row gutter-no cols-1">
-          <SwiperSlide
+          <SwiperSlide 
             // className="swiper-slide banner banner-fixed content-center intro-slide intro-slide1"
-            
           >
             <div className="banner banner-fixed content-center intro-slide intro-slide1" style={{
               backgroundImage:
@@ -298,7 +308,7 @@ const IntroSection = () => {
           </SwiperSlide> */}
         </div>
         <div className="custom-dots swiper-img-dots">
-          <a href="#" className="active">
+          <a href="#" className="active" onClick={()=>{toSlide(0)}}>
             <Image
               src={dot1}
               alt="Dot"
@@ -306,7 +316,7 @@ const IntroSection = () => {
               height="70"
             />
           </a>
-          <a href="#">
+          <a href="#" onClick={()=>{toSlide(1)}}>
             <Image
               src={dot2}
               alt="Dot"
@@ -314,7 +324,7 @@ const IntroSection = () => {
               height="70"
             />
           </a>
-          <a href="#">
+          <a href="#" onClick={()=>{toSlide(3)}}>
             <Image
               src={dot3}
               alt="Dot"
@@ -322,22 +332,22 @@ const IntroSection = () => {
               height="70"
             />
           </a>
-          <a href="#">
+          {/* <a href="#" onClick={()=>{toSlide(1)}}>
             <Image
               src={dot1}
               alt="Dot"
               width="70"
               height="70"
             />
-          </a>
-          <a href="#">
+          </a> */}
+          {/* <a href="#" onClick={()=>{toSlide(1)}}>
             <Image
               src={dot2}
               alt="Dot"
               width="70"
               height="70"
             />
-          </a>
+          </a> */}
         </div>
       </Swiper>
       {/* <Swiper

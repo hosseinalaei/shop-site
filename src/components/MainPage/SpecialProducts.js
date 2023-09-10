@@ -1,5 +1,8 @@
 
 import Image from 'next/image'
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
 import banner1 from '../../assets/images/demos/demo15/banner/banner-1.jpg'
 import banner2 from '../../assets/images/demos/demo15/banner/banner-2.jpg'
 import banner3 from '../../assets/images/demos/demo15/banner/banner-3.jpg'
@@ -42,26 +45,28 @@ import prod10s from '../../assets/images/demos/demo15/products/2-10-2.jpg'
 const SpecialProducts = () => {
     return ( 
         <div className="container-fluid">
-          <div
-            className="swiper-container swiper-theme category-banner-wrapper pt-2 pb-2 mt-10 mb-10"
-            data-swiper-options="{
-        'spaceBetween': 20,
-        'slidesPerView': 3,
-        'breakpoints': {
-            '0': {
-                'slidesPerView': 1
+          <Swiper
+            // className="swiper-container swiper-theme category-banner-wrapper pt-2 pb-2 mt-10 mb-10"
+            spaceBetween= {20}
+        slidesPerView= {3}
+        breakpoints= {
+            {0: {
+                slidesPerView: 1
             },
-            '768': {
-                'slidesPerView': 2
+            768: {
+                slidesPerView: 2
             },
-            '1200': {
-                'slidesPerView': 3
-            }
+            1200: {
+                slidesPerView: 3
+            }}
         }
-        }"
+        
           >
             <div className="swiper-wrapper row cols-md-3 cols-sm-2 cols-1">
-              <div className="swiper-slide banner banner-1 banner-fixed br-sm">
+              <SwiperSlide 
+              // className="swiper-slide banner banner-1 banner-fixed br-sm"
+              >
+                <div className='banner banner-1 banner-fixed br-sm'>
                 <figure className="banner-media">
                   <Image
                     src={banner1}
@@ -91,8 +96,12 @@ const SpecialProducts = () => {
                     اکنون بخرید <i className="w-icon-long-arrow-left"></i>
                   </a>
                 </div>
-              </div>
-              <div className="swiper-slide banner banner-2 banner-fixed br-sm">
+                </div>
+              </SwiperSlide>
+              <SwiperSlide 
+              // className="swiper-slide banner banner-2 banner-fixed br-sm"
+              >
+                <div className='banner banner-2 banner-fixed br-sm'>
                 <figure className="banner-media">
                   <Image
                     src={banner2}
@@ -121,8 +130,12 @@ const SpecialProducts = () => {
                     اکنون کشف کنید
                   </a>
                 </div>
-              </div>
-              <div className="swiper-slide banner banner-3 banner-fixed br-sm">
+                </div>
+              </SwiperSlide>
+              <SwiperSlide 
+              // className="swiper-slide banner banner-3 banner-fixed br-sm"
+              >
+                <div className='banner banner-3 banner-fixed br-sm'>
                 <figure className="banner-media">
                   <Image
                     src={banner3}
@@ -152,9 +165,10 @@ const SpecialProducts = () => {
                     اکنون بخرید <i className="w-icon-long-arrow-left"></i>
                   </a>
                 </div>
-              </div>
+                </div>
+              </SwiperSlide>
             </div>
-          </div>
+          </Swiper>
 
           <div className="row banner-product-wrapper pb-1 mb-10">
             <div className="banner-product col-xl-3 col-md-4 mb-4 mb-md-0">
