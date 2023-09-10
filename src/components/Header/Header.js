@@ -747,7 +747,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div class="container-fluid bg-white d-none d-sm-block d-md-block d-lg-none mt-3">
+      <div class="container-fluid  bg-white d-none d-sm-block d-md-block d-lg-none mt-3">
         <div class="row">
           <div class="col d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
@@ -961,8 +961,8 @@ const Header = () => {
         </div>
       </div>
       <div class="container-fluid mt-2 d-none d-lg-block">
-        <div class="row">
-          <div class="col d-flex bg-icon p-3 justify-content-around align-items-center">
+        <div class="row justify-content-center">
+          <div class="col-lg-11 d-flex bg-icon p-3 justify-content-around align-items-center rounded">
             <div class="d-flex flex-column text-center link-3">
               <span class="material-symbols-outlined icon-2">computer</span>
               <a href="#" class="font link-3 text-decoration-none">
