@@ -27,7 +27,7 @@ const Shop = () => {
   return (
     <main className="main">
       <nav className="breadcrumb-nav">
-        <div className="container-fluid">
+        <div className="container">
           <ul className="breadcrumb bb-no">
             <li>
               <a href="demo15.html">خانه </a>
@@ -38,7 +38,7 @@ const Shop = () => {
       </nav>
 
       <div className="page-content mb-10">
-        <div className="container-fluid">
+        <div className="container">
           <div className="shop-default-banner shop-boxed-banner banner d-flex align-items-center mb-6 br-xs">
             <Image src={shopBanner} />
           </div>

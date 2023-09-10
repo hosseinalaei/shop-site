@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-import "@/styles/demo.css";
+import "@/styles/demo9.min.css";
 import Layout from "@/components/Layout/Layout";
 // import "@/styles/style-rtl.min.css";
 import "../assets/fontawesome-free/css/all.min.css";
