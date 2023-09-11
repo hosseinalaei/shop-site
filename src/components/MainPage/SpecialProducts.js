@@ -37,6 +37,10 @@ import prod9s from "../../assets/images/demos/demo15/products/2-9-2.jpg";
 import prod10 from "../../assets/images/demos/demo15/products/2-10-1.jpg";
 import prod10s from "../../assets/images/demos/demo15/products/2-10-2.jpg";
 
+import special1 from "../../assets/images/special-offer-1.png";
+import special2 from "../../assets/images/special-offer-2.png";
+import special3 from "../../assets/images/special-offer-3.png";
+
 const SpecialProducts = () => {
   return (
     <div className="container">
@@ -62,14 +66,14 @@ const SpecialProducts = () => {
           <div className="swiper-slide banner banner-1 banner-fixed br-sm">
             <figure className="banner-media">
               <Image
-                src={banner1}
+                src={special3}
                 alt="Category Banner"
                 width="580"
                 height="300"
                 style={{ backgroundColor: "#EAEAEA" }}
               />
             </figure>
-            <div className="banner-content y-50 text-right">
+            {/* <div className="banner-content y-50 text-right">
               <h4 className="banner-subtitle text-capitalize font-weight-normal">
                 مجموعه جدید
               </h4>
@@ -88,19 +92,19 @@ const SpecialProducts = () => {
               >
                 اکنون بخرید <i className="w-icon-long-arrow-left"></i>
               </a>
-            </div>
+            </div> */}
           </div>
           <div className="swiper-slide banner banner-2 banner-fixed br-sm">
             <figure className="banner-media">
               <Image
-                src={banner2}
+                src={special2}
                 alt="Category Banner"
                 width="580"
                 height="300"
                 style={{ bacgroundColor: "#EAEAEA" }}
               />
             </figure>
-            <div className="banner-content x-50 y-50 text-center">
+            {/* <div className="banner-content x-50 y-50 text-center">
               <h5 className="banner-price-info text-primary text-capitalize font-secondary">
                 30% تخفیف کل سفارش خود را دریافت کنید!
               </h5>
@@ -118,19 +122,19 @@ const SpecialProducts = () => {
               >
                 اکنون کشف کنید
               </a>
-            </div>
+            </div> */}
           </div>
           <div className="swiper-slide banner banner-3 banner-fixed br-sm">
             <figure className="banner-media">
               <Image
-                src={banner3}
+                src={special1}
                 alt="Category Banner"
                 width="580"
                 height="300"
                 style={{ bacgroundColor: "#EAEAEA" }}
               />
             </figure>
-            <div className="banner-content y-50">
+            {/* <div className="banner-content y-50">
               <h4 className="banner-subtitle text-capitalize font-weight-normal">
                 تازه رسیده ها{" "}
               </h4>
@@ -149,7 +153,7 @@ const SpecialProducts = () => {
               >
                 اکنون بخرید <i className="w-icon-long-arrow-left"></i>
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -903,7 +907,7 @@ const SpecialProducts = () => {
               style={{ backgroundColor: "#31343B" }}
             />
           </figure>
-          <div className="banner-content y-50">
+          <div className="banner-content y-50" style={{ paddingRight: "4rem" }}>
             <h4 className="banner-subtitle text-white text-uppercase font-weight-bold">
               تازه رسیده ها{" "}
             </h4>
@@ -931,7 +935,7 @@ const SpecialProducts = () => {
               style={{ backgroundColor: "#DEDEDE" }}
             />
           </figure>
-          <div className="banner-content y-50">
+          <div className="banner-content y-50" style={{ paddingRight: "4rem" }}>
             <h4 className="banner-subtitle text-uppercase font-weight-bold">
               پرفروش{" "}
             </h4>
