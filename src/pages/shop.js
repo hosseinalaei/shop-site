@@ -50,7 +50,7 @@ const shop2 = () => {
         </div> */}
       </div>
 
-      <div className="container-fluid">
+      <div className="container">
         <div className="shop-content">
           <div className="main-content">
             <nav className="toolbox sticky-toolbox sticky-content fix-top">

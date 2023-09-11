@@ -39,7 +39,7 @@ const Header = () => {
     <header className="header">
       <TopHeader />
       <div className="header-middle">
-        <div className="container">
+        <div className="container-fluid">
           <div className="header-left mr-md-4">
             <a href="#" className="mobile-menu-toggle  w-icon-hamburger"></a>
             <a href="/" className="logo ml-lg-0">
@@ -77,7 +77,7 @@ const Header = () => {
               </button>
             </form>
           </div>
-          {/* <div className="header-right ml-4">
+          <div className="header-right ml-4">
             <div className="header-call d-xs-show d-lg-flex align-items-center">
               <a href="tel:#" className="w-icon-call"></a>
               <div className="call-info d-lg-show">
@@ -120,49 +120,7 @@ const Header = () => {
                   <span className="cart-count">{cart.length}</span>
                 </i>
               </Link>
-            </div>
-          </div> */}
-          <div className="header-right ml-4">
-            <div className="header-call d-xs-show d-lg-flex align-items-center">
-              <a href="tel:#" className="w-icon-call"></a>
-              <div className="call-info d-lg-show">
-                <h4 className="chat font-weight-normal font-size-md text-normal ls-normal text-light mb-0">
-                  <a href="mailto:#" className="text-capitalize">
-                    چت زنده
-                  </a>{" "}
-                  تومان :
-                </h4>
-                <a
-                  href="tel:#"
-                  className="phone-number font-weight-bolder ls-50"
-                >
-                  0(800)123-456
-                </a>
-              </div>
-            </div>
-            <a
-              className="wishlist label-down link d-xs-show"
-              href="wishlist.html"
-            >
-              <i className="w-icon-heart"></i>
-              <span className="wishlist-label d-lg-show">علاقه مندیها </span>
-            </a>
-            <a
-              className="compare label-down link d-xs-show"
-              href="compare.html"
-            >
-              <i className="w-icon-compare"></i>
-              <span className="compare-label d-lg-show">مقایسه کردن </span>
-            </a>
-            <div className="dropdown cart-dropdown cart-offcanvas mr-0 mr-lg-2">
-              <div className="cart-overlay"></div>
-              <Link href="/cart" className="cart-toggle label-down link">
-                <i className="w-icon-cart">
-                  <span className="cart-count">{cart.length}</span>
-                </i>
-                <span className="cart-label">سبد </span>
-              </Link>
-              <div className="dropdown-box">
+              {/* <div className="dropdown-box">
                 <div className="cart-header">
                   <span>سبد خرید </span>
                   <a href="#" className="btn-close">
@@ -170,7 +128,7 @@ const Header = () => {
                   </a>
                 </div>
 
-                {/* <div className="products">
+                <div className="products">
                   <div className="product product-cart">
                     <div className="product-detail">
                       <a href="product-default.html" className="product-name">
@@ -193,10 +151,7 @@ const Header = () => {
                         />
                       </a>
                     </figure>
-                    <button
-                      className="btn btn-link btn-close"
-                      aria-label="button"
-                    >
+                    <button className="btn btn-link btn-close">
                       <i className="fas fa-times"></i>
                     </button>
                   </div>
@@ -223,14 +178,11 @@ const Header = () => {
                         />
                       </a>
                     </figure>
-                    <button
-                      className="btn btn-link btn-close"
-                      aria-label="button"
-                    >
+                    <button className="btn btn-link btn-close">
                       <i className="fas fa-times"></i>
                     </button>
                   </div>
-                </div> */}
+                </div>
 
                 <div className="cart-total">
                   <label>مجموع: </label>
@@ -251,20 +203,20 @@ const Header = () => {
                     پرداخت{" "}
                   </a>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
       </div>
 
       <div className="header-bottom sticky-content fix-top sticky-header has-dropdown">
-        <div className="container">
+        <div className="container-fluid">
           <div className="inner-wrap">
             <div className="header-left">
               <div className="dropdown category-dropdown">
                 <a
                   href="#"
-                  className="category-toggle text-capitalize pl-0"
+                  className="category-toggle text-capitalize pl-0 bg-white"
                   role="button"
                   data-toggle="dropdown"
                   aria-haspopup="true"
@@ -324,7 +276,7 @@ const Header = () => {
                   </ul>
                 </div>
               </div>
-              <nav className="main-nav">
+              <nav className="main-nav ml-0">
                 <ul className="menu">
                   <li className="active">
                     <Link href="/">خانه </Link>

@@ -755,7 +755,7 @@ const product = () => {
             </section>
           </div>
 
-          <aside className="sidebar product-sidebar sidebar-fixed right-sidebar sticky-sidebar-wrapper">
+          {/* <aside className="sidebar product-sidebar sidebar-fixed right-sidebar sticky-sidebar-wrapper">
             <div className="sidebar-overlay"></div>
             <a className="sidebar-close" href="#">
               <i className="close-icon"></i>
@@ -797,15 +797,6 @@ const product = () => {
 
                 <div className="widget widget-banner mb-9">
                   <div className="banner banner-fixed br-sm">
-                    {/* <figure>
-                      <Image
-                        src="assets/images/shop/banner3.jpg"
-                        alt="Banner"
-                        width="266"
-                        height="220"
-                        style="background-color: #1D2D44;"
-                      />
-                    </figure> */}
                     <div className="banner-content">
                       <div className="banner-price-info font-weight-bolder text-white lh-1 ls-25">
                         40<sup className="font-weight-bold">%</sup>
@@ -874,6 +865,260 @@ const product = () => {
                               </div>
                             );
                           })}
+                        </div>
+                      </div>
+                      <button className="swiper-button-next"></button>
+                      <button className="swiper-button-prev"></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside> */}
+
+          <aside className="sidebar product-sidebar sidebar-fixed right-sidebar sticky-sidebar-wrapper">
+            {/* <div className="sidebar-overlay"></div> */}
+            {/* <a className="sidebar-close" href="#">
+              <i className="close-icon"></i>
+            </a>
+            <a href="#" className="sidebar-toggle d-flex d-lg-none">
+              <i className="fas fa-chevron-left"></i>
+            </a> */}
+            <div className="sidebar-content scrollable">
+              <div className="sticky-sidebar">
+                <div className="widget widget-icon-box mb-6">
+                  <div className="icon-box icon-box-side">
+                    <span className="icon-box-icon text-dark">
+                      <i className="w-icon-truck"></i>
+                    </span>
+                    <div className="icon-box-content">
+                      <h4 className="icon-box-title">ارسال رایگان و مرجوعی</h4>
+                      <p>برای تمام سفارشات بیش از 99 دلار</p>
+                    </div>
+                  </div>
+                  <div className="icon-box icon-box-side">
+                    <span className="icon-box-icon text-dark">
+                      <i className="w-icon-bag"></i>
+                    </span>
+                    <div className="icon-box-content">
+                      <h4 className="icon-box-title">پرداخت امن</h4>
+                      <p>ما تضمین می کنیم</p>
+                    </div>
+                  </div>
+                  <div className="icon-box icon-box-side">
+                    <span className="icon-box-icon text-dark">
+                      <i className="w-icon-money"></i>
+                    </span>
+                    <div className="icon-box-content">
+                      <h4 className="icon-box-title">تضمین بازگشت پول</h4>
+                      <p>پس از 30 روز بازگشت</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="widget widget-banner mb-9">
+                  <div className="banner banner-fixed br-sm">
+                    <figure>
+                      <Link href="#">
+                        {/* <Image
+                          src={item.imgSrc}
+                          alt="Product"
+                          width="100"
+                          height="113"
+                        /> */}
+                      </Link>
+                    </figure>
+                    <div className="banner-content">
+                      <div className="banner-price-info font-weight-bolder text-white lh-1 ls-25">
+                        40<sup className="font-weight-bold">%</sup>
+                        <sub className="font-weight-bold text-uppercase ls-25">
+                          تخفیف{" "}
+                        </sub>
+                      </div>
+                      <h4 className="banner-subtitle text-white font-weight-bolder text-uppercase mb-0">
+                        فروش نامحدود{" "}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="widget widget-products">
+                  <div className="title-link-wrapper mb-2">
+                    <h4 className="title title-link font-weight-bold">
+                      محصولات بیشتر{" "}
+                    </h4>
+                  </div>
+
+                  <div className="swiper nav-top">
+                    <div className="swiper-container swiper-theme nav-top">
+                      <div className="swiper-wrapper">
+                        <div className="widget-col swiper-slide">
+                          <div className="product product-widget">
+                            <figure className="product-media">
+                              <Link href="#">
+                                {/* <Image
+                                  src={item.imgSrc}
+                                  alt="Product"
+                                  width="100"
+                                  height="113"
+                                /> */}
+                              </Link>
+                            </figure>
+                            <div className="product-details">
+                              <h4 className="product-name">
+                                <a href="#">ساعت هوشمند </a>
+                              </h4>
+                              <div className="ratings-container">
+                                <div className="ratings-full">
+                                  <span
+                                    className="ratings"
+                                    style={{ width: "100%" }}
+                                  ></span>
+                                  <span className="tooltiptext tooltip-top"></span>
+                                </div>
+                              </div>
+                              <div className="product-price">
+                                80000 تومان - 90000 تومان
+                              </div>
+                            </div>
+                          </div>
+                          <div className="product product-widget">
+                            <figure className="product-media">
+                              <Link href="#">
+                                {/* <Image
+                                  src={item.imgSrc}
+                                  alt="Product"
+                                  width="100"
+                                  height="113"
+                                /> */}
+                              </Link>
+                            </figure>
+                            <div className="product-details">
+                              <h4 className="product-name">
+                                <a href="#">مرکز پزشکی آسمان</a>
+                              </h4>
+                              <div className="ratings-container">
+                                <div className="ratings-full">
+                                  <span
+                                    className="ratings"
+                                    style={{ width: "80%" }}
+                                  ></span>
+                                  <span className="tooltiptext tooltip-top"></span>
+                                </div>
+                              </div>
+                              <div className="product-price">220000 تومان</div>
+                            </div>
+                          </div>
+                          <div className="product product-widget">
+                            <figure className="product-media">
+                              <Link href="#">
+                                {/* <Image
+                                  src={item.imgSrc}
+                                  alt="Product"
+                                  width="100"
+                                  height="113"
+                                /> */}
+                              </Link>
+                            </figure>
+                            <div className="product-details">
+                              <h4 className="product-name">
+                                <a href="#">موتور بدلکاری مشکی</a>
+                              </h4>
+                              <div className="ratings-container">
+                                <div className="ratings-full">
+                                  <span
+                                    className="ratings"
+                                    style={{ width: "60%" }}
+                                  ></span>
+                                  <span className="tooltiptext tooltip-top"></span>
+                                </div>
+                              </div>
+                              <div className="product-price">180000 تومان</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="widget-col swiper-slide">
+                          <div className="product product-widget">
+                            <figure className="product-media">
+                              <Link href="#">
+                                {/* <Image
+                                  src={item.imgSrc}
+                                  alt="Product"
+                                  width="100"
+                                  height="113"
+                                /> */}
+                              </Link>
+                            </figure>
+                            <div className="product-details">
+                              <h4 className="product-name">
+                                <a href="#">اسکیت پان</a>
+                              </h4>
+                              <div className="ratings-container">
+                                <div className="ratings-full">
+                                  <span
+                                    className="ratings"
+                                    style={{ width: "100%" }}
+                                  ></span>
+                                  <span className="tooltiptext tooltip-top"></span>
+                                </div>
+                              </div>
+                              <div className="product-price">480000 تومان</div>
+                            </div>
+                          </div>
+                          <div className="product product-widget">
+                            <figure className="product-media">
+                              <Link href="#">
+                                {/* <Image
+                                  src={item.imgSrc}
+                                  alt="Product"
+                                  width="100"
+                                  height="113"
+                                /> */}
+                              </Link>
+                            </figure>
+                            <div className="product-details">
+                              <h4 className="product-name">
+                                <a href="#">اجاق گاز مدرن</a>
+                              </h4>
+                              <div className="ratings-container">
+                                <div className="ratings-full">
+                                  <span
+                                    className="ratings"
+                                    style={{ width: "80%" }}
+                                  ></span>
+                                  <span className="tooltiptext tooltip-top"></span>
+                                </div>
+                              </div>
+                              <div className="product-price">325000 تومان</div>
+                            </div>
+                          </div>
+                          <div className="product product-widget">
+                            <figure className="product-media">
+                              <Link href="#">
+                                {/* <Image
+                                  src={item.imgSrc}
+                                  alt="Product"
+                                  width="100"
+                                  height="113"
+                                /> */}
+                              </Link>
+                            </figure>
+                            <div className="product-details">
+                              <h4 className="product-name">
+                                <a href="#">دستگاه سی تی</a>
+                              </h4>
+                              <div className="ratings-container">
+                                <div className="ratings-full">
+                                  <span
+                                    className="ratings"
+                                    style={{ width: "100%" }}
+                                  ></span>
+                                  <span className="tooltiptext tooltip-top"></span>
+                                </div>
+                              </div>
+                              <div className="product-price">220000 تومان</div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                       <button className="swiper-button-next"></button>
