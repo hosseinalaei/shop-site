@@ -116,8 +116,8 @@ const TopCategories = () => {
           <Swiper
             modules={[Pagination, Scrollbar]}
             pagination={{ clickable: true,
-              bulletClass: 'swiper-pagination-bullet',
-              bulletActiveClass: 'swiper-pagination-bullet-active',
+              bulletClass: 'swiper-pagination-bullet d-lg-none',
+              bulletActiveClass: 'swiper-pagination-bullet-active d-lg-none',
               renderBullet: (index, className) => {
                 return '<span class="' + className + '" role="button"> </span>';
               }
@@ -317,7 +317,6 @@ const TopCategories = () => {
                 </div>
               </div> */}
             </div>
-            <div className="swiper-pagination d-lg-none"></div>
           </Swiper>
         </div>
       </div>
