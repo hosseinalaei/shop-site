@@ -12,7 +12,14 @@ const FiltersDrawer = ({ showFilters }) => {
         <i className="close-icon"></i>
       </a> */}
 
-      <div className="sidebar-content scrollable">
+      <div
+        className="sidebar-content scrollable"
+        style={{
+          webkitTransform: " translateX(0)",
+          transform: "translateX(0)",
+          opacity: 1,
+        }}
+      >
         <div className="filter-actions">
           <label>فیلتر :</label>
           <a href="#" className="btn btn-dark btn-link filter-clean">

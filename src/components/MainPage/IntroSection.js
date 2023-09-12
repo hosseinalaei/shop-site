@@ -1,15 +1,15 @@
 import Image from "next/image";
-import dot1 from '../../assets/images/demos/demo9/slides/dot-1.png'
-import dot2 from '../../assets/images/demos/demo9/slides/dot-2.png'
-import dot3 from '../../assets/images/demos/demo9/slides/dot-3.png'
+import dot1 from "../../assets/images/demos/demo9/slides/1.jpeg";
+import dot2 from "../../assets/images/demos/demo9/slides/2.jpeg";
+import dot3 from "../../assets/images/demos/demo9/slides/3.png";
 
-import bg1 from '../../assets/images/demos/demo9/slides/slide-1.jpg'
-import bg2 from '../../assets/images/demos/demo9/slides/slide-2.jpg'
-import bg3 from '../../assets/images/demos/demo9/slides/slide-3.jpg'
+import bg1 from "../../assets/images/demos/demo9/slides/1.jpeg";
+import bg2 from "../../assets/images/demos/demo9/slides/2.jpeg";
+import bg3 from "../../assets/images/demos/demo9/slides/3.png";
 
-import slide1 from "../../assets/images/demos/demo9/slides/slide-image-1.png";
-import slide2 from "../../assets/images/demos/demo9/slides/slide-image-2.png";
-import slide3 from "../../assets/images/demos/demo9/slides/slide-image-3.png";
+import slide1 from "../../assets/images/demos/demo9/slides/1.jpeg";
+import slide2 from "../../assets/images/demos/demo9/slides/2.jpeg";
+import slide3 from "../../assets/images/demos/demo9/slides/3.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import "swiper/css/autoplay";
@@ -21,183 +21,179 @@ const IntroSection = () => {
         // className="swiper-container swiper-theme animation-slider swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events swiper-container-rtl"
         slidesPerView={1}
         loop={true}
-        autoplay= {
-          {delay: 8000,
-          disableOnInteraction: false}
-      }
-      modules={[Autoplay]}
-
+        autoplay={{ delay: 8000, disableOnInteraction: false }}
+        modules={[Autoplay]}
       >
         <div className="swiper-wrapper row gutter-no cols-1">
           <SwiperSlide
-            // className="swiper-slide banner banner-fixed content-center intro-slide intro-slide1"
-            
+          // className="swiper-slide banner banner-fixed content-center intro-slide intro-slide1"
           >
-            <div className="banner banner-fixed content-center intro-slide intro-slide1" style={{
-              backgroundImage:
-                `url(${bg1.src})`,
-              // backgroundColor: "#EEF4F4",
-            }}>
-            <div className="container">
-              <div className="banner-content d-inline-block y-50">
-                <div
-                  data-animation-options="{
+            <div
+              className="banner banner-fixed content-center intro-slide intro-slide1"
+              style={{
+                backgroundImage: `url(${bg1.src})`,
+                // backgroundColor: "#EEF4F4",
+              }}
+            >
+              <div className="container">
+                <div className="banner-content d-inline-block y-50">
+                  <div
+                    data-animation-options="{
                                         'name': 'zoomIn', 'duration': '1s'
                                     }"
-                >
-                  <h5 className="banner-subtitle text-uppercase font-weight-bold">
-                    معاملات و تبلیغات
-                  </h5>
-                  <h3 className="banner-title text-capitalize ls-25">
-                    <span className="text-primary">فصل زمستان</span>
-                    <br />
-                    مجموعه سبک زندگی مد
-                  </h3>
-                  <a
-                    href="demo9-shop.html"
-                    className="btn btn-dark btn-outline btn-rounded btn-icon-right"
                   >
-                    اکنون بخرید <i className="w-icon-long-arrow-left"></i>
-                  </a>
+                    {/* <h5 className="banner-subtitle text-uppercase font-weight-bold">
+                      معاملات و تبلیغات
+                    </h5>
+                    <h3 className="banner-title text-capitalize ls-25">
+                      <span className="text-primary">فصل زمستان</span>
+                      <br />
+                      مجموعه سبک زندگی مد
+                    </h3>
+                    <a
+                      href="demo9-shop.html"
+                      className="btn btn-dark btn-outline btn-rounded btn-icon-right"
+                    >
+                      اکنون بخرید <i className="w-icon-long-arrow-left"></i>
+                    </a> */}
+                  </div>
                 </div>
+                <figure
+                  className="slide-image skrollable slide-animate floating-item"
+                  data-options="{'relativeInput':true,'clipRelativeInput':true,'invertX':true,'invertY':true,'scalarY':0}"
+                  data-child-depth="0.4"
+                >
+                  <Image
+                    src={slide1}
+                    alt="Slide"
+                    width={448}
+                    height={510}
+                    // style={{ backgroundColor: "#DBDBDD" }}
+                    data-bottom-top="transform: translatex(-10vh);"
+                    data-top-bottom="transform: translateX(10vh);"
+                  />
+                </figure>
               </div>
-              <figure
-                className="slide-image skrollable slide-animate floating-item"
-                data-options="{'relativeInput':true,'clipRelativeInput':true,'invertX':true,'invertY':true,'scalarY':0}"
-                data-child-depth="0.4"
-              >
-                <Image
-                  src={slide1}
-                  alt="Slide"
-                  width={448}
-                  height={510}
-                  // style={{ backgroundColor: "#DBDBDD" }}
-                  data-bottom-top="transform: translatex(-10vh);"
-                  data-top-bottom="transform: translateX(10vh);"
-                />
-              </figure>
-            </div>
             </div>
           </SwiperSlide>
           <SwiperSlide
-            // className="swiper-slide banner banner-fixed intro-slide intro-slide2"
-            
+          // className="swiper-slide banner banner-fixed intro-slide intro-slide2"
           >
-            <div className="banner banner-fixed content-center intro-slide intro-slide1" style={{
-              backgroundImage:
-              `url(${bg2.src})`,
-              backgroundColor: "#EDEEF0",
-            }}>
-
-            <div className="container">
-              <div className="banner-content d-inline-block y-50">
-                <div
-                  className="slide-animate"
-                  data-animation-options="{
+            <div
+              className="banner banner-fixed content-center intro-slide intro-slide1"
+              style={{
+                backgroundImage: `url(${bg2.src})`,
+                backgroundColor: "#EDEEF0",
+              }}
+            >
+              <div className="container">
+                <div className="banner-content d-inline-block y-50">
+                  <div
+                    className="slide-animate"
+                    data-animation-options="{
                                         'name': 'fadeInDownShorter', 'duration': '1s'
                                     }"
-                >
-                  <h5 className="banner-subtitle text-primary text-uppercase font-weight-bold mb-2">
-                    فقط این هفته!
-                  </h5>
-                  <h3 className="banner-title text-capitalize ls-25">
-                    کفش طلایی اورجینال
-                  </h3>
-                  <hr className="banner-divider bg-dark" />
-                  <p className="text-dark">
-                    ارسال رایگان تمامی سفارشات <strong>80000 تومان</strong>
-                  </p>
-                  <a
-                    href="demo9-shop.html"
-                    className="btn btn-dark btn-outline btn-rounded btn-icon-right"
                   >
-                    اکنون بخرید <i className="w-icon-long-arrow-left"></i>
-                  </a>
+                    {/* <h5 className="banner-subtitle text-primary text-uppercase font-weight-bold mb-2">
+                      فقط این هفته!
+                    </h5>
+                    <h3 className="banner-title text-capitalize ls-25">
+                      کفش طلایی اورجینال
+                    </h3>
+                    <hr className="banner-divider bg-dark" />
+                    <p className="text-dark">
+                      ارسال رایگان تمامی سفارشات <strong>80000 تومان</strong>
+                    </p>
+                    <a
+                      href="demo9-shop.html"
+                      className="btn btn-dark btn-outline btn-rounded btn-icon-right"
+                    >
+                      اکنون بخرید <i className="w-icon-long-arrow-left"></i>
+                    </a> */}
+                  </div>
                 </div>
+                <figure
+                  className="slide-image skrollable slide-animate floating-item"
+                  data-options="{'relativeInput':true,'clipRelativeInput':true,'invertX':true,'invertY':true}"
+                  data-child-depth="0.2"
+                >
+                  <Image
+                    src={slide2}
+                    alt="Slide"
+                    width={448}
+                    height={510}
+                    // style={{ backgroundColor: "#DBDBDD" }}
+                    data-bottom-top="transform: translatex(-10vh);"
+                    data-top-bottom="transform: translateX(10vh);"
+                  />
+                </figure>
               </div>
-              <figure
-                className="slide-image skrollable slide-animate floating-item"
-                data-options="{'relativeInput':true,'clipRelativeInput':true,'invertX':true,'invertY':true}"
-                data-child-depth="0.2"
-              >
-                <Image
-                  src={slide2}
-                  alt="Slide"
-                  width={448}
-                  height={510}
-                  // style={{ backgroundColor: "#DBDBDD" }}
-                  data-bottom-top="transform: translatex(-10vh);"
-                                        data-top-bottom="transform: translateX(10vh);"
-                />
-              </figure>
-            </div>
             </div>
           </SwiperSlide>
           <SwiperSlide
             // className="swiper-slide banner banner-fixed intro-slide intro-slide3 content-center"
             style={{
-              backgroundImage:
-              `url(${bg3.src})`,
+              backgroundImage: `url(${bg3.src})`,
               backgroundColor: "#D4D6D5",
             }}
           >
             <div
-            className="swiper-slide banner banner-fixed intro-slide intro-slide3 content-center"
-            style={{
-              backgroundImage:
-              `url(${bg3.src})`,
-              backgroundColor: "#D4D6D5",
-            }}>
-            <div className="container">
-              <div className="banner-content y-50">
-                <div
-                  className="content-left mr-auto slide-animate mb-4 mb-lg-0"
-                  data-animation-options="{
+              className="swiper-slide banner banner-fixed intro-slide intro-slide3 content-center"
+              style={{
+                backgroundImage: `url(${bg3.src})`,
+                backgroundColor: "#D4D6D5",
+              }}
+            >
+              <div className="container">
+                <div className="banner-content y-50">
+                  <div
+                    className="content-left mr-auto slide-animate mb-4 mb-lg-0"
+                    data-animation-options="{
                                         'name': 'fadeInUpShorter', 'duration': '1s'
                                     }"
-                >
-                  <h5 className="banner-subtitle text-white br-xs">
-                    فقط تا پایان فط این هفته
-                  </h5>
-                  <h3 className="banner-title text-uppercase font-weight-normal mb-0 ls-25">
-                    مدل <strong className="ml-2">فروش ویژه </strong>
-                  </h3>
-                  <p className="text-dark font-weight-normal text-uppercase mb-0 ls-25">
-                    تا{" "}
-                    <strong className="text-uppercase text-secondary font-weight-bolder">
-                      80% تخفیف{" "}
-                    </strong>
-                  </p>
-                </div>
-                <div
-                  className="content-right slide-animate"
-                  data-animation-options="{
-                                        'name': 'fadeInUpShorter', 'duration': '1s'
-                                    }"
-                >
-                  <h4 className="text-white text-uppercase ls-25">
-                    راحتی بیشتر در اطراف را انتخاب می کند
-                  </h4>
-                  <a
-                    href="demo9-shop.html"
-                    className="btn btn-dark btn-rounded btn-icon-right"
                   >
-                    اکنون بخرید <i className="w-icon-long-arrow-left"></i>
-                  </a>
+                    {/* <h5 className="banner-subtitle text-white br-xs">
+                      فقط تا پایان فط این هفته
+                    </h5>
+                    <h3 className="banner-title text-uppercase font-weight-normal mb-0 ls-25">
+                      مدل <strong className="ml-2">فروش ویژه </strong>
+                    </h3>
+                    <p className="text-dark font-weight-normal text-uppercase mb-0 ls-25">
+                      تا{" "}
+                      <strong className="text-uppercase text-secondary font-weight-bolder">
+                        80% تخفیف{" "}
+                      </strong>
+                    </p> */}
+                  </div>
+                  <div
+                    className="content-right slide-animate"
+                    data-animation-options="{
+                                        'name': 'fadeInUpShorter', 'duration': '1s'
+                                    }"
+                  >
+                    {/* <h4 className="text-white text-uppercase ls-25">
+                      راحتی بیشتر در اطراف را انتخاب می کند
+                    </h4>
+                    <a
+                      href="demo9-shop.html"
+                      className="btn btn-dark btn-rounded btn-icon-right"
+                    >
+                      اکنون بخرید <i className="w-icon-long-arrow-left"></i>
+                    </a> */}
+                  </div>
                 </div>
+                <figure className="slide-image skrollable slide-animate">
+                  <Image
+                    src={slide3}
+                    alt="Slide"
+                    width={448}
+                    height={510}
+                    // style={{ backgroundColor: "#DBDBDD" }}
+                    data-bottom-top="transform: translatex(-10vh);"
+                    data-top-bottom="transform: translateX(10vh);"
+                  />
+                </figure>
               </div>
-              <figure className="slide-image skrollable slide-animate">
-              <Image
-                  src={slide3}
-                  alt="Slide"
-                  width={448}
-                  height={510}
-                  // style={{ backgroundColor: "#DBDBDD" }}
-                  data-bottom-top="transform: translatex(-10vh);"
-                                        data-top-bottom="transform: translateX(10vh);"
-                />
-              </figure>
-            </div>
             </div>
           </SwiperSlide>
           {/* <SwiperSlide
@@ -299,44 +295,19 @@ const IntroSection = () => {
         </div>
         <div className="custom-dots swiper-img-dots">
           <a href="#" className="active">
-            <Image
-              src={dot1}
-              alt="Dot"
-              width="70"
-              height="70"
-            />
+            <Image src={dot1} alt="Dot" width="70" height="70" />
           </a>
           <a href="#">
-            <Image
-              src={dot2}
-              alt="Dot"
-              width="70"
-              height="70"
-            />
+            <Image src={dot2} alt="Dot" width="70" height="70" />
           </a>
           <a href="#">
-            <Image
-              src={dot3}
-              alt="Dot"
-              width="70"
-              height="70"
-            />
+            <Image src={dot3} alt="Dot" width="70" height="70" />
           </a>
           <a href="#">
-            <Image
-              src={dot1}
-              alt="Dot"
-              width="70"
-              height="70"
-            />
+            <Image src={dot1} alt="Dot" width="70" height="70" />
           </a>
           <a href="#">
-            <Image
-              src={dot2}
-              alt="Dot"
-              width="70"
-              height="70"
-            />
+            <Image src={dot2} alt="Dot" width="70" height="70" />
           </a>
         </div>
       </Swiper>

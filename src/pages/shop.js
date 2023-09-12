@@ -50,7 +50,7 @@ const shop2 = () => {
         </div> */}
       </div>
 
-      <div className="container-fluid">
+      <div className="container">
         <div className="shop-content">
           <div className="main-content">
             <nav className="toolbox sticky-toolbox sticky-content fix-top">
@@ -112,7 +112,7 @@ const shop2 = () => {
               </div>
             </nav>
             <div className="product-wrapper row cols-xl-6 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
-              {data.length > 0 &&
+              {data?.length > 0 &&
                 data.map((item) => {
                   return (
                     <ProductWrap

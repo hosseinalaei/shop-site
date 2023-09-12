@@ -11,7 +11,7 @@ const TopHeader = () => {
 
   return (
     <div className="header-top">
-      <div className="container-fluid">
+      <div className="container">
         <div className="header-left mr-4">
           <a href="#" className="d-flex mr-2 mr-lg-6">
             <i className="w-icon-map-marker"></i>
@@ -33,34 +33,34 @@ const TopHeader = () => {
 
           <div className="dropdown">
             <a href="#language">
-              <img
+              {/* <img
                 src="assets/images/flags/eng.png"
                 alt="ENG Flag"
                 width="14"
                 height="8"
                 className="dropdown-image"
-              />{" "}
+              />{" "} */}
               انگلیسی
             </a>
             <div className="dropdown-box">
               <a href="#ENG">
-                <img
+                {/* <img
                   src="assets/images/flags/eng.png"
                   alt="ENG Flag"
                   width="14"
                   height="8"
                   className="dropdown-image"
-                />
+                /> */}
                 انگلیسی{" "}
               </a>
               <a href="#FRA">
-                <img
+                {/* <img
                   src="assets/images/flags/fra.png"
                   alt="FRA Flag"
                   width="14"
                   height="8"
                   className="dropdown-image"
-                />
+                /> */}
                 فرانسوی{" "}
               </a>
             </div>
