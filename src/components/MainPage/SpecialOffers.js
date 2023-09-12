@@ -14,12 +14,13 @@ import prod8 from "../../assets/images/demos/demo15/products/1-4-2.jpg";
 
 import prod9 from "../../assets/images/demos/demo15/products/1-5-1.jpg";
 import prod10 from "../../assets/images/demos/demo15/products/1-5-2.jpg";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const SpecialOffers = () => {
   return (
     <div className="grey-section">
       <div className="container-fluid">
-        <div className="special-offers-wrapper d-flex bg-white pt-6 pb-1">
+        <div className="special-offers-wrapper d-flex d-sm-flex bg-white pt-6 pb-1">
           <div className="col-xxl-2 col-xl-3 col-lg-4 col-md-5 d-flex align-items-center justify-content-center">
             <div>
               <h2 className="title">پیشنهادهای ویژه!</h2>
@@ -44,28 +45,46 @@ const SpecialOffers = () => {
             </div>
           </div>
           <div className="col-xxl-10 col-xl-9 col-lg-8 col-md-7">
-            <div
-              className="swiper-container swiper-theme"
-              data-swiper-options="{
-                'spaceBetween': 20,
-                'breakpoints': {
-                    '0': {
-                        'slidesPerView': 2
-                    },
-                    '768': {
-                        'slidesPerView': 3
-                    },
-                    '992': {
-                        'slidesPerView': 4
-                    },
-                    '1200': {
-                        'slidesPerView': 5
-                    }
-                }
-                }"
+            <Swiper
+            spaceBetween= {20}
+            breakpoints=  {
+                {0: {
+                    slidesPerView: 2
+                },
+                768: {
+                    slidesPerView: 3
+                },
+                992: {
+                    slidesPerView: 4
+                },
+                1200: {
+                    slidesPerView: 5
+                }}
+            }
+            
+              // className="swiper-container swiper-theme"
+              // data-swiper-options="{
+              //   'spaceBetween': 20,
+              //   'breakpoints': {
+              //       '0': {
+              //           'slidesPerView': 2
+              //       },
+              //       '768': {
+              //           'slidesPerView': 3
+              //       },
+              //       '992': {
+              //           'slidesPerView': 4
+              //       },
+              //       '1200': {
+              //           'slidesPerView': 5
+              //       }
+              //   }
+              //   }"
             >
               <div className="swiper-wrapper row cols-lg-5 cols-md-4 cols-sm-3 cols-2">
-                <div className="swiper-slide product-wrap">
+                <SwiperSlide 
+                // className="swiper-slide product-wrap"
+                >
                   <div className="product text-center">
                     <figure className="product-media">
                       <a href="product-default.html">
@@ -115,8 +134,10 @@ const SpecialOffers = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="swiper-slide product-wrap">
+                </SwiperSlide>
+                <SwiperSlide 
+                // className="swiper-slide product-wrap"
+                >
                   <div className="product text-center">
                     <figure className="product-media">
                       <a href="product-default.html">
@@ -166,8 +187,10 @@ const SpecialOffers = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="swiper-slide product-wrap">
+                </SwiperSlide>
+                <SwiperSlide 
+                // className="swiper-slide product-wrap"
+                >
                   <div className="product text-center">
                     <figure className="product-media">
                       <a href="product-default.html">
@@ -217,8 +240,10 @@ const SpecialOffers = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="swiper-slide product-wrap">
+                </SwiperSlide>
+                <SwiperSlide 
+                // className="swiper-slide product-wrap"
+                >
                   <div className="product text-center">
                     <figure className="product-media">
                       <a href="product-default.html">
@@ -268,8 +293,10 @@ const SpecialOffers = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="swiper-slide product-wrap">
+                </SwiperSlide>
+                <SwiperSlide 
+                // className="swiper-slide product-wrap"
+                >
                   <div className="product text-center">
                     <figure className="product-media">
                       <a href="product-default.html">
@@ -319,9 +346,9 @@ const SpecialOffers = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </SwiperSlide>
               </div>
-            </div>
+            </Swiper>
           </div>
         </div>
 

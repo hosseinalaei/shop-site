@@ -41,29 +41,47 @@ import special1 from "../../assets/images/special-offer-1.png";
 import special2 from "../../assets/images/special-offer-2.png";
 import special3 from "../../assets/images/special-offer-3.png";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+
 const SpecialProducts = () => {
   return (
     <div className="container">
-      <div
-        className="swiper-container swiper-theme category-banner-wrapper pt-2 pb-2 mt-10 mb-10"
-        data-swiper-options="{
-        'spaceBetween': 20,
-        'slidesPerView': 3,
-        'breakpoints': {
-            '0': {
-                'slidesPerView': 1
-            },
-            '768': {
-                'slidesPerView': 2
-            },
-            '1200': {
-                'slidesPerView': 3
-            }
-        }
-        }"
+      <Swiper
+      spaceBetween= {20}
+      slidesPerView= {3}
+      breakpoints= {
+          {0: {
+              slidesPerView: 1
+          },
+          768: {
+              slidesPerView: 2
+          },
+          1200: {
+              slidesPerView: 3
+          }}
+      }
+      
+        // className="swiper-container swiper-theme category-banner-wrapper pt-2 pb-2 mt-10 mb-10"
+        // data-swiper-options="{
+        // 'spaceBetween': 20,
+        // 'slidesPerView': 3,
+        // 'breakpoints': {
+        //     '0': {
+        //         'slidesPerView': 1
+        //     },
+        //     '768': {
+        //         'slidesPerView': 2
+        //     },
+        //     '1200': {
+        //         'slidesPerView': 3
+        //     }
+        // }
+        // }"
       >
         <div className="swiper-wrapper row cols-md-3 cols-sm-2 cols-1">
-          <div className="swiper-slide banner banner-1 banner-fixed br-sm">
+          <SwiperSlide 
+          // className="swiper-slide banner banner-1 banner-fixed br-sm"
+          >
             <figure className="banner-media">
               <Image
                 src={special3}
@@ -93,8 +111,10 @@ const SpecialProducts = () => {
                 اکنون بخرید <i className="w-icon-long-arrow-left"></i>
               </a>
             </div> */}
-          </div>
-          <div className="swiper-slide banner banner-2 banner-fixed br-sm">
+          </SwiperSlide>
+          <SwiperSlide 
+          // className="swiper-slide banner banner-2 banner-fixed br-sm"
+          >
             <figure className="banner-media">
               <Image
                 src={special2}
@@ -123,8 +143,10 @@ const SpecialProducts = () => {
                 اکنون کشف کنید
               </a>
             </div> */}
-          </div>
-          <div className="swiper-slide banner banner-3 banner-fixed br-sm">
+          </SwiperSlide>
+          <SwiperSlide 
+          // className="swiper-slide banner banner-3 banner-fixed br-sm"
+          >
             <figure className="banner-media">
               <Image
                 src={special1}
@@ -154,9 +176,9 @@ const SpecialProducts = () => {
                 اکنون بخرید <i className="w-icon-long-arrow-left"></i>
               </a>
             </div> */}
-          </div>
+          </SwiperSlide>
         </div>
-      </div>
+      </Swiper>
 
       <div className="row banner-product-wrapper pb-1 mb-10">
         <div className="banner-product col-xl-3 col-md-4 mb-4 mb-md-0">
@@ -213,28 +235,28 @@ const SpecialProducts = () => {
               <a href="demo15-shop.html">تجهیزات جانبی </a>
             </li>
           </ul>
-          <div
-            className="swiper-container swiper-theme"
-            data-swiper-options="{
-                'spaceBetween': 20,
-                'breakpoints': {
-                    '0': {
-                        'slidesPerView': 2
+          <Swiper
+          spaceBetween= {20}
+                breakpoints= {
+                   { 0: {
+                        slidesPerView: 2
                     },
-                    '992': {
-                        'slidesPerView': 3
+                    992: {
+                        slidesPerView: 3
                     },
-                    '1200': {
-                        'slidesPerView': 4
+                    1200: {
+                        slidesPerView: 4
                     },
-                    '1520': {
-                        'slidesPerView': 6
-                    }
+                    1520: {
+                        slidesPerView: 6
+                    }}
                 }
-                }"
+                
           >
             <div className="swiper-wrapper row cols-xl-4 cols-lg-3 cols-2">
-              <div className="swiper-slide product-col">
+              <SwiperSlide 
+              // className="swiper-slide product-col"
+              >
                 <div className="product-wrap">
                   <div className="product text-center">
                     <figure className="product-media">
@@ -337,8 +359,11 @@ const SpecialProducts = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="swiper-slide product-col">
+              </SwiperSlide>
+
+              <SwiperSlide 
+              // className="swiper-slide product-col"
+              >
                 <div className="product-wrap">
                   <div className="product text-center">
                     <figure className="product-media">
@@ -441,8 +466,11 @@ const SpecialProducts = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="swiper-slide product-col">
+              </SwiperSlide>
+
+              <SwiperSlide 
+              // className="swiper-slide product-col"
+              >
                 <div className="product-wrap">
                   <div className="product text-center">
                     <figure className="product-media">
@@ -561,8 +589,11 @@ const SpecialProducts = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="swiper-slide product-col">
+              </SwiperSlide>
+
+              <SwiperSlide 
+              // className="swiper-slide product-col"
+              >
                 <div className="product-wrap">
                   <div className="product text-center">
                     <figure className="product-media">
@@ -681,8 +712,11 @@ const SpecialProducts = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="swiper-slide product-col">
+              </SwiperSlide>
+
+              <SwiperSlide 
+              // className="swiper-slide product-col"
+              >
                 <div className="product-wrap">
                   <div className="product text-center">
                     <figure className="product-media">
@@ -785,8 +819,11 @@ const SpecialProducts = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="swiper-slide product-col">
+              </SwiperSlide>
+
+              <SwiperSlide 
+              // className="swiper-slide product-col"
+              >
                 <div className="product-wrap">
                   <div className="product text-center">
                     <figure className="product-media">
@@ -891,9 +928,10 @@ const SpecialProducts = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </SwiperSlide>
+
             </div>
-          </div>
+            </Swiper>
         </div>
       </div>
       <div className="category-banner-wrapper2 row cols-md-2">
