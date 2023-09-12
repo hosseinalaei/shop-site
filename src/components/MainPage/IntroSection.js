@@ -13,12 +13,23 @@ import slide3 from "../../assets/images/demos/demo9/slides/3.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import "swiper/css/autoplay";
+import { useEffect, useRef } from "react";
 
 const IntroSection = () => {
+  const swiperRef = useRef(null)
+
+  const handleSlideChange = (index) =>{
+    swiperRef.current.swiper.slideTo(index)
+  }
+
+  useEffect(() =>{
+    const swiperContainer = swiperRef.current;
+  },[])
   return (
     <section className="intro-section mb-6">
       <Swiper
         // className="swiper-container swiper-theme animation-slider swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events swiper-container-rtl"
+        ref={swiperRef}
         slidesPerView={1}
         loop={true}
         autoplay={{ delay: 8000, disableOnInteraction: false }}
@@ -138,7 +149,7 @@ const IntroSection = () => {
             }}
           >
             <div
-              className="swiper-slide banner banner-fixed intro-slide intro-slide3 content-center"
+              className="banner banner-fixed intro-slide intro-slide1 content-center"
               style={{
                 backgroundImage: `url(${bg3.src})`,
                 backgroundColor: "#D4D6D5",
@@ -294,21 +305,21 @@ const IntroSection = () => {
           </SwiperSlide> */}
         </div>
         <div className="custom-dots swiper-img-dots">
-          <a href="#" className="active">
+          <a href="#" className="active" onClick={() =>{handleSlideChange(0)}}>
             <Image src={dot1} alt="Dot" width="70" height="70" />
           </a>
-          <a href="#">
+          <a href="#" onClick={() =>{handleSlideChange(1)}}>
             <Image src={dot2} alt="Dot" width="70" height="70" />
           </a>
-          <a href="#">
+          <a href="#" onClick={() =>{handleSlideChange(2)}}>
             <Image src={dot3} alt="Dot" width="70" height="70" />
           </a>
-          <a href="#">
+          {/* <a href="#">
             <Image src={dot1} alt="Dot" width="70" height="70" />
           </a>
           <a href="#">
             <Image src={dot2} alt="Dot" width="70" height="70" />
-          </a>
+          </a> */}
         </div>
       </Swiper>
       {/* <Swiper

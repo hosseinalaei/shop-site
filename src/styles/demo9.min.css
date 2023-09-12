@@ -681,6 +681,9 @@ table {
 }
 .sticky-content.fix-bottom {
   bottom: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
 }
 .sticky-content.fixed {
   position: fixed;
@@ -16211,6 +16214,7 @@ body .product-popup {
   line-height: 1.92;
   margin-bottom: 0;
   text-align: center;
+  padding-bottom: 2rem;
 }
 
 .payment img {
@@ -16238,6 +16242,7 @@ body .product-popup {
 }
 .sticky-footer .cart-dropdown {
   position: relative;
+
 }
 .sticky-footer .cart-dropdown .dropdown-box {
   top: auto;
