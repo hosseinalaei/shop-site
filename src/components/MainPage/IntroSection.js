@@ -69,7 +69,7 @@ const IntroSection = () => {
                     </a> */}
                   </div>
                 </div>
-                <figure
+                {/* <figure
                   className="slide-image skrollable slide-animate floating-item"
                   data-options="{'relativeInput':true,'clipRelativeInput':true,'invertX':true,'invertY':true,'scalarY':0}"
                   data-child-depth="0.4"
@@ -83,7 +83,7 @@ const IntroSection = () => {
                     data-bottom-top="transform: translatex(-10vh);"
                     data-top-bottom="transform: translateX(10vh);"
                   />
-                </figure>
+                </figure> */}
               </div>
             </div>
           </SwiperSlide>
@@ -123,7 +123,7 @@ const IntroSection = () => {
                     </a> */}
                   </div>
                 </div>
-                <figure
+                {/* <figure
                   className="slide-image skrollable slide-animate floating-item"
                   data-options="{'relativeInput':true,'clipRelativeInput':true,'invertX':true,'invertY':true}"
                   data-child-depth="0.2"
@@ -137,7 +137,7 @@ const IntroSection = () => {
                     data-bottom-top="transform: translatex(-10vh);"
                     data-top-bottom="transform: translateX(10vh);"
                   />
-                </figure>
+                </figure> */}
               </div>
             </div>
           </SwiperSlide>
@@ -193,7 +193,7 @@ const IntroSection = () => {
                     </a> */}
                   </div>
                 </div>
-                <figure className="slide-image skrollable slide-animate">
+                {/* <figure className="slide-image skrollable slide-animate">
                   <Image
                     src={slide3}
                     alt="Slide"
@@ -203,7 +203,7 @@ const IntroSection = () => {
                     data-bottom-top="transform: translatex(-10vh);"
                     data-top-bottom="transform: translateX(10vh);"
                   />
-                </figure>
+                </figure> */}
               </div>
             </div>
           </SwiperSlide>

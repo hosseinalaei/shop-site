@@ -408,6 +408,11 @@
 .swiper-img-dots {
   z-index: 1000;
 }
+
+.swiper-img-dots img{
+  height: revert-layer;
+
+}
 .swiper-img-dots a {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
