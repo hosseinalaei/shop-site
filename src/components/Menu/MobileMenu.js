@@ -1,11 +1,22 @@
-const MobileMenu = () => {
-    return ( 
-        <div className="mobile-menu-wrapper">
-        <div className="mobile-menu-overlay"></div>
+import { useCartContext } from "@/contexts/contex";
+import { useState } from "react";
 
-        <a href="#" className="mobile-menu-close">
+const MobileMenu = ({mobileMenu}) => {
+
+  const {setMobileMenu} = useCartContext();
+
+  const [menuState, setMenuState] = useState('main')
+
+  let drawerClasses = "mobile-side-drawer";
+  if (mobileMenu) {
+    drawerClasses = "mobile-side-drawer open";
+  }
+    return ( 
+        <div className={`sidebar shop-sidebar left-sidebar sticky-sidebar-wrapper ${drawerClasses}`}>
+
+        { <a href="#" className={!mobileMenu ? "mobile-menu-close": 'mmenu-active'} onClick={() =>{setMobileMenu(false)}}>
           <i className="close-icon"></i>
-        </a>
+        </a>}
 
         <div className="mobile-menu-container scrollable">
           <form action="#" method="get" className="input-wrapper">
@@ -24,20 +35,20 @@ const MobileMenu = () => {
 
           <div className="tab">
             <ul className="nav nav-tabs" role="tablist">
-              <li className="nav-item">
-                <a href="#main-menu" className="nav-link active">
+              <li className="nav-item" >
+                <a href="#main-menu" className={`nav-link ${menuState === 'main' ? 'active' : ''}`} onClick={() =>{setMenuState('main')}}>
                   منوی اصلی{" "}
                 </a>
               </li>
               <li className="nav-item">
-                <a href="#categories" className="nav-link">
+                <a href="#categories" className={`nav-link ${menuState === 'cat' ? 'active' : ''}`} onClick={() =>{setMenuState('cat')}}>
                   دسته بندیها{" "}
                 </a>
               </li>
             </ul>
           </div>
           <div className="tab-content">
-            <div className="tab-pane active" id="main-menu">
+            <div className={`tab-pane ${menuState === 'main' ? 'active' : ''}`} id="main-menu">
               <ul className="mobile-menu">
                 <li>
                   <a href="demo1.html">خانه </a>
@@ -392,7 +403,7 @@ const MobileMenu = () => {
                 </li>
               </ul>
             </div>
-            <div className="tab-pane" id="categories">
+            <div className={`tab-pane ${menuState === 'cat' ? 'active' : ''}`} id="categories">
               <ul className="mobile-menu">
                 <li>
                   <a href="shop-fullwidth-banner.html">

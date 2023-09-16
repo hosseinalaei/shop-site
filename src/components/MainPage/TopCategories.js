@@ -10,7 +10,7 @@ import cat6 from "../../assets/images/demos/demo15/categories/cat-6.jpg";
 import cat7 from "../../assets/images/demos/demo15/categories/cat-7.jpg";
 import cat8 from "../../assets/images/demos/demo15/categories/cat-8.jpg";
 import Link from "next/link";
-import { Pagination, Scrollbar } from "swiper";
+import { Autoplay, Pagination, Scrollbar } from "swiper";
 
 const data = [
   { title: "موبایل", bgColor: "#C1C6C", Link: "/", image: cat1 },
@@ -42,7 +42,8 @@ const TopCategories = () => {
         }}
       >
         <Swiper
-          loop={false}
+          loop={true}
+          
           spaceBetween={0}
           breakpoints={{
             0: {
@@ -58,9 +59,11 @@ const TopCategories = () => {
               slidesPerView: 4,
             },
           }}
+          autoplay={{ delay: 8000, disableOnInteraction: false }}
+          modules={[Autoplay]}
         >
           <SwiperSlide>
-            <div className="d-flex align-items-center flex-column">
+            <div className="d-flex align-items-center flex-column text-center">
               <span className="icon-box-icon icon-shipping">
                 <i className="w-icon-truck"></i>
               </span>
@@ -71,7 +74,7 @@ const TopCategories = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="d-flex align-items-center flex-column">
+            <div className="d-flex align-items-center flex-column text-center">
               <span className="icon-box-icon icon-payment">
                 <i className="w-icon-bag"></i>
               </span>
@@ -82,7 +85,7 @@ const TopCategories = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="d-flex align-items-center flex-column">
+            <div className="d-flex align-items-center flex-column text-center">
               <span className="icon-box-icon icon-money">
                 <i className="w-icon-money"></i>
               </span>
@@ -93,7 +96,7 @@ const TopCategories = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="d-flex align-items-center flex-column">
+            <div className="d-flex align-items-center flex-column text-center">
               <span className="icon-box-icon icon-chat">
                 <i className="w-icon-chat"></i>
               </span>

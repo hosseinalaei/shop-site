@@ -38,6 +38,9 @@ const CartProvider = ({ children }) => {
     amount: 0,
   };
 
+
+  const [mobileMenu, setMobileMenu] = useState(false);
+
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const addToCart = (newItem) => {
@@ -72,6 +75,8 @@ const CartProvider = ({ children }) => {
         changeQuantity,
         addToCart,
         deduction,
+        mobileMenu,
+        setMobileMenu,
       }}
     >
       {children}
