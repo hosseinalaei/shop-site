@@ -9,7 +9,7 @@ import Modal from "../Modal/Modal";
 const Header = () => {
   const [catMenu, setCatMenu] = useState([]);
   const [subMenu, setSubMenu] = useState([]);
-  const { cart } = useCartContext();
+  const { cart, setMobileMenu } = useCartContext();
 
   const getCategories = async () => {
     try {
@@ -41,7 +41,7 @@ const Header = () => {
       <div className="header-middle">
         <div className="container">
           <div className="header-left mr-md-4">
-            <a href="#" className="mobile-menu-toggle  w-icon-hamburger"></a>
+            <a href="#" className="mobile-menu-toggle  w-icon-hamburger" onClick={() =>{setMobileMenu(true)}}></a>
             <a href="/" className="logo ml-lg-0">
               <Image src={logo} alt="logo" width="144" height="45" />
             </a>
