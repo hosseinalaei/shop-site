@@ -127,23 +127,19 @@ const Header = () => {
               <a href="tel:#" className="w-icon-call"></a>
               <div className="call-info d-lg-show">
                 <h4 className="chat font-weight-normal font-size-md text-normal ls-normal text-light mb-0">
-                  <a href="mailto:#" className="text-capitalize">
-                    چت زنده
-                  </a>{" "}
-                  تومان :
+                  <a href="tel:+982143000470" className="text-capitalize">
+                    تماس با شاپ آی‌آر:
+                  </a>
                 </h4>
                 <a
                   href="tel:#"
                   className="phone-number font-weight-bolder ls-50"
                 >
-                  0(800)123-456
+                  021-43000470
                 </a>
               </div>
             </div>
-            <a
-              className="wishlist label-down link d-xs-show"
-              href="wishlist.html"
-            >
+            <a className="wishlist label-down link d-xs-show" href="/wishlist">
               <i className="w-icon-heart"></i>
               <span className="wishlist-label d-lg-show">علاقه مندیها </span>
             </a>
