@@ -11,12 +11,6 @@ import productImage from "../../assets/images/samsung_galaxy_a03_red02_1_1.jpeg"
 import Link from "next/link";
 import banner from "../../assets/images/banner3.jpeg";
 
-// const moreProduct = [
-//   { title: "محصول تست", price: 20000000, cat: "سامسونگ", imgSrc: productImage },
-//   { title: "2محصول تست", price: 10000000, cat: "هواوی", imgSrc: productImage },
-//   { title: "3محصول تست", price: 35000000, cat: "اپل", imgSrc: productImage },
-// ];
-
 const product = () => {
   const [data, setData] = useState(null);
   const [media, setMedia] = useState("");
@@ -323,6 +317,23 @@ const product = () => {
                     </div>
 
                     <hr className="product-divider" />
+
+                    <div className="product-form product-variation-form product-color-swatch">
+                      <label>رنگ :</label>
+                      <div className="d-flex align-items-center product-variations">
+                        {data?.product?.productColor?.map((item) => {
+                          return (
+                            <div className="roundRadio">
+                              <input type="radio" id="radio" />
+                              <label
+                                for="radio"
+                                style={{ backgroundColor: item.colorName }}
+                              ></label>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
 
                     <div
                     // className="fix-bottom product-sticky-content sticky-content"
@@ -757,7 +768,7 @@ const product = () => {
                 </div>
               </section> */}
 
-              <section className="related-product-section">
+              <section className="related-product-section mb-4">
                 <div className="title-link-wrapper mb-4">
                   <h4 className="title">محصولات اخیر </h4>
                   <a

@@ -1,26 +1,14 @@
-const wishlist = () => {
+const WishList = () => {
   return (
-    <main calssName="main wishlist-page">
-      <div calssName="page-header">
-        <div calssName="container">
-          <h1 calssName="page-title mb-0">علاقه مندیها</h1>
+    <main className="main">
+      <div className="page-header">
+        <div className="container">
+          <h1 className="page-title mb-0">علاقه مندیها</h1>
         </div>
       </div>
-
-      <nav calssName="breadcrumb-nav mb-10">
-        <div calssName="container">
-          <ul calssName="breadcrumb">
-            <li>
-              <a href="demo1.html">خانه </a>
-            </li>
-            <li>علاقه مندیها</li>
-          </ul>
-        </div>
-      </nav>
-
       <div calssName="page-content">
         <div calssName="container">
-          <h3 calssName="wishlist-title">علاقه مندیهای من</h3>
+          {/* <h3 calssName="wishlist-title">علاقه مندیهای من</h3>
           <table calssName="shop-table wishlist-table">
             <thead>
               <tr>
@@ -196,11 +184,11 @@ const wishlist = () => {
                 calssName="social-icon social-whatsapp fab fa-whatsapp"
               ></a>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </main>
   );
 };
 
-export default wishlist;
+export default WishList;
