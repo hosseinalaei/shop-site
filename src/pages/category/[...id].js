@@ -22,12 +22,13 @@ const categoryProducts = () => {
   const getProdcts = async () => {
     try {
       setData([]);
-      const response = await fetch(
-        `https://138.201.167.230:5050/Products/product-by-categories/${id[1]}`
+      const response = await axios.post(
+        "https://138.201.167.230:5050/Products/product-by-categories",
+        { id: id[0] }
       );
-      const resDate = await response.json();
+
       if (response.status === 200) {
-        setData(resDate.data);
+        setData(response.data.data);
       }
     } catch (error) {
       console.log(error.response);

@@ -29,12 +29,13 @@ const shop2 = () => {
 
   return (
     <div className="page-content mb-10">
-      <div
-        className="shop-default-banner shop-boxed-banner banner d-flex align-items-center mb-6"
-        // style="background-image: url(assets/images/shop/banner2.jpg); background-color: #FFC74E;"
-      >
-        <Image src={shopBanner} />
-        {/* <div className="container banner-content">
+      <div className="container">
+        <div
+          className="mb-6"
+          // style="background-image: url(assets/images/shop/banner2.jpg); background-color: #FFC74E;"
+        >
+          <Image src={shopBanner} />
+          {/* <div className="container banner-content">
           <h4 className="banner-subtitle font-weight-bold">
             مجموعه لوازم جانبی{" "}
           </h4>
@@ -48,9 +49,8 @@ const shop2 = () => {
             کاووش کنید<i className="w-icon-long-arrow-left"></i>
           </a>
         </div> */}
-      </div>
+        </div>
 
-      <div className="container">
         <div className="shop-content">
           <div className="main-content">
             <nav className="toolbox sticky-toolbox sticky-content fix-top">
@@ -111,7 +111,7 @@ const shop2 = () => {
                 </div>
               </div>
             </nav>
-            <div className="product-wrapper row cols-xl-6 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
+            <div className="product-wrapper row cols-xl-5 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
               {data?.length > 0 &&
                 data.map((item) => {
                   return (

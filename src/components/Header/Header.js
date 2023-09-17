@@ -9,6 +9,7 @@ import Modal from "../Modal/Modal";
 const Header = () => {
   const [catMenu, setCatMenu] = useState([]);
   const [subMenu, setSubMenu] = useState([]);
+  const [categories, setCategories] = useState([]);
   const { cart, setMobileMenu } = useCartContext();
 
   const getCategories = async () => {
@@ -17,6 +18,8 @@ const Header = () => {
         "https://138.201.167.230:5050/Products/product-active-categories"
       );
       const resData = await response.json();
+      const activeCat = await resData.data;
+      setCategories(activeCat);
       const categoryData = await resData.data.filter(
         (item) => item.parentId === null
       );
@@ -35,13 +38,20 @@ const Header = () => {
   // const closeModal = () => {
   //   setShowModal(false);
   // };
+
   return (
     <header className="header">
       <TopHeader />
       <div className="header-middle">
         <div className="container">
           <div className="header-left mr-md-4">
-            <a href="#" className="mobile-menu-toggle  w-icon-hamburger" onClick={() =>{setMobileMenu(true)}}></a>
+            <a
+              href="#"
+              className="mobile-menu-toggle  w-icon-hamburger"
+              onClick={() => {
+                setMobileMenu(true);
+              }}
+            ></a>
             <a href="/" className="logo ml-lg-0">
               <Image src={logo} alt="logo" width="144" height="45" />
             </a>
@@ -274,49 +284,53 @@ const Header = () => {
 
                 <div className="dropdown-box text-default">
                   <ul className="menu vertical-menu category-menu">
-                    <li>
-                      {catMenu?.map((item) => {
-                        return (
-                          <Link
-                            href={`/category/${item.urlTitle}`}
-                            key={item.id}
-                          >
+                    {catMenu?.map((item) => {
+                      const mainCategory = item.id;
+                      return (
+                        <li>
+                          <Link href={`/category/${item.id}`} key={item.id}>
                             {item.title}
                           </Link>
-                        );
-                      })}
-
-                      <ul className="megamenu">
-                        <li>
-                          <h4 className="menu-title">براساس برند </h4>
-                          <hr className="divider" />
-                          <ul>
-                            {subMenu?.map((item) => {
-                              return (
-                                <li key={item.id}>
-                                  <Link
-                                    href={`/category/${item.urlTitle}/${item.id}/`}
-                                  >
-                                    {item.title}
-                                  </Link>
-                                </li>
-                              );
-                            })}
+                          <ul className="megamenu" id="megamenu">
+                            <li>
+                              <ul>
+                                {subMenu?.map((item) => {
+                                  if (mainCategory === item.parentId) {
+                                    return (
+                                      <li key={item.id}>
+                                        <Link href={`/category/${item.id}/`}>
+                                          {item.title}
+                                        </Link>
+                                      </li>
+                                    );
+                                  }
+                                })}
+                              </ul>
+                            </li>
                           </ul>
                         </li>
-                        <li>
-                          {/* <h4 className="menu-title">براساس قیمت </h4>
-                          <hr className="divider" />
-                          <ul>
-                            <li>
-                              <a href="shop-fullwidth-banner.html">
-                                کمتر از ۵ میلیون
-                              </a>
-                            </li>
-                          </ul> */}
-                        </li>
-                      </ul>
-                    </li>
+                      );
+                    })}
+
+                    {/* <ul className="megamenu">
+                      <li>
+                        <h4 className="menu-title">براساس برند </h4>
+                        <hr className="divider" />
+                        <ul>
+                          {subMenu?.map((item) => {
+                            return (
+                              <li key={item.id}>
+                                <Link
+                                  href={`/category/${item.urlTitle}/${item.id}/`}
+                                >
+                                  {item.title}
+                                </Link>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </li>
+                    </ul> */}
                   </ul>
                 </div>
               </div>

@@ -409,9 +409,8 @@
   z-index: 1000;
 }
 
-.swiper-img-dots img{
+.swiper-img-dots img {
   height: revert-layer;
-
 }
 .swiper-img-dots a {
   display: -webkit-inline-box;
@@ -1049,7 +1048,7 @@ table {
   .d-sm-show {
     display: none !important;
   }
-  .d-sm-flex{
+  .d-sm-flex {
     display: flex;
     flex-direction: column;
   }
@@ -16251,7 +16250,6 @@ body .product-popup {
 }
 .sticky-footer .cart-dropdown {
   position: relative;
-
 }
 .sticky-footer .cart-dropdown .dropdown-box {
   top: auto;
@@ -16972,4 +16970,68 @@ body .product-popup {
     font-size: 0.6rem;
     right: 2%;
   }
+}
+
+.roundRadio {
+  position: relative;
+  display: flex;
+}
+
+.roundRadio label {
+  /* background-color: #66bb6a; */
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 28px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 28px;
+}
+
+.roundRadio label:after {
+  border: 2px solid #fff;
+  border-top: none;
+  border-right: none;
+  content: "";
+  height: 6px;
+  left: 7px;
+  opacity: 0;
+  position: absolute;
+  top: 8px;
+  transform: rotate(-45deg);
+  width: 12px;
+}
+
+.roundRadio input[type="radio"] {
+  visibility: hidden;
+}
+
+.roundRadio input[type="radio"]:checked + label {
+  background-color: #66bb6a;
+  border-color: #66bb6a;
+}
+
+.roundRadio input[type="radio"]:checked + label:after {
+  opacity: 1;
+}
+
+.page-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 18rem;
+  background-color: #eee;
+  text-align: center;
+  text-transform: capitalize;
 }
