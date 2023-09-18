@@ -9,6 +9,9 @@ import Image from "next/image";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import productImage from "../../assets/images/samsung_galaxy_a03_red02_1_1.jpeg";
 import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import samplePhoto from "../../assets/images/demos/demo9/product/8-2.jpg";
 
 const moreProduct = [
   { title: "محصول تست", price: 20000000, cat: "سامسونگ", imgSrc: productImage },
@@ -36,6 +39,23 @@ const product = () => {
   // if (typeof window !== "undefined") {
   //   setUser(localStorage.getItem("user"));
   // }
+
+  const [user, setUser] = useState("");
+
+  useEffect(() => {
+    const localUser = JSON.parse(localStorage.getItem("user"));
+    setUser(localUser);
+  }, []);
+
+  // const httpRequest = useAxios()
+
+  // httpRequest({
+  //   method: 'POST',
+  //   url: `/Products/single-product/`,
+  //   body: {
+  //             productId: id,
+  //           }
+  // })
 
   const getProdctData = async () => {
     try {
@@ -77,7 +97,7 @@ const product = () => {
     // if (typeof window !== "undefined") {
     //   setUser(localStorage.getItem("user"));
     // }
-    const user = JSON.parse(localStorage.getItem("user"));
+    // const user = JSON.parse(localStorage.getItem("user"));
 
     try {
       const response = await axios.post(
@@ -103,117 +123,127 @@ const product = () => {
   };
 
   return (
-    <div className="page-content">
+    <div
+      className="page-content"
+      style={{ paddingTop: "4vh", borderTop: "1px solid #888" }}
+    >
       <div className="container">
         <div className="row gutter-lg">
           <div className="main-content">
             <div className="product product-single row">
               <div className="col-md-6 mb-6">
-                <div className="product-gallery product-gallery-sticky product-gallery-video">
-                  <div
-                    className="swiper-container product-single-swiper swiper-theme nav-inner"
-                    data-swiper-options="{
-                                    'navigation': {
-                                        'nextEl': '.swiper-button-next',
-                                        'prevEl': '.swiper-button-prev'
-                                    }
-                                }"
+                <div class="product-gallery product-gallery-sticky">
+                  <Swiper
+                    slidesPerView={1}
+
+                    class=" product-single-swiper swiper-theme nav-inner"
+                    // data-swiper-options="{
+                    //                         'navigation': {
+                    //                             'nextEl': '.swiper-button-next',
+                    //                             'prevEl': '.swiper-button-prev'
+                    //                         }
+                    //                     }"
                   >
-                    <div className="swiper-wrapper row cols-1 gutter-no">
-                      <div className="swiper-slide">
-                        <figure className="product-image">
+                    <div class="swiper-wrapper row cols-1 gutter-no">
+                      <SwiperSlide>
+                        <figure class="product-image">
                           <ProductImage src={media} />
                         </figure>
-                      </div>
-                      {/* <div className="swiper-slide">
-                        <figure className="product-image">
-                          <Image
-                            src="assets/images/products/video/2-800x900.jpg"
-                            data-zoom-image="assets/images/products/video/2-800x900.jpg"
-                            alt="کفش اسپرت صورتی"
-                            width="488"
-                            height="549"
-                          />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <figure class="product-image">
+                          <ProductImage src={media} />
                         </figure>
-                      </div>
-                      <div className="swiper-slide">
-                        <figure className="product-image">
-                          <Image
-                            src="assets/images/products/video/3-800x900.jpg"
-                            data-zoom-image="assets/images/products/video/3-800x900.jpg"
-                            alt="کفش اسپرت صورتی"
-                            width="800"
-                            height="900"
-                          />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <figure class="product-image">
+                          <ProductImage src={media} />
                         </figure>
-                      </div>
-                      <div className="swiper-slide">
-                        <figure className="product-image">
-                          <Image
-                            src="assets/images/products/video/4-800x900.jpg"
-                            data-zoom-image="assets/images/products/video/4-800x900.jpg"
-                            alt="کفش اسپرت صورتی"
-                            width="800"
-                            height="900"
-                          />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <figure class="product-image">
+                          <ProductImage src={media} />
                         </figure>
-                      </div> */}
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <figure class="product-image">
+                          <ProductImage src={media} />
+                        </figure>
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <figure class="product-image">
+                          <ProductImage src={media} />
+                        </figure>
+                      </SwiperSlide>
                     </div>
-                    {/* <button className="swiper-button-next"></button>
-                    <button className="swiper-button-prev"></button> */}
-                    <a
-                      href="#"
-                      className="product-gallery-btn product-image-full"
-                    >
-                      <i className="w-icon-zoom"></i>
-                    </a>
-                  </div>
-                  <div
-                    className="product-thumbs-wrap swiper-container"
+                    {/* <button class="swiper-button-next"></button>
+                    <button class="swiper-button-prev"></button>
+                    <a href="#" class="product-gallery-btn product-image-full">
+                      <i class="w-icon-zoom"></i>
+                    </a> */}
+                  </Swiper>
+                  {/* <div
+                    class="product-thumbs-wrap swiper-container"
                     data-swiper-options="{
-                                    'navigation': {
-                                        'nextEl': '.swiper-button-next',
-                                        'prevEl': '.swiper-button-prev'
-                                    }
-                                }"
+                                            'navigation': {
+                                                'nextEl': '.swiper-button-next',
+                                                'prevEl': '.swiper-button-prev'
+                                            }
+                                        }"
                   >
-                    {/* <div className="product-thumbs swiper-wrapper row cols-4 gutter-sm">
-                      <div className="product-thumb swiper-slide">
-                        <Image
-                          src="assets/images/products/video/1-800x900.jpg"
+                    <div class="product-thumbs swiper-wrapper row cols-4 gutter-sm">
+                      <div class="product-thumb swiper-slide">
+                        <ProductImage
+                          src="assets/images/products/default/1-800x900.jpg"
                           alt="Product Thumb"
                           width="800"
                           height="900"
                         />
                       </div>
-                      <div className="product-thumb swiper-slide">
+                      <div class="product-thumb swiper-slide">
                         <Image
-                          src="assets/images/products/video/2-800x900.jpg"
+                          src="assets/images/products/default/2-800x900.jpg"
                           alt="Product Thumb"
                           width="800"
                           height="900"
                         />
                       </div>
-                      <div className="product-thumb swiper-slide">
+                      <div class="product-thumb swiper-slide">
                         <Image
-                          src="assets/images/products/video/3-800x900.jpg"
+                          src="assets/images/products/default/3-800x900.jpg"
                           alt="Product Thumb"
                           width="800"
                           height="900"
                         />
                       </div>
-                      <div className="product-thumb swiper-slide">
+                      <div class="product-thumb swiper-slide">
                         <Image
-                          src="assets/images/products/video/4-800x900.jpg"
+                          src="assets/images/products/default/4-800x900.jpg"
                           alt="Product Thumb"
                           width="800"
                           height="900"
                         />
                       </div>
-                    </div> */}
-                    <button className="swiper-button-next"></button>
-                    <button className="swiper-button-prev"></button>
-                  </div>
+                      <div class="product-thumb swiper-slide">
+                        <Image
+                          src="assets/images/products/default/5-800x900.jpg"
+                          alt="Product Thumb"
+                          width="800"
+                          height="900"
+                        />
+                      </div>
+                      <div class="product-thumb swiper-slide">
+                        <Image
+                          src="assets/images/products/default/6-800x900.jpg"
+                          alt="Product Thumb"
+                          width="800"
+                          height="900"
+                        />
+                      </div>
+                    </div>
+                    <button class="swiper-button-next"></button>
+                    <button class="swiper-button-prev"></button>
+                  </div> */}
                 </div>
               </div>
               <div className="col-md-6 mb-4 mb-md-6">
@@ -269,8 +299,14 @@ const product = () => {
 
                   <hr className="product-divider" />
 
-                  <div className="fix-bottom product-sticky-content sticky-content">
-                    <div className="product-form container">
+                  <div
+                    className="fix-bottom product-sticky-content sticky-content fixed"
+                    style={{ height: "10vh" }}
+                  >
+                    <div
+                      className="product-form container justify-content-end"
+                      style={{ marginTop: "3vh" }}
+                    >
                       <div className="product-qty-form">
                         <div className="input-group">
                           <input
@@ -585,7 +621,7 @@ const product = () => {
                         <figure className="product-media">
                           <a href="product-default.html">
                             <Image
-                              src={item.imgSrc}
+                              src={item.ProductImageSrc}
                               alt="Product"
                               width="300"
                               height="338"
@@ -885,7 +921,10 @@ const product = () => {
               <i className="fas fa-chevron-left"></i>
             </a> */}
             <div className="sidebar-content scrollable">
-              <div className="sticky-sidebar">
+              <div
+                className="sticky-sidebar"
+                style={{ marginTop: "4vh", boxShadow: "2px 2px 2px 1px #eee" }}
+              >
                 <div className="widget widget-icon-box mb-6">
                   <div className="icon-box icon-box-side">
                     <span className="icon-box-icon text-dark">
@@ -944,7 +983,10 @@ const product = () => {
 
                 <div className="widget widget-products">
                   <div className="title-link-wrapper mb-2">
-                    <h4 className="title title-link font-weight-bold">
+                    <h4
+                      className="title title-link font-weight-bold"
+                      style={{ marginRight: ".5rem" }}
+                    >
                       محصولات بیشتر{" "}
                     </h4>
                   </div>
@@ -1121,8 +1163,8 @@ const product = () => {
                           </div>
                         </div>
                       </div>
-                      <button className="swiper-button-next"></button>
-                      <button className="swiper-button-prev"></button>
+                      {/* <button className="swiper-button-next"></button>
+                      <button className="swiper-button-prev"></button> */}
                     </div>
                   </div>
                 </div>

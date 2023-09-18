@@ -1,5 +1,8 @@
+import { Swiper, SwiperSlide } from "swiper/react";
+
 import Image from "next/image";
 import productImage from "../../assets/images/samsung_galaxy_a03_red02_1_1.jpeg";
+import { Navigation } from "swiper";
 
 const product = () => {
   return (
@@ -55,17 +58,16 @@ const product = () => {
               <div className="product product-single row">
                 <div className="col-md-6 mb-6">
                   <div className="product-gallery product-gallery-sticky product-gallery-video">
-                    <div
-                      className="swiper-container product-single-swiper swiper-theme nav-inner"
-                      // data-swiper-options="{
-                      //                   'navigation': {
-                      //                       'nextEl': '.swiper-button-next',
-                      //                       'prevEl': '.swiper-button-prev'
-                      //                   }
-                      //               }"
+                    <Swiper
+                      slidesPerView={1}
+                      // navigation={true, {
+                      //   nextEl: ".swiper-button-next",
+                      //   prevEl: ".swiper-button-prev",
+                      // }}
+                      modules={[Navigation]}
                     >
                       <div className="swiper-wrapper row cols-1 gutter-no">
-                        <div className="swiper-slide">
+                        <SwiperSlide>
                           <figure className="product-image">
                             <Image
                               src={productImage}
@@ -74,8 +76,8 @@ const product = () => {
                               height="900"
                             />
                           </figure>
-                        </div>
-                        <div className="swiper-slide">
+                        </SwiperSlide>
+                        <SwiperSlide>
                           <figure className="product-image">
                             <Image
                               src={productImage}
@@ -84,8 +86,8 @@ const product = () => {
                               height="549"
                             />
                           </figure>
-                        </div>
-                        <div className="swiper-slide">
+                        </SwiperSlide>
+                        <SwiperSlide>
                           <figure className="product-image">
                             <Image
                               src={productImage}
@@ -94,8 +96,8 @@ const product = () => {
                               height="900"
                             />
                           </figure>
-                        </div>
-                        <div className="swiper-slide">
+                        </SwiperSlide>
+                        <SwiperSlide>
                           <figure className="product-image">
                             <Image
                               src={productImage}
@@ -104,7 +106,7 @@ const product = () => {
                               height="900"
                             />
                           </figure>
-                        </div>
+                        </SwiperSlide>
                       </div>
                       <button className="swiper-button-next"></button>
                       <button className="swiper-button-prev"></button>
@@ -114,7 +116,7 @@ const product = () => {
                       >
                         <i className="w-icon-zoom"></i>
                       </a>
-                    </div>
+                    </Swiper>
                     <div
                       className="product-thumbs-wrap swiper-container"
                       // data-swiper-options="{

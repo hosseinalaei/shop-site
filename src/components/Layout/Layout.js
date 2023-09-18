@@ -9,7 +9,6 @@ import Backdrop from "../FiltersDrawer/Backdrop";
 
 const Layout = ({ children }) => {
   const {mobileMenu, setMobileMenu} = useCartContext();
-  console.log(mobileMenu);
   return (
     <>
       {mobileMenu && <MobileMenu mobileMenu={mobileMenu}/>}

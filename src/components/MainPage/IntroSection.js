@@ -207,102 +207,7 @@ const IntroSection = () => {
               </div>
             </div>
           </SwiperSlide>
-          {/* <SwiperSlide
-            // className="swiper-slide banner banner-fixed content-center intro-slide intro-slide1"
-            style={{
-              backgroundImage:
-                "url(assets/images/demos/demo9/slides/slide-1.jpg)",
-              backgroundColor: "#EEF4F4",
-            }}
-          >
-            <div className="container">
-              <div className="banner-content d-inline-block y-50">
-                <div
-                  className="slide-animate"
-                  data-animation-options="{
-                                        'name': 'zoomIn', 'duration': '1s'
-                                    }"
-                >
-                  <h5 className="banner-subtitle text-uppercase font-weight-bold">
-                    معاملات و تبلیغات
-                  </h5>
-                  <h3 className="banner-title text-capitalize ls-25">
-                    <span className="text-primary">فصل زمستان</span>
-                    <br />
-                    مجموعه سبک زندگی مد
-                  </h3>
-                  <a
-                    href="demo9-shop.html"
-                    className="btn btn-dark btn-outline btn-rounded btn-icon-right"
-                  >
-                    اکنون بخرید <i className="w-icon-long-arrow-left"></i>
-                  </a>
-                </div>
-              </div>
-              <figure className="slide-image skrollable slide-animate">
-              <Image
-                  src={slide1}
-                  alt="Slide"
-                  width={448}
-                  height={510}
-                  style={{ backgroundColor: "#DBDBDD" }}
-                  data-bottom-top="transform: translatex(-10vh);"
-                                        data-top-bottom="transform: translateX(10vh);"
-                />
-              </figure>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide
-            // className="swiper-slide banner banner-fixed intro-slide intro-slide2"
-            style={{
-              backgroundImage:
-                "url(assets/images/demos/demo9/slides/slide-2.jpg)",
-              backgroundColor: "#EDEEF0",
-            }}
-          >
-            <div className="container">
-              <div className="banner-content d-inline-block y-50">
-                <div
-                  className="slide-animate"
-                  data-animation-options="{
-                                        'name': 'flipInY', 'duration': '1s'
-                                    }"
-                >
-                  <h5 className="banner-subtitle text-primary text-uppercase font-weight-bold mb-2">
-                    فقط این هفته!
-                  </h5>
-                  <h3 className="banner-title text-capitalize ls-25">
-                    کفش طلایی اورجینال
-                  </h3>
-                  <hr className="banner-divider bg-dark" />
-                  <p className="text-dark">
-                    ارسال رایگان تمامی سفارشات <strong>80000 تومان</strong>
-                  </p>
-                  <a
-                    href="demo9-shop.html"
-                    className="btn btn-dark btn-outline btn-rounded btn-icon-right"
-                  >
-                    اکنون بخرید <i className="w-icon-long-arrow-left"></i>
-                  </a>
-                </div>
-              </div>
-              <figure
-                className="slide-image skrollable slide-animate floating-item"
-                data-options="{'relativeInput':true,'clipRelativeInput':true,'invertX':true,'invertY':true}"
-                data-child-depth="0.2"
-              >
-                <Image
-                  src={slide1}
-                  alt="Slide"
-                  width={558}
-                  height={510}
-                  style={{ backgroundColor: "#DBDBDD" }}
-                  data-bottom-top="transform: translatex(-10vh);"
-                                        data-top-bottom="transform: translateX(10vh);"
-                />
-              </figure>
-            </div>
-          </SwiperSlide> */}
+          
         </div>
         <div className="custom-dots swiper-img-dots">
           <a href="#" className="active" onClick={() =>{handleSlideChange(0)}}>
@@ -314,12 +219,7 @@ const IntroSection = () => {
           <a href="#" onClick={() =>{handleSlideChange(2)}}>
             <Image src={dot3} alt="Dot" width="70" height="70" />
           </a>
-          {/* <a href="#">
-            <Image src={dot1} alt="Dot" width="70" height="70" />
-          </a>
-          <a href="#">
-            <Image src={dot2} alt="Dot" width="70" height="70" />
-          </a> */}
+          
         </div>
       </Swiper>
       {/* <Swiper

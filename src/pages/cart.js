@@ -3,9 +3,28 @@ import { useCartContext } from "@/contexts/contex";
 import axios from "axios";
 import Link from "next/link";
 import Modal from "@/components/Modal/Modal";
+import useAxios from "@/hooks/useAxios";
 
 const Cart = () => {
   const [data, setData] = useState(null);
+  const [order, setOrder] = useState('')
+  const [user, setUser] = useState('')
+
+  useEffect(() =>{
+    const userOrder = JSON.parse(localStorage.getItem("order"));
+    const userName = JSON.parse(localStorage.getItem("user"));
+    console.log(userName);
+    console.log(userOrder);
+    setOrder(userOrder);
+    setUser(userName);
+  })
+
+  const httpRequest = useAxios()
+
+  httpRequest({
+    method: 'GET',
+    url: `/Order/get-order-details/${order.id}?userId=${user.userId}`
+  })
   const getOrderDetail = async () => {
     const order = JSON.parse(localStorage.getItem("order"));
     const user = JSON.parse(localStorage.getItem("user"));

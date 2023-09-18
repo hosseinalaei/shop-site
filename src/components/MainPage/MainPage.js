@@ -1,3 +1,4 @@
+import useToken from "@/hooks/useToken";
 import IntroSection from "./IntroSection";
 import MiddleBanner from "./MiddleBanner";
 import NewProducts from "./NewProducts";
@@ -6,7 +7,12 @@ import SpecialProducts from "./SpecialProducts";
 import TopCategories from "./TopCategories";
 // import 'swiper/react';
 import "swiper/css";
+import { useEffect } from "react";
 const MainPage = () => {
+  const [storedValue, setToken] = useToken();
+  setToken('new')
+  
+  console.log(storedValue);
   return (
     <div className="page-wrapper">
       <h1 className="d-none">فروشگاه شاپ آی آر</h1>
