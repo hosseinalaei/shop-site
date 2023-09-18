@@ -2,39 +2,15 @@ import TopHeader from "./TopHeader";
 import logo from "../../assets/images/logo.png";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { useCartContext } from "@/contexts/contex";
 import Modal from "../Modal/Modal";
+import DropdownBox from "./DropdownBox";
 
 const Header = () => {
-  const [catMenu, setCatMenu] = useState([]);
-  const [subMenu, setSubMenu] = useState([]);
-  const [categories, setCategories] = useState([]);
+ 
   const { cart, setMobileMenu } = useCartContext();
 
-  const getCategories = async () => {
-    try {
-      const response = await fetch(
-        "https://138.201.167.230:5050/Products/product-active-categories"
-      );
-      const resData = await response.json();
-      const activeCat = await resData.data;
-      setCategories(activeCat);
-      const categoryData = await resData.data.filter(
-        (item) => item.parentId === null
-      );
-      const subCategory = await resData.data.filter(
-        (item) => item.parentId !== null
-      );
-      setCatMenu(categoryData);
-      setSubMenu(subCategory);
-    } catch (error) {
-      console.log("getCategories error", error);
-    }
-  };
-  useEffect(() => {
-    getCategories();
-  }, []);
+  
   // const closeModal = () => {
   //   setShowModal(false);
   // };
@@ -282,57 +258,7 @@ const Header = () => {
                   <span>همه بخش ها</span>
                 </a>
 
-                <div className="dropdown-box text-default">
-                  <ul className="menu vertical-menu category-menu">
-                    {catMenu?.map((item) => {
-                      const mainCategory = item.id;
-                      return (
-                        <li>
-                          <Link href={`/category/${item.id}`} key={item.id}>
-                            {item.title}
-                          </Link>
-                          <ul className="megamenu" id="megamenu">
-                            <li>
-                              <ul>
-                                {subMenu?.map((item) => {
-                                  if (mainCategory === item.parentId) {
-                                    return (
-                                      <li key={item.id}>
-                                        <Link href={`/category/${item.id}/`}>
-                                          {item.title}
-                                        </Link>
-                                      </li>
-                                    );
-                                  }
-                                })}
-                              </ul>
-                            </li>
-                          </ul>
-                        </li>
-                      );
-                    })}
-
-                    {/* <ul className="megamenu">
-                      <li>
-                        <h4 className="menu-title">براساس برند </h4>
-                        <hr className="divider" />
-                        <ul>
-                          {subMenu?.map((item) => {
-                            return (
-                              <li key={item.id}>
-                                <Link
-                                  href={`/category/${item.urlTitle}/${item.id}/`}
-                                >
-                                  {item.title}
-                                </Link>
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      </li>
-                    </ul> */}
-                  </ul>
-                </div>
+                <DropdownBox />
               </div>
               <nav className="main-nav">
                 <ul className="menu">
