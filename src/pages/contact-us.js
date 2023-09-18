@@ -1,8 +1,49 @@
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
+import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer/Footer";
 import StickyFooter from "@/components/Footer/StickyFooter";
+import { useState } from "react";
 
 const ContactUs = () => {
+  const [faqs, setFaqs] = useState([
+    {
+      question: "چگونه می توانم سفارش خود را لغو کنم؟",
+      answer:
+        "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. با تولید سادگی, لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است .        ",
+      open: false,
+    },
+    {
+      question: "برای خرید محصولات به چه چیزهایی نیاز دارم؟",
+      answer:
+        "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. با تولید سادگی, لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است",
+      open: false,
+    },
+    {
+      question: "چگونه می توانم سفارش خود را لغو کنم؟",
+      answer:
+        "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. با تولید سادگی, لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است .        ",
+      open: false,
+    },
+    {
+      question: "برای خرید محصولات به چه چیزهایی نیاز دارم؟",
+      answer:
+        "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. با تولید سادگی, لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است",
+      open: false,
+    },
+  ]);
+  const toggleFAQ = (index) => {
+    setFaqs(
+      faqs.map((faq, i) => {
+        if (i === index) {
+          faq.open = !faq.open;
+        } else {
+          faq.open = false;
+        }
+
+        return faq;
+      })
+    );
+  };
   return (
     <>
       <div className="page-wrapper">
@@ -53,7 +94,7 @@ const ContactUs = () => {
                       </span>
                       <div className="icon-box-content">
                         <h4 className="icon-box-title">آدرس ایمیل </h4>
-                        <p>mail@example.com</p>
+                        <p> sales@shop.ir</p>
                       </div>
                     </div>
                     <div className="swiper-slide icon-box text-center icon-box-primary">
@@ -62,7 +103,12 @@ const ContactUs = () => {
                       </span>
                       <div className="icon-box-content">
                         <h4 className="icon-box-title">شماره تلفن </h4>
-                        <p>(123) 456-7890 / (123) 456-9870</p>
+
+                        <p>
+                          <a style={{ color: "#000" }} href="tel:02188672361">
+                            021-88672361
+                          </a>
+                        </p>
                       </div>
                     </div>
                     <div className="swiper-slide icon-box text-center icon-box-primary">
@@ -71,7 +117,10 @@ const ContactUs = () => {
                       </span>
                       <div className="icon-box-content">
                         <h4 className="icon-box-title">آدرس </h4>
-                        <p>ایران، ارومیه</p>
+                        <p>
+                          خیابان ولیعصـر، تقاطع میـرداماد، مجتمع کامپیوتـر
+                          پایتخت، برج A ، طبقه ۸، واحد ۸۰۵
+                        </p>
                       </div>
                     </div>
                     <div className="swiper-slide icon-box text-center icon-box-primary">
@@ -79,8 +128,8 @@ const ContactUs = () => {
                         <i className="w-icon-fax"></i>
                       </span>
                       <div className="icon-box-content">
-                        <h4 className="icon-box-title">فکس </h4>
-                        <p>1-800-570-7777</p>
+                        <h4 className="icon-box-title">واتس‌آپ </h4>
+                        <p>09122207984</p>
                       </div>
                     </div>
                   </div>
@@ -95,7 +144,7 @@ const ContactUs = () => {
                     <h4 className="title mb-3">
                       مردم معمولا اینها را می پرسند
                     </h4>
-                    <div className="accordion accordion-bg accordion-gutter-md accordion-border">
+                    {/* <div className="accordion accordion-bg accordion-gutter-md accordion-border">
                       <div className="card">
                         <div className="card-header">
                           <a href="#collapse1" className="collapse">
@@ -185,6 +234,17 @@ const ContactUs = () => {
                           </p>
                         </div>
                       </div>
+                    </div> */}
+
+                    <div className="faqs accordion accordion-bg accordion-gutter-md accordion-border">
+                      {faqs.map((faq, index) => (
+                        <FAQ
+                          faq={faq}
+                          index={index}
+                          key={index}
+                          toggleFAQ={toggleFAQ}
+                        />
+                      ))}
                     </div>
                   </div>
                   <div className="col-lg-6 mb-8">
@@ -234,12 +294,22 @@ const ContactUs = () => {
               </section>
             </div>
 
-            {/* <div className="google-map contact-google-map" id="googlemaps"></div> */}
+            <div className={{ width: "1400px" }} id="googlemaps">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d809.378092682778!2d51.41047983344023!3d35.76278841332191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e068d5ebd77d3%3A0x18c14e6e556e4b11!2sPaytakht%20Computer%20Complex!5e0!3m2!1sen!2s!4v1694932470820!5m2!1sen!2s"
+                width="100%"
+                height="450"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
           </div>
         </main>
-        <Footer />
+        {/* <Footer /> */}
       </div>
-      <StickyFooter />
+      {/* <StickyFooter /> */}
     </>
   );
 };
