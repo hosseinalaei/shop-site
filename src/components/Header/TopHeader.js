@@ -13,14 +13,17 @@ const TopHeader = () => {
     <div className="header-top">
       <div className="container">
         <div className="header-left mr-4">
-          <a href="#" className="d-flex mr-2 mr-lg-6">
+          {/* <a href="#" className="d-flex mr-2 mr-lg-6">
             <i className="w-icon-map-marker"></i>
             <span className="d-md-show">فروشگاه شاپ.آی آر</span>
           </a>
           <a href="#" className="d-flex">
             <i className="w-icon-info"></i>
-            <span className="d-md-show">حمل و نقل استاندارد رایگان</span>
-          </a>
+            <span className="d-md-show">
+              پیام فروشگاه لغو کنید. به فروشگاه ما خوش آمدید!
+            </span>
+          </a> */}
+          <span className="d-md-show">به فروشگاه ما خوش آمدید!</span>
         </div>
         <div className="header-right pr-0">
           <div className="dropdown">
@@ -67,13 +70,13 @@ const TopHeader = () => {
           </div>
 
           <span className="divider d-lg-show"></span>
-          <a href="blog.html" className="d-lg-show">
-            بلاگ{" "}
+          <a href="/blog" className="d-lg-show">
+            بلاگ
           </a>
-          <a href="become-a-vendor.html" className="d-lg-show">
-            فروشنده شوید{" "}
+          <a href="#" className="d-lg-show">
+            فروشنده شوید
           </a>
-          <a href="contact-us.html" className="d-lg-show">
+          <a href="/contact-us" className="d-lg-show">
             تماس با ما{" "}
           </a>
           {userInfo?.token ? (

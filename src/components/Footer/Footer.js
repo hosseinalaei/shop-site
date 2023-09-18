@@ -55,7 +55,7 @@ const Footer = () => {
                 <div className="widget-body">
                   <p className="widget-about-title">سوالی دارید؟ تماس بگیرید</p>
                   <a href="tel:18005707777" className="widget-about-call">
-                    1-800-570-7777
+                    021-43000470
                   </a>
                   <p className="widget-about-desc">
                     برای دریافت بروز رسانی با ما هماهنگ شوید.
@@ -166,13 +166,13 @@ const Footer = () => {
         <div className="footer-bottom">
           <div className="footer-left">
             <p className="copyright">
-              کپی رایت © 1401 فروشگاه وولمارت. تمامی حقوق محفوظ است..
+              کپی رایت © 1401 فروشگاه شاپ آی‌آر. تمامی حقوق محفوظ است..
             </p>
           </div>
           <div className="footer-right">
-            <span className="payment-label mr-lg-8">
+            {/* <span className="payment-label mr-lg-8">
               ما از پرداخت مطمئن استفاده می کنیم
-            </span>
+            </span> */}
           </div>
         </div>
       </div>
