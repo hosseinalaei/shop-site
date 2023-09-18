@@ -7,20 +7,58 @@ import Modal from "../Modal/Modal";
 import DropdownBox from "./DropdownBox";
 
 const Header = () => {
+<<<<<<< HEAD
  
   const { cart, setMobileMenu } = useCartContext();
 
   
+=======
+  const [catMenu, setCatMenu] = useState([]);
+  const [subMenu, setSubMenu] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const { cart, setMobileMenu } = useCartContext();
+
+  const getCategories = async () => {
+    try {
+      const response = await fetch(
+        "https://138.201.167.230:5050/Products/product-active-categories"
+      );
+      const resData = await response.json();
+      const activeCat = await resData.data;
+      setCategories(activeCat);
+      const categoryData = await resData.data.filter(
+        (item) => item.parentId === null
+      );
+      const subCategory = await resData.data.filter(
+        (item) => item.parentId !== null
+      );
+      setCatMenu(categoryData);
+      setSubMenu(subCategory);
+    } catch (error) {
+      console.log("getCategories error", error);
+    }
+  };
+  useEffect(() => {
+    getCategories();
+  }, []);
+>>>>>>> dbbf8df425266cf11a19fefe813aea6a831f76ae
   // const closeModal = () => {
   //   setShowModal(false);
   // };
+
   return (
     <header className="header">
       <TopHeader />
       <div className="header-middle">
         <div className="container">
           <div className="header-left mr-md-4">
-            <a href="#" className="mobile-menu-toggle  w-icon-hamburger" onClick={() =>{setMobileMenu(true)}}></a>
+            <a
+              href="#"
+              className="mobile-menu-toggle  w-icon-hamburger"
+              onClick={() => {
+                setMobileMenu(true);
+              }}
+            ></a>
             <a href="/" className="logo ml-lg-0">
               <Image src={logo} alt="logo" width="144" height="45" />
             </a>
@@ -106,23 +144,19 @@ const Header = () => {
               <a href="tel:#" className="w-icon-call"></a>
               <div className="call-info d-lg-show">
                 <h4 className="chat font-weight-normal font-size-md text-normal ls-normal text-light mb-0">
-                  <a href="mailto:#" className="text-capitalize">
-                    چت زنده
-                  </a>{" "}
-                  تومان :
+                  <a href="tel:+982143000470" className="text-capitalize">
+                    تماس با شاپ آی‌آر:
+                  </a>
                 </h4>
                 <a
                   href="tel:#"
                   className="phone-number font-weight-bolder ls-50"
                 >
-                  0(800)123-456
+                  021-43000470
                 </a>
               </div>
             </div>
-            <a
-              className="wishlist label-down link d-xs-show"
-              href="wishlist.html"
-            >
+            <a className="wishlist label-down link d-xs-show" href="/wishlist">
               <i className="w-icon-heart"></i>
               <span className="wishlist-label d-lg-show">علاقه مندیها </span>
             </a>
@@ -255,7 +289,61 @@ const Header = () => {
                   <span>همه بخش ها</span>
                 </a>
 
+<<<<<<< HEAD
                 <DropdownBox />
+=======
+                <div className="dropdown-box text-default">
+                  <ul className="menu vertical-menu category-menu">
+                    {catMenu?.map((item) => {
+                      const mainCategory = item.id;
+                      return (
+                        <li>
+                          <Link href={`/category/${item.id}`} key={item.id}>
+                            {item.title}
+                          </Link>
+                          <ul className="megamenu" id="megamenu">
+                            <li>
+                              <ul>
+                                {subMenu?.map((item) => {
+                                  if (mainCategory === item.parentId) {
+                                    return (
+                                      <li key={item.id}>
+                                        <Link href={`/category/${item.id}/`}>
+                                          {item.title}
+                                        </Link>
+                                      </li>
+                                    );
+                                  }
+                                })}
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      );
+                    })}
+
+                    {/* <ul className="megamenu">
+                      <li>
+                        <h4 className="menu-title">براساس برند </h4>
+                        <hr className="divider" />
+                        <ul>
+                          {subMenu?.map((item) => {
+                            return (
+                              <li key={item.id}>
+                                <Link
+                                  href={`/category/${item.urlTitle}/${item.id}/`}
+                                >
+                                  {item.title}
+                                </Link>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </li>
+                    </ul> */}
+                  </ul>
+                </div>
+>>>>>>> dbbf8df425266cf11a19fefe813aea6a831f76ae
               </div>
               <nav className="main-nav">
                 <ul className="menu">
