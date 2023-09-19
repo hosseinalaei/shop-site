@@ -1,14 +1,16 @@
+import useToken from "@/hooks/useToken";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const TopHeader = () => {
   const [userInfo, setUserInfo] = useState(null);
+  const [ storedValue, setToken] = useToken()
 
   useEffect(() => {
-    const info = localStorage.getItem("user");
-    setUserInfo(JSON.parse(info));
+    setUserInfo(storedValue);
   }, []);
 
+  // const [ storedValue, setToken] = useToken()
   return (
     <div className="header-top">
       <div className="container">
@@ -79,15 +81,15 @@ const TopHeader = () => {
           <a href="/contact-us" className="d-lg-show">
             تماس با ما{" "}
           </a>
-          {userInfo?.token ? (
-            <Link href="/" className="d-lg-show login sign-in">
+          {userInfo?.token &&
+            <Link href="/my-account" className="d-lg-show login sign-in">
               <i className="w-icon-account mr-1"></i>داشبورد{" "}
-            </Link>
-          ) : (
-            <Link href="/login" className="d-lg-show login sign-in">
+            </Link>}
+          
+            {!userInfo?.token && <Link href="/login" className="d-lg-show login sign-in">
               <i className="w-icon-account mr-1"></i>ورود{" "}
             </Link>
-          )}
+          }
           {/* <span className="delimiter d-lg-show bg-">/</span>
           <a
             href="assets/ajax/login.html"

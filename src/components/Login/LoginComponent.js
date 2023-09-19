@@ -1,3 +1,4 @@
+import useToken from "@/hooks/useToken";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
@@ -6,6 +7,7 @@ const LoginComponent = () => {
   const [phoneNumber, setPhoneNumber] = useState(null);
   const [phoneSubmitted, setPhoneSubmitted] = useState(false);
   const [verifyCode, setVerifyCode] = useState("");
+  // const [storedValue, setToken] = useToken();
   const router = useRouter();
 
   const submitPhoneNumber = async () => {
@@ -55,7 +57,9 @@ const LoginComponent = () => {
           position: toast.POSITION.TOP_CENTER,
           theme: "colored",
         });
+        console.log(resData.data);
         localStorage.setItem("user", JSON.stringify(resData.data));
+        // setToken(resData.data)
         router.push("/");
       }
     } catch (error) {

@@ -2,6 +2,11 @@ import { useRouter } from "next/router";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 const MyAccount = () => {
+  const handleLogout = () =>{
+
+    router.push("/login")
+    localStorage.removeItem('user')
+  }
   const router = useRouter();
   return (
     <main className="main">
@@ -39,7 +44,7 @@ const MyAccount = () => {
               <Tab style={{ fontSize: "20px" }}>جزییات حساب</Tab>
               <Tab
                 style={{ fontSize: "20px" }}
-                onClick={() => router.push("/login")}
+                onClick={handleLogout}
               >
                 خروج
               </Tab>
