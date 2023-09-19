@@ -12,7 +12,7 @@ const shop2 = () => {
   const getData = async () => {
     try {
       const response = await fetch(
-        "https://138.201.167.230:5050/Products/getAllProducts"
+        "https://138.201.167.230:5050/Products/getAllactiveproducts"
       );
       const resData = await response.json();
       if (response.status === 200) {

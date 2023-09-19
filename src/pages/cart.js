@@ -1,42 +1,62 @@
+"use client";
 import { useEffect, useState } from "react";
 import { useCartContext } from "@/contexts/contex";
 import axios from "axios";
 import Link from "next/link";
 import Modal from "@/components/Modal/Modal";
-import useAxios from "@/hooks/useAxios";
+import Image from "next/image";
+import ProductImage from "@/components/Product/ProductImage";
+// import useAxios from "@/hooks/useAxios";
 
 const Cart = () => {
   const [data, setData] = useState(null);
-  const [order, setOrder] = useState('')
-  const [user, setUser] = useState('')
+  const [order, setOrder] = useState("");
+  const [user, setUser] = useState("");
+  const [media, setMedia] = useState(null);
 
-  useEffect(() =>{
+  useEffect(() => {
     const userOrder = JSON.parse(localStorage.getItem("order"));
     const userName = JSON.parse(localStorage.getItem("user"));
     console.log(userName);
     console.log(userOrder);
     setOrder(userOrder);
     setUser(userName);
-  })
+  }, []);
 
-  const httpRequest = useAxios()
+  // const httpRequest = useAxios()
 
-  httpRequest({
-    method: 'GET',
-    url: `/Order/get-order-details/${order.id}?userId=${user.userId}`
-  })
+  // httpRequest({
+  //   method: 'GET',
+  //   url: `/Order/get-order-details/${order.id}?userId=${user.userId}`
+  // })
   const getOrderDetail = async () => {
     const order = JSON.parse(localStorage.getItem("order"));
     const user = JSON.parse(localStorage.getItem("user"));
     try {
-      const response = await axios.get(
-        `https://138.201.167.230:5050/Order/get-order-details/${order.id}?userId=${user.userId}`
+      const response = await axios.post(
+        "https://138.201.167.230:5050/Order/get-order-details",
+        { id: user.userId }
       );
       if (response.status === 200) {
         setData(response.data.data);
       }
     } catch (error) {
       console.log("eror cart", error);
+    }
+  };
+  const getMedia = async (id) => {
+    console.log("1111");
+    try {
+      const response = await axios.post(
+        "https://138.201.167.230:5050/Get/GetMedia",
+        {
+          id: id,
+          mediaFieldName: "productImageName",
+        }
+      );
+      setMedia(response.data.data);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -165,19 +185,15 @@ const Cart = () => {
                   </tr>
                 );
               })} */}
-              {data?.orderDetails.map((item) => {
+              {data?.orderDetails?.map((item) => {
+                getMedia(item.productId);
                 return (
                   <tr key={item.productId}>
                     <td className="product-thumbnail">
                       <div className="p-relative">
                         <a href="product-default.html">
                           <figure>
-                            <img
-                              src={item.img}
-                              alt="product"
-                              width="300"
-                              height="338"
-                            />
+                            <ProductImage src={media} />
                           </figure>
                         </a>
                         <button
@@ -402,19 +418,15 @@ const Cart = () => {
                   </tr>
                 );
               })} */}
-                  {data?.orderDetails.map((item) => {
+                  {data?.orderDetails?.map((item) => {
+                    getMedia(item.productId);
                     return (
                       <tr key={item.productId}>
                         <td className="product-thumbnail">
                           <div className="p-relative">
                             <a href="product-default.html">
                               <figure>
-                                <img
-                                  src={item.img}
-                                  alt="product"
-                                  width="300"
-                                  height="338"
-                                />
+                                <ProductImage src={media} />
                               </figure>
                             </a>
                             <button

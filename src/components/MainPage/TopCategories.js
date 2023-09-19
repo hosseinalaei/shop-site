@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import cat1 from "../../assets/images/demos/demo15/categories/cat-1.jpg";
-import cat2 from "../../assets/images/demos/demo15/categories/cat-2.jpg";
-import cat3 from "../../assets/images/demos/demo15/categories/cat-3.jpg";
-import cat4 from "../../assets/images/demos/demo15/categories/cat-4.jpg";
-import cat5 from "../../assets/images/demos/demo15/categories/cat-5.jpg";
+import cat1 from "../../assets/images/mob.jpeg";
+import cat2 from "../../assets/images/laptop.png";
+import cat3 from "../../assets/images/watch.jpeg";
+import cat4 from "../../assets/images/tab.jpeg";
+import cat5 from "../../assets/images/play.jpeg";
 import cat6 from "../../assets/images/demos/demo15/categories/cat-6.jpg";
 import cat7 from "../../assets/images/demos/demo15/categories/cat-7.jpg";
 import cat8 from "../../assets/images/demos/demo15/categories/cat-8.jpg";
@@ -43,7 +43,6 @@ const TopCategories = () => {
       >
         <Swiper
           loop={true}
-          
           spaceBetween={0}
           breakpoints={{
             0: {
@@ -118,14 +117,14 @@ const TopCategories = () => {
         <div className="pl-2 pr-2">
           <Swiper
             modules={[Pagination, Scrollbar]}
-            pagination={{ clickable: true,
-              bulletClass: 'swiper-pagination-bullet d-lg-none',
-              bulletActiveClass: 'swiper-pagination-bullet-active d-lg-none',
+            pagination={{
+              clickable: true,
+              bulletClass: "swiper-pagination-bullet d-lg-none",
+              bulletActiveClass: "swiper-pagination-bullet-active d-lg-none",
               renderBullet: (index, className) => {
                 return '<span class="' + className + '" role="button"> </span>';
-              }
-             }
-          }
+              },
+            }}
             scrollbar={{ draggable: true }}
             spaceBetween={40}
             breakpoints={{
@@ -160,8 +159,8 @@ const TopCategories = () => {
                           <Image
                             src={item.image}
                             alt="Categroy"
-                            width="190"
-                            height="190"
+                            width="180"
+                            height="180"
                             style={{ backgroundColor: item.bgColor }}
                           />
                         </Link>

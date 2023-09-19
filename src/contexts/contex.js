@@ -5,7 +5,6 @@ import {
   useEffect,
   useState,
 } from "react";
-import cartItem from "../data";
 import reducer from "../utils/reducer";
 
 const CartContext = createContext();
@@ -37,7 +36,6 @@ const CartProvider = ({ children }) => {
     total: 0,
     amount: 0,
   };
-
 
   const [mobileMenu, setMobileMenu] = useState(false);
 
