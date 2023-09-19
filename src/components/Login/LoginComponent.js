@@ -63,7 +63,7 @@ const LoginComponent = () => {
     }
   };
   return (
-    <div className="login-popup">
+    <div className="login-popup" style={{ margin: "0 auto" }}>
       <div className="tab tab-nav-boxed tab-nav-center tab-nav-underline">
         <ul className="nav nav-tabs text-uppercase" role="tablist">
           <li className="nav-item">
