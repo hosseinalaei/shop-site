@@ -1,6 +1,8 @@
+import { useRouter } from "next/router";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 const MyAccount = () => {
+  const router = useRouter();
   return (
     <main className="main">
       <div className="page-header">
@@ -27,23 +29,164 @@ const MyAccount = () => {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                width: "150px",
+                width: "250px",
                 marginLeft: "20px",
               }}
             >
-              <Tab>Title 1</Tab>
-              <Tab>Title 2</Tab>
+              <Tab style={{ fontSize: "20px" }}>داشبورد</Tab>
+              <Tab style={{ fontSize: "20px" }}>سفارشات</Tab>
+              <Tab style={{ fontSize: "20px" }}>آدرسها</Tab>
+              <Tab style={{ fontSize: "20px" }}>جزییات حساب</Tab>
+              <Tab
+                style={{ fontSize: "20px" }}
+                onClick={() => router.push("/login")}
+              >
+                خروج
+              </Tab>
             </TabList>
 
-            <TabPanel>
-              <h2>Any content 1</h2>
+            <TabPanel style={{ width: "100%" }}>
+              <div className="row">
+                <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
+                  <a href="#" className="link-to-tab">
+                    <div
+                      className="icon-box text-center"
+                      style={{
+                        padding: "4rem 2rem",
+                        border: "1px solid #eee",
+                        borderRadius: "3px",
+                        WebkitTransition: "all 0.4s",
+                        transition: "all 0.4s",
+                      }}
+                    >
+                      <span className="icon-box-icon icon-orders">
+                        <i className="w-icon-orders"></i>
+                      </span>
+                      <div className="icon-box-content">
+                        <p className="text-uppercase mb-0">سفارشات </p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
+                  <a href="#" className="link-to-tab">
+                    <div
+                      className="icon-box text-center"
+                      style={{
+                        padding: "4rem 2rem",
+                        border: "1px solid #eee",
+                        borderRadius: "3px",
+                        WebkitTransition: "all 0.4s",
+                        transition: "all 0.4s",
+                      }}
+                    >
+                      <span className="icon-box-icon icon-download">
+                        <i className="w-icon-download"></i>
+                      </span>
+                      <div className="icon-box-content">
+                        <p className="text-uppercase mb-0">دانلود ها </p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
+                  <a href="#" className="link-to-tab">
+                    <div
+                      className="icon-box text-center"
+                      style={{
+                        padding: "4rem 2rem",
+                        border: "1px solid #eee",
+                        borderRadius: "3px",
+                        WebkitTransition: "all 0.4s",
+                        transition: "all 0.4s",
+                      }}
+                    >
+                      <span className="icon-box-icon icon-address">
+                        <i className="w-icon-map-marker"></i>
+                      </span>
+                      <div className="icon-box-content">
+                        <p className="text-uppercase mb-0">آدرس ها </p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
+                  <a href="#" className="link-to-tab">
+                    <div
+                      className="icon-box text-center"
+                      style={{
+                        padding: "4rem 2rem",
+                        border: "1px solid #eee",
+                        borderRadius: "3px",
+                        WebkitTransition: "all 0.4s",
+                        transition: "all 0.4s",
+                      }}
+                    >
+                      <span className="icon-box-icon icon-account">
+                        <i className="w-icon-user"></i>
+                      </span>
+                      <div className="icon-box-content">
+                        <p className="text-uppercase mb-0">جزئیات حساب </p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
+                  <a href="#" className="link-to-tab">
+                    <div
+                      className="icon-box text-center"
+                      style={{
+                        padding: "4rem 2rem",
+                        border: "1px solid #eee",
+                        borderRadius: "3px",
+                        WebkitTransition: "all 0.4s",
+                        transition: "all 0.4s",
+                      }}
+                    >
+                      <span className="icon-box-icon icon-wishlist">
+                        <i className="w-icon-heart"></i>
+                      </span>
+                      <div className="icon-box-content">
+                        <p className="text-uppercase mb-0">علاقه مندیها </p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
+                  <a href="#">
+                    <div
+                      className="icon-box text-center"
+                      style={{
+                        padding: "4rem 2rem",
+                        border: "1px solid #eee",
+                        borderRadius: "3px",
+                        WebkitTransition: "all 0.4s",
+                        transition: "all 0.4s",
+                      }}
+                    >
+                      <span className="icon-box-icon icon-logout">
+                        <i className="w-icon-logout"></i>
+                      </span>
+                      <div className="icon-box-content">
+                        <p className="text-uppercase mb-0">خروج </p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
             </TabPanel>
             <TabPanel>
-              <h2>Any content 2</h2>
+              <h3>سفارشات</h3>
+            </TabPanel>
+            <TabPanel>
+              <h3>آدرسها</h3>
+            </TabPanel>
+            <TabPanel>
+              <h3>جزئیات حساب</h3>
             </TabPanel>
           </Tabs>
           <div className="tab tab-vertical row gutter-lg">
-            <ul className="nav nav-tabs mb-6" role="tablist">
+            {/* <ul className="nav nav-tabs mb-6" role="tablist">
               <li className="nav-item">
                 <a href="#account-dashboard" className="nav-link active">
                   داشبرد
@@ -75,9 +218,9 @@ const MyAccount = () => {
               <li className="link-item">
                 <a href="login.html">خروج </a>
               </li>
-            </ul>
+            </ul> */}
 
-            <div className="tab-content mb-6">
+            {/* <div className="tab-content mb-6">
               <div className="tab-pane active in" id="account-dashboard">
                 <p className="greeting">
                   سلام
@@ -118,81 +261,6 @@ const MyAccount = () => {
                     رمز عبور و جزئیات حساب خود را ویرایش کنید.
                   </a>
                 </p>
-
-                <div className="row">
-                  <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
-                    <a href="#account-orders" className="link-to-tab">
-                      <div className="icon-box text-center">
-                        <span className="icon-box-icon icon-orders">
-                          <i className="w-icon-orders"></i>
-                        </span>
-                        <div className="icon-box-content">
-                          <p className="text-uppercase mb-0">سفارشات </p>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
-                    <a href="#account-downloads" className="link-to-tab">
-                      <div className="icon-box text-center">
-                        <span className="icon-box-icon icon-download">
-                          <i className="w-icon-download"></i>
-                        </span>
-                        <div className="icon-box-content">
-                          <p className="text-uppercase mb-0">دانلود ها </p>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
-                    <a href="#account-addresses" className="link-to-tab">
-                      <div className="icon-box text-center">
-                        <span className="icon-box-icon icon-address">
-                          <i className="w-icon-map-marker"></i>
-                        </span>
-                        <div className="icon-box-content">
-                          <p className="text-uppercase mb-0">آدرس ها </p>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
-                    <a href="#account-details" className="link-to-tab">
-                      <div className="icon-box text-center">
-                        <span className="icon-box-icon icon-account">
-                          <i className="w-icon-user"></i>
-                        </span>
-                        <div className="icon-box-content">
-                          <p className="text-uppercase mb-0">جزئیات حساب </p>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
-                    <a href="wishlist.html" className="link-to-tab">
-                      <div className="icon-box text-center">
-                        <span className="icon-box-icon icon-wishlist">
-                          <i className="w-icon-heart"></i>
-                        </span>
-                        <div className="icon-box-content">
-                          <p className="text-uppercase mb-0">علاقه مندیها </p>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
-                    <a href="#">
-                      <div className="icon-box text-center">
-                        <span className="icon-box-icon icon-logout">
-                          <i className="w-icon-logout"></i>
-                        </span>
-                        <div className="icon-box-content">
-                          <p className="text-uppercase mb-0">خروج </p>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
               </div>
 
               <div className="tab-pane mb-4" id="account-orders">
@@ -535,7 +603,7 @@ const MyAccount = () => {
                   </button>
                 </form>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

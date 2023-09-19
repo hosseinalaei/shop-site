@@ -8946,8 +8946,8 @@ body .product-popup {
 
 .product-sticky-content.fixed .btn-cart {
   -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -ms-flex: 1;
+  flex: 1;
   max-width: 21rem;
 }
 .product-sticky-content.fixed {
@@ -16789,7 +16789,6 @@ body .product-popup {
   letter-spacing: 0.025em;
 }
 
-
 .nav-top .swiper-button-prev,
 .nav-top .swiper-button-next {
   top: -5.2rem;
@@ -17108,4 +17107,19 @@ body .product-popup {
 .faqs .faq.open .faq-answer {
   max-height: 1000px;
   opacity: 1;
+}
+.icon-box:hover {
+  -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+}
+/* .react-tabs__tab {
+  border-bottom: solid 1px #aaa !important;
+} */
+.react-tabs__tab--selected {
+  background: #ddd !important;
+  border-bottom: solid 1px #aaa !important;
+  color: black;
+  border-radius: 5px !important;
+  width: 250px !important;
+  padding: 15px 10px !important;
 }
