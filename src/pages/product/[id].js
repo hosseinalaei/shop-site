@@ -10,13 +10,19 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import productImage from "../../assets/images/samsung_galaxy_a03_red02_1_1.jpeg";
 import Link from "next/link";
 import banner from "../../assets/images/banner3.jpeg";
+import { ToastContainer, toast } from "react-toastify";
+import defaultAvatar from "../../assets/images/default-avatar.webp";
+import ProductWrap from "@/components/Product/ProductRelatedWrap";
+import ProductRelatedWrap from "@/components/Product/ProductRelatedWrap";
 
 const product = () => {
   const [data, setData] = useState(null);
   const [media, setMedia] = useState("");
   const [count, setCount] = useState(1);
   const [relatedData, setRelatedData] = useState([]);
-  // const [user, setUser] = useState({});
+  const [comment, setComment] = useState("");
+  const [publishedComment, setPublishedComment] = useState([]);
+
   const {
     cart,
     clearCart,
@@ -74,7 +80,6 @@ const product = () => {
         }
       );
       if (response.status === 200) {
-        console.log("responseresponse", response.data.data);
         setRelatedData(response.data.data);
       }
       // setData(response.data.data);
@@ -82,9 +87,46 @@ const product = () => {
       console.log(error.response);
     }
   };
+  const addComment = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "https://138.201.167.230:5050/Products/add-product-comment",
+        {
+          productId: id,
+          userId: localStorage.getItem("user").userId,
+          text: comment,
+        }
+      );
+      if (response.status === 200) {
+        toast.success("نظر شما با موفقیت انجام شد", {
+          position: toast.POSITION.TOP_CENTER,
+          theme: "colored",
+        });
+      }
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
+  const getComment = async () => {
+    try {
+      const response = await axios.post(
+        "https://138.201.167.230:5050/Products/get-product-comments",
+        {
+          id: id,
+        }
+      );
+      if (response.status === 200) {
+        setPublishedComment(response.data.data);
+      }
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
   useEffect(() => {
     id && getProdctData() && getMedia();
     id && getRelatedProduct();
+    id && getComment();
   }, [id]);
 
   const addOrder = async () => {
@@ -293,7 +335,7 @@ const product = () => {
 
                     <div className="product-price">
                       <ins className="new-price">
-                        {data?.product?.price} تومان
+                        {data?.product?.productColor[0].price} تومان
                       </ins>
                     </div>
 
@@ -463,7 +505,7 @@ const product = () => {
                   <p>{data?.product?.description}</p>
                 </TabPanel>
                 <TabPanel style={{ display: "flex" }}>
-                  <div className="col-xl-4 col-lg-5 mb-4">
+                  {/* <div className="col-xl-4 col-lg-5 mb-4">
                     <div className="ratings-wrapper">
                       <div className="avg-rating-container">
                         <h4 className="avg-mark font-weight-bolder ls-50">
@@ -569,17 +611,16 @@ const product = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="col-xl-8 col-lg-7 mb-4">
+                  </div> */}
+                  <div className="col-xl-8 col-lg-7 mb-4 mt-4">
                     <div className="review-form-wrapper">
-                      <h3 className="title tab-pane-title font-weight-bold mb-1">
+                      <h3 className="title tab-pane-title font-weight-bold mb-1 mt-2">
                         نظر خود را ارسال کنید
                       </h3>
                       <p className="mb-3">
-                        آدرس ایمیل شما منتشر نخواهد شد. فیلدهای الزامی مشخص شده
-                        اند *
+                        برای ثبت نظر ابتدا باید وارد سایت شوید *
                       </p>
-                      <form action="#" method="POST" className="review-form">
+                      <form onSubmit={addComment} className="review-form">
                         <div className="rating-form">
                           <label htmlFor="rating">
                             امتیاز شما به این محصول :
@@ -616,13 +657,14 @@ const product = () => {
                         </select> */}
                         </div>
                         <textarea
+                          onChange={(e) => setComment(e.target.value)}
                           cols="30"
                           rows="6"
                           placeholder="نظر خود را اینجا بنویسید..."
                           className="form-control"
                           id="review"
                         ></textarea>
-                        <div className="row gutter-md">
+                        {/* <div className="row gutter-md mt-4 mb-4">
                           <div className="col-md-6">
                             <input
                               type="text"
@@ -639,8 +681,8 @@ const product = () => {
                               id="email_1"
                             />
                           </div>
-                        </div>
-                        <div className="form-group">
+                        </div> */}
+                        <div className="form-group mt-4">
                           <input
                             type="checkbox"
                             className="custom-checkbox"
@@ -651,13 +693,94 @@ const product = () => {
                             را در این مرورگر ذخیره کنید.
                           </label>
                         </div>
-                        <button type="submit" className="btn btn-dark">
+                        <button type="submit" className="btn btn-dark mt-4">
                           ارسال نظر
                         </button>
                       </form>
                     </div>
+
+                    <hr className="divider mt-4" />
+
+                    <div class="tab-pane active" id="show-all">
+                      <ul class="comments list-style-none">
+                        {publishedComment.map((item) => {
+                          return (
+                            <li class="comment" key={item.id}>
+                              <div
+                                class="comment-body"
+                                style={{ display: "flex" }}
+                              >
+                                <figure class="comment-avatar">
+                                  <Image
+                                    src={defaultAvatar}
+                                    width="90"
+                                    height="90"
+                                    alt="avatar"
+                                  />
+                                </figure>
+                                <div class="comment-content">
+                                  <h4 class="comment-author">
+                                    <span>کاربر جدید</span>
+                                    <span
+                                      class="comment-date"
+                                      style={{
+                                        fontSize: "1.2rem",
+                                        fontWeight: "400",
+                                        letterSpacing: "0",
+                                        color: "#999",
+                                        marginRight: "10px",
+                                      }}
+                                    >
+                                      {/* {item.createDate} */}
+                                      اردیبهشت 1402
+                                    </span>
+                                  </h4>
+                                  <div class="ratings-container comment-rating">
+                                    <div class="ratings-full">
+                                      <span
+                                        class="ratings"
+                                        style={{ width: "60%" }}
+                                      ></span>
+                                      <span class="tooltiptext tooltip-top"></span>
+                                    </div>
+                                  </div>
+                                  <p>{item.text}</p>
+                                  {/* <div class="comment-action">
+                                  <a
+                                    href="#"
+                                    class="btn btn-secondary btn-link btn-underline sm btn-icon-left font-weight-normal text-capitalize"
+                                  >
+                                    <i class="far fa-thumbs-up"></i>مفید (1)
+                                  </a>
+                                  <a
+                                    href="#"
+                                    class="btn btn-dark btn-link btn-underline sm btn-icon-left font-weight-normal text-capitalize"
+                                  >
+                                    <i class="far fa-thumbs-down"></i>ضرر (0)
+                                  </a>
+                                  <div class="review-image">
+                                    <a href="#">
+                                      <figure>
+                                        <img
+                                          src="assets/images/products/default/review-img-1.jpg"
+                                          width="60"
+                                          height="60"
+                                          alt="تصویر ضمیمه نقد جان دو در ساعت مچی مشکی الکترونیکی"
+                                          data-zoom-image="assets/images/products/default/review-img-1-800x900.jpg"
+                                        />
+                                      </figure>
+                                    </a>
+                                  </div>
+                                </div> */}
+                                </div>
+                              </div>
+                              <hr className="divider mt-4" />
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
                   </div>
-                  <p>{data?.product?.productComments}</p>
                 </TabPanel>
               </Tabs>
 
@@ -799,66 +922,67 @@ const product = () => {
                   <div className="swiper-wrapper row cols-lg-3 cols-md-4 cols-sm-3 cols-2">
                     {relatedData.map((item, index) => {
                       return (
-                        <div className="swiper-slide product">
-                          <figure className="product-media">
-                            <a href="/">
-                              <Image
-                                src={item.imgSrc}
-                                alt="Product"
-                                width="300"
-                                height="338"
-                              />
-                            </a>
-                            <div className="product-action-vertical">
-                              <a
-                                href="#"
-                                className="btn-product-icon btn-cart w-icon-cart"
-                                title="افزودن به سبد "
-                              ></a>
-                              <a
-                                href="#"
-                                className="btn-product-icon btn-wishlist w-icon-heart"
-                                title="افزودن به علاقه مندیها"
-                              ></a>
-                              <a
-                                href="#"
-                                className="btn-product-icon btn-compare w-icon-compare"
-                                title="افزودن برای مقایسه"
-                              ></a>
-                            </div>
-                            <div className="product-action">
-                              <a
-                                href="#"
-                                className="btn-product btn-quickview"
-                                title="نمایش سریع"
-                              >
-                                نمایش سریع
-                              </a>
-                            </div>
-                          </figure>
-                          <div className="product-details">
-                            <h4 className="product-name">
-                              <a href="/">{item.productName} </a>
-                            </h4>
-                            <div className="ratings-container">
-                              <div className="ratings-full">
-                                <span
-                                  className="ratings"
-                                  style={{ width: "100%" }}
-                                ></span>
-                                <span className="tooltiptext tooltip-top"></span>
-                              </div>
-                              <a href="/" className="rating-reviews">
-                                (3 نظر )
-                              </a>
-                            </div>
-                            <div className="product-pa-wrapper">
-                              <div className="product-price">
-                                {item.price} تومان
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                        <ProductRelatedWrap id={id} item={item} key={index} />
+                        // <div className="swiper-slide product">
+                        //   <figure className="product-media">
+                        //     <a href="/">
+                        //       <Image
+                        //         src={item.imgSrc}
+                        //         alt="Product"
+                        //         width="300"
+                        //         height="338"
+                        //       />
+                        //     </a>
+                        //     <div className="product-action-vertical">
+                        //       <a
+                        //         href="#"
+                        //         className="btn-product-icon btn-cart w-icon-cart"
+                        //         title="افزودن به سبد "
+                        //       ></a>
+                        //       <a
+                        //         href="#"
+                        //         className="btn-product-icon btn-wishlist w-icon-heart"
+                        //         title="افزودن به علاقه مندیها"
+                        //       ></a>
+                        //       <a
+                        //         href="#"
+                        //         className="btn-product-icon btn-compare w-icon-compare"
+                        //         title="افزودن برای مقایسه"
+                        //       ></a>
+                        //     </div>
+                        //     <div className="product-action">
+                        //       <a
+                        //         href="#"
+                        //         className="btn-product btn-quickview"
+                        //         title="نمایش سریع"
+                        //       >
+                        //         نمایش سریع
+                        //       </a>
+                        //     </div>
+                        //   </figure>
+                        //   <div className="product-details">
+                        //     <h4 className="product-name">
+                        //       <a href="/">{item.productName} </a>
+                        //     </h4>
+                        //     <div className="ratings-container">
+                        //       <div className="ratings-full">
+                        //         <span
+                        //           className="ratings"
+                        //           style={{ width: "100%" }}
+                        //         ></span>
+                        //         <span className="tooltiptext tooltip-top"></span>
+                        //       </div>
+                        //       <a href="/" className="rating-reviews">
+                        //         (3 نظر )
+                        //       </a>
+                        //     </div>
+                        //     <div className="product-pa-wrapper">
+                        //       <div className="product-price">
+                        //         {item.price} تومان
+                        //       </div>
+                        //     </div>
+                        //   </div>
+                        // </div>
                       );
                     })}
                   </div>
@@ -1255,6 +1379,7 @@ const product = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };
