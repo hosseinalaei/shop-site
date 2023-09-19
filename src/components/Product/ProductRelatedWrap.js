@@ -3,8 +3,11 @@
 import Link from "next/link";
 import ProductImage from "./ProductImage";
 import { useEffect, useState } from "react";
+import Modal from "../Modal/Modal";
+import ShowBrief from "../ShowBrief/ShowBrief";
 
 const ProductRelatedWrap = (props) => {
+  const [showModal, setShowModal] = useState(false);
   const [media, setMedia] = useState(null);
 
   const getMedia = async () => {
@@ -57,12 +60,17 @@ const ProductRelatedWrap = (props) => {
             title="افزودن برای مقایسه"
           ></a>
         </div>
-        <div className="product-action">
-          <a href="#" className="btn-product btn-quickview" title="نمایش سریع">
+        <div className="product-action" onClick={() => setShowModal(true)}>
+          <a className="btn-product btn-quickview" title="نمایش سریع">
             نمایش سریع
           </a>
         </div>
       </figure>
+      {showModal && (
+        <Modal show={showModal} modalClosed={() => setShowModal(false)}>
+          <ShowBrief />
+        </Modal>
+      )}
       <div className="product-details">
         <h4 className="product-name">
           <a href="/">{props.item.productName} </a>

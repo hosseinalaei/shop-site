@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const TopHeader = () => {
   const [userInfo, setUserInfo] = useState(null);
-  const [ storedValue, setToken] = useToken()
+  const [storedValue, setToken] = useToken();
 
   useEffect(() => {
     setUserInfo(storedValue);
@@ -81,19 +81,17 @@ const TopHeader = () => {
           <a href="/contact-us" className="d-lg-show">
             تماس با ما{" "}
           </a>
-<<<<<<< HEAD
-          {userInfo?.token ? (
-=======
-          {userInfo?.token &&
->>>>>>> c1857b2d10bad2e122dff0defe741d1867061d58
+          {userInfo?.token && (
             <Link href="/my-account" className="d-lg-show login sign-in">
               <i className="w-icon-account mr-1"></i>داشبورد{" "}
-            </Link>}
-          
-            {!userInfo?.token && <Link href="/login" className="d-lg-show login sign-in">
+            </Link>
+          )}
+
+          {!userInfo?.token && (
+            <Link href="/login" className="d-lg-show login sign-in">
               <i className="w-icon-account mr-1"></i>ورود{" "}
             </Link>
-          }
+          )}
           {/* <span className="delimiter d-lg-show bg-">/</span>
           <a
             href="assets/ajax/login.html"
