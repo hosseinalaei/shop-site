@@ -9,10 +9,7 @@ import TopCategories from "./TopCategories";
 import "swiper/css";
 import { useEffect } from "react";
 const MainPage = () => {
-  const [storedValue, setToken] = useToken();
-  setToken('new')
   
-  console.log(storedValue);
   return (
     <div className="page-wrapper">
       <h1 className="d-none">فروشگاه شاپ آی آر</h1>

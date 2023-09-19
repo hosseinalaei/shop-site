@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 const useToken = () => {
   const [storedValue, setStoredValue] = React.useState(() => {
     try {
-      const value = window.localStorage.getItem('token');
+      const value = window.localStorage.getItem('user');
 
       if (value) {
         return JSON.parse(value);
@@ -15,12 +15,13 @@ const useToken = () => {
   });
 
   const setToken = (newValue) => {
-   useEffect(() =>{
+    //   useEffect(() =>{
+       console.log(newValue)
      
-      window.localStorage.setItem('token', JSON.stringify(newValue));
-    setStoredValue(newValue);
+      window.localStorage.setItem('user', JSON.stringify(newValue));
+    // setStoredValue(newValue);
   
-   },[])
+//    },[newValue])
   }
   
   return [storedValue, setToken];
