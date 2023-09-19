@@ -35,6 +35,7 @@ const CartProvider = ({ children }) => {
     cart: [],
     total: 0,
     amount: 0,
+    color: "black",
   };
 
   const [mobileMenu, setMobileMenu] = useState(false);

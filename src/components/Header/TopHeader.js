@@ -80,7 +80,7 @@ const TopHeader = () => {
             تماس با ما{" "}
           </a>
           {userInfo?.token ? (
-            <Link href="/" className="d-lg-show login sign-in">
+            <Link href="/my-account" className="d-lg-show login sign-in">
               <i className="w-icon-account mr-1"></i>داشبورد{" "}
             </Link>
           ) : (

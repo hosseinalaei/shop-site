@@ -119,7 +119,7 @@ const shop2 = () => {
                       key={item.id}
                       id={item.id}
                       productName={item.productName}
-                      price={item.price}
+                      price={item.productColor[0].price}
                     />
                   );
                 })}

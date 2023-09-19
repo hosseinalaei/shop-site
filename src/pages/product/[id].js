@@ -19,6 +19,7 @@ const product = () => {
   const [data, setData] = useState(null);
   const [media, setMedia] = useState("");
   const [count, setCount] = useState(1);
+  const [color, setColor] = useState("black");
   const [relatedData, setRelatedData] = useState([]);
   const [comment, setComment] = useState("");
   const [publishedComment, setPublishedComment] = useState([]);
@@ -130,9 +131,6 @@ const product = () => {
   }, [id]);
 
   const addOrder = async () => {
-    // if (typeof window !== "undefined") {
-    //   setUser(localStorage.getItem("user"));
-    // }
     const user = JSON.parse(localStorage.getItem("user"));
 
     try {
@@ -143,6 +141,7 @@ const product = () => {
           count: count,
           userId: user.userId,
           isUser: true,
+          color: color,
         }
       );
       if (response.status === 200) {
@@ -366,7 +365,12 @@ const product = () => {
                         {data?.product?.productColor?.map((item) => {
                           return (
                             <div className="roundRadio">
-                              <input type="radio" id="radio" />
+                              <input
+                                type="radio"
+                                id="radio"
+                                value={item.colorName}
+                                onChange={(e) => console.log(e.target.value)}
+                              />
                               <label
                                 for="radio"
                                 style={{ backgroundColor: item.colorName }}
