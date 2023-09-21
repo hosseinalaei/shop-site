@@ -28,7 +28,7 @@ const categoryProducts = () => {
       setData([]);
       const response = await axios.post(
         "https://138.201.167.230:5050/Products/product-by-categories",
-        { id: id[0] }
+        { id: id[1] ? id[1] : id[0] }
       );
 
       if (response.status === 200) {
@@ -159,7 +159,7 @@ const categoryProducts = () => {
                         key={item.id}
                         id={item.id}
                         productName={item.productName}
-                        price={item.price}
+                        price={item.productColor[0]?.price}
                       />
                     );
                   })}

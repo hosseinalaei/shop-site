@@ -3,9 +3,9 @@ import dot1 from "../../assets/images/demos/demo9/slides/1.jpeg";
 import dot2 from "../../assets/images/demos/demo9/slides/2.jpeg";
 import dot3 from "../../assets/images/demos/demo9/slides/3.png";
 
-import bg1 from "../../assets/images/demos/demo9/slides/1.jpeg";
-import bg2 from "../../assets/images/demos/demo9/slides/2.jpeg";
-import bg3 from "../../assets/images/demos/demo9/slides/3.png";
+import bg1 from "../../assets/images/s3.jpg";
+import bg2 from "../../assets/images/sl2.webp";
+import bg3 from "../../assets/images/sl1.jpeg";
 
 import slide1 from "../../assets/images/demos/demo9/slides/1.jpeg";
 import slide2 from "../../assets/images/demos/demo9/slides/2.jpeg";
@@ -16,15 +16,15 @@ import "swiper/css/autoplay";
 import { useEffect, useRef } from "react";
 
 const IntroSection = () => {
-  const swiperRef = useRef(null)
+  const swiperRef = useRef(null);
 
-  const handleSlideChange = (index) =>{
-    swiperRef.current.swiper.slideTo(index)
-  }
+  const handleSlideChange = (index) => {
+    swiperRef.current.swiper.slideTo(index);
+  };
 
-  useEffect(() =>{
+  useEffect(() => {
     const swiperContainer = swiperRef.current;
-  },[])
+  }, []);
   return (
     <section className="intro-section mb-6">
       <Swiper
@@ -305,13 +305,29 @@ const IntroSection = () => {
           </SwiperSlide> */}
         </div>
         <div className="custom-dots swiper-img-dots">
-          <a href="#" className="active" onClick={() =>{handleSlideChange(0)}}>
+          <a
+            href="#"
+            className="active"
+            onClick={() => {
+              handleSlideChange(0);
+            }}
+          >
             <Image src={dot1} alt="Dot" width="70" height="70" />
           </a>
-          <a href="#" onClick={() =>{handleSlideChange(1)}}>
+          <a
+            href="#"
+            onClick={() => {
+              handleSlideChange(1);
+            }}
+          >
             <Image src={dot2} alt="Dot" width="70" height="70" />
           </a>
-          <a href="#" onClick={() =>{handleSlideChange(2)}}>
+          <a
+            href="#"
+            onClick={() => {
+              handleSlideChange(2);
+            }}
+          >
             <Image src={dot3} alt="Dot" width="70" height="70" />
           </a>
           {/* <a href="#">

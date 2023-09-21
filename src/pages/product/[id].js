@@ -19,6 +19,7 @@ const product = () => {
   const [data, setData] = useState(null);
   const [media, setMedia] = useState("");
   const [count, setCount] = useState(1);
+  const [color, setColor] = useState("black");
   const [relatedData, setRelatedData] = useState([]);
   const [comment, setComment] = useState("");
   const [publishedComment, setPublishedComment] = useState([]);
@@ -34,10 +35,6 @@ const product = () => {
   } = useCartContext();
   const router = useRouter();
   const { id } = router.query;
-
-  // if (typeof window !== "undefined") {
-  //   setUser(localStorage.getItem("user"));
-  // }
 
   const getProdctData = async () => {
     try {
@@ -130,9 +127,6 @@ const product = () => {
   }, [id]);
 
   const addOrder = async () => {
-    // if (typeof window !== "undefined") {
-    //   setUser(localStorage.getItem("user"));
-    // }
     const user = JSON.parse(localStorage.getItem("user"));
 
     try {
@@ -143,6 +137,7 @@ const product = () => {
           count: count,
           userId: user.userId,
           isUser: true,
+          color: color,
         }
       );
       if (response.status === 200) {
@@ -160,33 +155,33 @@ const product = () => {
 
   return (
     <>
-      <nav class="breadcrumb-nav container">
-        <ul class="breadcrumb bb-no">
+      <nav className="breadcrumb-nav container">
+        <ul className="breadcrumb bb-no">
           <li>
-            <a href="demo1.html">خانه </a>
+            <a href="/">خانه </a>
           </li>
           <li>
             <Link href="/shop">محصولات </Link>
           </li>
           <li>{data?.product?.productName}</li>
         </ul>
-        {/* <ul class="product-nav list-style-none">
-        <li class="product-nav-prev">
+        {/* <ul className="product-nav list-style-none">
+        <li className="product-nav-prev">
             <a href="#">
-                <i class="w-icon-angle-right"></i>
+                <i className="w-icon-angle-right"></i>
             </a>
-            <span class="product-nav-popup">
+            <span className="product-nav-popup">
                 <img src="assets/images/products/product-nav-prev.jpg" alt="Product" width="110"
                     height="110" />
-                <span class="product-name">نرم صدا ساز</span>
+                <span className="product-name">نرم صدا ساز</span>
             </span>
         </li>
-        <li class="product-nav-next">                         <a href="#">                            <i class="w-icon-angle-left"></i>
+        <li className="product-nav-next">                         <a href="#">                            <i className="w-icon-angle-left"></i>
             </a>
-            <span class="product-nav-popup">
+            <span className="product-nav-popup">
                 <img src="assets/images/products/product-nav-next.jpg" alt="Product" width="110"
                     height="110" />
-                <span class="product-name">بلندگوی صدای فوق العاده</span>
+                <span className="product-name">بلندگوی صدای فوق العاده</span>
             </span>
         </li>
     </ul> */}
@@ -299,8 +294,8 @@ const product = () => {
                         />
                       </div>
                     </div> */}
-                      <button className="swiper-button-next"></button>
-                      <button className="swiper-button-prev"></button>
+                      {/* <button className="swiper-button-next"></button>
+                      <button className="swiper-button-prev"></button> */}
                     </div>
                   </div>
                 </div>
@@ -366,7 +361,12 @@ const product = () => {
                         {data?.product?.productColor?.map((item) => {
                           return (
                             <div className="roundRadio">
-                              <input type="radio" id="radio" />
+                              <input
+                                type="radio"
+                                id="radio"
+                                value={item.colorName}
+                                onChange={(e) => console.log(e.target.value)}
+                              />
                               <label
                                 for="radio"
                                 style={{ backgroundColor: item.colorName }}
@@ -701,16 +701,16 @@ const product = () => {
 
                     <hr className="divider mt-4" />
 
-                    <div class="tab-pane active" id="show-all">
-                      <ul class="comments list-style-none">
+                    <div className="tab-pane active" id="show-all">
+                      <ul className="comments list-style-none">
                         {publishedComment.map((item) => {
                           return (
-                            <li class="comment" key={item.id}>
+                            <li className="comment" key={item.id}>
                               <div
-                                class="comment-body"
+                                className="comment-body"
                                 style={{ display: "flex" }}
                               >
-                                <figure class="comment-avatar">
+                                <figure className="comment-avatar">
                                   <Image
                                     src={defaultAvatar}
                                     width="90"
@@ -718,11 +718,11 @@ const product = () => {
                                     alt="avatar"
                                   />
                                 </figure>
-                                <div class="comment-content">
-                                  <h4 class="comment-author">
+                                <div className="comment-content">
+                                  <h4 className="comment-author">
                                     <span>کاربر جدید</span>
                                     <span
-                                      class="comment-date"
+                                      className="comment-date"
                                       style={{
                                         fontSize: "1.2rem",
                                         fontWeight: "400",
@@ -735,30 +735,30 @@ const product = () => {
                                       اردیبهشت 1402
                                     </span>
                                   </h4>
-                                  <div class="ratings-container comment-rating">
-                                    <div class="ratings-full">
+                                  <div className="ratings-container comment-rating">
+                                    <div className="ratings-full">
                                       <span
-                                        class="ratings"
+                                        className="ratings"
                                         style={{ width: "60%" }}
                                       ></span>
-                                      <span class="tooltiptext tooltip-top"></span>
+                                      <span className="tooltiptext tooltip-top"></span>
                                     </div>
                                   </div>
                                   <p>{item.text}</p>
-                                  {/* <div class="comment-action">
+                                  {/* <div className="comment-action">
                                   <a
                                     href="#"
-                                    class="btn btn-secondary btn-link btn-underline sm btn-icon-left font-weight-normal text-capitalize"
+                                    className="btn btn-secondary btn-link btn-underline sm btn-icon-left font-weight-normal text-capitalize"
                                   >
-                                    <i class="far fa-thumbs-up"></i>مفید (1)
+                                    <i className="far fa-thumbs-up"></i>مفید (1)
                                   </a>
                                   <a
                                     href="#"
-                                    class="btn btn-dark btn-link btn-underline sm btn-icon-left font-weight-normal text-capitalize"
+                                    className="btn btn-dark btn-link btn-underline sm btn-icon-left font-weight-normal text-capitalize"
                                   >
-                                    <i class="far fa-thumbs-down"></i>ضرر (0)
+                                    <i className="far fa-thumbs-down"></i>ضرر (0)
                                   </a>
-                                  <div class="review-image">
+                                  <div className="review-image">
                                     <a href="#">
                                       <figure>
                                         <img
@@ -1368,8 +1368,8 @@ const product = () => {
                             </div>
                           </div>
                         </div>
-                        <button className="swiper-button-next"></button>
-                        <button className="swiper-button-prev"></button>
+                        {/* <button className="swiper-button-next"></button>
+                        <button className="swiper-button-prev"></button> */}
                       </div>
                     </div>
                   </div>
