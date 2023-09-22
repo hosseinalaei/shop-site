@@ -233,7 +233,7 @@ const product = () => {
                           className="ratings"
                           style={{ width: "80%" }}
                         ></span>
-                        <span className="tooltiptext tooltip-top"></span>
+                        <span className="tooltiptext tooltip-top">4</span>
                       </div>
                       <a href="#product-tab-reviews" className="rating-reviews">
                         (3 نظر )
@@ -382,6 +382,7 @@ const product = () => {
                           className="btn-product-icon btn-compare btn-icon-left w-icon-compare"
                         >
                           <span></span>
+                          <span className="tooltiptext">Tooltip text</span>
                         </a>
                       </div>
                     </div>
