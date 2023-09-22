@@ -7,7 +7,7 @@ const DropdownBox = () => {
   const getCategories = async () => {
     try {
       const response = await fetch(
-        "https://138.201.167.230:5050/Products/product-active-categories"
+        "https://138.201.167.230:5050/Category/product-active-categories"
       );
       const resData = await response.json();
       const categoryData = await resData.data.filter(
