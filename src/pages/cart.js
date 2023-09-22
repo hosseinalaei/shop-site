@@ -6,6 +6,7 @@ import Link from "next/link";
 import Modal from "@/components/Modal/Modal";
 import Image from "next/image";
 import ProductImage from "@/components/Product/ProductImage";
+import PageLoader from "@/components/PageLoader/PageLoader";
 // import useAxios from "@/hooks/useAxios";
 
 const Cart = () => {
@@ -13,6 +14,8 @@ const Cart = () => {
   const [order, setOrder] = useState("");
   const [user, setUser] = useState("");
   const [media, setMedia] = useState(null);
+  const [isLoading, setIsLoading] = useState(true)
+
 
   useEffect(() => {
     const userOrder = JSON.parse(localStorage.getItem("order"));
@@ -38,7 +41,9 @@ const Cart = () => {
         { id: user.userId }
       );
       if (response.status === 200) {
+        console.log(response);
         setData(response.data.data);
+        setIsLoading(false);
       }
     } catch (error) {
       console.log("eror cart", error);
@@ -55,8 +60,10 @@ const Cart = () => {
         }
       );
       setMedia(response.data.data);
+      setIsLoading(false)
+
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -64,22 +71,22 @@ const Cart = () => {
     getOrderDetail();
   }, []);
 
-  const {
-    cart,
-    clearCart,
-    remove,
-    changeQuantity,
-    total,
-    addToCart,
-    deduction,
-  } = useCartContext();
+  // const {
+  //   cart,
+  //   clearCart,
+  //   remove,
+  //   changeQuantity,
+  //   total,
+  //   addToCart,
+  //   deduction,
+  // } = useCartContext();
 
   let renderedContent = (
     <>
       <h5>هیچ آیتمی در سبد خرید وجود ندارد</h5>
     </>
   );
-  if (cart.length > 0) {
+  if (data && data.orderDetails.length > 0) {
     renderedContent = (
       <>
         {/* <div className="col-lg-8 col-md-7 pt-sm-2">
@@ -199,7 +206,7 @@ const Cart = () => {
                         <button
                           type="submit"
                           className="btn btn-close"
-                          onClick={() => remove(item.productId)}
+                          // onClick={() => remove(item.productId)}
                         >
                           <i className="fas fa-times"></i>
                         </button>
@@ -219,24 +226,24 @@ const Cart = () => {
                           type="number"
                           min="1"
                           max="100000"
-                          onChange={(e) =>
-                            changeQuantity({
-                              id: item.id,
-                              quantity: +e.target.value,
-                            })
-                          }
+                          // onChange={(e) =>
+                          //   changeQuantity({
+                          //     id: item.id,
+                          //     quantity: +e.target.value,
+                          //   })
+                          // }
                         />
                         <button
                           className="quantity-plus w-icon-plus"
-                          onClick={() => {
-                            addToCart(item);
-                          }}
+                          // onClick={() => {
+                          //   addToCart(item);
+                          // }}
                         ></button>
                         <button
                           className="quantity-minus w-icon-minus"
-                          onClick={() => {
-                            deduction(item);
-                          }}
+                          // onClick={() => {
+                          //   deduction(item);
+                          // }}
                         ></button>
                       </div>
                     </td>
@@ -257,7 +264,7 @@ const Cart = () => {
               <i className="w-icon-long-arrow-left"></i>ادامه خرید کردن{" "}
             </a>
             <button
-              onClick={clearCart}
+              // onClick={clearCart}
               type="submit"
               className="btn btn-rounded btn-default btn-clear"
               name="clear_cart"
@@ -294,6 +301,7 @@ const Cart = () => {
     );
   }
   return (
+    isLoading ? <PageLoader /> :
     <main className="main cart">
       <nav className="breadcrumb-nav">
         <div className="container">
@@ -313,7 +321,7 @@ const Cart = () => {
       <div className="page-content">
         <div className="container">
           <div className="row gutter-lg mb-10">
-            {renderedContent}
+            {/* {renderedContent} */}
 
             {/* <div className="col-lg-8 col-md-7 pt-sm-2">
             {cart.map((item) => {
@@ -424,15 +432,15 @@ const Cart = () => {
                       <tr key={item.productId}>
                         <td className="product-thumbnail">
                           <div className="p-relative">
-                            <a href="product-default.html">
+                            <Link href={`/product/${item.productId}`}>
                               <figure>
                                 <ProductImage src={media} />
                               </figure>
-                            </a>
+                            </Link>
                             <button
                               type="submit"
                               className="btn btn-close"
-                              onClick={() => remove(item.productId)}
+                              // onClick={() => remove(item.productId)}
                             >
                               <i className="fas fa-times"></i>
                             </button>
@@ -454,24 +462,24 @@ const Cart = () => {
                               type="number"
                               min="1"
                               max="100000"
-                              onChange={(e) =>
-                                changeQuantity({
-                                  id: item.id,
-                                  quantity: +e.target.value,
-                                })
-                              }
+                              // onChange={(e) =>
+                              //   changeQuantity({
+                              //     id: item.id,
+                              //     quantity: +e.target.value,
+                              //   })
+                              // }
                             />
                             <button
                               className="quantity-plus w-icon-plus"
-                              onClick={() => {
-                                addToCart(item);
-                              }}
+                              // onClick={() => {
+                              //   addToCart(item);
+                              // }}
                             ></button>
                             <button
                               className="quantity-minus w-icon-minus"
-                              onClick={() => {
-                                deduction(item);
-                              }}
+                              // onClick={() => {
+                              //   deduction(item);
+                              // }}
                             ></button>
                           </div>
                         </td>
@@ -494,7 +502,7 @@ const Cart = () => {
                   <i className="w-icon-long-arrow-left"></i>ادامه خرید کردن{" "}
                 </a>
                 <button
-                  onClick={clearCart}
+                  // onClick={clearCart}
                   type="submit"
                   className="btn btn-rounded btn-default btn-clear"
                   name="clear_cart"
@@ -534,7 +542,7 @@ const Cart = () => {
                   <h3 className="cart-title text-uppercase">مجموع سبد </h3>
                   <div className="cart-subtotal d-flex align-items-center justify-content-between">
                     <label className="ls-25">جمع فرعی </label>
-                    <span>{total.toLocaleString()} تومان</span>
+                    {data && <span>{data.totalPrice} تومان</span>}
                   </div>
 
                   <hr className="divider" />
@@ -660,7 +668,7 @@ const Cart = () => {
                   <div className="order-total d-flex justify-content-between align-items-center">
                     <label>مجموع</label>
                     <span className="ls-50">
-                      {total.toLocaleString()} تومان
+                      {/* {total.toLocaleString()} تومان */}
                     </span>
                   </div>
                   <Link
