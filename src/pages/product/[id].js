@@ -14,6 +14,7 @@ import { ToastContainer, toast } from "react-toastify";
 import defaultAvatar from "../../assets/images/default-avatar.webp";
 import ProductWrap from "@/components/Product/ProductRelatedWrap";
 import ProductRelatedWrap from "@/components/Product/ProductRelatedWrap";
+import ProductSlider from "@/components/Slider/ProductSlider";
 
 const product = () => {
   const [data, setData] = useState(null);
@@ -57,7 +58,7 @@ const product = () => {
   const getMedia = async () => {
     try {
       const response = await axios.post(
-        "https://138.201.167.230:5050/Get/GetMedia",
+        "https://138.201.167.230:5050/media/getmedia",
         {
           id: id,
           mediaFieldName: "productImageName",
@@ -165,26 +166,6 @@ const product = () => {
           </li>
           <li>{data?.product?.productName}</li>
         </ul>
-        {/* <ul className="product-nav list-style-none">
-        <li className="product-nav-prev">
-            <a href="#">
-                <i className="w-icon-angle-right"></i>
-            </a>
-            <span className="product-nav-popup">
-                <img src="assets/images/products/product-nav-prev.jpg" alt="Product" width="110"
-                    height="110" />
-                <span className="product-name">نرم صدا ساز</span>
-            </span>
-        </li>
-        <li className="product-nav-next">                         <a href="#">                            <i className="w-icon-angle-left"></i>
-            </a>
-            <span className="product-nav-popup">
-                <img src="assets/images/products/product-nav-next.jpg" alt="Product" width="110"
-                    height="110" />
-                <span className="product-name">بلندگوی صدای فوق العاده</span>
-            </span>
-        </li>
-    </ul> */}
       </nav>
       <div className="page-content">
         <div className="container">
@@ -192,58 +173,15 @@ const product = () => {
             <div className="main-content">
               <div className="product product-single row">
                 <div className="col-md-6 mb-6">
-                  <div className="product-gallery product-gallery-sticky product-gallery-video">
-                    <div
-                      className="swiper-container product-single-swiper swiper-theme nav-inner"
-                      data-swiper-options="{
-                                    'navigation': {
-                                        'nextEl': '.swiper-button-next',
-                                        'prevEl': '.swiper-button-prev'
-                                    }
-                                }"
-                    >
+                  {/* <div className="product-gallery product-gallery-sticky product-gallery-video">
+                    <div className="swiper-container product-single-swiper swiper-theme nav-inner">
                       <div className="swiper-wrapper row cols-1 gutter-no">
                         <div className="swiper-slide">
                           <figure className="product-image">
                             <ProductImage src={media} />
                           </figure>
                         </div>
-                        {/* <div className="swiper-slide">
-                        <figure className="product-image">
-                          <Image
-                            src="assets/images/products/video/2-800x900.jpg"
-                            data-zoom-image="assets/images/products/video/2-800x900.jpg"
-                            alt="کفش اسپرت صورتی"
-                            width="488"
-                            height="549"
-                          />
-                        </figure>
                       </div>
-                      <div className="swiper-slide">
-                        <figure className="product-image">
-                          <Image
-                            src="assets/images/products/video/3-800x900.jpg"
-                            data-zoom-image="assets/images/products/video/3-800x900.jpg"
-                            alt="کفش اسپرت صورتی"
-                            width="800"
-                            height="900"
-                          />
-                        </figure>
-                      </div>
-                      <div className="swiper-slide">
-                        <figure className="product-image">
-                          <Image
-                            src="assets/images/products/video/4-800x900.jpg"
-                            data-zoom-image="assets/images/products/video/4-800x900.jpg"
-                            alt="کفش اسپرت صورتی"
-                            width="800"
-                            height="900"
-                          />
-                        </figure>
-                      </div> */}
-                      </div>
-                      {/* <button className="swiper-button-next"></button>
-                    <button className="swiper-button-prev"></button> */}
                       <a
                         href="#"
                         className="product-gallery-btn product-image-full"
@@ -251,53 +189,8 @@ const product = () => {
                         <i className="w-icon-zoom"></i>
                       </a>
                     </div>
-                    <div
-                      className="product-thumbs-wrap swiper-container"
-                      data-swiper-options="{
-                                    'navigation': {
-                                        'nextEl': '.swiper-button-next',
-                                        'prevEl': '.swiper-button-prev'
-                                    }
-                                }"
-                    >
-                      {/* <div className="product-thumbs swiper-wrapper row cols-4 gutter-sm">
-                      <div className="product-thumb swiper-slide">
-                        <Image
-                          src="assets/images/products/video/1-800x900.jpg"
-                          alt="Product Thumb"
-                          width="800"
-                          height="900"
-                        />
-                      </div>
-                      <div className="product-thumb swiper-slide">
-                        <Image
-                          src="assets/images/products/video/2-800x900.jpg"
-                          alt="Product Thumb"
-                          width="800"
-                          height="900"
-                        />
-                      </div>
-                      <div className="product-thumb swiper-slide">
-                        <Image
-                          src="assets/images/products/video/3-800x900.jpg"
-                          alt="Product Thumb"
-                          width="800"
-                          height="900"
-                        />
-                      </div>
-                      <div className="product-thumb swiper-slide">
-                        <Image
-                          src="assets/images/products/video/4-800x900.jpg"
-                          alt="Product Thumb"
-                          width="800"
-                          height="900"
-                        />
-                      </div>
-                    </div> */}
-                      {/* <button className="swiper-button-next"></button>
-                      <button className="swiper-button-prev"></button> */}
-                    </div>
-                  </div>
+                  </div> */}
+                  <ProductSlider data={data?.product?.productGalleries} />
                 </div>
                 <div className="col-md-6 mb-4 mb-md-6">
                   <div className="product-details">
@@ -368,7 +261,7 @@ const product = () => {
                                 onChange={(e) => console.log(e.target.value)}
                               />
                               <label
-                                for="radio"
+                                htmlFor="radio"
                                 style={{ backgroundColor: item.colorName }}
                               ></label>
                             </div>

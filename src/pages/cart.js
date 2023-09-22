@@ -53,7 +53,7 @@ const Cart = () => {
     console.log("1111");
     try {
       const response = await axios.post(
-        "https://138.201.167.230:5050/Get/GetMedia",
+        "https://138.201.167.230:5050/media/getmedia",
         {
           id: id,
           mediaFieldName: "productImageName",
