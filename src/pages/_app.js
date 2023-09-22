@@ -10,6 +10,8 @@ import "../components/FiltersDrawer/Backdrop.css";
 import "../components/FiltersDrawer/FiltersDrawer.css";
 import "../components/Modal/Modal.css";
 import "../components/Modal/backdrop/Backdrop.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 // import "@/styles/style-rtl.min.css";
 
 export default function App({ Component, pageProps }) {
