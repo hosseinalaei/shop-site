@@ -1251,8 +1251,8 @@ const NewProducts = () => {
                   </div>
                 </div>
               </div>
-              <button className="swiper-button-next font-weight-normal"></button>
-              <button className="swiper-button-prev font-weight-normal"></button>
+              {/* <button className="swiper-button-next font-weight-normal"></button>
+              <button className="swiper-button-prev font-weight-normal"></button> */}
             </div>
           </div>
         </div>

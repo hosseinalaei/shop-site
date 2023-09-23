@@ -10,7 +10,7 @@ const ProductWrap = (props) => {
   const getMedia = async () => {
     try {
       const response = await fetch(
-        "https://138.201.167.230:5050/Get/GetMedia",
+        "https://138.201.167.230:5050/media/getmedia",
         {
           method: "POST",
           headers: {

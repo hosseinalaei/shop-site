@@ -13,7 +13,7 @@ const LoginComponent = () => {
   const submitPhoneNumber = async () => {
     try {
       const response = await fetch(
-        "https://138.201.167.230:5050/Account/checkMobile",
+        "https://138.201.167.230:5050/user/checkMobile",
         {
           method: "POST",
           headers: {
@@ -38,19 +38,16 @@ const LoginComponent = () => {
   };
   const submitVerifyCode = async () => {
     try {
-      const response = await fetch(
-        "https://138.201.167.230:5050/Account/login",
-        {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify({
-            mobile: phoneNumber,
-            verifyCode: verifyCode,
-          }),
-        }
-      );
+      const response = await fetch("https://138.201.167.230:5050/user/login", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          mobile: phoneNumber,
+          verifyCode: verifyCode,
+        }),
+      });
       const resData = await response.json();
       if (response.status === 200) {
         toast.success("ورود با موفقیت انجام شد", {

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
@@ -157,9 +158,13 @@ const MyAccount = () => {
                     </div>
                   </a>
                 </div>
-                <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
-                  <a href="#">
+                <div
+                  className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4"
+                  onClick={localStorage.removeItem("user")}
+                >
+                  <a href="#" onClick={() => localStorage.removeItem("user")}>
                     <div
+                      onClick={() => localStorage.removeItem("user")}
                       className="icon-box text-center"
                       style={{
                         padding: "4rem 2rem",
@@ -169,10 +174,16 @@ const MyAccount = () => {
                         transition: "all 0.4s",
                       }}
                     >
-                      <span className="icon-box-icon icon-logout">
+                      <span
+                        className="icon-box-icon icon-logout"
+                        onClick={() => localStorage.removeItem("user")}
+                      >
                         <i className="w-icon-logout"></i>
                       </span>
-                      <div className="icon-box-content">
+                      <div
+                        className="icon-box-content"
+                        onClick={() => localStorage.removeItem("user")}
+                      >
                         <p className="text-uppercase mb-0">خروج </p>
                       </div>
                     </div>
