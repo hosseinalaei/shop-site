@@ -28,22 +28,24 @@ const reducer = (state, action) => {
       return { ...state, cart: tempCart };
     }
     case "GET_TOTALS": {
-      let { total, count } = state.cart.reduce(
+      console.log(state.cart);
+      let { totalPrice, count } = state.cart.reduce(
         (cartTotal, cartItem) => {
-          const { price, count } = cartItem;
-          console.log(price, count);
-          const itemTotal = price * count;
+          console.log('cart item', cartItem);
+          const { productPrice, count } = cartItem;
+          console.log(productPrice, count);
+          const itemTotal = productPrice * count;
           cartTotal.total += itemTotal;
           cartTotal.count += count;
           return cartTotal;
         },
         {
-          total: 0,
+          totalPrice: 0,
           count: 0,
         }
       );
 
-      return { ...state, total, count };
+      return { ...state, totalPrice, count };
     }
     case "ADD_TO_CART" :{
       console.log(state.cart);

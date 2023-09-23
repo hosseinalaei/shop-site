@@ -69,7 +69,6 @@ const CartProvider = ({ children }) => {
 
   useEffect(() => {
     dispatch({ type: "GET_TOTALS" });
-    console.log(state.cart);
   }, [state.cart]);
   return (
     <CartContext.Provider

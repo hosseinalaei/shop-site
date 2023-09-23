@@ -51,7 +51,6 @@ const Cart = () => {
         { id: user.userId }
       );
       if (response.status === 200) {
-        console.log(response.data.data);
         setData(response.data.data);
         cartUpdate(response.data.data.orderDetails)
         setIsLoading(false);
@@ -70,8 +69,6 @@ const Cart = () => {
         }
       );
       setMedia(response.data.data);
-      setIsLoading(false)
-
     } catch (error) {
       // console.log(error);
     }
@@ -194,7 +191,7 @@ const Cart = () => {
                   </tr>
                 );
               })} */}
-              {data?.orderDetails?.map((item) => {
+              {cart?.orderDetails?.map((item) => {
                 getMedia(item.productId);
                 return (
                   <tr key={item.productId}>
@@ -429,14 +426,14 @@ const Cart = () => {
                 );
               })} */}
                   {cart?.map((item) => {
-                    getMedia(item.productId);
+                    // getMedia(item.productId);
                     return (
                       <tr key={item.productId}>
                         <td className="product-thumbnail">
                           <div className="p-relative">
                             <Link href={`/product/${item.productId}`}>
                               <figure>
-                                <ProductImage src={media} />
+                                <ProductImage src={item.productId} />
                               </figure>
                             </Link>
                             <button
