@@ -3,16 +3,24 @@ const reducer = (state, action) => {
     case "CLEAR_CART": {
       return { ...state, cart: [] };
     }
+
+    case "UPDATE_CART" :{
+      return {...state, cart: action.payload}
+    }
+
     case "REMOVE": {
+      console.log(action.payload);
+      console.log(state.cart);
       return {
         ...state,
-        cart: state.cart.filter((item) => item.id !== action.payload),
+        cart: state.cart.filter((item) => item.productId !== action.payload),
       };
     }
     case "CHANGE_QUANTITY": {
+      console.log(state.cart);
       const tempCart = state.cart.map((item) => {
         if (item.id === action.payload.id && action.payload.quantity > 0) {
-          return { ...item, quantity: action.payload.quantity };
+          return { ...item, count: action.payload.quantity };
         }
         return item;
       });
@@ -20,29 +28,34 @@ const reducer = (state, action) => {
       return { ...state, cart: tempCart };
     }
     case "GET_TOTALS": {
-      let { total, quantity } = state.cart.reduce(
+      console.log(state.cart);
+      let { totalPrice, count } = state.cart.reduce(
         (cartTotal, cartItem) => {
-          const { price, quantity } = cartItem;
-          const itemTotal = price * quantity;
+          console.log('cart item', cartItem);
+          const { productPrice, count } = cartItem;
+          console.log(productPrice, count);
+          const itemTotal = productPrice * count;
           cartTotal.total += itemTotal;
-          cartTotal.quantity += quantity;
+          cartTotal.count += count;
           return cartTotal;
         },
         {
-          total: 0,
-          quantity: 0,
+          totalPrice: 0,
+          count: 0,
         }
       );
 
-      return { ...state, total, quantity };
+      return { ...state, totalPrice, count };
     }
     case "ADD_TO_CART" :{
-      if(state.cart.filter(item => item.id === action.payload.id).length === 0){
+      console.log(state.cart);
+      console.log(action.payload);
+      if(state.cart.filter(item => item.productId === action.payload.productId).length === 0){
         return {...state, cart:[...state.cart, action.payload]}
       } else{
         const tempCart = state.cart.map((item) => {
-          if (item.id === action.payload.id && action.payload.quantity > 0) {
-            return { ...item, quantity: item.quantity+1 };
+          if (item.productId === action.payload.productId && action.payload.count > 0) {
+            return { ...item, count: item.count+1 };
           }
           return item;
         });
@@ -51,13 +64,13 @@ const reducer = (state, action) => {
       }
     }
     case "DEDUCTION" :{
-      if(action.payload.quantity === 1){
-        return {...state, cart: state.cart.filter(item => item.id !== action.payload.id)}
+      if(action.payload.count === 1){
+        return {...state, cart: state.cart.filter(item => item.productId !== action.payload.productId)}
       } 
       else{
         const tempCart = state.cart.map((item) => {
-          if (item.id === action.payload.id && action.payload.quantity > 0) {
-            return { ...item, quantity: item.quantity-1 };
+          if (item.productId === action.payload.productId && action.payload.count > 0) {
+            return { ...item, count: item.count-1 };
           }
           return item;
         });

@@ -26,6 +26,16 @@ const Cart = () => {
     setUser(userName);
   }, []);
 
+  const {
+    cart,
+    clearCart,
+    remove,
+    changeQuantity,
+    total,
+    addToCart,
+    deduction,
+    cartUpdate
+  } = useCartContext();
   // const httpRequest = useAxios()
 
   // httpRequest({
@@ -41,8 +51,8 @@ const Cart = () => {
         { id: user.userId }
       );
       if (response.status === 200) {
-        console.log(response);
         setData(response.data.data);
+        cartUpdate(response.data.data.orderDetails)
         setIsLoading(false);
       }
     } catch (error) {
@@ -50,7 +60,6 @@ const Cart = () => {
     }
   };
   const getMedia = async (id) => {
-    console.log("1111");
     try {
       const response = await axios.post(
         "https://138.201.167.230:5050/media/getmedia",
@@ -60,8 +69,6 @@ const Cart = () => {
         }
       );
       setMedia(response.data.data);
-      setIsLoading(false)
-
     } catch (error) {
       // console.log(error);
     }
@@ -71,15 +78,7 @@ const Cart = () => {
     getOrderDetail();
   }, []);
 
-  // const {
-  //   cart,
-  //   clearCart,
-  //   remove,
-  //   changeQuantity,
-  //   total,
-  //   addToCart,
-  //   deduction,
-  // } = useCartContext();
+  
 
   let renderedContent = (
     <>
@@ -192,7 +191,7 @@ const Cart = () => {
                   </tr>
                 );
               })} */}
-              {data?.orderDetails?.map((item) => {
+              {cart?.orderDetails?.map((item) => {
                 getMedia(item.productId);
                 return (
                   <tr key={item.productId}>
@@ -204,9 +203,9 @@ const Cart = () => {
                           </figure>
                         </a>
                         <button
-                          type="submit"
+                          // type="submit"
                           className="btn btn-close"
-                          // onClick={() => remove(item.productId)}
+                          onClick={e => {e.preventDefault(); console.log('remove');}}
                         >
                           <i className="fas fa-times"></i>
                         </button>
@@ -426,21 +425,21 @@ const Cart = () => {
                   </tr>
                 );
               })} */}
-                  {data?.orderDetails?.map((item) => {
-                    getMedia(item.productId);
+                  {cart?.map((item) => {
+                    // getMedia(item.productId);
                     return (
                       <tr key={item.productId}>
                         <td className="product-thumbnail">
                           <div className="p-relative">
                             <Link href={`/product/${item.productId}`}>
                               <figure>
-                                <ProductImage src={media} />
+                                <ProductImage src={item.productId} />
                               </figure>
                             </Link>
                             <button
                               type="submit"
                               className="btn btn-close"
-                              // onClick={() => remove(item.productId)}
+                              onClick={() => remove(item.productId)}
                             >
                               <i className="fas fa-times"></i>
                             </button>
@@ -462,24 +461,24 @@ const Cart = () => {
                               type="number"
                               min="1"
                               max="100000"
-                              // onChange={(e) =>
-                              //   changeQuantity({
-                              //     id: item.id,
-                              //     quantity: +e.target.value,
-                              //   })
-                              // }
+                              onChange={(e) =>
+                                changeQuantity({
+                                  id: item.productId,
+                                  quantity: +e.target.value,
+                                })
+                              }
                             />
                             <button
                               className="quantity-plus w-icon-plus"
-                              // onClick={() => {
-                              //   addToCart(item);
-                              // }}
+                              onClick={() => {
+                                addToCart(item);
+                              }}
                             ></button>
                             <button
                               className="quantity-minus w-icon-minus"
-                              // onClick={() => {
-                              //   deduction(item);
-                              // }}
+                              onClick={() => {
+                                deduction(item);
+                              }}
                             ></button>
                           </div>
                         </td>
@@ -502,7 +501,7 @@ const Cart = () => {
                   <i className="w-icon-long-arrow-left"></i>ادامه خرید کردن{" "}
                 </a>
                 <button
-                  // onClick={clearCart}
+                  onClick={clearCart}
                   type="submit"
                   className="btn btn-rounded btn-default btn-clear"
                   name="clear_cart"

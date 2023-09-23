@@ -42,6 +42,11 @@ const CartProvider = ({ children }) => {
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
+
+  const cartUpdate = (cart) =>{
+    console.log(cart);
+    dispatch({type: 'UPDATE_CART', payload: cart})
+  }
   const addToCart = (newItem) => {
     dispatch({ type: "ADD_TO_CART", payload: newItem });
   };
@@ -76,6 +81,7 @@ const CartProvider = ({ children }) => {
         deduction,
         mobileMenu,
         setMobileMenu,
+        cartUpdate
       }}
     >
       {children}
