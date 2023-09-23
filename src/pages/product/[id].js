@@ -36,6 +36,7 @@ const product = () => {
     total,
     addToCart,
     deduction,
+    cartUpdate
   } = useCartContext();
   const router = useRouter();
   const { id } = router.query;
@@ -50,8 +51,9 @@ const product = () => {
         }
       );
       if (response.status === 200) {
-        console.log("responseresponse", response.data.data);
+        // console.log("responseresponse", response.data.data);
         setData(response.data.data);
+        cartUpdate(response.data.data.orderDetails)
         setIsLoading(false);
       }
     } catch (error) {

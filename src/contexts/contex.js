@@ -67,9 +67,9 @@ const CartProvider = ({ children }) => {
     dispatch({ type: "CHANGE_QUANTITY", payload: changeObj });
   };
 
-  useEffect(() => {
-    dispatch({ type: "GET_TOTALS" });
-  }, [state.cart]);
+  // useEffect(() => {
+  //   dispatch({ type: "GET_TOTALS" });
+  // }, [state.cart]);
   return (
     <CartContext.Provider
       value={{

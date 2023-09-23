@@ -51,6 +51,7 @@ const Cart = () => {
         { id: user.userId }
       );
       if (response.status === 200) {
+        console.log(response.data.data);
         setData(response.data.data);
         cartUpdate(response.data.data.orderDetails)
         setIsLoading(false);

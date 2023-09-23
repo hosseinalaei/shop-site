@@ -27,23 +27,23 @@ const reducer = (state, action) => {
 
       return { ...state, cart: tempCart };
     }
-    case "GET_TOTALS": {
-      let { total, quantity } = state.cart.reduce(
-        (cartTotal, cartItem) => {
-          const { price, quantity } = cartItem;
-          const itemTotal = price * quantity;
-          cartTotal.total += itemTotal;
-          cartTotal.quantity += quantity;
-          return cartTotal;
-        },
-        {
-          total: 0,
-          quantity: 0,
-        }
-      );
+    // case "GET_TOTALS": {
+    //   let { total, count } = state.cart.reduce(
+    //     (cartTotal, cartItem) => {
+    //       const { price, count } = cartItem;
+    //       const itemTotal = price * count;
+    //       cartTotal.total += itemTotal;
+    //       cartTotal.count += count;
+    //       return cartTotal;
+    //     },
+    //     {
+    //       total: 0,
+    //       count: 0,
+    //     }
+    //   );
 
-      return { ...state, total, quantity };
-    }
+    //   return { ...state, total, count };
+    // }
     case "ADD_TO_CART" :{
       console.log(state.cart);
       console.log(action.payload);
