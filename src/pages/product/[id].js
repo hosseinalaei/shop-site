@@ -53,7 +53,7 @@ const product = () => {
       if (response.status === 200) {
         // console.log("responseresponse", response.data.data);
         setData(response.data.data);
-        cartUpdate(response.data.data.orderDetails)
+        // cartUpdate(response.data.data.orderDetails)
         setIsLoading(false);
       }
     } catch (error) {
