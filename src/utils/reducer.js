@@ -61,13 +61,13 @@ const reducer = (state, action) => {
       }
     }
     case "DEDUCTION" :{
-      if(action.payload.quantity === 1){
-        return {...state, cart: state.cart.filter(item => item.id !== action.payload.id)}
+      if(action.payload.count === 1){
+        return {...state, cart: state.cart.filter(item => item.productId !== action.payload.productId)}
       } 
       else{
         const tempCart = state.cart.map((item) => {
-          if (item.id === action.payload.id && action.payload.quantity > 0) {
-            return { ...item, quantity: item.quantity-1 };
+          if (item.productId === action.payload.productId && action.payload.count > 0) {
+            return { ...item, count: item.count-1 };
           }
           return item;
         });

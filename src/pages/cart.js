@@ -478,9 +478,9 @@ const Cart = () => {
                             ></button>
                             <button
                               className="quantity-minus w-icon-minus"
-                              // onClick={() => {
-                              //   deduction(item);
-                              // }}
+                              onClick={() => {
+                                deduction(item);
+                              }}
                             ></button>
                           </div>
                         </td>
