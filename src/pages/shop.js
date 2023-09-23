@@ -4,10 +4,12 @@ import { useEffect, useState } from "react";
 import ProductWrap from "@/components/Product/ProductWrap";
 import FiltersDrawer from "@/components/FiltersDrawer/FiltersDrawer";
 import Backdrop from "@/components/FiltersDrawer/Backdrop";
+import PageLoader from "@/components/PageLoader/PageLoader";
 
 const shop2 = () => {
   const [data, setData] = useState([]);
   const [showFilters, setShowFilters] = useState(false);
+  const [isLoading, setIsLoading] = useState(true)
 
   const getData = async () => {
     try {
@@ -17,6 +19,7 @@ const shop2 = () => {
       const resData = await response.json();
       if (response.status === 200) {
         setData(resData.data);
+        setIsLoading(false)
       }
     } catch (error) {
       console.log(error.response);
@@ -28,6 +31,7 @@ const shop2 = () => {
   }, []);
 
   return (
+    isLoading ? <PageLoader /> :
     <div className="page-content mb-10">
       <div className="container">
         <div
