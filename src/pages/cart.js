@@ -463,18 +463,18 @@ const Cart = () => {
                               type="number"
                               min="1"
                               max="100000"
-                              // onChange={(e) =>
-                              //   changeQuantity({
-                              //     id: item.id,
-                              //     quantity: +e.target.value,
-                              //   })
-                              // }
+                              onChange={(e) =>
+                                changeQuantity({
+                                  id: item.productId,
+                                  quantity: +e.target.value,
+                                })
+                              }
                             />
                             <button
                               className="quantity-plus w-icon-plus"
-                              // onClick={() => {
-                              //   addToCart(item);
-                              // }}
+                              onClick={() => {
+                                addToCart(item);
+                              }}
                             ></button>
                             <button
                               className="quantity-minus w-icon-minus"
@@ -503,7 +503,7 @@ const Cart = () => {
                   <i className="w-icon-long-arrow-left"></i>ادامه خرید کردن{" "}
                 </a>
                 <button
-                  // onClick={clearCart}
+                  onClick={clearCart}
                   type="submit"
                   className="btn btn-rounded btn-default btn-clear"
                   name="clear_cart"
