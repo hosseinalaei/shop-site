@@ -1,4 +1,7 @@
+import { useCartContext } from "@/contexts/contex";
+
 const StickyFooter = () => {
+  const {cart} = useCartContext()
   return (
     <div className="sticky-footer sticky-content fix-bottom">
       <a href="demo1.html" className="sticky-link active">
@@ -14,9 +17,9 @@ const StickyFooter = () => {
         <p>حساب کاربری </p>
       </a>
       <div className="cart-dropdown dir-up">
-        <a href="cart.html" className="sticky-link">
-          <i className="w-icon-cart"></i>
-          <p>سبد خرید </p>
+        <a href="#" className="sticky-link">
+          <i className="w-icon-cart"> </i>
+          <p>سبد خرید <span class="cart-count" style={{top:'10px', left: '10px'}}>2</span></p>
         </a>
         <div className="dropdown-box">
           <div className="products">
