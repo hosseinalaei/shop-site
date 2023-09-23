@@ -26,6 +26,16 @@ const Cart = () => {
     setUser(userName);
   }, []);
 
+  const {
+    cart,
+    clearCart,
+    remove,
+    changeQuantity,
+    total,
+    addToCart,
+    deduction,
+    cartUpdate
+  } = useCartContext();
   // const httpRequest = useAxios()
 
   // httpRequest({
@@ -41,8 +51,8 @@ const Cart = () => {
         { id: user.userId }
       );
       if (response.status === 200) {
-        console.log(response);
         setData(response.data.data);
+        cartUpdate(response.data.data.orderDetails)
         setIsLoading(false);
       }
     } catch (error) {
@@ -50,7 +60,6 @@ const Cart = () => {
     }
   };
   const getMedia = async (id) => {
-    console.log("1111");
     try {
       const response = await axios.post(
         "https://138.201.167.230:5050/media/getmedia",
@@ -71,15 +80,7 @@ const Cart = () => {
     getOrderDetail();
   }, []);
 
-  // const {
-  //   cart,
-  //   clearCart,
-  //   remove,
-  //   changeQuantity,
-  //   total,
-  //   addToCart,
-  //   deduction,
-  // } = useCartContext();
+  
 
   let renderedContent = (
     <>
@@ -204,9 +205,9 @@ const Cart = () => {
                           </figure>
                         </a>
                         <button
-                          type="submit"
+                          // type="submit"
                           className="btn btn-close"
-                          // onClick={() => remove(item.productId)}
+                          onClick={e => {e.preventDefault(); console.log('remove');}}
                         >
                           <i className="fas fa-times"></i>
                         </button>
@@ -426,7 +427,7 @@ const Cart = () => {
                   </tr>
                 );
               })} */}
-                  {data?.orderDetails?.map((item) => {
+                  {cart?.map((item) => {
                     getMedia(item.productId);
                     return (
                       <tr key={item.productId}>
@@ -440,7 +441,7 @@ const Cart = () => {
                             <button
                               type="submit"
                               className="btn btn-close"
-                              // onClick={() => remove(item.productId)}
+                              onClick={() => remove(item.productId)}
                             >
                               <i className="fas fa-times"></i>
                             </button>

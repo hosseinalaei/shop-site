@@ -3,10 +3,18 @@ const reducer = (state, action) => {
     case "CLEAR_CART": {
       return { ...state, cart: [] };
     }
+
+    case "UPDATE_CART" :{
+      // console.log(payload)
+      return {...state, cart: action.payload}
+    }
+
     case "REMOVE": {
+      console.log(action.payload);
+      console.log(state.cart);
       return {
         ...state,
-        cart: state.cart.filter((item) => item.id !== action.payload),
+        cart: state.cart.filter((item) => item.productId !== action.payload),
       };
     }
     case "CHANGE_QUANTITY": {
