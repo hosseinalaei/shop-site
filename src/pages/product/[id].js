@@ -15,6 +15,7 @@ import defaultAvatar from "../../assets/images/default-avatar.webp";
 import ProductWrap from "@/components/Product/ProductRelatedWrap";
 import ProductRelatedWrap from "@/components/Product/ProductRelatedWrap";
 import ProductSlider from "@/components/Slider/ProductSlider";
+import PageLoader from "@/components/PageLoader/PageLoader";
 
 const product = () => {
   const [data, setData] = useState(null);
@@ -22,6 +23,8 @@ const product = () => {
   const [count, setCount] = useState(1);
   const [color, setColor] = useState("black");
   const [relatedData, setRelatedData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true)
+
   const [comment, setComment] = useState("");
   const [publishedComment, setPublishedComment] = useState([]);
 
@@ -49,8 +52,8 @@ const product = () => {
       if (response.status === 200) {
         console.log("responseresponse", response.data.data);
         setData(response.data.data);
+        setIsLoading(false);
       }
-      // setData(response.data.data);
     } catch (error) {
       console.log(error.response);
     }
@@ -155,6 +158,7 @@ const product = () => {
   };
 
   return (
+    isLoading ? <PageLoader /> :
     <>
       <nav className="breadcrumb-nav container">
         <ul className="breadcrumb bb-no">
