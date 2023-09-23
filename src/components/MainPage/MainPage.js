@@ -5,11 +5,35 @@ import NewProducts from "./NewProducts";
 import SpecialOffers from "./SpecialOffers";
 import SpecialProducts from "./SpecialProducts";
 import TopCategories from "./TopCategories";
+import { useEffect } from "react";
+import axios from "axios";
+
 // import 'swiper/react';
 import "swiper/css";
-import { useEffect } from "react";
+import { useCartContext } from "@/contexts/contex";
 const MainPage = () => {
-  
+  const {cartUpdate} = useCartContext()
+  const [storedValue, setToken] = useToken();
+  const getOrderDetail = async () => {
+    
+    try {
+      const response = await axios.post(
+        "https://138.201.167.230:5050/Order/get-order-details",
+        { id: storedValue.userId }
+      );
+      if (response.status === 200) {
+        // setData(response.data.data);
+        cartUpdate(response.data.data.orderDetails)
+        // setIsLoading(false);
+      }
+    } catch (error) {
+      console.log("eror cart", error);
+    }
+  };
+
+  useEffect(() =>{ 
+      getOrderDetail()
+  },[])
   return (
     <div className="page-wrapper">
       <h1 className="d-none">فروشگاه شاپ آی آر</h1>
