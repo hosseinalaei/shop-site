@@ -14,8 +14,7 @@ const Cart = () => {
   const [order, setOrder] = useState("");
   const [user, setUser] = useState("");
   const [media, setMedia] = useState(null);
-  const [isLoading, setIsLoading] = useState(true)
-
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const userOrder = JSON.parse(localStorage.getItem("order"));
@@ -34,7 +33,7 @@ const Cart = () => {
     total,
     addToCart,
     deduction,
-    cartUpdate
+    cartUpdate,
   } = useCartContext();
   // const httpRequest = useAxios()
 
@@ -52,7 +51,7 @@ const Cart = () => {
       );
       if (response.status === 200) {
         setData(response.data.data);
-        cartUpdate(response.data.data.orderDetails)
+        cartUpdate(response.data.data.orderDetails);
         setIsLoading(false);
       }
     } catch (error) {
@@ -77,8 +76,6 @@ const Cart = () => {
   useEffect(() => {
     getOrderDetail();
   }, []);
-
-  
 
   let renderedContent = (
     <>
@@ -205,7 +202,10 @@ const Cart = () => {
                         <button
                           // type="submit"
                           className="btn btn-close"
-                          onClick={e => {e.preventDefault(); console.log('remove');}}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            console.log("remove");
+                          }}
                         >
                           <i className="fas fa-times"></i>
                         </button>
@@ -299,20 +299,28 @@ const Cart = () => {
       </>
     );
   }
-  return (
-    isLoading ? <PageLoader /> :
+  return isLoading ? (
+    <PageLoader />
+  ) : (
     <main className="main cart">
       <nav className="breadcrumb-nav">
         <div className="container">
           <ul className="breadcrumb shop-breadcrumb bb-no">
             <li className="active">
-              <a href="cart.html">فروشگاه شاپ آی آر سبد خرید </a>
+              <a href="/cart">فروشگاه شاپ آی آر سبد خرید </a>
             </li>
             <li>
-              <a href="checkout.html">پرداخت </a>
+              <Link
+                href={{
+                  pathname: "/checkout",
+                  query: data,
+                }}
+              >
+                پرداخت
+              </Link>
             </li>
             <li>
-              <a href="order.html">سفارش کامل شد</a>
+              <Link href="#">سفارش کامل شد</Link>
             </li>
           </ul>
         </div>
@@ -494,12 +502,15 @@ const Cart = () => {
               </table>
 
               <div className="cart-action mb-6">
-                <a
-                  href="#"
+                <Link
+                  href={{
+                    pathname: "/checkout",
+                    query: data,
+                  }}
                   className="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto"
                 >
-                  <i className="w-icon-long-arrow-left"></i>ادامه خرید کردن{" "}
-                </a>
+                  <i className="w-icon-long-arrow-left"></i>ادامه خرید کردن
+                </Link>
                 <button
                   onClick={clearCart}
                   type="submit"
@@ -671,7 +682,10 @@ const Cart = () => {
                     </span>
                   </div>
                   <Link
-                    href="#"
+                    href={{
+                      pathname: "/checkout",
+                      query: data,
+                    }}
                     className="btn btn-block btn-dark btn-icon-right btn-rounded  btn-checkout"
                   >
                     پردازش و پرداخت<i className="w-icon-long-arrow-left"></i>
