@@ -4,17 +4,20 @@ import MobileMenu from "@/components/Menu/MobileMenu";
 import Modal from "@/components/Modal/Modal";
 import { useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 const Checkout = () => {
   const [nationalCode, setNationalCode] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [estelam, setEstelam] = useState("");
+  const router = useRouter();
+  const data = router.query;
 
   const getEstelam = async () => {
     try {
       const response = await axios.post(
-        "https://138.201.167.230:5050/Get/Inquiry",
+        "https://138.201.167.230:5050/Inquiry/Inquiry",
         {
           id: "5cd472c4-1584-45ac-8906-89655742a005",
           isDelete: false,
@@ -37,6 +40,25 @@ const Checkout = () => {
     getEstelam();
   };
 
+  const payment = async () => {
+    const body = {
+      amount: 1000,
+      description: "test",
+      userId: "5cd472c4-1584-45ac-8906-89655742a005",
+    };
+    try {
+      const response = await axios.post(
+        "https://138.201.167.230:5050/payment/pay-order",
+        body
+      );
+      if (response.status === 200) {
+        console.log(response.data.data.redirectUrl);
+        router.push(response.data.data.redirectUrl);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <div class="page-wrapper">
@@ -144,7 +166,7 @@ const Checkout = () => {
                   </button>
                 </div>
               </div> */}
-              <form class="form checkout-form" action="#" method="post">
+              <div>
                 <div class="row mb-9">
                   <div class="col-lg-7 pr-lg-4 mb-4">
                     <h3 class="title billing-title text-uppercase ls-10 pt-1 pb-3 mb-0">
@@ -294,7 +316,6 @@ const Checkout = () => {
                         type="email"
                         class="form-control form-control-md"
                         name="email"
-                        required
                       />
                     </div>
                     {/* <div class="form-group checkbox-toggle pb-2">
@@ -456,7 +477,7 @@ const Checkout = () => {
                                 <b>مجموع</b>
                               </td>
                               <td>
-                                <b>75000000 تومان</b>
+                                <b>{data?.totalPrice} تومان</b>
                               </td>
                             </tr>
                           </tbody>
@@ -615,7 +636,7 @@ const Checkout = () => {
                     </div>
                   </div>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
           {showModal && (
@@ -623,6 +644,14 @@ const Checkout = () => {
               <div style={{ textAlign: "center" }}>
                 <h2>:وضعیت استعلام</h2>
                 <h4>{estelam}</h4>
+                {estelam && (
+                  <button
+                    class="btn btn-primary btn-block btn-rounded"
+                    onClick={payment}
+                  >
+                    پرداخت
+                  </button>
+                )}
               </div>
             </Modal>
           )}

@@ -24,7 +24,7 @@ const product = () => {
   const [color, setColor] = useState("black");
   const [relatedData, setRelatedData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  const [price, setPrice] = useState(0);
   const [comment, setComment] = useState("");
   const [publishedComment, setPublishedComment] = useState([]);
 
@@ -94,7 +94,7 @@ const product = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://138.201.167.230:5050/Products/add-product-comment",
+        "https://138.201.167.230:5050/comment/add-product-comment",
         {
           productId: id,
           userId: localStorage.getItem("user").userId,
@@ -114,13 +114,15 @@ const product = () => {
   const getComment = async () => {
     try {
       const response = await axios.post(
-        "https://138.201.167.230:5050/Products/get-product-comments",
+        "https://138.201.167.230:5050/comment/get-product-comments",
         {
           id: id,
         }
       );
       if (response.status === 200) {
-        setPublishedComment(response.data.data);
+        setPublishedComment(
+          response.data.data.filter((item) => item.isPublish)
+        );
       }
     } catch (error) {
       console.log(error.response);
@@ -144,6 +146,7 @@ const product = () => {
           userId: user.userId,
           isUser: true,
           color: color,
+          productPrice: price,
         }
       );
       if (response.status === 200) {
@@ -163,6 +166,12 @@ const product = () => {
     }
   };
 
+  useEffect(() => {
+    const productColorPrice = data?.product.productColor?.find(
+      (item) => item.colorName === color
+    );
+    setPrice(productColorPrice?.price);
+  }, [color]);
   return isLoading ? (
     <PageLoader />
   ) : (
@@ -234,7 +243,7 @@ const product = () => {
 
                     <div className="product-price">
                       <ins className="new-price">
-                        {data?.product?.productColor[0].price} تومان
+                        {price ?? data?.product?.productColor[0].price} تومان
                       </ins>
                     </div>
 
@@ -270,7 +279,7 @@ const product = () => {
                                 type="radio"
                                 id="radio"
                                 value={item.colorName}
-                                onChange={(e) => console.log(e.target.value)}
+                                onChange={(e) => setColor(e.target.value)}
                               />
                               <label
                                 htmlFor="radio"
