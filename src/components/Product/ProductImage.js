@@ -5,7 +5,6 @@ import axios from "axios";
 
 
 const ProductImage = ({src}) => {
-  // console.log((src));
   const [media, setMedia] = useState(null);
 
   const getMedia = async (src) => {
@@ -18,9 +17,7 @@ const ProductImage = ({src}) => {
         }
       );
       setMedia(response.data.data);
-      console.log(response.data.data);
     } catch (error) {
-      // console.log(error);
     }
   };
 
