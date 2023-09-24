@@ -248,6 +248,7 @@ const product = () => {
                       </div>
                       <a href="#product-tab-reviews" className="rating-reviews">
                         (3 نظر )
+                        <span className="tooltiptext tooltip-top">4</span>
                       </a>
                     </div>
 
@@ -382,20 +383,32 @@ const product = () => {
                       </div>
                       <span className="divider d-xs-show"></span>
                       <div className="product-link-wrapper d-flex">
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-wishlist w-icon-heart"
-                        >
-                          <span></span>
-                        </a>
-                        <a
-                          href="#"
-                          className="btn-product-icon btn-compare btn-icon-left w-icon-compare"
-                        >
-                          <span></span>
-                          <span className="tooltiptext">Tooltip text</span>
-                        </a>
+                        <div class="tooltips">
+                          <a
+                            href="#"
+                            className="btn-product-icon btn-wishlist w-icon-heart"
+                          >
+                            <span></span>
+
+                            <span class="mytooltiptext">
+                              افزودن به علاقه‌مندی
+                            </span>
+                          </a>
+                        </div>
+                        <div class="tooltips">
+                          <a
+                            href="#"
+                            className="btn-product-icon btn-compare btn-icon-left w-icon-compare"
+                          >
+                            <span></span>
+                            <span class="mytooltiptext">مقایسه</span>
+                          </a>
+                        </div>
                       </div>
+                      {/* <div class="tooltips">
+                        Hover over me
+                        <span class="mytooltiptext">Tooltip text</span>
+                      </div> */}
                     </div>
                   </div>
                 </div>

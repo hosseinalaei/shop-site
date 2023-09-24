@@ -14890,7 +14890,6 @@ body .product-popup {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-
 }
 .cart-dropdown .cart-action .btn {
   width: 50%;
@@ -17201,7 +17200,6 @@ body .product-popup {
   align-items: center;
   padding: 2rem 0;
   border-top: 1px solid #eee;
-
 }
 .cart .cart-action input {
   border-color: #ccc;
@@ -17338,13 +17336,13 @@ body .product-popup {
   text-transform: uppercase;
 }
 
-.shop-table{
+.shop-table {
   text-indent: initial;
-    border-spacing: 2px;
-    border-color: grey;
-    display: table;
-    border-collapse: separate;
-    box-sizing: border-box;
+  border-spacing: 2px;
+  border-color: grey;
+  display: table;
+  border-collapse: separate;
+  box-sizing: border-box;
 }
 
 .shop-table.cart-table th {
@@ -17404,14 +17402,14 @@ body .product-popup {
   padding: 2rem 0 2rem 0;
   border-top: 1px solid #eee;
   font-size: 1.4rem;
-} 
+}
 
-.shop.table tr:last-of-type{
+.shop.table tr:last-of-type {
   .shop-table td {
     /* padding: 2rem 0 2rem 0; */
     border-bottom: 1px solid #eee;
     /* font-size: 1.4rem; */
-  } 
+  }
 }
 
 .shop-table th {
@@ -17441,7 +17439,7 @@ body .product-popup {
   height: 20px;
   border-radius: 50%;
   -webkit-box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
-          box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
   top: -14px;
   left: -8px;
 }
@@ -17459,22 +17457,20 @@ body .product-popup {
 }
 /* cart page end */
 
-.tooltip {
+.tooltips {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted black;
 }
 
-.tooltip .tooltiptext {
+.tooltips .mytooltiptext {
   visibility: hidden;
   width: 120px;
   background-color: black;
   color: #fff;
   text-align: center;
   border-radius: 6px;
-  padding: 5px 0;
-  
-  /* Position the tooltip */
+  padding: 4px 10px;
+  font-size: 13px;
   position: absolute;
   z-index: 1;
   bottom: 100%;
@@ -17482,6 +17478,6 @@ body .product-popup {
   margin-left: -60px;
 }
 
-.tooltip:hover .tooltiptext {
+.tooltips:hover .mytooltiptext {
   visibility: visible;
 }

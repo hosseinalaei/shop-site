@@ -1,7 +1,11 @@
 import { useCartContext } from "@/contexts/contex";
+import FooterCartThumbs from "./FooterCartThumbs";
+import Link from "next/link";
+// import ProductImage from "../Product/ProductImage";
+
 
 const StickyFooter = () => {
-  const {cart} = useCartContext()
+  const {cart, remove} = useCartContext()
   return (
     <div className="sticky-footer sticky-content fix-bottom">
       <a href="demo1.html" className="sticky-link active">
@@ -17,42 +21,37 @@ const StickyFooter = () => {
         <p>حساب کاربری </p>
       </a>
       <div className="cart-dropdown dir-up">
-        <a href="#" className="sticky-link">
+        <Link href="#" className="sticky-link">
           <i className="w-icon-cart"> </i>
-          <p>سبد خرید <span class="cart-count" style={{top:'10px', left: '10px'}}>2</span></p>
-        </a>
+          <p>سبد خرید <span class="cart-count" style={{top:'10px', left: '10px'}}>{cart.length}</span></p>
+        </Link>
         <div className="dropdown-box">
           <div className="products">
-            <div className="product product-cart">
+            {cart?.map(item =>(
+              <div className="product product-cart">
               <div className="product-detail">
                 <h3 className="product-name">
                   <a href="product-default.html">
-                    ما از پرداخت مطمئن استفاده می کنیم
-                    <br />
-                    کفش دونده تیک
+                    {item.title}
                   </a>
                 </h3>
                 <div className="price-box">
                   <span className="product-quantity">1</span>
-                  <span className="product-price">25600 تومان</span>
+                  <span className="product-price">{item.productPrice} تومان</span>
                 </div>
               </div>
               <figure className="product-media">
-                {/* <a href="#">
-                    <img
-                      src="assets/images/cart/product-1.jpg"
-                      alt="product"
-                      height="84"
-                      width="94"
-                    />
-                  </a> */}
+                <a href="#">
+                    {cart && <FooterCartThumbs src={item.productId} />}
+                  </a>
               </figure>
-              <button className="btn btn-link btn-close" aria-label="button">
+              <button className="btn btn-link btn-close" aria-label="button" onClick={() => remove(item.productId)}>
                 <i className="fas fa-times"></i>
               </button>
             </div>
+            ))}
 
-            <div className="product product-cart">
+            {/* <div className="product product-cart">
               <div className="product-detail">
                 <h3 className="product-name">
                   <a href="#">
@@ -67,19 +66,19 @@ const StickyFooter = () => {
                 </div>
               </div>
               <figure className="product-media">
-                {/* <a href="#">
+                <a href="#">
                   <img
                     src="assets/images/cart/product-2.jpg"
                     alt="product"
                     width="84"
                     height="94"
                   />
-                </a> */}
+                </a>
               </figure>
               <button className="btn btn-link btn-close" aria-label="button">
                 <i className="fas fa-times"></i>
               </button>
-            </div>
+            </div> */}
           </div>
 
           <div className="cart-total">
@@ -88,12 +87,12 @@ const StickyFooter = () => {
           </div>
 
           <div className="cart-action">
-            <a
-              href="cart.html"
+            <Link
+              href={`/cart`}
               className="btn btn-dark btn-outline btn-rounded"
             >
               سبد خرید{" "}
-            </a>
+            </Link>
             <a href="checkout.html" className="btn btn-primary  btn-rounded">
               پرداخت{" "}
             </a>

@@ -18,6 +18,7 @@ const shop2 = () => {
       );
       const resData = await response.json();
       if (response.status === 200) {
+        console.log(resData.data);
         setData(resData.data);
         setIsLoading(false)
       }
