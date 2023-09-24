@@ -6,6 +6,7 @@ const Verify = () => {
   const [refNum, setRefNum] = useState(0);
   const router = useRouter();
   const data = router.query;
+  console.log("dataa verify", data);
   const getVerify = async () => {
     try {
       const response = await axios.post(
@@ -13,7 +14,7 @@ const Verify = () => {
         {
           userId: "5cd472c4-1584-45ac-8906-89655742a005",
           amount: 1000,
-          authority: data?.Authority,
+          authority: data.Authority,
         }
       );
       if (response.status === 200) {
