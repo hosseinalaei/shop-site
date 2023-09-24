@@ -1,10 +1,33 @@
 import Image from "next/image";
 import defaultImage from "../../assets/images/defaultImage.png";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-const ProductImage = ({ src }) => {
+
+const ProductImage = ({src}) => {
+  const [media, setMedia] = useState(null);
+
+  const getMedia = async (src) => {
+    try {
+      const response = await axios.post(
+        "https://138.201.167.230:5050/media/getmedia",
+        {
+          id: src,
+          mediaFieldName: "productImageName",
+        }
+      );
+      setMedia(response.data.data);
+    } catch (error) {
+    }
+  };
+
+
+  useEffect(() =>{
+    getMedia(src)
+  },[src])
   return (
     <Image
-      src={src ? `data:image/jpeg;base64,${src}` : defaultImage}
+      src={media ? `data:image/jpeg;base64,${media}` : defaultImage}
       alt="Product"
       width="300"
       height="338"

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import loading from '../../assets/images/loading.gif'
+import loading from '../../assets/images/Blocks-1s-200px.gif'
 const PageLoader = () => {
     return (
       <div className="fp-container">

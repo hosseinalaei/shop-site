@@ -5,35 +5,35 @@ import ProductImage from "./ProductImage";
 import { useEffect, useState } from "react";
 
 const ProductWrap = (props) => {
-  const [media, setMedia] = useState(null);
+  // const [media, setMedia] = useState(null);
 
-  const getMedia = async () => {
-    try {
-      const response = await fetch(
-        "https://138.201.167.230:5050/media/getmedia",
-        {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify({
-            id: props.id,
-            mediaFieldName: "productImageName",
-          }),
-        }
-      );
-      const resData = await response.json();
-      if (response.status === 200) {
-        setMedia(resData.data);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const getMedia = async () => {
+  //   try {
+  //     const response = await fetch(
+  //       "https://138.201.167.230:5050/media/getmedia",
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-type": "application/json",
+  //         },
+  //         body: JSON.stringify({
+  //           id: props.id,
+  //           mediaFieldName: "productImageName",
+  //         }),
+  //       }
+  //     );
+  //     const resData = await response.json();
+  //     if (response.status === 200) {
+  //       setMedia(resData.data);
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  useEffect(() => {
-    getMedia();
-  }, [props.id]);
+  // useEffect(() => {
+  //   getMedia();
+  // }, [props.id]);
   return (
     <div className="product-wrap" key={props.key}>
       <div className="product text-center">
@@ -42,7 +42,7 @@ const ProductWrap = (props) => {
           style={{ width: "250px", height: "250px" }}
         >
           <Link href={`/product/${props.id}`}>
-            <ProductImage src={media} />
+            <ProductImage src={props.id} />
           </Link>
           <div className="product-action-horizontal">
             <a
