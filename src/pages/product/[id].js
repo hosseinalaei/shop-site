@@ -23,7 +23,7 @@ const product = () => {
   const [count, setCount] = useState(1);
   const [color, setColor] = useState("black");
   const [relatedData, setRelatedData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
   const [comment, setComment] = useState("");
   const [publishedComment, setPublishedComment] = useState([]);
@@ -36,7 +36,7 @@ const product = () => {
     total,
     addToCart,
     deduction,
-    cartUpdate
+    cartUpdate,
   } = useCartContext();
   const router = useRouter();
   const { id } = router.query;
@@ -155,12 +155,17 @@ const product = () => {
         );
       }
     } catch (error) {
+      toast.error("لطفا ابتدا وارد سایت شوید", {
+        position: toast.POSITION.TOP_CENTER,
+        theme: "colored",
+      });
       console.log(error);
     }
   };
 
-  return (
-    isLoading ? <PageLoader /> :
+  return isLoading ? (
+    <PageLoader />
+  ) : (
     <>
       <nav className="breadcrumb-nav container">
         <ul className="breadcrumb bb-no">
