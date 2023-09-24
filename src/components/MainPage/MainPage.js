@@ -12,10 +12,9 @@ import axios from "axios";
 import "swiper/css";
 import { useCartContext } from "@/contexts/contex";
 const MainPage = () => {
-  const {cartUpdate} = useCartContext()
+  const { cartUpdate } = useCartContext();
   const [storedValue, setToken] = useToken();
   const getOrderDetail = async () => {
-    
     try {
       const response = await axios.post(
         "https://138.201.167.230:5050/Order/get-order-details",
@@ -23,7 +22,7 @@ const MainPage = () => {
       );
       if (response.status === 200) {
         // setData(response.data.data);
-        cartUpdate(response.data.data.orderDetails)
+        cartUpdate(response.data.data.orderDetails);
         // setIsLoading(false);
       }
     } catch (error) {
@@ -31,9 +30,9 @@ const MainPage = () => {
     }
   };
 
-  useEffect(() =>{ 
-      getOrderDetail()
-  },[])
+  useEffect(() => {
+    getOrderDetail();
+  }, []);
   return (
     <div className="page-wrapper">
       <h1 className="d-none">فروشگاه شاپ آی آر</h1>
