@@ -272,17 +272,18 @@ const product = () => {
                     <div className="product-form product-variation-form product-color-swatch">
                       <label>رنگ :</label>
                       <div className="d-flex align-items-center product-variations">
-                        {data?.product?.productColor?.map((item) => {
+                        {data?.product?.productColor?.map((item, index) => {
                           return (
-                            <div className="roundRadio">
+                            <div className="roundRadio mr-5" key={index}>
                               <input
+                                name="color"
                                 type="radio"
-                                id="radio"
+                                id={`radio ${index}`}
                                 value={item.colorName}
                                 onChange={(e) => setColor(e.target.value)}
                               />
                               <label
-                                htmlFor="radio"
+                                htmlFor={`radio ${index}`}
                                 style={{ backgroundColor: item.colorName }}
                               ></label>
                             </div>
