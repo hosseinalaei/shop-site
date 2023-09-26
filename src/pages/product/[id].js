@@ -268,6 +268,36 @@ const product = () => {
                     </div>
 
                     <hr className="product-divider" />
+                    {/* <div class="product-form product-variation-form product-color-swatch">
+                      <label>رنگ :</label>
+                      <div class="d-flex align-items-center product-variations">
+                        <a
+                          href="#"
+                          class="color"
+                          style="background-color: #ffcc01"
+                        ></a>
+                        <a
+                          href="#"
+                          class="color"
+                          style="background-color: #ca6d00"
+                        ></a>
+                        <a
+                          href="#"
+                          class="color"
+                          style="background-color: #1c93cb"
+                        ></a>
+                        <a
+                          href="#"
+                          class="color"
+                          style="background-color: #ccc"
+                        ></a>
+                        <a
+                          href="#"
+                          class="color"
+                          style="background-color: #333"
+                        ></a>
+                      </div>
+                    </div> */}
 
                     <div className="product-form product-variation-form product-color-swatch">
                       <label>رنگ :</label>
@@ -281,12 +311,18 @@ const product = () => {
                                 id={`radio ${index}`}
                                 value={item.colorName}
                                 onChange={(e) => setColor(e.target.value)}
+                                defaultChecked={index === 0 && true}
                               />
                               <label
                                 htmlFor={`radio ${index}`}
                                 style={{ backgroundColor: item.colorName }}
                               ></label>
                             </div>
+                            // <a
+                            //   href="#"
+                            //   className="color"
+                            //   style={{ backgroundColor: "#ffcc01" }}
+                            // ></a>
                           );
                         })}
                       </div>

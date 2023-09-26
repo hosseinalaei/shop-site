@@ -10,7 +10,8 @@ const LoginComponent = () => {
   // const [storedValue, setToken] = useToken();
   const router = useRouter();
 
-  const submitPhoneNumber = async () => {
+  const submitPhoneNumber = async (e) => {
+    e.preventDefault();
     try {
       const response = await fetch(
         "https://138.201.167.230:5050/user/checkMobile",
@@ -36,7 +37,8 @@ const LoginComponent = () => {
       console.log(error.response);
     }
   };
-  const submitVerifyCode = async () => {
+  const submitVerifyCode = async (e) => {
+    e.preventDefault();
     try {
       const response = await fetch("https://138.201.167.230:5050/user/login", {
         method: "POST",
@@ -78,7 +80,10 @@ const LoginComponent = () => {
                       </a>
                     </li> */}
         </ul>
-        <div className="tab-content">
+        <form
+          className="tab-content"
+          onSubmit={!phoneSubmitted ? submitPhoneNumber : submitVerifyCode}
+        >
           <div className="tab-pane active" id="sign-in">
             <div className="form-group">
               {!phoneSubmitted ? (
@@ -129,13 +134,13 @@ const LoginComponent = () => {
               <a href="#">فراموشی رمز عبور؟</a> */}
             </div>
             <a
-              onClick={!phoneSubmitted ? submitPhoneNumber : submitVerifyCode}
+              // onClick={!phoneSubmitted ? submitPhoneNumber : submitVerifyCode}
               className="btn btn-primary"
             >
               ارسال
             </a>
           </div>
-        </div>
+        </form>
         {/* <p className="text-center">ورود با حساب اجتماعی</p>
         <div className="social-icons social-icon-border-color d-flex justify-content-center">
           <a
