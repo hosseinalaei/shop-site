@@ -3,6 +3,13 @@ const FiltersDrawer = ({ showFilters }) => {
   if (showFilters) {
     drawerClasses = "side-drawer open";
   }
+  const openStyle = showFilters ? {
+    webkitTransform: " translateX(0)",
+    transform: "translateX(0)",
+    opacity: 1,
+  } :
+  {};
+  
   return (
     <aside
       className={`sidebar shop-sidebar left-sidebar sticky-sidebar-wrapper ${drawerClasses}`}
@@ -14,11 +21,7 @@ const FiltersDrawer = ({ showFilters }) => {
 
       <div
         className="sidebar-content scrollable"
-        style={{
-          webkitTransform: " translateX(0)",
-          transform: "translateX(0)",
-          opacity: 1,
-        }}
+        style={openStyle}
       >
         <div className="filter-actions">
           <label>فیلتر :</label>

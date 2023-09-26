@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useCartContext } from "@/contexts/contex";
 
 const DropdownBox = () => {
-  const [catMenu, setCatMenu] = useState([]);
-  const [subMenu, setSubMenu] = useState([]);
+
+  const {catMenu, setCatMenu, subMenu, setSubMenu } = useCartContext();
+  
   const getCategories = async () => {
     try {
       const response = await fetch(

@@ -39,6 +39,8 @@ const CartProvider = ({ children }) => {
   };
 
   const [mobileMenu, setMobileMenu] = useState(false);
+  const [catMenu, setCatMenu] = useState([]);
+  const [subMenu, setSubMenu] = useState([]);
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -81,7 +83,11 @@ const CartProvider = ({ children }) => {
         deduction,
         mobileMenu,
         setMobileMenu,
-        cartUpdate
+        cartUpdate, 
+        catMenu,
+        setCatMenu,
+        subMenu,
+        setSubMenu
       }}
     >
       {children}

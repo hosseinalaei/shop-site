@@ -1,9 +1,10 @@
 import { useCartContext } from "@/contexts/contex";
+import Link from "next/link";
 import { useState } from "react";
 
 const MobileMenu = ({mobileMenu}) => {
 
-  const {setMobileMenu} = useCartContext();
+  const {setMobileMenu, subMenu, catMenu} = useCartContext();
 
   const [menuState, setMenuState] = useState('main')
 
@@ -51,10 +52,10 @@ const MobileMenu = ({mobileMenu}) => {
             <div className={`tab-pane ${menuState === 'main' ? 'active' : ''}`} id="main-menu">
               <ul className="mobile-menu">
                 <li>
-                  <a href="demo1.html">خانه </a>
+                  <Link href={`/`} onClick={() =>{setMobileMenu(false)}}>خانه </Link>
                 </li>
                 <li>
-                  <a href="shop-banner-sidebar.html">فروشگاه </a>
+                  <Link href={`/shop`} onClick={() =>{setMobileMenu(false)}}>فروشگاه </Link>
                   <ul>
                     <li>
                       <a href="#">صفحات فروشگاه </a>
@@ -195,7 +196,7 @@ const MobileMenu = ({mobileMenu}) => {
                     </li>
                   </ul>
                 </li>
-                <li>
+                {/* <li>
                   <a href="vendor-dokan-store.html">فروشنده </a>
                   <ul>
                     <li>
@@ -249,9 +250,9 @@ const MobileMenu = ({mobileMenu}) => {
                       </ul>
                     </li>
                   </ul>
-                </li>
+                </li> */}
                 <li>
-                  <a href="blog.html">بلاگ </a>
+                  <Link href={`/blog`} onClick={() =>{setMobileMenu(false)}}>بلاگ </Link>
                   <ul>
                     <li>
                       <a href="blog.html">کلاسیک </a>
@@ -313,7 +314,7 @@ const MobileMenu = ({mobileMenu}) => {
                     </li>
                   </ul>
                 </li>
-                <li>
+                {/* <li>
                   <a href="about-us.html">صفحات </a>
                   <ul>
                     <li>
@@ -350,9 +351,9 @@ const MobileMenu = ({mobileMenu}) => {
                       <a href="my-account.html">حساب من </a>
                     </li>
                   </ul>
-                </li>
+                </li> */}
                 <li>
-                  <a href="elements.html">المنت ها </a>
+                  <Link href={`/cart`} onClick={() =>{setMobileMenu(false)}}>سبد خرید</Link>
                   <ul>
                     <li>
                       <a href="element-products.html">محصولات </a>
@@ -405,7 +406,15 @@ const MobileMenu = ({mobileMenu}) => {
             </div>
             <div className={`tab-pane ${menuState === 'cat' ? 'active' : ''}`} id="categories">
               <ul className="mobile-menu">
-                <li>
+                {catMenu?.map(item =>(
+                  <li>
+                  <Link href={`/category/${item.id}`} onClick={() =>{setMobileMenu(false)}}>
+                  <i className="w-icon-electronics"></i>
+                    {item.title} <span class="toggle-btn"></span></Link>
+                    
+                  </li>
+                ))}
+                {/* <li>
                   <a href="shop-fullwidth-banner.html">
                     <i className="w-icon-tshirt2"></i>مدل
                   </a>
@@ -858,7 +867,7 @@ const MobileMenu = ({mobileMenu}) => {
                   >
                     نمایش همه دسته بندیها <i className="w-icon-angle-left"></i>
                   </a>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import Footer from "../Footer/Footer";
-// import StickyFooter from "../Footer/StickyFooter";
+import StickyFooter from "../Footer/StickyFooter";
 import Header from "../Header/Header";
 import Loading from "../Loading/Loading";
 import MobileMenu from "../Menu/MobileMenu";
@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
       <Header />
       <Suspense fallback={<Loading />}>{children}</Suspense>
       <Footer />
-      {/* <StickyFooter /> */}
+      <StickyFooter />
     </>
   );
 };
