@@ -39,7 +39,7 @@ const ProductWrap = (props) => {
       <div className="product text-center">
         <figure
           className="product-media"
-          style={{ width: "250px", height: "250px" }}
+          // style={{ width: "250px", height: "250px" }}
         >
           <Link href={`/product/${props.id}`}>
             <ProductImage src={props.id} />
