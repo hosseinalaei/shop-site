@@ -5,8 +5,10 @@ import Modal from "@/components/Modal/Modal";
 import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { useCartContext } from "@/contexts/contex";
 
 const Checkout = () => {
+  const { cart } = useCartContext();
   const [nationalCode, setNationalCode] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [showModal, setShowModal] = useState(false);
@@ -458,7 +460,16 @@ const Checkout = () => {
                             </tr>
                           </thead>
                           <tbody>
-                            <tr class="bb-no">
+                            {cart?.map( item =>(
+                              <tr class="bb-no">
+                              <td class="product-name">
+                                {item.title}<i class="fas fa-times"></i>{" "}
+                                <span class="product-quantity">1</span>
+                              </td>
+                              <td class="product-total">{item.productPrice}</td>
+                            </tr>
+                            ))}
+                            {/* <tr class="bb-no">
                               <td class="product-name">
                                 گلکسی s21 <i class="fas fa-times"></i>{" "}
                                 <span class="product-quantity">1</span>
@@ -471,7 +482,7 @@ const Checkout = () => {
                                 <span class="product-quantity">1</span>
                               </td>
                               <td class="product-total">50000000 تومان</td>
-                            </tr>
+                            </tr> */}
                             <tr class="cart-subtotal bb-no">
                               <td>
                                 <b>مجموع</b>
