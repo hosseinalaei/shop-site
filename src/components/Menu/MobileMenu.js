@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const MobileMenu = ({mobileMenu}) => {
 
-  const {setMobileMenu} = useCartContext();
+  const {setMobileMenu, subMenu, catMenu} = useCartContext();
 
   const [menuState, setMenuState] = useState('main')
 
@@ -406,7 +406,14 @@ const MobileMenu = ({mobileMenu}) => {
             </div>
             <div className={`tab-pane ${menuState === 'cat' ? 'active' : ''}`} id="categories">
               <ul className="mobile-menu">
-                <li>
+                {catMenu?.map(item =>(
+                  <li>
+                  <Link href={`/category/${item.id}`}>
+                  <i className="w-icon-electronics"></i>
+                    {item.title}</Link>
+                  </li>
+                ))}
+                {/* <li>
                   <a href="shop-fullwidth-banner.html">
                     <i className="w-icon-tshirt2"></i>مدل
                   </a>
@@ -859,7 +866,7 @@ const MobileMenu = ({mobileMenu}) => {
                   >
                     نمایش همه دسته بندیها <i className="w-icon-angle-left"></i>
                   </a>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>
