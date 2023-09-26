@@ -52,10 +52,10 @@ const MobileMenu = ({mobileMenu}) => {
             <div className={`tab-pane ${menuState === 'main' ? 'active' : ''}`} id="main-menu">
               <ul className="mobile-menu">
                 <li>
-                  <Link href={`/`}>خانه </Link>
+                  <Link href={`/`} onClick={() =>{setMobileMenu(false)}}>خانه </Link>
                 </li>
                 <li>
-                  <Link href={`/shop`}>فروشگاه </Link>
+                  <Link href={`/shop`} onClick={() =>{setMobileMenu(false)}}>فروشگاه </Link>
                   <ul>
                     <li>
                       <a href="#">صفحات فروشگاه </a>
@@ -252,7 +252,7 @@ const MobileMenu = ({mobileMenu}) => {
                   </ul>
                 </li> */}
                 <li>
-                  <a href={`/blog`}>بلاگ </a>
+                  <Link href={`/blog`} onClick={() =>{setMobileMenu(false)}}>بلاگ </Link>
                   <ul>
                     <li>
                       <a href="blog.html">کلاسیک </a>
@@ -353,7 +353,7 @@ const MobileMenu = ({mobileMenu}) => {
                   </ul>
                 </li> */}
                 <li>
-                  <Link href={`/cart`}>سبد خرید</Link>
+                  <Link href={`/cart`} onClick={() =>{setMobileMenu(false)}}>سبد خرید</Link>
                   <ul>
                     <li>
                       <a href="element-products.html">محصولات </a>
@@ -408,9 +408,10 @@ const MobileMenu = ({mobileMenu}) => {
               <ul className="mobile-menu">
                 {catMenu?.map(item =>(
                   <li>
-                  <Link href={`/category/${item.id}`}>
+                  <Link href={`/category/${item.id}`} onClick={() =>{setMobileMenu(false)}}>
                   <i className="w-icon-electronics"></i>
-                    {item.title}</Link>
+                    {item.title} <span class="toggle-btn"></span></Link>
+                    
                   </li>
                 ))}
                 {/* <li>
