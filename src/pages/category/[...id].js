@@ -6,7 +6,7 @@ import ProductWrap from "@/components/Product/ProductWrap";
 import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
-import shopBanner from "../../assets/images/shop-banner.jpeg";
+import shopBanner from "../../assets/images/apple-banner.jpeg";
 import appleLogo from "../../assets/images/apple_logo_1988.webp";
 import sumsungLogo from "../../assets/images/Samsung-Logo.jpeg";
 import xiaomiLogo from "../../assets/images/xiaomi-logo.jpeg";
@@ -20,6 +20,7 @@ import Backdrop from "@/components/FiltersDrawer/Backdrop";
 const categoryProducts = () => {
   const [data, setData] = useState([]);
   const [showFilters, setShowFilters] = useState(false);
+  const [banner, setBanner] = useState(null);
   const router = useRouter();
   const { id } = router.query;
 
@@ -39,7 +40,22 @@ const categoryProducts = () => {
     }
   };
 
+  const getMedia = async (src) => {
+    try {
+      setBanner(null);
+      const response = await axios.post(
+        "https://138.201.167.230:5050/media/getmedia",
+        {
+          id: id[1] ? id[1] : id[0],
+          mediaFieldName: "categoryImageName",
+        }
+      );
+      setBanner(response.data.data);
+    } catch (error) {}
+  };
+
   useEffect(() => {
+    id && getMedia();
     id && getProdcts();
   }, [id]);
 
@@ -74,7 +90,14 @@ const categoryProducts = () => {
             className="mb-6"
             // style="background-image: url(assets/images/shop/banner2.jpg); background-color: #FFC74E;"
           >
-            <Image src={shopBanner} />
+            <div
+              className="container banner-content"
+              style={{
+                background: `url(data:image/jpeg;base64,${banner}) no-repeat center`,
+                height: "200px",
+              }}
+            ></div>
+            {/* <Image src={shopBanner} /> */}
             {/* <div className="container banner-content">
           <h4 className="banner-subtitle font-weight-bold">
             مجموعه لوازم جانبی{" "}
