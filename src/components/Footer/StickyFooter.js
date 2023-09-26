@@ -8,18 +8,18 @@ const StickyFooter = () => {
   const {cart, remove} = useCartContext()
   return (
     <div className="sticky-footer sticky-content fix-bottom">
-      <a href="demo1.html" className="sticky-link active">
+      <Link href={`/`} className="sticky-link active">
         <i className="w-icon-home"></i>
         <p>خانه</p>
-      </a>
-      <a href="shop-banner-sidebar.html" className="sticky-link">
+      </Link>
+      <Link href={`/shop`} className="sticky-link">
         <i className="w-icon-category"></i>
         <p>فروشگاه </p>
-      </a>
-      <a href="my-account.html" className="sticky-link">
+      </Link>
+      <Link href={`/my-account`} className="sticky-link">
         <i className="w-icon-account"></i>
         <p>حساب کاربری </p>
-      </a>
+      </Link>
       <div className="cart-dropdown dir-up">
         <Link href="#" className="sticky-link">
           <i className="w-icon-cart"> </i>
@@ -28,7 +28,7 @@ const StickyFooter = () => {
         <div className="dropdown-box">
           <div className="products">
             {cart?.map(item =>(
-              <div className="product product-cart">
+              <div className="product product-cart" key={item.id}>
               <div className="product-detail">
                 <h3 className="product-name">
                   <a href="product-default.html">
