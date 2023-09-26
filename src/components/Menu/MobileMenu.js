@@ -1,4 +1,5 @@
 import { useCartContext } from "@/contexts/contex";
+import Link from "next/link";
 import { useState } from "react";
 
 const MobileMenu = ({mobileMenu}) => {
@@ -51,10 +52,10 @@ const MobileMenu = ({mobileMenu}) => {
             <div className={`tab-pane ${menuState === 'main' ? 'active' : ''}`} id="main-menu">
               <ul className="mobile-menu">
                 <li>
-                  <a href="demo1.html">خانه </a>
+                  <Link href={`/`}>خانه </Link>
                 </li>
                 <li>
-                  <a href="shop-banner-sidebar.html">فروشگاه </a>
+                  <Link href={`/shop`}>فروشگاه </Link>
                   <ul>
                     <li>
                       <a href="#">صفحات فروشگاه </a>
@@ -195,7 +196,7 @@ const MobileMenu = ({mobileMenu}) => {
                     </li>
                   </ul>
                 </li>
-                <li>
+                {/* <li>
                   <a href="vendor-dokan-store.html">فروشنده </a>
                   <ul>
                     <li>
@@ -249,9 +250,9 @@ const MobileMenu = ({mobileMenu}) => {
                       </ul>
                     </li>
                   </ul>
-                </li>
+                </li> */}
                 <li>
-                  <a href="blog.html">بلاگ </a>
+                  <a href={`/blog`}>بلاگ </a>
                   <ul>
                     <li>
                       <a href="blog.html">کلاسیک </a>
@@ -313,7 +314,7 @@ const MobileMenu = ({mobileMenu}) => {
                     </li>
                   </ul>
                 </li>
-                <li>
+                {/* <li>
                   <a href="about-us.html">صفحات </a>
                   <ul>
                     <li>
@@ -350,9 +351,9 @@ const MobileMenu = ({mobileMenu}) => {
                       <a href="my-account.html">حساب من </a>
                     </li>
                   </ul>
-                </li>
+                </li> */}
                 <li>
-                  <a href="elements.html">المنت ها </a>
+                  <Link href={`/cart`}>سبد خرید</Link>
                   <ul>
                     <li>
                       <a href="element-products.html">محصولات </a>
