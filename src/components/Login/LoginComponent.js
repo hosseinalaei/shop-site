@@ -136,6 +136,7 @@ const LoginComponent = () => {
             <a
               // onClick={!phoneSubmitted ? submitPhoneNumber : submitVerifyCode}
               className="btn btn-primary"
+              onClick={!phoneSubmitted ? submitPhoneNumber : submitVerifyCode}
             >
               ارسال
             </a>
