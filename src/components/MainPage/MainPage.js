@@ -24,7 +24,7 @@ const MainPage = () => {
         // setData(response.data.data);
         cartUpdate(response.data.data.orderDetails);
         // setIsLoading(false);
-      } else{
+      } else {
         // cartUpdate([]);
       }
     } catch (error) {

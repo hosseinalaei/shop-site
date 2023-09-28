@@ -56,7 +56,7 @@ const product = () => {
         setData(response.data.data);
         // cartUpdate(response.data.data.orderDetails)
         setIsLoading(false);
-        setPrice(response.data.data.product.productColor[0].price)
+        setPrice(response.data.data.product.productColor[0].price);
       }
     } catch (error) {
       console.log(error.response);
@@ -175,14 +175,15 @@ const product = () => {
   //   setPrice(productColorPrice?.price);
   // }, [color]);
 
-
-  const handleColor = () =>{
-    console.log('hello');
-    setColor(e.target.value)
-    const productColorPrice = data.product.productColor.filter(item => item.colorName === color)
+  const handleColor = () => {
+    console.log("hello");
+    setColor(e.target.value);
+    const productColorPrice = data.product.productColor.filter(
+      (item) => item.colorName === color
+    );
     setPrice(productColorPrice[0].price);
     console.log(productColorPrice);
-  }
+  };
 
   return isLoading ? (
     <PageLoader />
@@ -255,9 +256,13 @@ const product = () => {
 
                     <div className="product-price">
                       <ins className="new-price">
-                        {price ??
-                          separate(data?.product?.productColor[0].price)}{" "}
-                        تومان
+                        {data?.product?.isExists ? (
+                          `${separate(
+                            data?.product?.productColor[0].price
+                          )} "تومان"`
+                        ) : (
+                          <span style={{ color: "red" }}>ناموجود</span>
+                        )}
                       </ins>
                     </div>
 
@@ -324,9 +329,14 @@ const product = () => {
                                 type="radio"
                                 id={`radio ${index}`}
                                 value={item.colorName}
-                                onChange={(e) => {setColor(e.target.value)
-                                  const productColorPrice = data.product.productColor.filter(item => item.colorName === color)
-                                  setPrice(productColorPrice[0].price);}}
+                                onChange={(e) => {
+                                  setColor(e.target.value);
+                                  const productColorPrice =
+                                    data.product.productColor.filter(
+                                      (item) => item.colorName === color
+                                    );
+                                  setPrice(productColorPrice[0].price);
+                                }}
                                 defaultChecked={index === 0 && true}
                               />
                               <label
@@ -368,7 +378,9 @@ const product = () => {
                           </div>
                         </div>
                         <button
-                          className="btn btn-primary btn-cart"
+                          className={`btn btn-primary btn-cart ${
+                            !data?.product?.isExists && "disabled"
+                          }`}
                           onClick={addOrder}
                         >
                           <i className="w-icon-cart"></i>
