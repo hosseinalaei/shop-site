@@ -20,10 +20,12 @@ const MainPage = () => {
         "https://138.201.167.230:5050/Order/get-order-details",
         { id: storedValue.userId }
       );
-      if (response.status === 200) {
+      if (response.status === 200 && response.data.data.orderDetails) {
         // setData(response.data.data);
         cartUpdate(response.data.data.orderDetails);
         // setIsLoading(false);
+      } else{
+        // cartUpdate([]);
       }
     } catch (error) {
       console.log("eror cart", error);

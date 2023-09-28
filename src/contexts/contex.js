@@ -46,7 +46,7 @@ const CartProvider = ({ children }) => {
 
 
   const cartUpdate = (cart) =>{
-    console.log(cart);
+    // console.log(cart);
     dispatch({type: 'UPDATE_CART', payload: cart})
   }
   const addToCart = (newItem) => {

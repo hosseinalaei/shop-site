@@ -19,8 +19,8 @@ const Cart = () => {
   useEffect(() => {
     const userOrder = JSON.parse(localStorage.getItem("order"));
     const userName = JSON.parse(localStorage.getItem("user"));
-    console.log(userName);
-    console.log(userOrder);
+    // console.log(userName);
+    // console.log(userOrder);
     setOrder(userOrder);
     setUser(userName);
   }, []);

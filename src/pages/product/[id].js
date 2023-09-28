@@ -25,7 +25,7 @@ const product = () => {
   const [color, setColor] = useState("black");
   const [relatedData, setRelatedData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState();
   const [comment, setComment] = useState("");
   const [publishedComment, setPublishedComment] = useState([]);
 
@@ -56,7 +56,7 @@ const product = () => {
         setData(response.data.data);
         // cartUpdate(response.data.data.orderDetails)
         setIsLoading(false);
-        setPrice(data.product.productColor[1].price)
+        setPrice(response.data.data.product.productColor[0].price)
       }
     } catch (error) {
       console.log(error.response);
@@ -138,7 +138,6 @@ const product = () => {
 
   const addOrder = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
-
     try {
       const response = await axios.post(
         "https://138.201.167.230:5050/Order/add-order",
@@ -178,9 +177,10 @@ const product = () => {
 
 
   const handleColor = () =>{
+    console.log('hello');
     setColor(e.target.value)
     const productColorPrice = data.product.productColor.filter(item => item.colorName === color)
-    // setPrice(productColorPrice[0].price);
+    setPrice(productColorPrice[0].price);
     console.log(productColorPrice);
   }
 
@@ -324,7 +324,9 @@ const product = () => {
                                 type="radio"
                                 id={`radio ${index}`}
                                 value={item.colorName}
-                                onChange={(e) => {handleColor}}
+                                onChange={(e) => {setColor(e.target.value)
+                                  const productColorPrice = data.product.productColor.filter(item => item.colorName === color)
+                                  setPrice(productColorPrice[0].price);}}
                                 defaultChecked={index === 0 && true}
                               />
                               <label
