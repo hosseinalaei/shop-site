@@ -16,6 +16,7 @@ import ProductWrap from "@/components/Product/ProductRelatedWrap";
 import ProductRelatedWrap from "@/components/Product/ProductRelatedWrap";
 import ProductSlider from "@/components/Slider/ProductSlider";
 import PageLoader from "@/components/PageLoader/PageLoader";
+import { separate } from "@/utils/helper";
 
 const product = () => {
   const [data, setData] = useState(null);
@@ -243,7 +244,9 @@ const product = () => {
 
                     <div className="product-price">
                       <ins className="new-price">
-                        {price ?? data?.product?.productColor[0].price} تومان
+                        {price ??
+                          separate(data?.product?.productColor[0].price)}{" "}
+                        تومان
                       </ins>
                     </div>
 
