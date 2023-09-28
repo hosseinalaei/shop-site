@@ -24,7 +24,7 @@ const StickyFooter = () => {
           <i className="w-icon-cart"> </i>
           <p>
             سبد خرید{" "}
-            <span class="cart-count" style={{ top: "10px", left: "10px" }}>
+            <span className="cart-count" style={{ top: "10px", left: "10px" }}>
               {cart?.length}
             </span>
           </p>

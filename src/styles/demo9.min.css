@@ -15934,6 +15934,7 @@ body .product-popup {
   font-size: 1.2rem;
   -webkit-transition: left 0.3s;
   transition: left 0.3s;
+  transform: rotate(180deg);
 }
 
 /* Horizontal Menu */
@@ -17109,8 +17110,8 @@ body .product-popup {
   opacity: 1;
 }
 .icon-box:hover {
-  -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
 /* .react-tabs__tab {
   border-bottom: solid 1px #aaa !important;

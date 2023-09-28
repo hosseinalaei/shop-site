@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import logo from "../../assets/images/logo.png";
 
 const Footer = () => {
@@ -58,7 +59,7 @@ const Footer = () => {
                     021-43000470
                   </a>
                   <p className="widget-about-desc">
-                    برای دریافت بروز رسانی با ما هماهنگ شوید.
+                    ارتباط با ما در شبکه‌های اجتماعی
                   </p>
 
                   <div className="social-icons social-icons-colored">
@@ -91,22 +92,13 @@ const Footer = () => {
                 <h3 className="widget-title">کمپانی </h3>
                 <ul className="widget-body">
                   <li>
-                    <a href="about-us.html">درباره ما </a>
+                    <Link href="/about-us">درباره ما </Link>
                   </li>
                   <li>
-                    <a href="#">اعضای تیم </a>
+                    <Link href="#">اعضای تیم </Link>
                   </li>
                   <li>
-                    <a href="#">شغل </a>
-                  </li>
-                  <li>
-                    <a href="contact-us.html">تماس با ما </a>
-                  </li>
-                  <li>
-                    <a href="#">وابسته </a>
-                  </li>
-                  <li>
-                    <a href="#">تاریخچه سفارش ها </a>
+                    <Link href="/contact-us">تماس با ما </Link>
                   </li>
                 </ul>
               </div>
@@ -116,22 +108,22 @@ const Footer = () => {
                 <h4 className="widget-title">حساب کاربری </h4>
                 <ul className="widget-body">
                   <li>
-                    <a href="#">پیگیر سفارشات من </a>
+                    <Link href="#">پیگیر سفارشات من </Link>
                   </li>
                   <li>
-                    <a href="cart.html">سبد خرید </a>
+                    <Link href="/cart">سبد خرید </Link>
                   </li>
                   <li>
-                    <a href="login.html">ورود </a>
+                    <Link href="/login">ورود </Link>
                   </li>
                   <li>
-                    <a href="#">راهنما </a>
+                    <Link href="#">راهنما </Link>
                   </li>
                   <li>
-                    <a href="wishlist.html">علاقه مندیهای من </a>
+                    <Link href="/wishlist">علاقه مندیهای من </Link>
                   </li>
                   <li>
-                    <a href="#">سیاست حفظ حریم خصوصی </a>
+                    <Link href="#">سیاست حفظ حریم خصوصی </Link>
                   </li>
                 </ul>
               </div>
@@ -141,22 +133,22 @@ const Footer = () => {
                 <h4 className="widget-title">خدمات مشتری </h4>
                 <ul className="widget-body">
                   <li>
-                    <a href="#">روش های پرداخت </a>
+                    <Link href="#">روش های پرداخت </Link>
                   </li>
                   <li>
-                    <a href="#">تضمین بازگشت پول! </a>
+                    <Link href="#">تضمین بازگشت پول! </Link>
                   </li>
                   <li>
-                    <a href="#">محصول بازگشتی </a>
+                    <Link href="#">محصول بازگشتی </Link>
                   </li>
                   <li>
-                    <a href="#">مرکز پشتیبانی </a>
+                    <Link href="#">مرکز پشتیبانی </Link>
                   </li>
                   <li>
-                    <a href="#">حمل دریایی </a>
+                    <Link href="#">حمل دریایی </Link>
                   </li>
                   <li>
-                    <a href="#">مدت و شرایط</a>
+                    <Link href="#">مدت و شرایط</Link>
                   </li>
                 </ul>
               </div>
