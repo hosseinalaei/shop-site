@@ -7,10 +7,8 @@ import Modal from "../Modal/Modal";
 import DropdownBox from "./DropdownBox";
 
 const Header = () => {
- 
   const { cart, setMobileMenu } = useCartContext();
 
-  
   // const closeModal = () => {
   //   setShowModal(false);
   // };
@@ -140,7 +138,7 @@ const Header = () => {
               <div className="cart-overlay"></div>
               <Link href="/cart" className="cart-toggle label-down link">
                 <i className="w-icon-cart">
-                  <span className="cart-count">{cart.length}</span>
+                  <span className="cart-count">{cart?.length}</span>
                 </i>
                 <span className="cart-label">سبد </span>
               </Link>

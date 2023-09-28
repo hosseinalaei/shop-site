@@ -4,8 +4,8 @@ const reducer = (state, action) => {
       return { ...state, cart: [] };
     }
 
-    case "UPDATE_CART" :{
-      return {...state, cart: action.payload}
+    case "UPDATE_CART": {
+      return { ...state, cart: action.payload };
     }
 
     case "REMOVE": {
@@ -29,9 +29,9 @@ const reducer = (state, action) => {
     }
     case "GET_TOTALS": {
       console.log(state.cart);
-      let { totalPrice, count } = state.cart.reduce(
+      let { totalPrice, count } = state?.cart?.reduce(
         (cartTotal, cartItem) => {
-          console.log('cart item', cartItem);
+          console.log("cart item", cartItem);
           const { productPrice, count } = cartItem;
           console.log(productPrice, count);
           const itemTotal = productPrice * count;
@@ -47,15 +47,21 @@ const reducer = (state, action) => {
 
       return { ...state, totalPrice, count };
     }
-    case "ADD_TO_CART" :{
+    case "ADD_TO_CART": {
       console.log(state.cart);
       console.log(action.payload);
-      if(state.cart.filter(item => item.productId === action.payload.productId).length === 0){
-        return {...state, cart:[...state.cart, action.payload]}
-      } else{
+      if (
+        state.cart.filter((item) => item.productId === action.payload.productId)
+          .length === 0
+      ) {
+        return { ...state, cart: [...state.cart, action.payload] };
+      } else {
         const tempCart = state.cart.map((item) => {
-          if (item.productId === action.payload.productId && action.payload.count > 0) {
-            return { ...item, count: item.count+1 };
+          if (
+            item.productId === action.payload.productId &&
+            action.payload.count > 0
+          ) {
+            return { ...item, count: item.count + 1 };
           }
           return item;
         });
@@ -63,14 +69,21 @@ const reducer = (state, action) => {
         return { ...state, cart: tempCart };
       }
     }
-    case "DEDUCTION" :{
-      if(action.payload.count === 1){
-        return {...state, cart: state.cart.filter(item => item.productId !== action.payload.productId)}
-      } 
-      else{
+    case "DEDUCTION": {
+      if (action.payload.count === 1) {
+        return {
+          ...state,
+          cart: state.cart.filter(
+            (item) => item.productId !== action.payload.productId
+          ),
+        };
+      } else {
         const tempCart = state.cart.map((item) => {
-          if (item.productId === action.payload.productId && action.payload.count > 0) {
-            return { ...item, count: item.count-1 };
+          if (
+            item.productId === action.payload.productId &&
+            action.payload.count > 0
+          ) {
+            return { ...item, count: item.count - 1 };
           }
           return item;
         });
@@ -78,7 +91,6 @@ const reducer = (state, action) => {
       }
     }
   }
-  
 };
 
 export default reducer;

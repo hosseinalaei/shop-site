@@ -3,9 +3,8 @@ import FooterCartThumbs from "./FooterCartThumbs";
 import Link from "next/link";
 // import ProductImage from "../Product/ProductImage";
 
-
 const StickyFooter = () => {
-  const {cart, remove} = useCartContext()
+  const { cart, remove } = useCartContext();
   return (
     <div className="sticky-footer sticky-content fix-bottom">
       <Link href={`/`} className="sticky-link active">
@@ -23,32 +22,41 @@ const StickyFooter = () => {
       <div className="cart-dropdown dir-up">
         <Link href="#" className="sticky-link">
           <i className="w-icon-cart"> </i>
-          <p>سبد خرید <span class="cart-count" style={{top:'10px', left: '10px'}}>{cart.length}</span></p>
+          <p>
+            سبد خرید{" "}
+            <span class="cart-count" style={{ top: "10px", left: "10px" }}>
+              {cart?.length}
+            </span>
+          </p>
         </Link>
         <div className="dropdown-box">
           <div className="products">
-            {cart?.map(item =>(
+            {cart?.map((item) => (
               <div className="product product-cart" key={item.id}>
-              <div className="product-detail">
-                <h3 className="product-name">
-                  <a href="product-default.html">
-                    {item.title}
-                  </a>
-                </h3>
-                <div className="price-box">
-                  <span className="product-quantity">1</span>
-                  <span className="product-price">{item.productPrice} تومان</span>
+                <div className="product-detail">
+                  <h3 className="product-name">
+                    <a href="product-default.html">{item.title}</a>
+                  </h3>
+                  <div className="price-box">
+                    <span className="product-quantity">1</span>
+                    <span className="product-price">
+                      {item.productPrice} تومان
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <figure className="product-media">
-                <a href="#">
+                <figure className="product-media">
+                  <a href="#">
                     {cart && <FooterCartThumbs src={item.productId} />}
                   </a>
-              </figure>
-              <button className="btn btn-link btn-close" aria-label="button" onClick={() => remove(item.productId)}>
-                <i className="fas fa-times"></i>
-              </button>
-            </div>
+                </figure>
+                <button
+                  className="btn btn-link btn-close"
+                  aria-label="button"
+                  onClick={() => remove(item.productId)}
+                >
+                  <i className="fas fa-times"></i>
+                </button>
+              </div>
             ))}
 
             {/* <div className="product product-cart">
