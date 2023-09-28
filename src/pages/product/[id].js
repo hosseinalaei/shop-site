@@ -55,6 +55,7 @@ const product = () => {
         setData(response.data.data);
         // cartUpdate(response.data.data.orderDetails)
         setIsLoading(false);
+        setPrice(data.product.productColor[1].price)
       }
     } catch (error) {
       console.log(error.response);
@@ -166,12 +167,22 @@ const product = () => {
     }
   };
 
-  useEffect(() => {
-    const productColorPrice = data?.product.productColor?.find(
-      (item) => item.colorName === color
-    );
-    setPrice(productColorPrice?.price);
-  }, [color]);
+  // useEffect(() => {
+  //   const productColorPrice = data?.product.productColor?.find(
+  //     (item) => item.colorName === color
+  //   );
+  //   console.log(productColorPrice);
+  //   setPrice(productColorPrice?.price);
+  // }, [color]);
+
+
+  const handleColor = () =>{
+    setColor(e.target.value)
+    const productColorPrice = data.product.productColor.filter(item => item.colorName === color)
+    // setPrice(productColorPrice[0].price);
+    console.log(productColorPrice);
+  }
+
   return isLoading ? (
     <PageLoader />
   ) : (
@@ -310,7 +321,7 @@ const product = () => {
                                 type="radio"
                                 id={`radio ${index}`}
                                 value={item.colorName}
-                                onChange={(e) => setColor(e.target.value)}
+                                onChange={(e) => {handleColor}}
                                 defaultChecked={index === 0 && true}
                               />
                               <label
