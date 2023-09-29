@@ -2,27 +2,21 @@ import { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import axios from "axios";
 import Image from "next/image";
-
-const settings1 = {
-  dots: false,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: true,
-};
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FreeMode, Navigation, Thumbs } from "swiper";
 
 const ProductSlider = ({ data = [] }) => {
-  const [nav1, setNav1] = useState(null);
-  const [nav2, setNav2] = useState(null);
+  // const [nav1, setNav1] = useState(null);
+  // const [nav2, setNav2] = useState(null);
   const [media, setMedia] = useState([]);
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
-  const slider1 = useRef(null);
-  const slider2 = useRef(null);
+  // const slider1 = useRef(null);
+  // const slider2 = useRef(null);
 
   useEffect(() => {
-    setNav1(slider1.current);
-    setNav2(slider2.current);
+    // setNav1(slider1.current);
+    // setNav2(slider2.current);
 
     const fetchData = async () => {
       const mediaData = await Promise.all(
@@ -51,7 +45,7 @@ const ProductSlider = ({ data = [] }) => {
 
   return (
     <div style={{ alignItems: "center" }}>
-      <Slider {...settings1} asNavFor={nav2} ref={slider1}>
+      {/* <Slider {...settings1} asNavFor={nav2} ref={slider1}>
         {media?.map((mediaUrl, index) => {
           return (
             <div key={index}>
@@ -65,11 +59,11 @@ const ProductSlider = ({ data = [] }) => {
             </div>
           );
         })}
-      </Slider>
-      <Slider
+      </Slider> */}
+      {/* <Slider
         asNavFor={nav1}
         ref={slider2}
-        slidesToShow={2}
+        slidesToShow={4}
         swipeToSlide={true}
         focusOnSelect={true}
       >
@@ -84,7 +78,61 @@ const ProductSlider = ({ data = [] }) => {
             />
           </div>
         ))}
-      </Slider>
+      </Slider> */}
+
+      <Swiper
+        style={{
+          "--swiper-navigation-color": "#fff",
+          "--swiper-pagination-color": "#fff",
+        }}
+        loop={true}
+        spaceBetween={10}
+        // navigation={true}
+        thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined}
+        modules={[FreeMode, Navigation, Thumbs]}
+        className="mySwiper2"
+      >
+        {media?.map((mediaUrl, index) => {
+          return (
+            <div key={index}>
+              <SwiperSlide>
+                <Image
+                  src={`data:image/jpeg;base64,${mediaUrl}`}
+                  alt={`Image ${index}`}
+                  width="300"
+                  height="300"
+                  style={{ margin: "0 auto" }}
+                />
+              </SwiperSlide>
+            </div>
+          );
+        })}
+      </Swiper>
+      <Swiper
+        onSwiper={setThumbsSwiper}
+        loop={true}
+        spaceBetween={5}
+        slidesPerView={4}
+        // freeMode={true}
+        // navigation={true}
+        watchSlidesProgress={true}
+        modules={[FreeMode, Navigation, Thumbs]}
+        className="mySwiper"
+      >
+        {media?.map((mediaUrl, index) => (
+          <div key={index}>
+            <SwiperSlide>
+              <Image
+                src={`data:image/jpeg;base64,${mediaUrl}`}
+                alt={`Image ${index}`}
+                width={100}
+                height={100}
+                style={{ margin: "0 auto" }}
+              />
+            </SwiperSlide>
+          </div>
+        ))}
+      </Swiper>
     </div>
   );
 };

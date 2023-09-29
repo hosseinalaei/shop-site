@@ -6,78 +6,34 @@ import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useCartContext } from "@/contexts/contex";
+import Inquiry from "@/components/Inquiry/Inquiry";
 
 const Checkout = () => {
   const { cart } = useCartContext();
-  const [nationalCode, setNationalCode] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
   const [showModal, setShowModal] = useState(false);
-  const [estelam, setEstelam] = useState("");
   const router = useRouter();
   const data = router.query;
 
-  const getEstelam = async () => {
-    try {
-      const response = await axios.post(
-        "https://138.201.167.230:5050/Inquiry/Inquiry",
-        {
-          id: "5cd472c4-1584-45ac-8906-89655742a005",
-          isDelete: false,
-          createDate: "2023-09-05T13:03:42.869Z",
-          lastUpdateDate: "2023-09-05T13:03:42.869Z",
-          phoneNumber: phoneNumber,
-          nationalId: nationalCode,
-        }
-      );
-      if (response.status === 200) {
-        setEstelam(response.data.data.message);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   const estelamFunc = () => {
     setShowModal(true);
-    getEstelam();
+    // getEstelam();
   };
 
-  const payment = async () => {
-    const body = {
-      amount: 1000,
-      description: "test",
-      userId: "5cd472c4-1584-45ac-8906-89655742a005",
-    };
-    try {
-      const response = await axios.post(
-        "https://138.201.167.230:5050/payment/pay-order",
-        body
-      );
-      if (response.status === 200) {
-        console.log(response.data.data.redirectUrl);
-        router.push(response.data.data.redirectUrl);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
   return (
     <>
       <div class="page-wrapper">
-        <h1 class="d-none">قالب فروشگاهی چند فروشندگی وولمارت</h1>
-
         <main class="main checkout">
           <nav class="breadcrumb-nav">
             <div class="container">
               <ul class="breadcrumb shop-breadcrumb bb-no">
                 <li class="passed">
-                  <a href="cart.html">فروشگاه پینگ سبد خرید </a>
+                  <a href="/cart"> سبد خرید </a>
                 </li>
                 <li class="active">
-                  <a href="checkout.html">پرداخت </a>
+                  <a href="٫">پرداخت </a>
                 </li>
                 <li>
-                  <a href="order.html">سفارش کامل شد</a>
+                  <a href="#">سفارش کامل شد</a>
                 </li>
               </ul>
             </div>
@@ -460,14 +416,17 @@ const Checkout = () => {
                             </tr>
                           </thead>
                           <tbody>
-                            {cart?.map( item =>(
+                            {cart?.map((item) => (
                               <tr class="bb-no">
-                              <td class="product-name">
-                                {item.title}<i class="fas fa-times"></i>{" "}
-                                <span class="product-quantity">1</span>
-                              </td>
-                              <td class="product-total">{item.productPrice}</td>
-                            </tr>
+                                <td class="product-name">
+                                  {item.title}
+                                  <i class="fas fa-times"></i>{" "}
+                                  <span class="product-quantity">1</span>
+                                </td>
+                                <td class="product-total">
+                                  {item.productPrice}
+                                </td>
+                              </tr>
                             ))}
                             {/* <tr class="bb-no">
                               <td class="product-name">
@@ -637,7 +596,7 @@ const Checkout = () => {
                         <div class="form-group place-order pt-6">
                           <button
                             type="submit"
-                            class="btn btn-dark btn-block btn-rounded"
+                            class="btn btn-primary btn-block btn-rounded"
                             onClick={estelamFunc}
                           >
                             سفارش
@@ -652,23 +611,12 @@ const Checkout = () => {
           </div>
           {showModal && (
             <Modal show={showModal} modalClosed={() => setShowModal(false)}>
-              <div style={{ textAlign: "center" }}>
-                <h2>:وضعیت استعلام</h2>
-                <h4>{estelam}</h4>
-                {estelam && (
-                  <button
-                    class="btn btn-primary btn-block btn-rounded"
-                    onClick={payment}
-                  >
-                    پرداخت
-                  </button>
-                )}
-              </div>
+              <Inquiry />
             </Modal>
           )}
         </main>
 
-        <Footer />
+        {/* <Footer /> */}
       </div>
 
       <StickyFooter />
