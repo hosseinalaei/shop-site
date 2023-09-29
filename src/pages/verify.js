@@ -43,10 +43,10 @@ const Verify = () => {
           <h3>شماره پیگیری: {refNum}</h3>
         </div>
       )}
-      {!data?.Status === "OK" && (
+      {data?.Status !== "OK" && (
         <div>
           <Image src={errorGif} />
-          <h2 style={{ color: "green" }}>خطا در انجام تراکنش</h2>
+          <h2 style={{ color: "red" }}>خطا در انجام تراکنش</h2>
         </div>
       )}
     </div>
