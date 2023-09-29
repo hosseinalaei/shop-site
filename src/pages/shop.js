@@ -9,7 +9,7 @@ import PageLoader from "@/components/PageLoader/PageLoader";
 const shop2 = () => {
   const [data, setData] = useState([]);
   const [showFilters, setShowFilters] = useState(false);
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
   const getData = async () => {
     try {
@@ -20,7 +20,7 @@ const shop2 = () => {
       if (response.status === 200) {
         console.log(resData.data);
         setData(resData.data);
-        setIsLoading(false)
+        setIsLoading(false);
       }
     } catch (error) {
       console.log(error.response);
@@ -31,8 +31,9 @@ const shop2 = () => {
     getData();
   }, []);
 
-  return (
-    isLoading ? <PageLoader /> :
+  return isLoading ? (
+    <PageLoader />
+  ) : (
     <div className="page-content mb-10">
       <div className="container">
         <div
@@ -119,14 +120,7 @@ const shop2 = () => {
             <div className="product-wrapper row cols-xl-5 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
               {data?.length > 0 &&
                 data.map((item) => {
-                  return (
-                    <ProductWrap
-                      key={item.id}
-                      id={item.id}
-                      productName={item.productName}
-                      price={item.productColor[0].price}
-                    />
-                  );
+                  return <ProductWrap data={item} />;
                 })}
             </div>
 

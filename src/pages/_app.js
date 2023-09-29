@@ -12,6 +12,11 @@ import "../components/Modal/Modal.css";
 import "../components/Modal/backdrop/Backdrop.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+// import "swiper/css";
+import "swiper/swiper-bundle.css";
+// import "swiper/css/free-mode";
+// import "swiper/css/navigation";
+// import "swiper/css/thumbs";
 // import "@/styles/style-rtl.min.css";
 
 export default function App({ Component, pageProps }) {

@@ -1,6 +1,9 @@
 import axios from "axios";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import okGif from "../assets/images/check.gif";
+import errorGif from "../assets/images/cancel.gif";
 
 const Verify = () => {
   const [refNum, setRefNum] = useState(0);
@@ -28,10 +31,24 @@ const Verify = () => {
   useEffect(() => {
     data.Authority && getVerify();
   }, [data]);
+
+  console.log("data?.Authority", data?.Status);
+
   return (
-    <div style={{ textAlign: "center" }}>
-      <h2 style={{ color: "green" }}>پرداخت با موفقیت انجام شد</h2>
-      <h3>شماره پیگیری: {refNum}</h3>
+    <div className="text-center pt-10 pb-10">
+      {data?.Status === "OK" && (
+        <div>
+          <Image src={okGif} />
+          <h2 style={{ color: "green" }}>پرداخت با موفقیت انجام شد</h2>
+          <h3>شماره پیگیری: {refNum}</h3>
+        </div>
+      )}
+      {!data?.Status === "OK" && (
+        <div>
+          <Image src={errorGif} />
+          <h2 style={{ color: "green" }}>خطا در انجام تراکنش</h2>
+        </div>
+      )}
     </div>
   );
 };
