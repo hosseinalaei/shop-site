@@ -3,16 +3,35 @@ import logo from "../../assets/images/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import { useCartContext } from "@/contexts/contex";
-import Modal from "../Modal/Modal";
 import DropdownBox from "./DropdownBox";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Header = () => {
+  const [search, setSearch] = useState(null);
+  const [searchData, setSearchData] = useState([]);
   const { cart, setMobileMenu } = useCartContext();
 
-  // const closeModal = () => {
-  //   setShowModal(false);
-  // };
+  useEffect(() => {
+    const searchRequest = async () => {
+      try {
+        const response = await axios.post(
+          "https://138.201.167.230:5050/Search/simpleSearch",
+          {
+            text: search,
+          }
+        );
+        if (response.data.status === "Success") {
+          setSearchData(response.data.data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    search?.length > 2 && searchRequest();
+  }, [search]);
 
+  console.log("searchData", searchData);
   return (
     <header className="header">
       <TopHeader />
@@ -29,11 +48,8 @@ const Header = () => {
             <a href="/" className="logo ml-lg-0">
               <Image src={logo} alt="logo" width="144" height="45" />
             </a>
-            <form
-              method="get"
-              action="#"
-              className="header-search hs-expanded hs-round d-none d-md-flex input-wrapper"
-            >
+            {/* <div className=""> */}
+            <form className="header-search hs-expanded hs-round d-none d-md-flex input-wrapper">
               <div className="select-box">
                 <select id="category" name="category" className="pb-0">
                   <option value="">دسته بندیها </option>
@@ -55,11 +71,21 @@ const Header = () => {
                 id="search"
                 placeholder="جستجو کنید ..."
                 required
+                onChange={(e) => setSearch(e.target.value)}
               />
+
               <button className="btn btn-search" type="submit">
                 <i className="w-icon-search"></i>
               </button>
             </form>
+            {searchData?.length > 0 && (
+              <div>
+                {searchData?.map((item) => (
+                  <div>{item.productName}</div>
+                ))}
+              </div>
+            )}
+            {/* </div> */}
           </div>
           {/* <div className="header-right ml-4">
             <div className="header-call d-xs-show d-lg-flex align-items-center">
