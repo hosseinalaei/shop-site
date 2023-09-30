@@ -153,10 +153,10 @@ const product = () => {
       if (response.status === 200) {
         console.log(response.data.data.details);
         addToCart(id);
-        localStorage.setItem(
-          "order",
-          JSON.stringify(response.data.data.details)
-        );
+        // localStorage.setItem(
+        //   "order",
+        //   JSON.stringify(response.data.data.details)
+        // );
       }
     } catch (error) {
       toast.error("لطفا ابتدا وارد سایت شوید", {
