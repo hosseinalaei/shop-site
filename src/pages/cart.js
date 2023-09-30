@@ -51,8 +51,8 @@ const Cart = () => {
         { id: user.userId }
       );
       if (response.status === 200 && response.data.status) {
-        response.data.data.length ? setData(response.data.data): setData([])
-        response.data.data.length ? cartUpdate(response.data.data.orderDetails): cartUpdate([])
+        response.data.data !== {} ? setData(response.data.data): setData([])
+        response.data.data !== {} ? cartUpdate(response.data.data.orderDetails): cartUpdate([])
         setIsLoading(false);
         
     // setTotalPrice(total)
