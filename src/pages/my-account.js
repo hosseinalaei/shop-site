@@ -1,13 +1,22 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 const MyAccount = () => {
-  const handleLogout = () =>{
+  const [userInfo, setUserInfo] = useState(null);
 
-    router.push("/login")
-    localStorage.removeItem('user')
-  }
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setUserInfo(JSON.parse(localStorage.getItem("user")));
+    }
+  }, []);
+
+  console.log("userInfo", userInfo);
+  const handleLogout = () => {
+    router.push("/login");
+    localStorage.removeItem("user");
+  };
   const router = useRouter();
   return (
     <main className="main">
@@ -43,15 +52,12 @@ const MyAccount = () => {
               <Tab style={{ fontSize: "20px" }}>سفارشات</Tab>
               <Tab style={{ fontSize: "20px" }}>آدرسها</Tab>
               <Tab style={{ fontSize: "20px" }}>جزییات حساب</Tab>
-              <Tab
-                style={{ fontSize: "20px" }}
-                onClick={handleLogout}
-              >
+              <Tab style={{ fontSize: "20px" }} onClick={handleLogout}>
                 خروج
               </Tab>
             </TabList>
 
-            <TabPanel style={{ width: "100%" }}>
+            <TabPanel>
               <div className="row">
                 <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
                   <a href="#" className="link-to-tab">
@@ -158,13 +164,9 @@ const MyAccount = () => {
                     </div>
                   </a>
                 </div>
-                <div
-                  className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4"
-                  onClick={localStorage.removeItem("user")}
-                >
-                  <a href="#" onClick={() => localStorage.removeItem("user")}>
+                <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
+                  <a href="#">
                     <div
-                      onClick={() => localStorage.removeItem("user")}
                       className="icon-box text-center"
                       style={{
                         padding: "4rem 2rem",
@@ -174,16 +176,10 @@ const MyAccount = () => {
                         transition: "all 0.4s",
                       }}
                     >
-                      <span
-                        className="icon-box-icon icon-logout"
-                        onClick={() => localStorage.removeItem("user")}
-                      >
+                      <span className="icon-box-icon icon-logout">
                         <i className="w-icon-logout"></i>
                       </span>
-                      <div
-                        className="icon-box-content"
-                        onClick={() => localStorage.removeItem("user")}
-                      >
+                      <div className="icon-box-content">
                         <p className="text-uppercase mb-0">خروج </p>
                       </div>
                     </div>
@@ -197,8 +193,137 @@ const MyAccount = () => {
             <TabPanel>
               <h3>آدرسها</h3>
             </TabPanel>
-            <TabPanel>
+            <TabPanel className="w-100" id="user-detail">
               <h3>جزئیات حساب</h3>
+              {userInfo && (
+                <div className="tab-pane" id="account-details">
+                  <div className="icon-box icon-box-side icon-box-light">
+                    <span className="icon-box-icon icon-account mr-2">
+                      <i className="w-icon-user"></i>
+                    </span>
+                    <div className="icon-box-content">
+                      <h4 className="icon-box-title mb-0 ls-normal">
+                        جزئیات حساب{" "}
+                      </h4>
+                    </div>
+                  </div>
+                  <form
+                    className="form account-details-form"
+                    action="#"
+                    method="post"
+                  >
+                    <div className="row">
+                      <div className="col-md-6">
+                        <div className="form-group">
+                          <label htmlFor="firstname"> نام*</label>
+                          <input
+                            type="text"
+                            id="firstname"
+                            name="firstname"
+                            placeholder={userInfo?.firstName}
+                            className="form-control form-control-md"
+                            // value={userInfo?.firstName}
+                            // onChange={() => console.log("aaa")}
+                          />
+                        </div>
+                      </div>
+                      <div className="col-md-6">
+                        <div className="form-group">
+                          <label htmlFor="lastname"> نام خانوادگی *</label>
+                          <input
+                            type="text"
+                            id="lastname"
+                            name="lastname"
+                            placeholder={userInfo?.lastName}
+                            className="form-control form-control-md"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="form-group mb-3">
+                      <label htmlFor="display-name">نام نمایشی *</label>
+                      <input
+                        type="text"
+                        id="display-name"
+                        name="display_name"
+                        placeholder={
+                          userInfo?.firstName + " " + userInfo?.lastName
+                        }
+                        className="form-control form-control-md mb-0"
+                      />
+                      <p>
+                        به این ترتیب نام شما در بخش حساب و در بررسی ها نمایش
+                        داده می شود
+                      </p>
+                    </div>
+
+                    <div className="form-group mb-6">
+                      <label htmlFor="address">آدرس پستی*</label>
+                      <input
+                        type="text"
+                        id="address"
+                        name="address"
+                        className="form-control form-control-md"
+                        value={userInfo?.address}
+                      />
+                    </div>
+
+                    <div className="form-group mb-6">
+                      <label htmlFor="email_1">آدرس ایمیل*</label>
+                      <input
+                        type="email"
+                        id="email_1"
+                        name="email_1"
+                        className="form-control form-control-md"
+                      />
+                    </div>
+
+                    {/* <h4 className="title title-password ls-25 font-weight-bold">
+                      تغییر رمز{" "}
+                    </h4>
+                    <div className="form-group">
+                      <label className="text-dark" htmlFor="cur-password">
+                        رمز عبور فعلی را خالی بگذارید تا بدون تغییر باقی بماند
+                      </label>
+                      <input
+                        type="password"
+                        className="form-control form-control-md"
+                        id="cur-password"
+                        name="cur_password"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label className="text-dark" htmlFor="new-password">
+                        رمز عبور جدید را خالی بگذارید تا بدون تغییر باقی بماند
+                      </label>
+                      <input
+                        type="password"
+                        className="form-control form-control-md"
+                        id="new-password"
+                        name="new_password"
+                      />
+                    </div>
+                    <div className="form-group mb-10">
+                      <label className="text-dark" htmlFor="conf-password">
+                        تایید رمز عبور{" "}
+                      </label>
+                      <input
+                        type="password"
+                        className="form-control form-control-md"
+                        id="conf-password"
+                        name="conf_password"
+                      />
+                    </div> */}
+                    <button
+                      type="submit"
+                      className="btn btn-dark btn-rounded btn-sm mb-4"
+                    >
+                      ذخیره تغییرات{" "}
+                    </button>
+                  </form>
+                </div>
+              )}
             </TabPanel>
           </Tabs>
           <div className="tab tab-vertical row gutter-lg">
@@ -526,7 +651,7 @@ const MyAccount = () => {
                   <div className="row">
                     <div className="col-md-6">
                       <div className="form-group">
-                        <label for="firstname"> نام کوچک*</label>
+                        <label htmlFor="firstname"> نام کوچک*</label>
                         <input
                           type="text"
                           id="firstname"
@@ -538,7 +663,7 @@ const MyAccount = () => {
                     </div>
                     <div className="col-md-6">
                       <div className="form-group">
-                        <label for="lastname"> نام خانوادگی *</label>
+                        <label htmlFor="lastname"> نام خانوادگی *</label>
                         <input
                           type="text"
                           id="lastname"
@@ -551,7 +676,7 @@ const MyAccount = () => {
                   </div>
 
                   <div className="form-group mb-3">
-                    <label for="display-name">نام نمایشی *</label>
+                    <label htmlFor="display-name">نام نمایشی *</label>
                     <input
                       type="text"
                       id="display-name"
@@ -566,7 +691,7 @@ const MyAccount = () => {
                   </div>
 
                   <div className="form-group mb-6">
-                    <label for="email_1">آدرس ایمیل*</label>
+                    <label htmlFor="email_1">آدرس ایمیل*</label>
                     <input
                       type="email"
                       id="email_1"
@@ -579,7 +704,7 @@ const MyAccount = () => {
                     تغییر رمز{" "}
                   </h4>
                   <div className="form-group">
-                    <label className="text-dark" for="cur-password">
+                    <label className="text-dark" htmlFor="cur-password">
                       رمز عبور فعلی را خالی بگذارید تا بدون تغییر باقی بماند
                     </label>
                     <input
@@ -590,7 +715,7 @@ const MyAccount = () => {
                     />
                   </div>
                   <div className="form-group">
-                    <label className="text-dark" for="new-password">
+                    <label className="text-dark" htmlFor="new-password">
                       رمز عبور جدید را خالی بگذارید تا بدون تغییر باقی بماند
                     </label>
                     <input
@@ -601,7 +726,7 @@ const MyAccount = () => {
                     />
                   </div>
                   <div className="form-group mb-10">
-                    <label className="text-dark" for="conf-password">
+                    <label className="text-dark" htmlFor="conf-password">
                       تایید رمز عبور{" "}
                     </label>
                     <input

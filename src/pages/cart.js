@@ -251,15 +251,15 @@ const Cart = () => {
                         <button
                           className="quantity-plus w-icon-plus"
                           onClick={() => {
-                            // addToCart(item);
+                            addToCart(item);
                             // setTotalPrice( prevState => prevState - item.productPrice)
                           }}
                         ></button>
                         <button
                           className="quantity-minus w-icon-minus"
-                          // onClick={() => {
-                          //   deduction(item);
-                          // }}
+                          onClick={() => {
+                            deduction(item);
+                          }}
                         ></button>
                       </div>
                     </td>
@@ -275,7 +275,7 @@ const Cart = () => {
           <div className="cart-action mb-6">
             <a
               href="#"
-              className="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto"
+              className="btn btn-primary btn-rounded btn-icon-left btn-shopping mr-auto"
             >
               <i className="w-icon-long-arrow-left"></i>ادامه خرید کردن{" "}
             </a>
@@ -324,7 +324,7 @@ const Cart = () => {
         <div className="container">
           <ul className="breadcrumb shop-breadcrumb bb-no">
             <li className="active">
-              <a href="/cart">فروشگاه شاپ آی آر سبد خرید </a>
+              <a href="/cart">سبد خرید </a>
             </li>
             <li>
               <Link
@@ -524,7 +524,7 @@ const Cart = () => {
                     pathname: "/checkout",
                     query: data,
                   }}
-                  className="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto"
+                  className="btn btn-primary btn-rounded btn-icon-left btn-shopping mr-auto"
                 >
                   <i className="w-icon-long-arrow-left"></i>ادامه خرید کردن
                 </Link>
@@ -703,7 +703,7 @@ const Cart = () => {
                       pathname: "/checkout",
                       query: data,
                     }}
-                    className="btn btn-block btn-dark btn-icon-right btn-rounded  btn-checkout"
+                    className="btn btn-block btn-primary btn-icon-right btn-rounded  btn-checkout"
                   >
                     پردازش و پرداخت<i className="w-icon-long-arrow-left"></i>
                   </Link>

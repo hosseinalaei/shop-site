@@ -61,8 +61,8 @@ const TopCategories = () => {
           autoplay={{ delay: 8000, disableOnInteraction: false }}
           modules={[Autoplay]}
         >
-          <SwiperSlide>
-            <div className="d-flex align-items-center flex-column text-center">
+          <SwiperSlide className="swiper-slide icon-box icon-box-side text-dark swiper-slide-active">
+            <div className="d-flex align-items-center text-center justify-content-center pt-4 pb-4">
               <span className="icon-box-icon icon-shipping">
                 <i className="w-icon-truck"></i>
               </span>
@@ -72,8 +72,8 @@ const TopCategories = () => {
               </div>
             </div>
           </SwiperSlide>
-          <SwiperSlide>
-            <div className="d-flex align-items-center flex-column text-center">
+          <SwiperSlide className="swiper-slide icon-box icon-box-side text-dark swiper-slide-active">
+            <div className="d-flex align-items-center text-center justify-content-center pt-4 pb-4">
               <span className="icon-box-icon icon-payment">
                 <i className="w-icon-bag"></i>
               </span>
@@ -83,8 +83,8 @@ const TopCategories = () => {
               </div>
             </div>
           </SwiperSlide>
-          <SwiperSlide>
-            <div className="d-flex align-items-center flex-column text-center">
+          <SwiperSlide className="swiper-slide icon-box icon-box-side text-dark swiper-slide-active">
+            <div className="d-flex align-items-center text-center justify-content-center pt-4 pb-4">
               <span className="icon-box-icon icon-money">
                 <i className="w-icon-money"></i>
               </span>
@@ -94,8 +94,8 @@ const TopCategories = () => {
               </div>
             </div>
           </SwiperSlide>
-          <SwiperSlide>
-            <div className="d-flex align-items-center flex-column text-center">
+          <SwiperSlide className="swiper-slide icon-box icon-box-side text-dark swiper-slide-active">
+            <div className="d-flex align-items-center text-center justify-content-center pt-4 pb-4">
               <span className="icon-box-icon icon-chat">
                 <i className="w-icon-chat"></i>
               </span>

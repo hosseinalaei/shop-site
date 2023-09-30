@@ -33,7 +33,7 @@ const categoryProducts = () => {
       );
 
       if (response.status === 200) {
-        setData(response.data.data);
+        setData(response.data);
       }
     } catch (error) {
       console.log(error.response);
@@ -175,17 +175,21 @@ const categoryProducts = () => {
                 </div>
               </nav>
               <div className="product-wrapper row cols-xl-5 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
-                {data?.length > 0 &&
-                  data.map((item) => {
+                {data.status === "Success" ? (
+                  data.data.map((item) => {
                     return (
                       <ProductWrap
+                        data={item}
                         key={item.id}
                         id={item.id}
                         productName={item.productName}
                         price={item.productColor[0]?.price}
                       />
                     );
-                  })}
+                  })
+                ) : (
+                  <div className="text-center">محصولی یافت نشد</div>
+                )}
               </div>
 
               <div className="toolbox toolbox-pagination justify-content-between">

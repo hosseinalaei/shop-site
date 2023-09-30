@@ -3,9 +3,8 @@ import Link from "next/link";
 import { useCartContext } from "@/contexts/contex";
 
 const DropdownBox = () => {
+  const { catMenu, setCatMenu, subMenu, setSubMenu } = useCartContext();
 
-  const {catMenu, setCatMenu, subMenu, setSubMenu } = useCartContext();
-  
   const getCategories = async () => {
     try {
       const response = await fetch(
@@ -33,7 +32,7 @@ const DropdownBox = () => {
         {catMenu?.map((item) => {
           const sub = subMenu.filter((el) => el.parentId === item.id);
           return (
-            <li key={item.id}>
+            <li key={item.id} className={`${sub.length > 0 && "has-submenu"}`}>
               <Link href={`/category/${item.id}`}>{item.title}</Link>
               {sub.length !== 0 && (
                 <ul className="megamenu">

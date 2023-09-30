@@ -6,6 +6,7 @@ import banner4 from "../../assets/images/demos/demo15/banner/banner-4.jpg";
 import banner5 from "../../assets/images/demos/demo15/banner/banner-5.jpg";
 import banner6 from "../../assets/images/demos/demo15/banner/banner-6.jpg";
 import banner7 from "../../assets/images/demos/demo15/banner/banner-7.jpg";
+import banner9 from "../../assets/images/demos/demo15/banner/banner-9.jpg";
 
 import prod1 from "../../assets/images/demos/demo15/products/2-9-1.jpg";
 import prod1s from "../../assets/images/demos/demo15/products/2-9-2.jpg";
@@ -47,20 +48,20 @@ const SpecialProducts = () => {
   return (
     <div className="container">
       <Swiper
-      spaceBetween= {20}
-      slidesPerView= {3}
-      breakpoints= {
-          {0: {
-              slidesPerView: 1
+        spaceBetween={20}
+        slidesPerView={3}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
           },
           768: {
-              slidesPerView: 2
+            slidesPerView: 2,
           },
           1200: {
-              slidesPerView: 3
-          }}
-      }
-      
+            slidesPerView: 3,
+          },
+        }}
+
         // className="swiper-container swiper-theme category-banner-wrapper pt-2 pb-2 mt-10 mb-10"
         // data-swiper-options="{
         // 'spaceBetween': 20,
@@ -79,7 +80,7 @@ const SpecialProducts = () => {
         // }"
       >
         <div className="swiper-wrapper row cols-md-3 cols-sm-2 cols-1">
-          <SwiperSlide 
+          <SwiperSlide
           // className="swiper-slide banner banner-1 banner-fixed br-sm"
           >
             <figure className="banner-media">
@@ -112,7 +113,7 @@ const SpecialProducts = () => {
               </a>
             </div> */}
           </SwiperSlide>
-          <SwiperSlide 
+          <SwiperSlide
           // className="swiper-slide banner banner-2 banner-fixed br-sm"
           >
             <figure className="banner-media">
@@ -144,7 +145,7 @@ const SpecialProducts = () => {
               </a>
             </div> */}
           </SwiperSlide>
-          <SwiperSlide 
+          <SwiperSlide
           // className="swiper-slide banner banner-3 banner-fixed br-sm"
           >
             <figure className="banner-media">
@@ -236,25 +237,24 @@ const SpecialProducts = () => {
             </li>
           </ul>
           <Swiper
-          spaceBetween= {20}
-                breakpoints= {
-                   { 0: {
-                        slidesPerView: 2
-                    },
-                    992: {
-                        slidesPerView: 3
-                    },
-                    1200: {
-                        slidesPerView: 4
-                    },
-                    1520: {
-                        slidesPerView: 6
-                    }}
-                }
-                
+            spaceBetween={20}
+            breakpoints={{
+              0: {
+                slidesPerView: 2,
+              },
+              992: {
+                slidesPerView: 3,
+              },
+              1200: {
+                slidesPerView: 4,
+              },
+              1520: {
+                slidesPerView: 6,
+              },
+            }}
           >
             <div className="swiper-wrapper row cols-xl-4 cols-lg-3 cols-2">
-              <SwiperSlide 
+              <SwiperSlide
               // className="swiper-slide product-col"
               >
                 <div className="product-wrap">
@@ -361,7 +361,7 @@ const SpecialProducts = () => {
                 </div>
               </SwiperSlide>
 
-              <SwiperSlide 
+              <SwiperSlide
               // className="swiper-slide product-col"
               >
                 <div className="product-wrap">
@@ -468,7 +468,7 @@ const SpecialProducts = () => {
                 </div>
               </SwiperSlide>
 
-              <SwiperSlide 
+              <SwiperSlide
               // className="swiper-slide product-col"
               >
                 <div className="product-wrap">
@@ -591,7 +591,7 @@ const SpecialProducts = () => {
                 </div>
               </SwiperSlide>
 
-              <SwiperSlide 
+              <SwiperSlide
               // className="swiper-slide product-col"
               >
                 <div className="product-wrap">
@@ -714,7 +714,7 @@ const SpecialProducts = () => {
                 </div>
               </SwiperSlide>
 
-              <SwiperSlide 
+              <SwiperSlide
               // className="swiper-slide product-col"
               >
                 <div className="product-wrap">
@@ -821,7 +821,7 @@ const SpecialProducts = () => {
                 </div>
               </SwiperSlide>
 
-              <SwiperSlide 
+              <SwiperSlide
               // className="swiper-slide product-col"
               >
                 <div className="product-wrap">
@@ -929,9 +929,8 @@ const SpecialProducts = () => {
                   </div>
                 </div>
               </SwiperSlide>
-
             </div>
-            </Swiper>
+          </Swiper>
         </div>
       </div>
       <div className="category-banner-wrapper2 row cols-md-2">
@@ -966,7 +965,7 @@ const SpecialProducts = () => {
         <div className="banner banner-2 banner-fixed br-sm mb-4">
           <figure className="banner-media br-sm">
             <Image
-              src={banner6}
+              src={banner9}
               alt="Category Banner"
               width="880"
               height="300"
@@ -974,13 +973,13 @@ const SpecialProducts = () => {
             />
           </figure>
           <div className="banner-content y-50" style={{ paddingRight: "4rem" }}>
-            <h4 className="banner-subtitle text-uppercase font-weight-bold">
+            <h4 className="banner-subtitle text-uppercase font-weight-bold text-white">
               پرفروش{" "}
             </h4>
-            <h3 className="banner-title ls-25">
+            <h3 className="banner-title ls-25 text-white">
               مدل <span className="text-primary">ویژه </span>
             </h3>
-            <h5 className="banner-price-info font-weight-normal ls-25">
+            <h5 className="banner-price-info font-weight-normal ls-25 text-white">
               تا 70% تخفیف{" "}
             </h5>
             <a

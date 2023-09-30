@@ -1,48 +1,17 @@
-// "use client";
-
 import Link from "next/link";
 import ProductImage from "./ProductImage";
-import { useEffect, useState } from "react";
 
-const ProductWrap = (props) => {
-  // const [media, setMedia] = useState(null);
-
-  // const getMedia = async () => {
-  //   try {
-  //     const response = await fetch(
-  //       "https://138.201.167.230:5050/media/getmedia",
-  //       {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-type": "application/json",
-  //         },
-  //         body: JSON.stringify({
-  //           id: props.id,
-  //           mediaFieldName: "productImageName",
-  //         }),
-  //       }
-  //     );
-  //     const resData = await response.json();
-  //     if (response.status === 200) {
-  //       setMedia(resData.data);
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getMedia();
-  // }, [props.id]);
+const ProductWrap = ({ data }) => {
+  console.log("props", data);
   return (
-    <div className="product-wrap" key={props.key}>
+    <div className="product-wrap" key={data?.key}>
       <div className="product text-center">
         <figure
           className="product-media"
           // style={{ width: "250px", height: "250px" }}
         >
-          <Link href={`/product/${props.id}`}>
-            <ProductImage src={props.id} />
+          <Link href={`/product/${data?.id}`}>
+            <ProductImage src={data?.id} />
           </Link>
           <div className="product-action-horizontal">
             <a
@@ -72,7 +41,7 @@ const ProductWrap = (props) => {
                               <a href="shop-banner-sidebar.html">الکترونیکی </a>
                             </div> */}
           <h3 className="product-name">
-            <Link href={`/product/${props.id}`}>{props.productName}</Link>
+            <Link href={`/product/${data?.id}`}>{data?.productName}</Link>
           </h3>
           {/* <div className="ratings-container">
                               <div className="ratings-full">
@@ -90,7 +59,13 @@ const ProductWrap = (props) => {
                               </a>
                             </div> */}
           <div className="product-pa-wrapper">
-            <div className="product-price">{props.price} تومان</div>
+            <div className="product-price">
+              {data?.isExists ? (
+                `${data?.productColor[0].price} تومان`
+              ) : (
+                <span className="text-error">ناموجود</span>
+              )}
+            </div>
           </div>
         </div>
       </div>

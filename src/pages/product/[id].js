@@ -3,16 +3,14 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import ProductImage from "@/components/Product/ProductImage";
 import { useCartContext } from "@/contexts/contex";
 import Image from "next/image";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import productImage from "../../assets/images/samsung_galaxy_a03_red02_1_1.jpeg";
 import Link from "next/link";
 import banner from "../../assets/images/banner3.jpeg";
 import { ToastContainer, toast } from "react-toastify";
 import defaultAvatar from "../../assets/images/default-avatar.webp";
-import ProductWrap from "@/components/Product/ProductRelatedWrap";
+import defaultImage from "../../assets/images/defaultImage.png";
 import ProductRelatedWrap from "@/components/Product/ProductRelatedWrap";
 import ProductSlider from "@/components/Slider/ProductSlider";
 import PageLoader from "@/components/PageLoader/PageLoader";
@@ -26,7 +24,7 @@ const product = () => {
   const [relatedData, setRelatedData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [price, setPrice] = useState();
-  const [comment, setComment] = useState("");
+  const [comment, setComment] = useState(null);
   const [publishedComment, setPublishedComment] = useState([]);
 
   const {
@@ -44,7 +42,6 @@ const product = () => {
 
   const getProdctData = async () => {
     try {
-      // console.log("process.env.BASE_URL", process.env.BASE_URL);
       const response = await axios.post(
         "https://138.201.167.230:5050/Products/single-product",
         {
@@ -52,11 +49,9 @@ const product = () => {
         }
       );
       if (response.status === 200) {
-        // console.log("responseresponse", response.data.data);
         setData(response.data.data);
-        // cartUpdate(response.data.data.orderDetails)
         setIsLoading(false);
-        setPrice(response.data.data.product.productColor[0].price)
+        setPrice(response.data.data.product.productColor[0].price);
       }
     } catch (error) {
       console.log(error.response);
@@ -153,10 +148,15 @@ const product = () => {
       if (response.status === 200) {
         console.log(response.data.data.details);
         addToCart(id);
-        // localStorage.setItem(
-        //   "order",
-        //   JSON.stringify(response.data.data.details)
-        // );
+
+        localStorage.setItem(
+          "order",
+          JSON.stringify(response.data.data.details)
+        );
+        toast.success(response.data.data.message, {
+          position: toast.POSITION.TOP_CENTER,
+          theme: "colored",
+        });
       }
     } catch (error) {
       toast.error("لطفا ابتدا وارد سایت شوید", {
@@ -175,14 +175,15 @@ const product = () => {
   //   setPrice(productColorPrice?.price);
   // }, [color]);
 
-
-  const handleColor = () =>{
-    console.log('hello');
-    setColor(e.target.value)
-    const productColorPrice = data.product.productColor.filter(item => item.colorName === color)
+  const handleColor = () => {
+    console.log("hello");
+    setColor(e.target.value);
+    const productColorPrice = data.product.productColor.filter(
+      (item) => item.colorName === color
+    );
     setPrice(productColorPrice[0].price);
     console.log(productColorPrice);
-  }
+  };
 
   return isLoading ? (
     <PageLoader />
@@ -205,23 +206,6 @@ const product = () => {
             <div className="main-content">
               <div className="product product-single row">
                 <div className="col-md-6 mb-6">
-                  {/* <div className="product-gallery product-gallery-sticky product-gallery-video">
-                    <div className="swiper-container product-single-swiper swiper-theme nav-inner">
-                      <div className="swiper-wrapper row cols-1 gutter-no">
-                        <div className="swiper-slide">
-                          <figure className="product-image">
-                            <ProductImage src={media} />
-                          </figure>
-                        </div>
-                      </div>
-                      <a
-                        href="#"
-                        className="product-gallery-btn product-image-full"
-                      >
-                        <i className="w-icon-zoom"></i>
-                      </a>
-                    </div>
-                  </div> */}
                   <ProductSlider data={data?.product?.productGalleries} />
                 </div>
                 <div className="col-md-6 mb-4 mb-md-6">
@@ -229,35 +213,16 @@ const product = () => {
                     <h1 className="product-title">
                       {data?.product?.productName}
                     </h1>
-                    <div className="product-bm-wrapper">
-                      {/* <figure className="brand">
-                      <Image
-                        src="assets/images/products/brand/brand-4.jpg"
-                        alt="Brand"
-                        width="105"
-                        height="48"
-                      />
-                    </figure> */}
-                      {/* <div className="product-meta">
-                      <div className="product-categories">
-                        دسته بندی:
-                        <span className="product-category">
-                          <a href="#">مد </a>
-                        </span>
-                      </div>
-                      <div className="product-sku">
-                        کد: <span>MS46891362</span>
-                      </div>
-                    </div> */}
-                    </div>
-
                     <hr className="product-divider" />
-
                     <div className="product-price">
                       <ins className="new-price">
-                        {price ??
-                          separate(data?.product?.productColor[0].price)}{" "}
-                        تومان
+                        {data?.product?.isExists ? (
+                          `${separate(
+                            data?.product?.productColor[0].price
+                          )} تومان`
+                        ) : (
+                          <span className="text-error">ناموجود</span>
+                        )}
                       </ins>
                     </div>
 
@@ -324,9 +289,14 @@ const product = () => {
                                 type="radio"
                                 id={`radio ${index}`}
                                 value={item.colorName}
-                                onChange={(e) => {setColor(e.target.value)
-                                  const productColorPrice = data.product.productColor.filter(item => item.colorName === color)
-                                  setPrice(productColorPrice[0].price);}}
+                                onChange={(e) => {
+                                  setColor(e.target.value);
+                                  const productColorPrice =
+                                    data.product.productColor.filter(
+                                      (item) => item.colorName === color
+                                    );
+                                  setPrice(productColorPrice[0].price);
+                                }}
                                 defaultChecked={index === 0 && true}
                               />
                               <label
@@ -368,8 +338,11 @@ const product = () => {
                           </div>
                         </div>
                         <button
-                          className="btn btn-primary btn-cart"
+                          className={`btn btn-primary btn-cart ${
+                            !data?.product?.isExists && "disabled"
+                          }`}
                           onClick={addOrder}
+                          disabled={!data?.product?.isExists}
                         >
                           <i className="w-icon-cart"></i>
                           <span>افزودن به سبد </span>
@@ -451,7 +424,6 @@ const product = () => {
                             className="btn-product-icon btn-wishlist w-icon-heart"
                           >
                             <span></span>
-
                             <span class="mytooltiptext">
                               افزودن به علاقه‌مندی
                             </span>
@@ -598,7 +570,8 @@ const product = () => {
                         نظر خود را ارسال کنید
                       </h3>
                       <p className="mb-3">
-                        برای ثبت نظر ابتدا باید وارد سایت شوید *
+                        {!localStorage.getItem("user") &&
+                          "برای ثبت نظر ابتدا باید وارد سایت شوید *"}
                       </p>
                       <form onSubmit={addComment} className="review-form">
                         <div className="rating-form">
@@ -673,7 +646,14 @@ const product = () => {
                             را در این مرورگر ذخیره کنید.
                           </label>
                         </div>
-                        <button type="submit" className="btn btn-dark mt-4">
+                        <button
+                          type="submit"
+                          className={`btn btn-dark mt-4 ${
+                            (!localStorage.getItem("user") || !comment) &&
+                            "disabled"
+                          }`}
+                          disabled={!localStorage.getItem("user") || !comment}
+                        >
                           ارسال نظر
                         </button>
                       </form>
@@ -1173,17 +1153,17 @@ const product = () => {
                             <div className="product product-widget">
                               <figure className="product-media">
                                 <Link href="#">
-                                  {/* <Image
-                                  src={item.imgSrc}
-                                  alt="Product"
-                                  width="100"
-                                  height="113"
-                                /> */}
+                                  <Image
+                                    src={defaultImage}
+                                    alt="Product"
+                                    width="100"
+                                    height="113"
+                                  />
                                 </Link>
                               </figure>
                               <div className="product-details">
                                 <h4 className="product-name">
-                                  <a href="#">ساعت هوشمند </a>
+                                  <a href="#">ساعت هوشمند2 </a>
                                 </h4>
                                 <div className="ratings-container">
                                   <div className="ratings-full">
@@ -1202,12 +1182,12 @@ const product = () => {
                             <div className="product product-widget">
                               <figure className="product-media">
                                 <Link href="#">
-                                  {/* <Image
-                                  src={item.imgSrc}
-                                  alt="Product"
-                                  width="100"
-                                  height="113"
-                                /> */}
+                                  <Image
+                                    src={defaultImage}
+                                    alt="Product"
+                                    width="100"
+                                    height="113"
+                                  />
                                 </Link>
                               </figure>
                               <div className="product-details">
@@ -1231,12 +1211,12 @@ const product = () => {
                             <div className="product product-widget">
                               <figure className="product-media">
                                 <Link href="#">
-                                  {/* <Image
-                                  src={item.imgSrc}
-                                  alt="Product"
-                                  width="100"
-                                  height="113"
-                                /> */}
+                                  <Image
+                                    src={defaultImage}
+                                    alt="Product"
+                                    width="100"
+                                    height="113"
+                                  />
                                 </Link>
                               </figure>
                               <div className="product-details">
@@ -1258,98 +1238,7 @@ const product = () => {
                               </div>
                             </div>
                           </div>
-                          <div className="widget-col swiper-slide">
-                            <div className="product product-widget">
-                              <figure className="product-media">
-                                <Link href="#">
-                                  {/* <Image
-                                  src={item.imgSrc}
-                                  alt="Product"
-                                  width="100"
-                                  height="113"
-                                /> */}
-                                </Link>
-                              </figure>
-                              <div className="product-details">
-                                <h4 className="product-name">
-                                  <a href="#">اسکیت پان</a>
-                                </h4>
-                                <div className="ratings-container">
-                                  <div className="ratings-full">
-                                    <span
-                                      className="ratings"
-                                      style={{ width: "100%" }}
-                                    ></span>
-                                    <span className="tooltiptext tooltip-top"></span>
-                                  </div>
-                                </div>
-                                <div className="product-price">
-                                  480000 تومان
-                                </div>
-                              </div>
-                            </div>
-                            <div className="product product-widget">
-                              <figure className="product-media">
-                                <Link href="#">
-                                  {/* <Image
-                                  src={item.imgSrc}
-                                  alt="Product"
-                                  width="100"
-                                  height="113"
-                                /> */}
-                                </Link>
-                              </figure>
-                              <div className="product-details">
-                                <h4 className="product-name">
-                                  <a href="#">اجاق گاز مدرن</a>
-                                </h4>
-                                <div className="ratings-container">
-                                  <div className="ratings-full">
-                                    <span
-                                      className="ratings"
-                                      style={{ width: "80%" }}
-                                    ></span>
-                                    <span className="tooltiptext tooltip-top"></span>
-                                  </div>
-                                </div>
-                                <div className="product-price">
-                                  325000 تومان
-                                </div>
-                              </div>
-                            </div>
-                            <div className="product product-widget">
-                              <figure className="product-media">
-                                <Link href="#">
-                                  {/* <Image
-                                  src={item.imgSrc}
-                                  alt="Product"
-                                  width="100"
-                                  height="113"
-                                /> */}
-                                </Link>
-                              </figure>
-                              <div className="product-details">
-                                <h4 className="product-name">
-                                  <a href="#">دستگاه سی تی</a>
-                                </h4>
-                                <div className="ratings-container">
-                                  <div className="ratings-full">
-                                    <span
-                                      className="ratings"
-                                      style={{ width: "100%" }}
-                                    ></span>
-                                    <span className="tooltiptext tooltip-top"></span>
-                                  </div>
-                                </div>
-                                <div className="product-price">
-                                  220000 تومان
-                                </div>
-                              </div>
-                            </div>
-                          </div>
                         </div>
-                        {/* <button className="swiper-button-next"></button>
-                        <button className="swiper-button-prev"></button> */}
                       </div>
                     </div>
                   </div>
