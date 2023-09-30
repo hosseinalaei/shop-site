@@ -7,20 +7,20 @@ const StickyFooter = () => {
   const { cart, remove } = useCartContext();
   return (
     <div className="sticky-footer sticky-content fix-bottom">
-      <Link href={`/`} className="sticky-link active">
+      <Link prefetch={false} href={`/`} className="sticky-link active">
         <i className="w-icon-home"></i>
         <p>خانه</p>
       </Link>
-      <Link href={`/shop`} className="sticky-link">
+      <Link prefetch={false} href={`/shop`} className="sticky-link">
         <i className="w-icon-category"></i>
         <p>فروشگاه </p>
       </Link>
-      <Link href={`/my-account`} className="sticky-link">
+      <Link prefetch={false} href={`/my-account`} className="sticky-link">
         <i className="w-icon-account"></i>
         <p>حساب کاربری </p>
       </Link>
       <div className="cart-dropdown dir-up">
-        <Link href="#" className="sticky-link">
+        <Link prefetch={false} href="#" className="sticky-link">
           <i className="w-icon-cart"> </i>
           <p>
             سبد خرید{" "}

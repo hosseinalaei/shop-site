@@ -29,14 +29,15 @@ const reducer = (state, action) => {
     }
     case "GET_TOTALS": {
       // console.log(state.cart);
-      let { totalPrice, count } = state?.cart?.reduce(
+      let { totalPrice, count } = state.cart.reduce(
         (cartTotal, cartItem) => {
           // console.log("cart item", cartItem);
           const { productPrice, count } = cartItem;
           // console.log(productPrice, count);
           const itemTotal = productPrice * count;
-          cartTotal.total += itemTotal;
+          cartTotal.totalPrice += itemTotal;
           cartTotal.count += count;
+          // console.log(cartTotal);
           return cartTotal;
         },
         {

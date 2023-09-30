@@ -10,19 +10,19 @@ import PageLoader from "@/components/PageLoader/PageLoader";
 // import useAxios from "@/hooks/useAxios";
 
 const Cart = () => {
-  const [data, setData] = useState(null);
-  const [order, setOrder] = useState("");
+  const [data, setData] = useState([]);
+  // const [order, setOrder] = useState("");
   const [user, setUser] = useState("");
   const [media, setMedia] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [totalPrice, setTotalPrice] = useState(0);
+  // const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
-    const userOrder = JSON.parse(localStorage.getItem("order"));
+    // const userOrder = JSON.parse(localStorage.getItem("order"));
     const userName = JSON.parse(localStorage.getItem("user"));
     // console.log(userName);
     // console.log(userOrder);
-    setOrder(userOrder);
+    // setOrder(userOrder);
     setUser(userName);
   }, []);
 
@@ -31,7 +31,7 @@ const Cart = () => {
     clearCart,
     remove,
     changeQuantity,
-    total,
+    totalPrice,
     addToCart,
     deduction,
     cartUpdate,
@@ -43,22 +43,19 @@ const Cart = () => {
   //   url: `/Order/get-order-details/${order.id}?userId=${user.userId}`
   // })
   const getOrderDetail = async () => {
-    const order = JSON.parse(localStorage.getItem("order"));
+    // const order = JSON.parse(localStorage.getItem("order"));
     const user = JSON.parse(localStorage.getItem("user"));
     try {
       const response = await axios.post(
         "https://138.201.167.230:5050/Order/get-order-details",
         { id: user.userId }
       );
-      if (response.status === 200) {
-        setData(response.data.data);
-        cartUpdate(response.data.data.orderDetails);
+      if (response.status === 200 && response.data.status) {
+        response.data.data !== {} ? setData(response.data.data): setData([])
+        response.data.data !== {} ? cartUpdate(response.data.data.orderDetails): cartUpdate([])
         setIsLoading(false);
-        let total = 0;
-        response.data.data.orderDetails.map((item) => {
-          total += item.productPrice * item.count;
-        });
-        setTotalPrice(total);
+        
+    // setTotalPrice(total)
       }
     } catch (error) {
       console.log("eror cart", error);
@@ -79,24 +76,27 @@ const Cart = () => {
     }
   };
   useEffect(() => {
-    getOrderDetail();
+    const user = JSON.parse(localStorage.getItem("user"));
+    user ? getOrderDetail(): setIsLoading(false)
     // getTotalPrice();
   }, []);
 
-  const getTotalPrice = () => {
-    let total = 0;
-    data.orderDetails.map((item) => {
-      total += item.productPrice * item.count;
-    });
-    setTotalPrice(total);
-  };
+  // const getTotalPrice = () =>{
+  //   let total = 0
+  //   data.orderDetails.map(item =>{
+  //     total+= (item.productPrice*item.count)
+  //   })
+  //   setTotalPrice(total)
+  // }
+
+  // console.log(cart);
 
   let renderedContent = (
     <>
       <h5>هیچ آیتمی در سبد خرید وجود ندارد</h5>
     </>
   );
-  if (data && data.orderDetails.length > 0) {
+  if (data.length && data.orderDetails.length > 0) {
     renderedContent = (
       <>
         {/* <div className="col-lg-8 col-md-7 pt-sm-2">
@@ -249,17 +249,15 @@ const Cart = () => {
                         <button
                           className="quantity-plus w-icon-plus"
                           onClick={() => {
-                            // addToCart(item);
-                            setTotalPrice(
-                              (prevState) => prevState - item.productPrice
-                            );
+                            addToCart(item);
+                            // setTotalPrice( prevState => prevState - item.productPrice)
                           }}
                         ></button>
                         <button
                           className="quantity-minus w-icon-minus"
-                          // onClick={() => {
-                          //   deduction(item);
-                          // }}
+                          onClick={() => {
+                            deduction(item);
+                          }}
                         ></button>
                       </div>
                     </td>
@@ -569,7 +567,7 @@ const Cart = () => {
                   <h3 className="cart-title text-uppercase">مجموع سبد </h3>
                   <div className="cart-subtotal d-flex align-items-center justify-content-between">
                     <label className="ls-25">جمع فرعی </label>
-                    {data && <span>{totalPrice} تومان</span>}
+                    {cart.length && <span>{totalPrice} تومان</span>}
                   </div>
 
                   <hr className="divider" />
