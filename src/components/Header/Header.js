@@ -162,7 +162,7 @@ const Header = () => {
             </a>
             <div className="dropdown cart-dropdown cart-offcanvas mr-0 mr-lg-2">
               <div className="cart-overlay"></div>
-              <Link href="/cart" className="cart-toggle label-down link">
+              <Link prefetch={false} href="/cart" className="cart-toggle label-down link">
                 <i className="w-icon-cart">
                   <span className="cart-count">{cart?.length}</span>
                 </i>
@@ -287,10 +287,10 @@ const Header = () => {
               <nav className="main-nav">
                 <ul className="menu">
                   <li className="active">
-                    <Link href="/">خانه </Link>
+                    <Link prefetch={false} href="/">خانه </Link>
                   </li>
                   <li>
-                    <Link href="/shop">فروشگاه </Link>
+                    <Link prefetch={false} href="/shop">فروشگاه </Link>
                     {/* <ul className="megamenu">
                       <li>
                         <h4 className="menu-title">صفحات فروشگاه </h4>
@@ -443,7 +443,7 @@ const Header = () => {
                     </ul> */}
                   </li>
                   <li>
-                    <Link href="/blog">بلاگ </Link>
+                    <Link prefetch={false} href="/blog">بلاگ </Link>
                     {/* <ul>
                       <li>
                         <a href="blog.html">کلاسیک </a>

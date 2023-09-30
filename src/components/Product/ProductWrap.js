@@ -10,7 +10,7 @@ const ProductWrap = ({ data }) => {
           className="product-media"
           // style={{ width: "250px", height: "250px" }}
         >
-          <Link href={`/product/${data?.id}`}>
+          <Link prefetch={false} href={`/product/${data?.id}`}>
             <ProductImage src={data?.id} />
           </Link>
           <div className="product-action-horizontal">

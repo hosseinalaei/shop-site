@@ -33,7 +33,7 @@ const DropdownBox = () => {
           const sub = subMenu.filter((el) => el.parentId === item.id);
           return (
             <li key={item.id} className={`${sub.length > 0 && "has-submenu"}`}>
-              <Link href={`/category/${item.id}`}>{item.title}</Link>
+              <Link prefetch={false} href={`/category/${item.id}`}>{item.title}</Link>
               {sub.length !== 0 && (
                 <ul className="megamenu">
                   <li>
@@ -43,7 +43,7 @@ const DropdownBox = () => {
                       {sub.map((item) => {
                         return (
                           <li key={item.id}>
-                            <Link
+                            <Link prefetch={false}
                               href={`/category/${item.parentId}/${item.id}/`}
                             >
                               {item.title}
