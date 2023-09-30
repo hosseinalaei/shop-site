@@ -10,7 +10,7 @@ import PageLoader from "@/components/PageLoader/PageLoader";
 // import useAxios from "@/hooks/useAxios";
 
 const Cart = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   // const [order, setOrder] = useState("");
   const [user, setUser] = useState("");
   const [media, setMedia] = useState(null);
@@ -50,14 +50,11 @@ const Cart = () => {
         "https://138.201.167.230:5050/Order/get-order-details",
         { id: user.userId }
       );
-      if (response.status === 200) {
-        setData(response.data.data);
-        cartUpdate(response.data.data.orderDetails);
+      if (response.status === 200 && response.data.status) {
+        response.data.data.length ? setData(response.data.data): setData([])
+        response.data.data.length ? cartUpdate(response.data.data.orderDetails): cartUpdate([])
         setIsLoading(false);
-        let total = 0
-    response.data.data.orderDetails.map(item =>{
-      total+= (item.productPrice*item.count)
-    })
+        
     // setTotalPrice(total)
       }
     } catch (error) {
@@ -79,7 +76,8 @@ const Cart = () => {
     }
   };
   useEffect(() => {
-    getOrderDetail();
+    const user = JSON.parse(localStorage.getItem("user"));
+    user ? getOrderDetail(): setIsLoading(false)
     // getTotalPrice();
   }, []);
 
@@ -98,7 +96,7 @@ const Cart = () => {
       <h5>هیچ آیتمی در سبد خرید وجود ندارد</h5>
     </>
   );
-  if (data && data.orderDetails.length > 0) {
+  if (data.length && data.orderDetails.length > 0) {
     renderedContent = (
       <>
         {/* <div className="col-lg-8 col-md-7 pt-sm-2">
