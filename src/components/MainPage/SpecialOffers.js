@@ -21,47 +21,64 @@ const SpecialOffers = () => {
     <div className="grey-section">
       <div className="container-fluid">
         <div className="special-offers-wrapper d-flex d-sm-flex bg-white pt-6 pb-1">
-          <div className="col-xxl-2 col-xl-3 col-lg-4 col-md-5 d-flex align-items-center justify-content-center">
+          <div className="col-xxl-2 col-xl-3 col-lg-4 col-md-5 d-flex align-items-center justify-content-center product-lg br-sm">
             <div>
               <h2 className="title">پیشنهادهای ویژه!</h2>
               <h4 className="price-info">
                 تا
                 <span className="text-primary ls-25">50% تخفیف</span>
               </h4>
-              <div className="product-countdown-container text-white align-items-center">
+              <div className="product-countdown-container text-white align-items-center ">
                 <label className="d-block text-default">
                   عجله کن! پایان پیشنهاد در:
                 </label>
                 <div
-                  className="product-countdown countdown-compact font-weight-bold text-dark"
-                  data-until="+10d"
-                  data-relative="true"
-                  data-compact="false"
-                  data-labels-short="true"
+                  className="product-countdown countdown-compact font-weight-bold"
+                  // data-until="+10d"
+                  // data-relative="true"
+                  // data-compact="false"
+                  // data-labels-short="true"
                 >
-                  10روز,00:00:00
+                  <span class="countdown-row countdown-show4">
+                    <span class="countdown-section">
+                      <span class="countdown-amount">00</span>
+                      <span class="countdown-period">روز</span>
+                    </span>
+                    <span class="countdown-section">
+                      <span class="countdown-amount">00</span>
+                      <span class="countdown-period">ساعت</span>
+                    </span>
+                    <span class="countdown-section">
+                      <span class="countdown-amount">00</span>
+                      <span class="countdown-period">دقیقه</span>
+                    </span>
+                    <span class="countdown-section">
+                      <span class="countdown-amount">00</span>
+                      <span class="countdown-period">ثانیه</span>
+                    </span>
+                  </span>
                 </div>
               </div>
             </div>
           </div>
           <div className="col-xxl-10 col-xl-9 col-lg-8 col-md-7">
             <Swiper
-            spaceBetween= {20}
-            breakpoints=  {
-                {0: {
-                    slidesPerView: 2
+              spaceBetween={20}
+              breakpoints={{
+                0: {
+                  slidesPerView: 2,
                 },
                 768: {
-                    slidesPerView: 3
+                  slidesPerView: 3,
                 },
                 992: {
-                    slidesPerView: 4
+                  slidesPerView: 4,
                 },
                 1200: {
-                    slidesPerView: 5
-                }}
-            }
-            
+                  slidesPerView: 5,
+                },
+              }}
+
               // className="swiper-container swiper-theme"
               // data-swiper-options="{
               //   'spaceBetween': 20,
@@ -82,7 +99,7 @@ const SpecialOffers = () => {
               //   }"
             >
               <div className="swiper-wrapper row cols-lg-5 cols-md-4 cols-sm-3 cols-2">
-                <SwiperSlide 
+                <SwiperSlide
                 // className="swiper-slide product-wrap"
                 >
                   <div className="product text-center">
@@ -135,7 +152,7 @@ const SpecialOffers = () => {
                     </div>
                   </div>
                 </SwiperSlide>
-                <SwiperSlide 
+                <SwiperSlide
                 // className="swiper-slide product-wrap"
                 >
                   <div className="product text-center">
@@ -188,7 +205,7 @@ const SpecialOffers = () => {
                     </div>
                   </div>
                 </SwiperSlide>
-                <SwiperSlide 
+                <SwiperSlide
                 // className="swiper-slide product-wrap"
                 >
                   <div className="product text-center">
@@ -241,7 +258,7 @@ const SpecialOffers = () => {
                     </div>
                   </div>
                 </SwiperSlide>
-                <SwiperSlide 
+                <SwiperSlide
                 // className="swiper-slide product-wrap"
                 >
                   <div className="product text-center">
@@ -294,7 +311,7 @@ const SpecialOffers = () => {
                     </div>
                   </div>
                 </SwiperSlide>
-                <SwiperSlide 
+                <SwiperSlide
                 // className="swiper-slide product-wrap"
                 >
                   <div className="product text-center">
