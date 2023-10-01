@@ -23,7 +23,7 @@ const data = [
 const TopCategories = () => {
   return (
     <div className="container-fluid">
-      <Swiper
+      {/* <Swiper
         loop={false}
         spaceBetween={0}
         breakpoints={{
@@ -40,7 +40,8 @@ const TopCategories = () => {
             slidesPerView: 4,
           },
         }}
-      >
+      > */}
+        <div className="icon-box-wrapper">
         <Swiper
           loop={true}
           spaceBetween={0}
@@ -108,7 +109,8 @@ const TopCategories = () => {
             </div>
           </SwiperSlide>
         </Swiper>
-      </Swiper>
+        </div>
+      {/* </Swiper> */}
 
       <div className="top-categories-wrapper ">
         <h2 className="title title-center text-capitalize pt-7 mb-7">
@@ -116,7 +118,7 @@ const TopCategories = () => {
         </h2>
         <div className="pl-2 pr-2">
           <Swiper
-            modules={[Pagination, Scrollbar]}
+            modules={[Pagination]}
             pagination={{
               clickable: true,
               bulletClass: "swiper-pagination-bullet d-lg-none",
@@ -125,7 +127,7 @@ const TopCategories = () => {
                 return '<span class="' + className + '" role="button"> </span>';
               },
             }}
-            scrollbar={{ draggable: true }}
+            // scrollbar={{ draggable: true }}
             spaceBetween={40}
             breakpoints={{
               0: {

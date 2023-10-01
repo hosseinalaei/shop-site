@@ -7,10 +7,12 @@ const LoginComponent = () => {
   const [phoneNumber, setPhoneNumber] = useState(null);
   const [phoneSubmitted, setPhoneSubmitted] = useState(false);
   const [verifyCode, setVerifyCode] = useState("");
+  const [isSending, setIsSending] = useState(false);
   // const [storedValue, setToken] = useToken();
   const router = useRouter();
 
   const submitPhoneNumber = async (e) => {
+    setIsSending(true);
     e.preventDefault();
     try {
       const response = await fetch(
@@ -32,12 +34,15 @@ const LoginComponent = () => {
           theme: "colored",
         });
         setPhoneSubmitted(true);
+        setIsSending(false)
       }
     } catch (error) {
       console.log(error.response);
     }
   };
   const submitVerifyCode = async (e) => {
+    setIsSending(true);
+
     e.preventDefault();
     try {
       const response = await fetch("https://138.201.167.230:5050/user/login", {
@@ -56,6 +61,8 @@ const LoginComponent = () => {
           position: toast.POSITION.TOP_CENTER,
           theme: "colored",
         });
+    setIsSending(false);
+
         console.log(resData.data);
         localStorage.setItem("user", JSON.stringify(resData.data));
         // setToken(resData.data)
@@ -135,7 +142,7 @@ const LoginComponent = () => {
             </div>
             <a
               // onClick={!phoneSubmitted ? submitPhoneNumber : submitVerifyCode}
-              className="btn btn-primary"
+              className={`btn btn-primary ${isSending ? 'button-loading' : ''}`}
               onClick={!phoneSubmitted ? submitPhoneNumber : submitVerifyCode}
             >
               ارسال
