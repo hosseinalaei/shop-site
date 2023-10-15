@@ -6,13 +6,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 
 const ProductSlider = ({ data = [] }) => {
-  console.log(
-    "dataaa imaaage",
-    data.map((item) => ({
-      id: item.imageuniqueId,
-      mediaFieldName: "productGalleryImageName",
-    }))
-  );
   // const [nav1, setNav1] = useState(null);
   // const [nav2, setNav2] = useState(null);
   const [media, setMedia] = useState([]);
@@ -86,10 +79,10 @@ const ProductSlider = ({ data = [] }) => {
       </Slider> */}
 
       <Swiper
-        style={{
-          "--swiper-navigation-color": "#fff",
-          "--swiper-pagination-color": "#fff",
-        }}
+        // style={{
+        //   "--swiper-navigation-color": "#fff",
+        //   "--swiper-pagination-color": "#fff",
+        // }}
         loop={true}
         spaceBetween={10}
         // navigation={true}
@@ -118,7 +111,7 @@ const ProductSlider = ({ data = [] }) => {
         loop={true}
         spaceBetween={5}
         slidesPerView={4}
-        // freeMode={true}
+        freeMode={true}
         // navigation={true}
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
