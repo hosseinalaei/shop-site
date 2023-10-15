@@ -15,6 +15,8 @@ import ProductRelatedWrap from "@/components/Product/ProductRelatedWrap";
 import ProductSlider from "@/components/Slider/ProductSlider";
 import PageLoader from "@/components/PageLoader/PageLoader";
 import { separate } from "@/utils/helper";
+import ShowBrief from "@/components/ShowBrief/ShowBrief";
+import Modal from "@/components/Modal/Modal";
 
 const product = () => {
   const [data, setData] = useState(null);
@@ -26,6 +28,7 @@ const product = () => {
   const [price, setPrice] = useState();
   const [comment, setComment] = useState(null);
   const [publishedComment, setPublishedComment] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   const {
     cart,
@@ -126,7 +129,7 @@ const product = () => {
     }
   };
   useEffect(() => {
-    id && getProdctData() && getMedia();
+    id && getProdctData();
     id && getRelatedProduct();
     id && getComment();
   }, [id]);
@@ -880,9 +883,14 @@ const product = () => {
                         }"
                 >
                   <div className="swiper-wrapper row cols-lg-3 cols-md-4 cols-sm-3 cols-2">
-                    {relatedData.map((item, index) => {
+                    {relatedData.slice(0, 3).map((item, index) => {
                       return (
-                        <ProductRelatedWrap id={id} item={item} key={index} />
+                        <ProductRelatedWrap
+                          id={id}
+                          item={item}
+                          key={index}
+                          setShowModal={setShowModal}
+                        />
                         // <div className="swiper-slide product">
                         //   <figure className="product-media">
                         //     <a href="/">
@@ -1248,6 +1256,11 @@ const product = () => {
           </div>
         </div>
       </div>
+      {showModal && (
+        <Modal show={showModal} modalClosed={() => setShowModal(false)}>
+          <ShowBrief />
+        </Modal>
+      )}
       <ToastContainer />
     </>
   );

@@ -10,6 +10,13 @@ const shop = ({ pageData: data }) => {
   const [showFilters, setShowFilters] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  console.log(
+    "aaaaAAaAA",
+    data.map((item) => ({
+      id: item.id,
+      mediaFieldName: "productImageName",
+    }))
+  );
   return (
     <div className="page-content mb-10">
       <div className="container">
