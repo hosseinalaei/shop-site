@@ -42,15 +42,18 @@ const categoryProducts = () => {
 
   const getMedia = async (src) => {
     try {
-      setBanner(null);
+      // setBanner(null);
       const response = await axios.post(
         "https://138.201.167.230:5050/media/getmedia",
-        {
-          id: id[1] ? id[1] : id[0],
-          mediaFieldName: "categoryImageName",
-        }
+        [
+          {
+            id: id[1] ? id[1] : id[0],
+            mediaFieldName: "categoryImageName",
+          },
+        ]
       );
-      setBanner(response.data.data);
+      setBanner(response.data.data[0]);
+      console.log("response.data.data[0] ", response.data.data[0]);
     } catch (error) {}
   };
 
@@ -93,7 +96,7 @@ const categoryProducts = () => {
             <div
               className="container banner-content"
               style={{
-                background: `url(data:image/jpeg;base64,${banner}) no-repeat center`,
+                background: `url(data:image/jpeg;base64,${banner?.mediaFieldName}) no-repeat center`,
                 height: "200px",
               }}
             ></div>
