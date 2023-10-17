@@ -11,14 +11,21 @@ import axios from "axios";
 // import 'swiper/react';
 import "swiper/css";
 import { useCartContext } from "@/contexts/contex";
+
 const MainPage = () => {
   const { cartUpdate } = useCartContext();
   const [storedValue, setToken] = useToken();
+  console.log("storedValue", storedValue.token);
   const getOrderDetail = async () => {
     try {
       const response = await axios.post(
-        "https://138.201.167.230:5050/Order/get-order-details",
-        { id: storedValue.userId }
+        "https://138.201.167.230:5050/Order/get-order",
+        { id: storedValue.userId },
+        {
+          headers: {
+            Authorization: `Bearer ${storedValue.token}`,
+          },
+        }
       );
       if (response.status === 200 && response.data.data.orderDetails) {
         // setData(response.data.data);
