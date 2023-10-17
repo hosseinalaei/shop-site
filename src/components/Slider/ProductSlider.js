@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import Slider from "react-slick";
+// import Slider from "react-slick";
 import axios from "axios";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -19,25 +19,23 @@ const ProductSlider = ({ data = [] }) => {
     // setNav2(slider2.current);
 
     const fetchData = async () => {
-      const mediaData = await Promise.all(
-        data?.map(async (item) => {
-          try {
-            const response = await axios.post(
-              "https://138.201.167.230:5050/media/GetMedia",
-              {
-                id: item.imageuniqueId,
-                mediaFieldName: "productGalleryImageName",
-              }
-            );
-            return response.data.data;
-          } catch (error) {
-            console.error(error);
-            return "";
-          }
-        })
-      );
-
-      setMedia(mediaData);
+      // const mediaData = await Promise.all(
+      // data?.map(async (item) => {
+      try {
+        const response = await axios.post(
+          "https://138.201.167.230:5050/media/GetMedia",
+          data.map((item) => ({
+            id: item.imageuniqueId,
+            mediaFieldName: "productGalleryImageName",
+          }))
+        );
+        setMedia(response.data.data);
+      } catch (error) {
+        console.error(error);
+        return "";
+      }
+      // })
+      // );
     };
 
     fetchData();
@@ -81,10 +79,10 @@ const ProductSlider = ({ data = [] }) => {
       </Slider> */}
 
       <Swiper
-        style={{
-          "--swiper-navigation-color": "#fff",
-          "--swiper-pagination-color": "#fff",
-        }}
+        // style={{
+        //   "--swiper-navigation-color": "#fff",
+        //   "--swiper-pagination-color": "#fff",
+        // }}
         loop={true}
         spaceBetween={10}
         // navigation={true}
@@ -92,13 +90,13 @@ const ProductSlider = ({ data = [] }) => {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2"
       >
-        {media?.map((mediaUrl, index) => {
+        {media?.map((mediaUrl) => {
           return (
-            <div key={index}>
+            <div key={mediaUrl?.id}>
               <SwiperSlide>
                 <Image
-                  src={`data:image/jpeg;base64,${mediaUrl}`}
-                  alt={`Image ${index}`}
+                  src={`data:image/jpeg;base64,${mediaUrl?.mediaFieldName}`}
+                  alt={`Image ${mediaUrl?.id}`}
                   width="300"
                   height="300"
                   style={{ margin: "0 auto" }}
@@ -113,18 +111,18 @@ const ProductSlider = ({ data = [] }) => {
         loop={true}
         spaceBetween={5}
         slidesPerView={4}
-        // freeMode={true}
+        freeMode={true}
         // navigation={true}
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper"
       >
-        {media?.map((mediaUrl, index) => (
-          <div key={index}>
+        {media?.map((mediaUrl) => (
+          <div key={mediaUrl?.id}>
             <SwiperSlide>
               <Image
-                src={`data:image/jpeg;base64,${mediaUrl}`}
-                alt={`Image ${index}`}
+                src={`data:image/jpeg;base64,${mediaUrl?.mediaFieldName}`}
+                alt={`Image ${mediaUrl?.id}`}
                 width={100}
                 height={100}
                 style={{ margin: "0 auto" }}

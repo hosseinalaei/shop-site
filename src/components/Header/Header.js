@@ -4,34 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCartContext } from "@/contexts/contex";
 import DropdownBox from "./DropdownBox";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import Search from "./Search";
+import Spinner from "../Loading/Spinner";
 
 const Header = () => {
-  const [search, setSearch] = useState(null);
-  const [searchData, setSearchData] = useState([]);
   const { cart, setMobileMenu } = useCartContext();
 
-  useEffect(() => {
-    const searchRequest = async () => {
-      try {
-        const response = await axios.post(
-          "https://138.201.167.230:5050/Search/simpleSearch",
-          {
-            text: search,
-          }
-        );
-        if (response.data.status === "Success") {
-          setSearchData(response.data.data);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    search?.length > 2 && searchRequest();
-  }, [search]);
-
-  console.log("searchData", searchData);
   return (
     <header className="header">
       <TopHeader />
@@ -48,44 +26,7 @@ const Header = () => {
             <a href="/" className="logo ml-lg-0">
               <Image src={logo} alt="logo" width="144" height="45" />
             </a>
-            {/* <div className=""> */}
-            <form className="header-search hs-expanded hs-round d-none d-md-flex input-wrapper">
-              <div className="select-box">
-                <select id="category" name="category" className="pb-0">
-                  <option value="">دسته بندیها </option>
-                  <option value="4">مدل </option>
-                  <option value="5">مبلمان </option>
-                  <option value="6">کفش </option>
-                  <option value="7">ورزشی </option>
-                  <option value="8">بازی </option>
-                  <option value="9">کامپیوتر </option>
-                  <option value="10">الکترونیکی </option>
-                  <option value="11">آشپرخانه </option>
-                  <option value="12">لباس </option>
-                </select>
-              </div>
-              <input
-                type="text"
-                className="form-control"
-                name="search"
-                id="search"
-                placeholder="جستجو کنید ..."
-                required
-                onChange={(e) => setSearch(e.target.value)}
-              />
-
-              <button className="btn btn-search" type="submit">
-                <i className="w-icon-search"></i>
-              </button>
-            </form>
-            {searchData?.length > 0 && (
-              <div>
-                {searchData?.map((item) => (
-                  <div>{item.productName}</div>
-                ))}
-              </div>
-            )}
-            {/* </div> */}
+            <Search />
           </div>
           {/* <div className="header-right ml-4">
             <div className="header-call d-xs-show d-lg-flex align-items-center">
@@ -162,7 +103,11 @@ const Header = () => {
             </a>
             <div className="dropdown cart-dropdown cart-offcanvas mr-0 mr-lg-2">
               <div className="cart-overlay"></div>
-              <Link prefetch={false} href="/cart" className="cart-toggle label-down link">
+              <Link
+                prefetch={false}
+                href="/cart"
+                className="cart-toggle label-down link"
+              >
                 <i className="w-icon-cart">
                   <span className="cart-count">{cart?.length}</span>
                 </i>
@@ -287,10 +232,14 @@ const Header = () => {
               <nav className="main-nav">
                 <ul className="menu">
                   <li className="active">
-                    <Link prefetch={false} href="/">خانه </Link>
+                    <Link prefetch={false} href="/">
+                      خانه{" "}
+                    </Link>
                   </li>
                   <li>
-                    <Link prefetch={false} href="/shop">فروشگاه </Link>
+                    <Link prefetch={false} href="/shop">
+                      فروشگاه{" "}
+                    </Link>
                     {/* <ul className="megamenu">
                       <li>
                         <h4 className="menu-title">صفحات فروشگاه </h4>
@@ -443,7 +392,9 @@ const Header = () => {
                     </ul> */}
                   </li>
                   <li>
-                    <Link prefetch={false} href="/blog">بلاگ </Link>
+                    <Link prefetch={false} href="/blog">
+                      بلاگ{" "}
+                    </Link>
                     {/* <ul>
                       <li>
                         <a href="blog.html">کلاسیک </a>

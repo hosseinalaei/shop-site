@@ -1,36 +1,22 @@
 import Image from "next/image";
 import shopBanner from "../assets/images/shop-banner.jpeg";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ProductWrap from "@/components/Product/ProductWrap";
 import FiltersDrawer from "@/components/FiltersDrawer/FiltersDrawer";
 import Backdrop from "@/components/FiltersDrawer/Backdrop";
-import PageLoader from "@/components/PageLoader/PageLoader";
+// import PageLoader from "@/components/PageLoader/PageLoader";
 
-const shop2 = ({pageData: data}) => {
-  // const [data, setData] = useState([]);
+const shop = ({ pageData: data }) => {
   const [showFilters, setShowFilters] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  // const getData = async () => {
-  //   try {
-  //     const response = await fetch(
-  //       "https://138.201.167.230:5050/Products/getAllactiveproducts"
-  //     );
-  //     const resData = await response.json();
-  //     if (response.status === 200) {
-  //       console.log(resData.data);
-  //       setData(resData.data);
-  //       setIsLoading(false);
-  //     }
-  //   } catch (error) {
-  //     console.log(error.response);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getData();
-  // }, []);
-
+  console.log(
+    "aaaaAAaAA",
+    data.map((item) => ({
+      id: item.id,
+      mediaFieldName: "productImageName",
+    }))
+  );
   return (
     <div className="page-content mb-10">
       <div className="container">
@@ -116,7 +102,8 @@ const shop2 = ({pageData: data}) => {
               </div>
             </nav>
             <div className="product-wrapper row cols-xl-5 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
-              {data && data.length > 0 &&
+              {data &&
+                data.length > 0 &&
                 data.map((item) => {
                   return <ProductWrap data={item} />;
                 })}
@@ -167,7 +154,7 @@ const shop2 = ({pageData: data}) => {
   );
 };
 
-export default shop2;
+export default shop;
 
 export const getServerSideProps = async () => {
   process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
@@ -190,6 +177,5 @@ export const getServerSideProps = async () => {
   const pageData = data.data;
 
   // Pass data to the page via props
-  
-  return { props: { pageData, errorCode } }
+  return { props: { pageData, errorCode } };
 }
