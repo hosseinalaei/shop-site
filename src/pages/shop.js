@@ -169,13 +169,27 @@ const shop2 = ({pageData: data}) => {
 
 export default shop2;
 
-export async function getServerSideProps() {
+export const getServerSideProps = async () => {
   process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
   // Fetch data from external API
+
   const res = await fetch(`https://138.201.167.230:5050/Products/getAllactiveproducts`)
-  const errorMessage = res.status === 200 ? false : res.message;
+  const errorCode = res.status === 200 ? false : res.status;
+
+  //handling redirect 
+  if (errorCode === 301) {
+    const data = await res.json()
+    return {
+      redirect: {
+        destination: data.payload.to,
+      },
+    };
+  }
+
   const data = await res.json()
   const pageData = data.data;
+
   // Pass data to the page via props
-  return { props: { pageData, errorMessage } }
+  
+  return { props: { pageData, errorCode } }
 }
