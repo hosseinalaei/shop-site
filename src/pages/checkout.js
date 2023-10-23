@@ -418,7 +418,10 @@ const Checkout = () => {
                           <tbody>
                             {cart?.map((item) => (
                               <tr class="bb-no">
-                                <td class="product-name">
+                                <td
+                                  class="product-name"
+                                  style={{ textWrap: "wrap" }}
+                                >
                                   {item.title}
                                   <i class="fas fa-times"></i>{" "}
                                   <span class="product-quantity">1</span>

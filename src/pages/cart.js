@@ -20,9 +20,6 @@ const Cart = () => {
   useEffect(() => {
     // const userOrder = JSON.parse(localStorage.getItem("order"));
     const userName = JSON.parse(localStorage.getItem("user"));
-    // console.log(userName);
-    // console.log(userOrder);
-    // setOrder(userOrder);
     setUser(userName);
   }, []);
 
@@ -36,6 +33,7 @@ const Cart = () => {
     deduction,
     cartUpdate,
   } = useCartContext();
+  console.log("cart", cart);
   // const httpRequest = useAxios()
 
   // httpRequest({
@@ -45,17 +43,25 @@ const Cart = () => {
   const getOrderDetail = async () => {
     // const order = JSON.parse(localStorage.getItem("order"));
     const user = JSON.parse(localStorage.getItem("user"));
+
     try {
       const response = await axios.post(
-        "https://138.201.167.230:5050/Order/get-order-details",
-        { id: user.userId }
+        "https://138.201.167.230:5050/Order/get-order",
+        { id: user.userId },
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
       );
       if (response.status === 200 && response.data.status) {
-        response.data.data !== {} ? setData(response.data.data): setData([])
-        response.data.data !== {} ? cartUpdate(response.data.data.orderDetails): cartUpdate([])
+        response.data.data !== {} ? setData(response.data.data) : setData([]);
+        response.data.data !== {}
+          ? cartUpdate(response.data.data.orderDetails)
+          : cartUpdate([]);
         setIsLoading(false);
-        
-    // setTotalPrice(total)
+
+        // setTotalPrice(total)
       }
     } catch (error) {
       console.log("eror cart", error);
@@ -65,10 +71,12 @@ const Cart = () => {
     try {
       const response = await axios.post(
         "https://138.201.167.230:5050/media/getmedia",
-        {
-          id: id,
-          mediaFieldName: "productImageName",
-        }
+        [
+          {
+            id: id,
+            mediaFieldName: "productImageName",
+          },
+        ]
       );
       setMedia(response.data.data);
     } catch (error) {
@@ -77,7 +85,7 @@ const Cart = () => {
   };
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
-    user ? getOrderDetail(): setIsLoading(false)
+    user ? getOrderDetail() : setIsLoading(false);
     // getTotalPrice();
   }, []);
 

@@ -30,10 +30,12 @@ const ProductSlider = ({ data = [] }) => {
           try {
             const response = await axios.post(
               "https://138.201.167.230:5050/media/GetMedia",
-              {
-                id: item.imageuniqueId,
-                mediaFieldName: "productGalleryImageName",
-              }
+              [
+                {
+                  id: item.imageuniqueId,
+                  mediaFieldName: "productGalleryImageName",
+                },
+              ]
             );
             return response.data.data;
           } catch (error) {

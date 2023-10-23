@@ -27,8 +27,8 @@ const ProductImage = ({ src }) => {
   return (
     <Image
       src={
-        media.mediaFieldName
-          ? `data:image/jpeg;base64,${media.mediaFieldName}`
+        media?.mediaFieldName
+          ? `data:image/jpeg;base64,${media?.mediaFieldName}`
           : defaultImage
       }
       alt="Product"

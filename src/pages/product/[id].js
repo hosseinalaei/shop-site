@@ -64,10 +64,12 @@ const product = () => {
     try {
       const response = await axios.post(
         "https://138.201.167.230:5050/media/getmedia",
-        {
-          id: id,
-          mediaFieldName: "productImageName",
-        }
+        [
+          {
+            id: id,
+            mediaFieldName: "productImageName",
+          },
+        ]
       );
       setMedia(response.data.data);
     } catch (error) {
@@ -136,6 +138,7 @@ const product = () => {
 
   const addOrder = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
+    console.log("uuuuuuserrrrrr", user);
     try {
       const response = await axios.post(
         "https://138.201.167.230:5050/Order/add-order",
@@ -146,6 +149,11 @@ const product = () => {
           isUser: true,
           color: color,
           productPrice: price,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
         }
       );
       if (response.status === 200) {
