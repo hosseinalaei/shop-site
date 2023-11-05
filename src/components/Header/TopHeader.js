@@ -88,7 +88,7 @@ const TopHeader = () => {
           )}
 
           {!userInfo?.token && (
-            <Link href="/login" className="d-lg-show login sign-in">
+            <Link href="/login" className=" login sign-in">
               <i className="w-icon-account mr-1"></i>ورود{" "}
             </Link>
           )}
