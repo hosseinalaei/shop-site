@@ -50,7 +50,7 @@ const ContactUs = () => {
         <main className="main">
           <div className="page-header">
             <div className="container">
-              <h1 className="page-title mb-0">تماس با ما</h1>
+              <h1 className="page-title mb-0">ارتباط با ما</h1>
             </div>
           </div>
 

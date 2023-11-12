@@ -25,51 +25,51 @@ const TopHeader = () => {
               پیام فروشگاه لغو کنید. به فروشگاه ما خوش آمدید!
             </span>
           </a> */}
-          <span className="d-md-show">به فروشگاه ما خوش آمدید!</span>
+          {/* <span className="d-md-show">به فروشگاه ما خوش آمدید!</span> */}
         </div>
-        <div className="header-right pr-0">
-          <div className="dropdown">
+        <div className="header-right pr-0 pt-1 pb-1">
+          {/* <div className="dropdown">
             <a href="#currency">تومان </a>
             <div className="dropdown-box">
               <a href="#USD">تومان </a>
               <a href="#EUR">یورو </a>
             </div>
-          </div>
+          </div> */}
 
-          <div className="dropdown">
+          {/* <div className="dropdown">
             <a href="#language">
-              {/* <img
+              <img
                 src="assets/images/flags/eng.png"
                 alt="ENG Flag"
                 width="14"
                 height="8"
                 className="dropdown-image"
-              />{" "} */}
+              />
               انگلیسی
             </a>
             <div className="dropdown-box">
               <a href="#ENG">
-                {/* <img
+                <img
                   src="assets/images/flags/eng.png"
                   alt="ENG Flag"
                   width="14"
                   height="8"
                   className="dropdown-image"
-                /> */}
-                انگلیسی{" "}
+                />
+                انگلیسی
               </a>
               <a href="#FRA">
-                {/* <img
+                <img
                   src="assets/images/flags/fra.png"
                   alt="FRA Flag"
                   width="14"
                   height="8"
                   className="dropdown-image"
-                /> */}
+                />
                 فرانسوی{" "}
               </a>
             </div>
-          </div>
+          </div> */}
 
           <span className="divider d-lg-show"></span>
           <a href="/blog" className="d-lg-show">
@@ -79,7 +79,7 @@ const TopHeader = () => {
             فروشنده شوید
           </a>
           <a href="/contact-us" className="d-lg-show">
-            تماس با ما{" "}
+            ارتباط با ما{" "}
           </a>
           {userInfo?.token && (
             <Link href="/my-account" className="d-lg-show login sign-in">

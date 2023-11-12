@@ -90,10 +90,10 @@ const Header = () => {
                 </a>
               </div>
             </div>
-            <a className="wishlist label-down link d-xs-show" href="/wishlist">
+            {/* <a className="wishlist label-down link d-xs-show" href="/wishlist">
               <i className="w-icon-heart"></i>
               <span className="wishlist-label d-lg-show">علاقه مندیها </span>
-            </a>
+            </a> */}
             <a
               className="compare label-down link d-xs-show"
               href="compare.html"

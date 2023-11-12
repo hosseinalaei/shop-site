@@ -89,7 +89,7 @@ const Footer = () => {
             </div>
             <div className="col-lg-3 col-sm-6">
               <div className="widget">
-                <h3 className="widget-title">کمپانی </h3>
+                <h3 className="widget-title">شاپ آی‌آر </h3>
                 <ul className="widget-body">
                   <li>
                     <Link href="/about-us">درباره ما </Link>
@@ -98,7 +98,7 @@ const Footer = () => {
                     <Link href="#">اعضای تیم </Link>
                   </li>
                   <li>
-                    <Link href="/contact-us">تماس با ما </Link>
+                    <Link href="/contact-us">ارتباط با ما </Link>
                   </li>
                 </ul>
               </div>
