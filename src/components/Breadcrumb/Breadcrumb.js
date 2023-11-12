@@ -6,7 +6,7 @@ const Breadcrumb = () => {
           <li>
             <a href="/">خانه </a>
           </li>
-          <li>تماس با ما</li>
+          <li>ارتباط با ما</li>
         </ul>
       </div>
     </nav>

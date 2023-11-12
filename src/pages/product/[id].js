@@ -17,6 +17,7 @@ import PageLoader from "@/components/PageLoader/PageLoader";
 import { separate } from "@/utils/helper";
 import ShowBrief from "@/components/ShowBrief/ShowBrief";
 import Modal from "@/components/Modal/Modal";
+import parse from "html-react-parser";
 
 const product = () => {
   const [data, setData] = useState(null);
@@ -135,6 +136,19 @@ const product = () => {
     id && getRelatedProduct();
     id && getComment();
   }, [id]);
+
+  // const getAttGroup = async()=>{
+  //   try{
+  //     const response = await axios.post("https://138.201.167.230:5050/Specification/getAttributegroupById")
+
+  //   } catch(error){
+  //     console.log(error);
+  //   }
+  // }
+
+  // useEffect(()=>{
+  //   data.attributeCategoryId && getAttGroup()
+  // }, [data.attributeCategoryId])
 
   const addOrder = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
@@ -465,7 +479,7 @@ const product = () => {
                 </TabList>
 
                 <TabPanel>
-                  <p>{data?.product?.description}</p>
+                  <p>{parse(data?.product?.description)}</p>
                 </TabPanel>
                 <TabPanel style={{ display: "flex" }}>
                   {/* <div className="col-xl-4 col-lg-5 mb-4">
