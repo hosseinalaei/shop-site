@@ -43,6 +43,7 @@ const product = () => {
   const router = useRouter();
   const { id } = router.query;
 
+  
   const getProdctData = async () => {
     try {
       const response = await axios.post(
@@ -133,7 +134,7 @@ const product = () => {
   useEffect(() => {
     id && getProdctData();
     id && getRelatedProduct();
-    id && getComment();
+    // id && getComment();
   }, [id]);
 
   const addOrder = async () => {
