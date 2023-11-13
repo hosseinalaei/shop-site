@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 // import Slider from "react-slick";
 import axios from "axios";
 import Image from "next/image";
@@ -11,8 +11,14 @@ const ProductSlider = ({ data = [] }) => {
   const [media, setMedia] = useState([]);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
-  // const slider1 = useRef(null);
-  // const slider2 = useRef(null);
+  const slider1 = useRef(null);
+  const slider2 = useRef(null);
+
+  useLayoutEffect(() =>{
+    if (slider1.current !== null) {
+      slider1.current.controller.control = slider2.current;
+    }
+  },[])
 
   useEffect(() => {
     // setNav1(slider1.current);
@@ -83,6 +89,12 @@ const ProductSlider = ({ data = [] }) => {
         //   "--swiper-navigation-color": "#fff",
         //   "--swiper-pagination-color": "#fff",
         // }}
+        onSwiper={(swiper) => {
+          if (slider1.current !== null) {
+            slider1.current = swiper;
+          }
+        }}
+        controller={{ control: slider2 }}
         loop={true}
         spaceBetween={10}
         // navigation={true}
@@ -108,6 +120,7 @@ const ProductSlider = ({ data = [] }) => {
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper}
+        controller={{ control: slider1 }}
         loop={true}
         spaceBetween={5}
         slidesPerView={4}
