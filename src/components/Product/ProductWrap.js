@@ -61,7 +61,7 @@ const ProductWrap = ({ data }) => {
           <div className="product-pa-wrapper">
             <div className="product-price">
               {data?.isExists ? (
-                `${data?.productColor[0].price} تومان`
+                `${data?.productColor[0]?.price} تومان`
               ) : (
                 <span className="text-error">ناموجود</span>
               )}
