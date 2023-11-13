@@ -35,6 +35,7 @@ const ProductSlider = ({ data = [] }) => {
             mediaFieldName: "productGalleryImageName",
           }))
         );
+        
         setMedia(response.data.data);
       } catch (error) {
         console.error(error);
@@ -46,7 +47,6 @@ const ProductSlider = ({ data = [] }) => {
 
     fetchData();
   }, [data]);
-
   return (
     <div style={{ alignItems: "center" }}>
       {/* <Slider {...settings1} asNavFor={nav2} ref={slider1}>
@@ -102,10 +102,8 @@ const ProductSlider = ({ data = [] }) => {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2"
       >
-        {media?.map((mediaUrl) => {
-          return (
-            <div key={mediaUrl?.id}>
-              <SwiperSlide>
+        {media.map((mediaUrl) => (
+              <SwiperSlide key={mediaUrl?.id}>
                 <Image
                   src={`data:image/jpeg;base64,${mediaUrl?.mediaFieldName}`}
                   alt={`Image ${mediaUrl?.id}`}
@@ -114,9 +112,8 @@ const ProductSlider = ({ data = [] }) => {
                   style={{ margin: "0 auto" }}
                 />
               </SwiperSlide>
-            </div>
-          );
-        })}
+          )
+        )}   
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper}
@@ -130,9 +127,8 @@ const ProductSlider = ({ data = [] }) => {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper"
       >
-        {media?.map((mediaUrl) => (
-          <div key={mediaUrl?.id}>
-            <SwiperSlide>
+        {media.map((mediaUrl) => (
+            <SwiperSlide key={mediaUrl?.id}>
               <Image
                 src={`data:image/jpeg;base64,${mediaUrl?.mediaFieldName}`}
                 alt={`Image ${mediaUrl?.id}`}
@@ -141,7 +137,6 @@ const ProductSlider = ({ data = [] }) => {
                 style={{ margin: "0 auto" }}
               />
             </SwiperSlide>
-          </div>
         ))}
       </Swiper>
     </div>

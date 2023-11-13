@@ -273,32 +273,32 @@ const product = () => {
                     </div>
 
                     <hr className="product-divider" />
-                    {/* <div class="product-form product-variation-form product-color-swatch">
+                    {/* <div className="product-form product-variation-form product-color-swatch">
                       <label>رنگ :</label>
-                      <div class="d-flex align-items-center product-variations">
+                      <div className="d-flex align-items-center product-variations">
                         <a
                           href="#"
-                          class="color"
+                          className="color"
                           style="background-color: #ffcc01"
                         ></a>
                         <a
                           href="#"
-                          class="color"
+                          className="color"
                           style="background-color: #ca6d00"
                         ></a>
                         <a
                           href="#"
-                          class="color"
+                          className="color"
                           style="background-color: #1c93cb"
                         ></a>
                         <a
                           href="#"
-                          class="color"
+                          className="color"
                           style="background-color: #ccc"
                         ></a>
                         <a
                           href="#"
-                          class="color"
+                          className="color"
                           style="background-color: #333"
                         ></a>
                       </div>
@@ -352,6 +352,7 @@ const product = () => {
                               type="number"
                               min="1"
                               max="10000000"
+                              onChange={(e) => { setCounte.target.value}}
                             />
                             <button
                               className="quantity-plus w-icon-plus"
@@ -444,30 +445,30 @@ const product = () => {
                       </div>
                       <span className="divider d-xs-show"></span>
                       <div className="product-link-wrapper d-flex">
-                        <div class="tooltips">
+                        <div className="tooltips">
                           <a
                             href="#"
                             className="btn-product-icon btn-wishlist w-icon-heart"
                           >
                             <span></span>
-                            <span class="mytooltiptext">
+                            <span className="mytooltiptext">
                               افزودن به علاقه‌مندی
                             </span>
                           </a>
                         </div>
-                        <div class="tooltips">
+                        <div className="tooltips">
                           <a
                             href="#"
                             className="btn-product-icon btn-compare btn-icon-left w-icon-compare"
                           >
                             <span></span>
-                            <span class="mytooltiptext">مقایسه</span>
+                            <span className="mytooltiptext">مقایسه</span>
                           </a>
                         </div>
                       </div>
-                      {/* <div class="tooltips">
+                      {/* <div className="tooltips">
                         Hover over me
-                        <span class="mytooltiptext">Tooltip text</span>
+                        <span className="mytooltiptext">Tooltip text</span>
                       </div> */}
                     </div>
                   </div>
