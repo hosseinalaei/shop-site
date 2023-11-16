@@ -50,39 +50,39 @@ const Footer = () => {
           <div className="row">
             <div className="col-lg-4 col-sm-6">
               <div className="widget widget-about">
-                <a href="demo1.html" className="logo-footer">
+                <Link href="demo1.html" className="logo-footer">
                   <Image src={logo} alt="logo-footer" width="144" height="45" />
-                </a>
+                </Link>
                 <div className="widget-body">
                   <p className="widget-about-title">سوالی دارید؟ تماس بگیرید</p>
-                  <a href="tel:18005707777" className="widget-about-call">
+                  <Link href="tel:18005707777" className="widget-about-call">
                     021-43000470
-                  </a>
+                  </Link>
                   <p className="widget-about-desc">
                     ارتباط با ما در شبکه‌های اجتماعی
                   </p>
 
                   <div className="social-icons social-icons-colored">
-                    <a
+                    <Link
                       href="#"
                       className="social-icon social-facebook w-icon-facebook"
-                    ></a>
-                    <a
+                    ></Link>
+                    <Link
                       href="#"
                       className="social-icon social-twitter w-icon-twitter"
-                    ></a>
-                    <a
+                    ></Link>
+                    <Link
                       href="#"
                       className="social-icon social-instagram w-icon-instagram"
-                    ></a>
-                    <a
+                    ></Link>
+                    <Link
                       href="#"
                       className="social-icon social-youtube w-icon-youtube"
-                    ></a>
-                    <a
+                    ></Link>
+                    <Link
                       href="#"
                       className="social-icon social-pinterest w-icon-pinterest"
-                    ></a>
+                    ></Link>
                   </div>
                 </div>
               </div>

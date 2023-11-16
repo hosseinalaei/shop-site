@@ -19,10 +19,10 @@ const Blog = () => {
         <div className="container">
           <ul className="breadcrumb">
             <li>
-              <a href="/">خانه </a>
+              <Link href="/">خانه </Link>
             </li>
             <li>
-              <a href="#">بلاگ </a>
+              <Link href="#">بلاگ </Link>
             </li>
             {/* <li>لیستی</li> */}
           </ul>
@@ -35,18 +35,18 @@ const Blog = () => {
             <div className="main-content">
               <article className="post post-list post-listing mb-md-10 mb-6 pb-2 overlay-zoom mb-4">
                 <figure className="post-media br-sm">
-                  <a href="post-single.html">
+                  <Link href="post-single.html">
                     <Image src={blog1} width="930" height="500" alt="blog" />
-                  </a>
+                  </Link>
                 </figure>
                 <div className="post-details">
                   <div className="post-cats text-primary">
-                    <a href="#">مد </a>
+                    <Link href="#">مد </Link>
                   </div>
                   <h4 className="">
-                    <a href="post-single.html">
+                    <Link href="post-single.html">
                       لباس مردانه تابستانی جدید پیدا شد
-                    </a>
+                    </Link>
                   </h4>
                   <div className="post-content">
                     <p>
@@ -57,39 +57,39 @@ const Blog = () => {
                       از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
                       در ستون و سطرآنچنان که لازم است …
                     </p>
-                    <a
+                    <Link
                       href="post-single.html"
                       className="btn btn-link btn-primary"
                     >
                       (ادامه مطلب)
-                    </a>
+                    </Link>
                   </div>
                   <div className="post-meta">
                     توسط{" "}
-                    <a href="#" className="post-author">
+                    <Link href="#" className="post-author">
                       جان دوو
-                    </a>
+                    </Link>
                     -{" "}
-                    <a href="#" className="post-date">
+                    <Link href="#" className="post-date">
                       1401.1.23
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </article>
               <article className="post post-list post-listing mb-md-10 mb-6 pb-2 overlay-zoom mb-4">
                 <figure className="post-media br-sm">
-                  <a href="post-single.html">
+                  <Link href="post-single.html">
                     <Image src={blog2} width="930" height="500" alt="blog" />
-                  </a>
+                  </Link>
                 </figure>
                 <div className="post-details">
                   <div className="post-cats text-primary">
-                    <a href="#">دیگر </a>,<a href="#">تکنولوژی </a>
+                    <Link href="#">دیگر </Link>,<Link href="#">تکنولوژی </Link>
                   </div>
                   <h4 className="">
-                    <a href="post-single.html">
+                    <Link href="post-single.html">
                       شناخت نیازها شرط اولیه طراحی است
-                    </a>
+                    </Link>
                   </h4>
                   <div className="post-content">
                     <p>
@@ -100,39 +100,39 @@ const Blog = () => {
                       از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
                       در ستون و سطرآنچنان که لازم است …
                     </p>
-                    <a
+                    <Link
                       href="post-single.html"
                       className="btn btn-link btn-primary"
                     >
                       (ادامه مطلب)
-                    </a>
+                    </Link>
                   </div>
                   <div className="post-meta">
                     توسط{" "}
-                    <a href="#" className="post-author">
+                    <Link href="#" className="post-author">
                       جان دوو
-                    </a>
+                    </Link>
                     -{" "}
-                    <a href="#" className="post-date">
+                    <Link href="#" className="post-date">
                       1401.1.23
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </article>
               <article className="post post-list post-listing mb-md-10 mb-6 pb-2 overlay-zoom mb-4">
                 <figure className="post-media br-sm">
-                  <a href="post-single.html">
+                  <Link href="post-single.html">
                     <Image src={blog3} width="930" height="500" alt="blog" />
-                  </a>
+                  </Link>
                 </figure>
                 <div className="post-details">
                   <div className="post-cats text-primary">
-                    <a href="#">لباس ها </a>
+                    <Link href="#">لباس ها </Link>
                   </div>
                   <h4 className="">
-                    <a href="post-single.html">
+                    <Link href="post-single.html">
                       گرافیک است. چاپگرها و متون بلکه روزنامه و
-                    </a>
+                    </Link>
                   </h4>
                   <div className="post-content">
                     <p>
@@ -143,41 +143,41 @@ const Blog = () => {
                       از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
                       در ستون و سطرآنچنان که لازم است …
                     </p>
-                    <a
+                    <Link
                       href="post-single.html"
                       className="btn btn-link btn-primary"
                     >
                       (ادامه مطلب)
-                    </a>
+                    </Link>
                   </div>
                   <div className="post-meta">
                     توسط{" "}
-                    <a href="#" className="post-author">
+                    <Link href="#" className="post-author">
                       جان دوو
-                    </a>
+                    </Link>
                     -{" "}
-                    <a href="#" className="post-date">
+                    <Link href="#" className="post-date">
                       1401.1.23
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </article>
               <article className="post post-list post-listing mb-md-10 mb-6 pb-2 overlay-zoom mb-4">
                 <figure className="post-media br-sm">
-                  <a href="post-single.html">
+                  <Link href="post-single.html">
                     <Image src={blog4} width="930" height="500" alt="blog" />
-                  </a>
+                  </Link>
                 </figure>
                 <div className="post-details">
                   <div className="post-cats text-primary">
-                    <a href="#">سبک زندگی </a>
+                    <Link href="#">سبک زندگی </Link>
                   </div>
                   <h4 className="">
-                    <a href="post-single.html">
+                    <Link href="post-single.html">
                       لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
                       و با استفاده از طراحان گرافیک است. با تولید سادگی نامفهوم
                       از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                    </a>
+                    </Link>
                   </h4>
                   <div className="post-content">
                     <p>
@@ -188,40 +188,40 @@ const Blog = () => {
                       از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
                       در ستون و سطرآنچنان که لازم است …
                     </p>
-                    <a
+                    <Link
                       href="post-single.html"
                       className="btn btn-link btn-primary"
                     >
                       (ادامه مطلب)
-                    </a>
+                    </Link>
                   </div>
                   <div className="post-meta">
                     توسط{" "}
-                    <a href="#" className="post-author">
+                    <Link href="#" className="post-author">
                       جان دوو
-                    </a>
+                    </Link>
                     -{" "}
-                    <a href="#" className="post-date">
+                    <Link href="#" className="post-date">
                       1401.1.23
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </article>
               <article className="post post-list post-listing mb-md-10 mb-6 pb-2 overlay-zoom mb-4">
                 <figure className="post-media br-sm">
-                  <a href="post-single.html">
+                  <Link href="post-single.html">
                     <Image src={blog5} width="930" height="500" alt="blog" />
-                  </a>
+                  </Link>
                 </figure>
                 <div className="post-details">
                   <div className="post-cats text-primary">
-                    <a href="#">سرگرمی </a>,<a href="#">سبک زندگی </a>,
-                    <a href="#">دیگر </a>
+                    <Link href="#">سرگرمی </Link>,
+                    <Link href="#">سبک زندگی </Link>,<Link href="#">دیگر </Link>
                   </div>
                   <h4 className="">
-                    <a href="post-single.html">
+                    <Link href="post-single.html">
                       یک پست وبلاگ جالب با تصاویر ارائه می شود
-                    </a>
+                    </Link>
                   </h4>
                   <div className="post-content">
                     <p>
@@ -232,40 +232,40 @@ const Blog = () => {
                       از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
                       در ستون و سطرآنچنان که لازم است …
                     </p>
-                    <a
+                    <Link
                       href="post-single.html"
                       className="btn btn-link btn-primary"
                     >
                       (ادامه مطلب)
-                    </a>
+                    </Link>
                   </div>
                   <div className="post-meta">
                     توسط{" "}
-                    <a href="#" className="post-author">
+                    <Link href="#" className="post-author">
                       جان دوو
-                    </a>
+                    </Link>
                     -{" "}
-                    <a href="#" className="post-date">
+                    <Link href="#" className="post-date">
                       1401.1.23
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </article>
               <article className="post post-list post-listing mb-md-10 mb-6 pb-2 overlay-zoom mb-2">
                 <figure className="post-media br-sm">
-                  <a href="post-single.html">
+                  <Link href="post-single.html">
                     <Image src={blog6} width="930" height="500" alt="blog" />
-                  </a>
+                  </Link>
                 </figure>
                 <div className="post-details">
                   <div className="post-cats text-primary">
-                    <a href="#">مد </a>,<a href="#">تکنولوژی </a>
+                    <Link href="#">مد </Link>,<Link href="#">تکنولوژی </Link>
                   </div>
                   <h4 className="">
-                    <a href="post-single.html">
+                    <Link href="post-single.html">
                       لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
                       و با استفاده از طراحان گرافیک است.
-                    </a>
+                    </Link>
                   </h4>
                   <div className="post-content">
                     <p>
@@ -276,63 +276,63 @@ const Blog = () => {
                       از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
                       در ستون و سطرآنچنان که لازم است …
                     </p>
-                    <a
+                    <Link
                       href="post-single.html"
                       className="btn btn-link btn-primary"
                     >
                       (ادامه مطلب)
-                    </a>
+                    </Link>
                   </div>
                   <div className="post-meta">
                     توسط{" "}
-                    <a href="#" className="post-author">
+                    <Link href="#" className="post-author">
                       جان دوو
-                    </a>
+                    </Link>
                     -{" "}
-                    <a href="#" className="post-date">
+                    <Link href="#" className="post-date">
                       1401.1.23
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </article>
               {/* <ul className="pagination justify-content-center">
                 <li className="prev disabled">
-                  <a
+                  <Link 
                     href="#"
                     aria-label="قبلی"
                     tabindex="-1"
                     aria-disabled="true"
                   >
                     <i className="w-icon-long-arrow-right"></i>قبلی
-                  </a>
+                  </Link>
                 </li>
                 <li className="page-item active">
-                  <a className="page-link" href="#">
+                  <Link className="page-link" href="#">
                     1
-                  </a>
+                  </Link>
                 </li>
                 <li className="page-item">
-                  <a className="page-link" href="#">
+                  <Link className="page-link" href="#">
                     2
-                  </a>
+                  </Link>
                 </li>
                 <li className="next">
-                  <a href="#" aria-label="بعدی">
+                  <Link href="#" aria-label="بعدی">
                     بعدی <i className="w-icon-long-arrow-left"></i>
-                  </a>
+                  </Link>
                 </li>
               </ul> */}
             </div>
 
             <aside className="sidebar right-sidebar blog-sidebar sidebar-fixed sticky-sidebar-wrapper">
               <div className="sidebar-overlay">
-                <a href="#" className="sidebar-close">
+                <Link href="#" className="sidebar-close">
                   <i className="close-icon"></i>
-                </a>
+                </Link>
               </div>
-              <a href="#" className="sidebar-toggle">
+              <Link href="#" className="sidebar-toggle">
                 <i className="fas fa-chevron-left"></i>
-              </a>
+              </Link>
               <div className="sidebar-content">
                 <div className="sticky-sidebar">
                   <div className="widget widget-search-form">
@@ -360,25 +360,25 @@ const Blog = () => {
                     <h3 className="widget-title bb-no mb-0">دسته بندیها </h3>
                     <ul className="widget-body filter-items search-ul">
                       <li>
-                        <a href="blog.html">لباس ها </a>
+                        <Link href="blog.html">لباس ها </Link>
                       </li>
                       <li>
-                        <a href="blog.html">سرگرمی </a>
+                        <Link href="blog.html">سرگرمی </Link>
                       </li>
                       <li>
-                        <a href="blog.html">مد </a>
+                        <Link href="blog.html">مد </Link>
                       </li>
                       <li>
-                        <a href="blog.html">سبک زندگی </a>
+                        <Link href="blog.html">سبک زندگی </Link>
                       </li>
                       <li>
-                        <a href="blog.html">بیشتر </a>
+                        <Link href="blog.html">بیشتر </Link>
                       </li>
                       <li>
-                        <a href="blog.html">کفش ها </a>
+                        <Link href="blog.html">کفش ها </Link>
                       </li>
                       <li>
-                        <a href="blog.html">تکتولوژی </a>
+                        <Link href="blog.html">تکتولوژی </Link>
                       </li>
                     </ul>
                   </div>

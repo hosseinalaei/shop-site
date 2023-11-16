@@ -35,7 +35,7 @@ const StickyFooter = () => {
               <div className="product product-cart" key={item.id}>
                 <div className="product-detail">
                   <h3 className="product-name">
-                    <a href="product-default.html">{item.title}</a>
+                    <Link href="product-default.html">{item.title}</Link>
                   </h3>
                   <div className="price-box">
                     <span className="product-quantity">1</span>
@@ -45,9 +45,9 @@ const StickyFooter = () => {
                   </div>
                 </div>
                 <figure className="product-media">
-                  <a href="#">
+                  <Link href="#">
                     {cart && <FooterCartThumbs src={item.productId} />}
-                  </a>
+                  </Link>
                 </figure>
                 <button
                   className="btn btn-link btn-close"
@@ -62,11 +62,11 @@ const StickyFooter = () => {
             {/* <div className="product product-cart">
               <div className="product-detail">
                 <h3 className="product-name">
-                  <a href="#">
+                  <Link href="#">
                     پینا کاربردی آبی
                     <br />
                     لباس جین جلو
-                  </a>
+                  </Link>
                 </h3>
                 <div className="price-box">
                   <span className="product-quantity">1</span>
@@ -74,14 +74,14 @@ const StickyFooter = () => {
                 </div>
               </div>
               <figure className="product-media">
-                <a href="#">
+                <Link href="#">
                   <img
                     src="assets/images/cart/product-2.jpg"
                     alt="product"
                     width="84"
                     height="94"
                   />
-                </a>
+                </Link>
               </figure>
               <button className="btn btn-link btn-close" aria-label="button">
                 <i className="fas fa-times"></i>
@@ -101,18 +101,18 @@ const StickyFooter = () => {
             >
               سبد خرید{" "}
             </Link>
-            <a href="checkout.html" className="btn btn-primary  btn-rounded">
+            <Link href="#" className="btn btn-primary  btn-rounded">
               پرداخت{" "}
-            </a>
+            </Link>
           </div>
         </div>
       </div>
 
       <div className="header-search hs-toggle dir-up">
-        <a href="#" className="search-toggle sticky-link">
+        <Link href="#" className="search-toggle sticky-link">
           <i className="w-icon-search"></i>
           <p>جستجو </p>
-        </a>
+        </Link>
         <form action="#" className="input-wrapper">
           <input
             type="text"

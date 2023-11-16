@@ -27,13 +27,13 @@ const Checkout = () => {
             <div class="container">
               <ul class="breadcrumb shop-breadcrumb bb-no">
                 <li class="passed">
-                  <a href="/cart"> سبد خرید </a>
+                  <Link href="/cart"> سبد خرید </Link>
                 </li>
                 <li class="active">
-                  <a href="٫">پرداخت </a>
+                  <Link href="٫">پرداخت </Link>
                 </li>
                 <li>
-                  <a href="#">سفارش کامل شد</a>
+                  <Link href="#">سفارش کامل شد</Link>
                 </li>
               </ul>
             </div>
@@ -43,12 +43,12 @@ const Checkout = () => {
             <div class="container">
               {/* <div class="login-toggle">
                 مشتری بازگشتی؟{" "}
-                <a
+                <Link 
                   href="#"
                   class="show-login font-weight-bold text-uppercase text-dark"
                 >
                   ورود{" "}
-                </a>
+                </Link>
               </div>
               <form class="login-content">
                 <p>
@@ -89,20 +89,20 @@ const Checkout = () => {
                   <label for="remember" class="mb-0 lh-2">
                     مرا به خاطر بسپار{" "}
                   </label>
-                  <a href="#" class="ml-3">
+                  <Link href="#" class="ml-3">
                     فراموشی رمز عبور؟
-                  </a>
+                  </Link>
                 </div>
                 <button class="btn btn-rounded btn-login">ورود </button>
               </form>
               <div class="coupon-toggle">
                 کد تخفیف دارید؟{" "}
-                <a
+                <Link 
                   href="#"
                   class="show-coupon font-weight-bold text-uppercase text-dark"
                 >
                   کد را وارد کنید{" "}
-                </a>
+                </Link>
               </div>
               <div class="coupon-content mb-4">
                 <p>اگر کد کوپن دارید، لطفاً آن را در زیر اعمال کنید.</p>
@@ -530,9 +530,9 @@ const Checkout = () => {
                           <div class="accordion payment-accordion">
                             <div class="card">
                               <div class="card-header">
-                                <a href="#cash-on-delivery" class="collapse">
+                                <Link href="#cash-on-delivery" class="collapse">
                                   انتقال مستقیم بانکی
-                                </a>
+                                </Link>
                               </div>
                               <div
                                 id="cash-on-delivery"
@@ -549,9 +549,9 @@ const Checkout = () => {
                             </div>
                             <div class="card">
                               <div class="card-header">
-                                <a href="#payment" class="expand">
+                                <Link href="#payment" class="expand">
                                   پرداخت ها را چک کنید{" "}
-                                </a>
+                                </Link>
                               </div>
                               <div id="payment" class="card-body collapsed">
                                 <p class="mb-0">
@@ -563,9 +563,9 @@ const Checkout = () => {
                             </div>
                             <div class="card">
                               <div class="card-header">
-                                <a href="#delivery" class="expand">
+                                <Link href="#delivery" class="expand">
                                   پرداخت نقدی هنگام تحویل
-                                </a>
+                                </Link>
                               </div>
                               <div id="delivery" class="card-body collapsed">
                                 <p class="mb-0">پرداخت نقدی هنگام تحویل.</p>
@@ -573,11 +573,11 @@ const Checkout = () => {
                             </div>
                             <div class="card p-relative">
                               <div class="card-header">
-                                <a href="#paypal" class="expand">
+                                <Link href="#paypal" class="expand">
                                   پی پال{" "}
-                                </a>
+                                </Link>
                               </div>
-                              <a
+                              <Link 
                                 href="https://www.paypal.com/us/webapps/mpp/paypal-popup"
                                 class="text-primary paypal-que"
                                 onclick="javascript:window.open('https://www.paypal.com/us/webapps/mpp/paypal-popup','WIPaypal',
@@ -585,7 +585,7 @@ const Checkout = () => {
                                                         return false;"
                               >
                                 پی پال چیست؟
-                              </a>
+                              </Link>
                               <div id="paypal" class="card-body collapsed">
                                 <p class="mb-0">
                                   پرداخت از طریق پی پال، اگر حساب پی پال ندارید،
@@ -623,7 +623,7 @@ const Checkout = () => {
       </div>
 
       <StickyFooter />
-      <a
+      <Link
         id="scroll-top"
         className="scroll-top"
         href="#top"
@@ -649,7 +649,7 @@ const Checkout = () => {
             style={{ "stroke-dasharray": "16.4198, 400" }}
           ></circle>{" "}
         </svg>{" "}
-      </a>
+      </Link>
 
       <MobileMenu />
     </>

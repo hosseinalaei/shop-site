@@ -58,7 +58,7 @@ const categoryProducts = () => {
               <Link href="/">خانه </Link>
             </li>
             {/* <li>
-              <a href="/">فروشگاه </a>
+              <Link href="/">فروشگاه </Link>
             </li> */}
           </ul>
         </div>
@@ -80,12 +80,12 @@ const categoryProducts = () => {
               <h3 className="banner-title text-white text-uppercase font-weight-bolder ls-normal">
                 ساعت مچی هوشمند
               </h3>
-              <a
+              <Link 
                 href="shop-banner-sidebar.html"
                 className="btn btn-dark btn-rounded btn-icon-right"
               >
                 اکنون کشف کنید<i className="w-icon-long-arrow-left"></i>
-              </a>
+              </Link>
             </div>
           </div> */}
 
@@ -249,17 +249,20 @@ const categoryProducts = () => {
           <div className="shop-content row gutter-lg mb-10">
             <aside className="sidebar shop-sidebar sticky-sidebar-wrapper sidebar-fixed">
               <div className="sidebar-overlay"></div>
-              <a className="sidebar-close" href="#">
+              <Link className="sidebar-close" href="#">
                 <i className="close-icon"></i>
-              </a>
+              </Link>
 
               <div className="sidebar-content scrollable">
                 <div className="sticky-sidebar">
                   <div className="filter-actions">
                     <label>فیلتر :</label>
-                    <a href="#" className="btn btn-dark btn-link filter-clean">
+                    <Link
+                      href="#"
+                      className="btn btn-dark btn-link filter-clean"
+                    >
                       پاک کردن همه{" "}
-                    </a>
+                    </Link>
                   </div>
 
                   <div className="widget widget-collapsible">
@@ -268,40 +271,40 @@ const categoryProducts = () => {
                     </h3>
                     <ul className="widget-body filter-items search-ul">
                       <li>
-                        <a href="#">تجهیزات جانبی </a>
+                        <Link href="#">تجهیزات جانبی </Link>
                       </li>
                       <li>
-                        <a href="#">نوزادان </a>
+                        <Link href="#">نوزادان </Link>
                       </li>
                       <li>
-                        <a href="#">زیبایی </a>
+                        <Link href="#">زیبایی </Link>
                       </li>
                       <li>
-                        <a href="#">تزیین </a>
+                        <Link href="#">تزیین </Link>
                       </li>
                       <li>
-                        <a href="#">الکترونیکی </a>
+                        <Link href="#">الکترونیکی </Link>
                       </li>
                       <li>
-                        <a href="#">مد </a>
+                        <Link href="#">مد </Link>
                       </li>
                       <li>
-                        <a href="#">غذا </a>
+                        <Link href="#">غذا </Link>
                       </li>
                       <li>
-                        <a href="#">مبلمان </a>
+                        <Link href="#">مبلمان </Link>
                       </li>
                       <li>
-                        <a href="#">آشپزخانه </a>
+                        <Link href="#">آشپزخانه </Link>
                       </li>
                       <li>
-                        <a href="#">مدیکال </a>
+                        <Link href="#">مدیکال </Link>
                       </li>
                       <li>
-                        <a href="#">ورزشی </a>
+                        <Link href="#">ورزشی </Link>
                       </li>
                       <li>
-                        <a href="#">ساعت </a>
+                        <Link href="#">ساعت </Link>
                       </li>
                     </ul>
                   </div>
@@ -313,19 +316,19 @@ const categoryProducts = () => {
                     <div className="widget-body">
                       <ul className="filter-items search-ul">
                         <li>
-                          <a href="#">0 - 99000 تومان</a>
+                          <Link href="#">0 - 99000 تومان</Link>
                         </li>
                         <li>
-                          <a href="#">100000 - 500000 تومان</a>
+                          <Link href="#">100000 - 500000 تومان</Link>
                         </li>
                         <li>
-                          <a href="#">500000 - 1000000 تومان</a>
+                          <Link href="#">500000 - 1000000 تومان</Link>
                         </li>
                         <li>
-                          <a href="#">1000000 - 5000000 تومان</a>
+                          <Link href="#">1000000 - 5000000 تومان</Link>
                         </li>
                         <li>
-                          <a href="#">5000000 تومان +</a>
+                          <Link href="#">5000000 تومان +</Link>
                         </li>
                       </ul>
                       <form className="price-range">
@@ -342,9 +345,9 @@ const categoryProducts = () => {
                           className="max_price text-center"
                           placeholder="$max"
                         />
-                        <a href="#" className="btn btn-primary btn-rounded">
+                        <Link href="#" className="btn btn-primary btn-rounded">
                           برو{" "}
-                        </a>
+                        </Link>
                       </form>
                     </div>
                   </div>
@@ -355,16 +358,16 @@ const categoryProducts = () => {
                     </h3>
                     <ul className="widget-body filter-items item-check mt-1">
                       <li>
-                        <a href="#">خبلی بزرگ </a>
+                        <Link href="#">خبلی بزرگ </Link>
                       </li>
                       <li>
-                        <a href="#">بزرگ </a>
+                        <Link href="#">بزرگ </Link>
                       </li>
                       <li>
-                        <a href="#">متوسط </a>
+                        <Link href="#">متوسط </Link>
                       </li>
                       <li>
-                        <a href="#">کوچک </a>
+                        <Link href="#">کوچک </Link>
                       </li>
                     </ul>
                   </div>
@@ -375,25 +378,25 @@ const categoryProducts = () => {
                     </h3>
                     <ul className="widget-body filter-items item-check mt-1">
                       <li>
-                        <a href="#">گروه خودرو زیبا </a>
+                        <Link href="#">گروه خودرو زیبا </Link>
                       </li>
                       <li>
-                        <a href="#">علف سبز </a>
+                        <Link href="#">علف سبز </Link>
                       </li>
                       <li>
-                        <a href="#">Node Js</a>
+                        <Link href="#">Node Js</Link>
                       </li>
                       <li>
-                        <a href="#">NS8</a>
+                        <Link href="#">NS8</Link>
                       </li>
                       <li>
-                        <a href="#">Red</a>
+                        <Link href="#">Red</Link>
                       </li>
                       <li>
-                        <a href="#">Skysuite Tech</a>
+                        <Link href="#">Skysuite Tech</Link>
                       </li>
                       <li>
-                        <a href="#">Sterling</a>
+                        <Link href="#">Sterling</Link>
                       </li>
                     </ul>
                   </div>
@@ -404,25 +407,25 @@ const categoryProducts = () => {
                     </h3>
                     <ul className="widget-body filter-items item-check mt-1">
                       <li>
-                        <a href="#">سیاه</a>
+                        <Link href="#">سیاه</Link>
                       </li>
                       <li>
-                        <a href="#">آبی</a>
+                        <Link href="#">آبی</Link>
                       </li>
                       <li>
-                        <a href="#">قهوه ای</a>
+                        <Link href="#">قهوه ای</Link>
                       </li>
                       <li>
-                        <a href="#">سبز </a>
+                        <Link href="#">سبز </Link>
                       </li>
                       <li>
-                        <a href="#">خاکستری </a>
+                        <Link href="#">خاکستری </Link>
                       </li>
                       <li>
-                        <a href="#">نارنجی </a>
+                        <Link href="#">نارنجی </Link>
                       </li>
                       <li>
-                        <a href="#">زرد </a>
+                        <Link href="#">زرد </Link>
                       </li>
                     </ul>
                   </div>
@@ -433,14 +436,14 @@ const categoryProducts = () => {
             <div className="main-content">
               <nav className="toolbox sticky-toolbox sticky-content fix-top">
                 <div className="toolbox-left">
-                  <a
+                  <Link
                     href="#"
                     className="btn btn-primary btn-outline btn-rounded left-sidebar-toggle 
                                 btn-icon-left d-block d-lg-none"
                   >
                     <i className="w-icon-category"></i>
                     <span>فیلتر ها </span>
-                  </a>
+                  </Link>
                   <div className="toolbox-item toolbox-sort select-box text-dark">
                     <label>مرتب سازی با اساس :</label>
                     <select name="orderby" className="form-control">
@@ -475,18 +478,18 @@ const categoryProducts = () => {
                     </select>
                   </div>
                   <div className="toolbox-item toolbox-layout">
-                    <a
+                    <Link
                       href="shop-banner-sidebar.html"
                       className="icon-mode-grid btn-layout active"
                     >
                       <i className="w-icon-grid"></i>
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       href="shop-list.html"
                       className="icon-mode-list btn-layout"
                     >
                       <i className="w-icon-list"></i>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </nav>
@@ -503,38 +506,38 @@ const categoryProducts = () => {
                       // <div className="product-wrap" key={item.id}>
                       //   <div className="product text-center">
                       //     <figure className="product-media">
-                      //       <Link href={`/product/${item.id}`}>
+                      //       <Link  href={`/product/${item.id}`}>
                       //         <ProductImage src={media} />
                       //       </Link>
                       //       <div className="product-action-horizontal">
-                      //         <a
+                      //         <Link
                       //           href="#"
                       //           className="btn-product-icon btn-cart w-icon-cart"
                       //           title="افزودن به سبد "
-                      //         ></a>
-                      //         <a
+                      //         ></Link>
+                      //         <Link
                       //           href="#"
                       //           className="btn-product-icon btn-wishlist w-icon-heart"
                       //           title="علاقه مندیها"
-                      //         ></a>
-                      //         <a
+                      //         ></Link>
+                      //         <Link
                       //           href="#"
                       //           className="btn-product-icon btn-compare w-icon-compare"
                       //           title="مقایسه"
-                      //         ></a>
-                      //         <a
+                      //         ></Link>
+                      //         <Link
                       //           href="#"
                       //           className="btn-product-icon btn-quickview w-icon-search"
                       //           title="نمایش سریع"
-                      //         ></a>
+                      //         ></Link>
                       //       </div>
                       //     </figure>
                       //     <div className="product-details">
                       //       {/* <div className="product-cat">
-                      //         <a href="shop-banner-sidebar.html">الکترونیکی </a>
+                      //         <Link href="shop-banner-sidebar.html">الکترونیکی </Link>
                       //       </div> */}
                       //       <h3 className="product-name">
-                      //         <Link href={`/product/${item.id}`}>
+                      //         <Link  href={`/product/${item.id}`}>
                       //           {item.productName}
                       //         </Link>
                       //       </h3>
@@ -546,12 +549,12 @@ const categoryProducts = () => {
                       //           ></span>
                       //           <span className="tooltiptext tooltip-top"></span>
                       //         </div>
-                      //         <a
+                      //         <Link
                       //           href="product-default.html"
                       //           className="rating-reviews"
                       //         >
                       //           (3 نظر )
-                      //         </a>
+                      //         </Link>
                       //       </div> */}
                       //       <div className="product-pa-wrapper">
                       //         <div className="product-price">
@@ -571,29 +574,29 @@ const categoryProducts = () => {
                 </p>
                 <ul className="pagination">
                   <li className="prev disabled">
-                    <a
+                    <Link 
                       href="#"
                       aria-label="Previous"
                       tabindex="-1"
                       aria-disabled="true"
                     >
                       <i className="w-icon-long-arrow-right"></i>قبلی
-                    </a>
+                    </Link>
                   </li>
                   <li className="page-item active">
-                    <a className="page-link" href="#">
+                    <Link className="page-link" href="#">
                       1
-                    </a>
+                    </Link>
                   </li>
                   <li className="page-item">
-                    <a className="page-link" href="#">
+                    <Link className="page-link" href="#">
                       2
-                    </a>
+                    </Link>
                   </li>
                   <li className="next">
-                    <a href="#" aria-label="Next">
+                    <Link href="#" aria-label="Next">
                       بعدی <i className="w-icon-long-arrow-left"></i>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div> */}

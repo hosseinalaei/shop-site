@@ -15,29 +15,29 @@ const TopHeader = () => {
     <div className="header-top">
       <div className="container">
         <div className="header-left mr-4">
-          {/* <a href="#" className="d-flex mr-2 mr-lg-6">
+          {/* <Link href="#" className="d-flex mr-2 mr-lg-6">
             <i className="w-icon-map-marker"></i>
             <span className="d-md-show">فروشگاه شاپ.آی آر</span>
-          </a>
-          <a href="#" className="d-flex">
+          </Link>
+          <Link href="#" className="d-flex">
             <i className="w-icon-info"></i>
             <span className="d-md-show">
               پیام فروشگاه لغو کنید. به فروشگاه ما خوش آمدید!
             </span>
-          </a> */}
+          </Link> */}
           {/* <span className="d-md-show">به فروشگاه ما خوش آمدید!</span> */}
         </div>
         <div className="header-right pr-0 pt-1 pb-1">
           {/* <div className="dropdown">
-            <a href="#currency">تومان </a>
+            <Link href="#currency">تومان </Link>
             <div className="dropdown-box">
-              <a href="#USD">تومان </a>
-              <a href="#EUR">یورو </a>
+              <Link href="#USD">تومان </Link>
+              <Link href="#EUR">یورو </Link>
             </div>
           </div> */}
 
           {/* <div className="dropdown">
-            <a href="#language">
+            <Link href="#language">
               <img
                 src="assets/images/flags/eng.png"
                 alt="ENG Flag"
@@ -46,9 +46,9 @@ const TopHeader = () => {
                 className="dropdown-image"
               />
               انگلیسی
-            </a>
+            </Link>
             <div className="dropdown-box">
-              <a href="#ENG">
+              <Link href="#ENG">
                 <img
                   src="assets/images/flags/eng.png"
                   alt="ENG Flag"
@@ -57,8 +57,8 @@ const TopHeader = () => {
                   className="dropdown-image"
                 />
                 انگلیسی
-              </a>
-              <a href="#FRA">
+              </Link>
+              <Link href="#FRA">
                 <img
                   src="assets/images/flags/fra.png"
                   alt="FRA Flag"
@@ -67,20 +67,20 @@ const TopHeader = () => {
                   className="dropdown-image"
                 />
                 فرانسوی{" "}
-              </a>
+              </Link>
             </div>
           </div> */}
 
           <span className="divider d-lg-show"></span>
-          <a href="/blog" className="d-lg-show">
+          <Link href="/blog" className="d-lg-show">
             بلاگ
-          </a>
-          <a href="#" className="d-lg-show">
+          </Link>
+          <Link href="#" className="d-lg-show">
             فروشنده شوید
-          </a>
-          <a href="/contact-us" className="d-lg-show">
+          </Link>
+          <Link href="/contact-us" className="d-lg-show">
             ارتباط با ما{" "}
-          </a>
+          </Link>
           {userInfo?.token && (
             <Link href="/my-account" className="d-lg-show login sign-in">
               <i className="w-icon-account mr-1"></i>داشبورد{" "}
@@ -93,12 +93,12 @@ const TopHeader = () => {
             </Link>
           )}
           {/* <span className="delimiter d-lg-show bg-">/</span>
-          <a
+          <Link 
             href="assets/ajax/login.html"
             className="ml-0 d-lg-show login register"
           >
             ثبت نام{" "}
-          </a> */}
+          </Link> */}
         </div>
       </div>
     </div>

@@ -44,7 +44,6 @@ const product = () => {
   const router = useRouter();
   const { id } = router.query;
 
-  
   const getProdctData = async () => {
     try {
       const response = await axios.post(
@@ -135,7 +134,7 @@ const product = () => {
   useEffect(() => {
     id && getProdctData();
     id && getRelatedProduct();
-    // id && getComment();
+    id && getComment();
   }, [id]);
 
   // const getAttGroup = async()=>{
@@ -218,7 +217,7 @@ const product = () => {
       <nav className="breadcrumb-nav container">
         <ul className="breadcrumb bb-no">
           <li>
-            <a href="/">خانه </a>
+            <Link href="/">خانه </Link>
           </li>
           <li>
             <Link href="/shop">محصولات </Link>
@@ -260,10 +259,13 @@ const product = () => {
                         ></span>
                         <span className="tooltiptext tooltip-top">4</span>
                       </div>
-                      <a href="#product-tab-reviews" className="rating-reviews">
+                      <Link
+                        href="#product-tab-reviews"
+                        className="rating-reviews"
+                      >
                         (3 نظر )
                         <span className="tooltiptext tooltip-top">4</span>
-                      </a>
+                      </Link>
                     </div>
 
                     <div className="product-short-desc lh-2">
@@ -276,31 +278,31 @@ const product = () => {
                     {/* <div className="product-form product-variation-form product-color-swatch">
                       <label>رنگ :</label>
                       <div className="d-flex align-items-center product-variations">
-                        <a
+                        <Link 
                           href="#"
                           className="color"
                           style="background-color: #ffcc01"
-                        ></a>
-                        <a
+                        ></Link>
+                        <Link 
                           href="#"
                           className="color"
                           style="background-color: #ca6d00"
-                        ></a>
-                        <a
+                        ></Link>
+                        <Link 
                           href="#"
                           className="color"
                           style="background-color: #1c93cb"
-                        ></a>
-                        <a
+                        ></Link>
+                        <Link 
                           href="#"
                           className="color"
                           style="background-color: #ccc"
-                        ></a>
-                        <a
+                        ></Link>
+                        <Link 
                           href="#"
                           className="color"
                           style="background-color: #333"
-                        ></a>
+                        ></Link>
                       </div>
                     </div> */}
 
@@ -330,11 +332,11 @@ const product = () => {
                                 style={{ backgroundColor: item.colorName }}
                               ></label>
                             </div>
-                            // <a
+                            // <Link
                             //   href="#"
                             //   className="color"
                             //   style={{ backgroundColor: "#ffcc01" }}
-                            // ></a>
+                            // ></Link>
                           );
                         })}
                       </div>
@@ -352,7 +354,9 @@ const product = () => {
                               type="number"
                               min="1"
                               max="10000000"
-                              onChange={(e) => { setCounte.target.value}}
+                              onChange={(e) => {
+                                setCounte.target.value;
+                              }}
                             />
                             <button
                               className="quantity-plus w-icon-plus"
@@ -421,32 +425,32 @@ const product = () => {
                     <div className="social-links-wrapper">
                       <div className="social-links">
                         <div className="social-icons social-no-color border-thin">
-                          <a
+                          <Link
                             href="#"
                             className="social-icon social-facebook w-icon-facebook"
-                          ></a>
-                          <a
+                          ></Link>
+                          <Link
                             href="#"
                             className="social-icon social-twitter w-icon-twitter"
-                          ></a>
-                          <a
+                          ></Link>
+                          <Link
                             href="#"
                             className="social-icon social-pinterest fab fa-pinterest-p"
-                          ></a>
-                          <a
+                          ></Link>
+                          <Link
                             href="#"
                             className="social-icon social-whatsapp fab fa-whatsapp"
-                          ></a>
-                          <a
+                          ></Link>
+                          <Link
                             href="#"
                             className="social-icon social-youtube fab fa-linkedin-in"
-                          ></a>
+                          ></Link>
                         </div>
                       </div>
                       <span className="divider d-xs-show"></span>
                       <div className="product-link-wrapper d-flex">
                         <div className="tooltips">
-                          <a
+                          <Link
                             href="#"
                             className="btn-product-icon btn-wishlist w-icon-heart"
                           >
@@ -454,16 +458,16 @@ const product = () => {
                             <span className="mytooltiptext">
                               افزودن به علاقه‌مندی
                             </span>
-                          </a>
+                          </Link>
                         </div>
                         <div className="tooltips">
-                          <a
+                          <Link
                             href="#"
                             className="btn-product-icon btn-compare btn-icon-left w-icon-compare"
                           >
                             <span></span>
                             <span className="mytooltiptext">مقایسه</span>
-                          </a>
+                          </Link>
                         </div>
                       </div>
                       {/* <div className="tooltips">
@@ -500,9 +504,9 @@ const product = () => {
                               ></span>
                               <span className="tooltiptext tooltip-top"></span>
                             </div>
-                            <a href="#" className="rating-reviews">
+                            <Link href="#" className="rating-reviews">
                               (3 نظر )
-                            </a>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -606,21 +610,21 @@ const product = () => {
                             امتیاز شما به این محصول :
                           </label>
                           <span className="rating-stars">
-                            <a className="star-1" href="#">
+                            <Link className="star-1" href="#">
                               1
-                            </a>
-                            <a className="star-2" href="#">
+                            </Link>
+                            <Link className="star-2" href="#">
                               2
-                            </a>
-                            <a className="star-3" href="#">
+                            </Link>
+                            <Link className="star-3" href="#">
                               3
-                            </a>
-                            <a className="star-4" href="#">
+                            </Link>
+                            <Link className="star-4" href="#">
                               4
-                            </a>
-                            <a className="star-5" href="#">
+                            </Link>
+                            <Link className="star-5" href="#">
                               5
-                            </a>
+                            </Link>
                           </span>
                           {/* <select
                           name="rating"
@@ -733,20 +737,20 @@ const product = () => {
                                   </div>
                                   <p>{item.text}</p>
                                   {/* <div className="comment-action">
-                                  <a
+                                  <Link 
                                     href="#"
                                     className="btn btn-secondary btn-link btn-underline sm btn-icon-left font-weight-normal text-capitalize"
                                   >
                                     <i className="far fa-thumbs-up"></i>مفید (1)
-                                  </a>
-                                  <a
+                                  </Link>
+                                  <Link 
                                     href="#"
                                     className="btn btn-dark btn-link btn-underline sm btn-icon-left font-weight-normal text-capitalize"
                                   >
                                     <i className="far fa-thumbs-down"></i>ضرر (0)
-                                  </a>
+                                  </Link>
                                   <div className="review-image">
-                                    <a href="#">
+                                    <Link href="#">
                                       <figure>
                                         <img
                                           src="assets/images/products/default/review-img-1.jpg"
@@ -756,7 +760,7 @@ const product = () => {
                                           data-zoom-image="assets/images/products/default/review-img-1-800x900.jpg"
                                         />
                                       </figure>
-                                    </a>
+                                    </Link>
                                   </div>
                                 </div> */}
                                 </div>
@@ -776,12 +780,12 @@ const product = () => {
                   <h4 className="title text-left">
                     محصولات بیشتر از این فروشنده
                   </h4>
-                  <a
+                  <Link 
                     href="#"
                     className="btn btn-dark btn-link btn-slide-right btn-icon-right"
                   >
                     محصولات بیشتر<i className="w-icon-long-arrow-left"></i>
-                  </a>
+                  </Link>
                 </div>
                 <div
                   className="swiper-container swiper-theme"
@@ -806,49 +810,49 @@ const product = () => {
                       return (
                         <div className="swiper-slide product">
                           <figure className="product-media">
-                            <a href="product-default.html">
+                            <Link href="product-default.html">
                               <Image
                                 src={item.imgSrc}
                                 alt="Product"
                                 width="300"
                                 height="338"
                               />
-                            </a>
+                            </Link>
                             <div className="product-action-vertical">
-                              <a
+                              <Link 
                                 href="#"
                                 className="btn-product-icon btn-cart w-icon-cart"
                                 title="افزودن به سبد "
-                              ></a>
-                              <a
+                              ></Link>
+                              <Link 
                                 href="#"
                                 className="btn-product-icon btn-wishlist w-icon-heart"
                                 title="افزودن به علاقه مندیها"
-                              ></a>
-                              <a
+                              ></Link>
+                              <Link 
                                 href="#"
                                 className="btn-product-icon btn-compare w-icon-compare"
                                 title="افزودن برای مقایسه"
-                              ></a>
+                              ></Link>
                             </div>
                             <div className="product-action">
-                              <a
+                              <Link 
                                 href="#"
                                 className="btn-product btn-quickview"
                                 title="نمایش سریع"
                               >
                                 نمایش سریع
-                              </a>
+                              </Link>
                             </div>
                           </figure>
                           <div className="product-details">
                             <div className="product-cat">
-                              <a href="shop-banner-sidebar.html">
+                              <Link href="shop-banner-sidebar.html">
                                 تجهیزات جانبی{" "}
-                              </a>
+                              </Link>
                             </div>
                             <h4 className="product-name">
-                              <a href="product-default.html">{item.title}</a>
+                              <Link href="product-default.html">{item.title}</Link>
                             </h4>
                             <div className="ratings-container">
                               <div className="ratings-full">
@@ -858,12 +862,12 @@ const product = () => {
                                 ></span>
                                 <span className="tooltiptext tooltip-top"></span>
                               </div>
-                              <a
+                              <Link 
                                 href="product-default.html"
                                 className="rating-reviews"
                               >
                                 (3 نظر )
-                              </a>
+                              </Link>
                             </div>
                             <div className="product-pa-wrapper">
                               <div className="product-price">
@@ -881,12 +885,12 @@ const product = () => {
               <section className="related-product-section mb-4">
                 <div className="title-link-wrapper mb-4">
                   <h4 className="title">محصولات اخیر </h4>
-                  <a
+                  <Link
                     href="#"
                     className="btn btn-dark btn-link btn-slide-right btn-icon-right"
                   >
                     محصولات بیشتر<i className="w-icon-long-arrow-left"></i>
-                  </a>
+                  </Link>
                 </div>
                 <div
                   className="swiper-container swiper-theme"
@@ -917,30 +921,30 @@ const product = () => {
                         />
                         // <div className="swiper-slide product">
                         //   <figure className="product-media">
-                        //     <a href="/">
+                        //     <Link href="/">
                         //       <Image
                         //         src={item.imgSrc}
                         //         alt="Product"
                         //         width="300"
                         //         height="338"
-                        //       />
-                        //     </a>
+                        //       <Link
+                        //     </Link>
                         //     <div className="product-action-vertical">
                         //       <a
                         //         href="#"
-                        //         className="btn-product-icon btn-cart w-icon-cart"
+                        //       <Link className="btn-product-icon btn-cart w-icon-cart"
                         //         title="افزودن به سبد "
-                        //       ></a>
+                        //       ></Link>
                         //       <a
                         //         href="#"
-                        //         className="btn-product-icon btn-wishlist w-icon-heart"
+                        //       <Link className="btn-product-icon btn-wishlist w-icon-heart"
                         //         title="افزودن به علاقه مندیها"
-                        //       ></a>
+                        //       ></Link>
                         //       <a
                         //         href="#"
                         //         className="btn-product-icon btn-compare w-icon-compare"
                         //         title="افزودن برای مقایسه"
-                        //       ></a>
+                        //       <Link /Link>
                         //     </div>
                         //     <div className="product-action">
                         //       <a
@@ -949,12 +953,12 @@ const product = () => {
                         //         title="نمایش سریع"
                         //       >
                         //         نمایش سریع
-                        //       </a>
+                        //       </Link>
                         //     </div>
                         //   </figure>
                         //   <div className="product-details">
                         //     <h4 className="product-name">
-                        //       <a href="/">{item.productName} </a>
+                        //       <Link href="/">{item.productName} </Link>
                         //     </h4>
                         //     <div className="ratings-container">
                         //       <div className="ratings-full">
@@ -964,9 +968,9 @@ const product = () => {
                         //         ></span>
                         //         <span className="tooltiptext tooltip-top"></span>
                         //       </div>
-                        //       <a href="/" className="rating-reviews">
+                        //       <Link href="/" className="rating-reviews">
                         //         (3 نظر )
-                        //       </a>
+                        //       </Link>
                         //     </div>
                         //     <div className="product-pa-wrapper">
                         //       <div className="product-price">
@@ -984,12 +988,12 @@ const product = () => {
 
             {/* <aside className="sidebar product-sidebar sidebar-fixed right-sidebar sticky-sidebar-wrapper">
             <div className="sidebar-overlay"></div>
-            <a className="sidebar-close" href="#">
+            <Link className="sidebar-close" href="#">
               <i className="close-icon"></i>
-            </a>
-            <a href="#" className="sidebar-toggle d-flex d-lg-none">
+            </Link>
+            <Link href="#" className="sidebar-toggle d-flex d-lg-none">
               <i className="fas fa-chevron-left"></i>
-            </a>
+            </Link>
             <div className="sidebar-content scrollable">
               <div className="sticky-sidebar">
                 <div className="widget widget-icon-box mb-6">
@@ -1063,7 +1067,7 @@ const product = () => {
                             return (
                               <div className="product product-widget">
                                 <figure className="product-media">
-                                  <Link href="#">
+                                  <Link  href="#">
                                     <Image
                                       src={item.imgSrc}
                                       alt="Product"
@@ -1074,7 +1078,7 @@ const product = () => {
                                 </figure>
                                 <div className="product-details">
                                   <h4 className="product-name">
-                                    <a href="#">{item.title} </a>
+                                    <Link href="#">{item.title} </Link>
                                   </h4>
                                   <div className="ratings-container">
                                     <div className="ratings-full">
@@ -1105,12 +1109,12 @@ const product = () => {
 
             <aside className="sidebar product-sidebar sidebar-fixed right-sidebar sticky-sidebar-wrapper">
               {/* <div className="sidebar-overlay"></div> */}
-              {/* <a className="sidebar-close" href="#">
+              {/* <Link className="sidebar-close" href="#">
               <i className="close-icon"></i>
-            </a>
-            <a href="#" className="sidebar-toggle d-flex d-lg-none">
+            </Link>
+            <Link href="#" className="sidebar-toggle d-flex d-lg-none">
               <i className="fas fa-chevron-left"></i>
-            </a> */}
+            </Link> */}
               <div className="sidebar-content scrollable">
                 <div className="sticky-sidebar">
                   <div className="widget widget-icon-box mb-6">
@@ -1195,7 +1199,7 @@ const product = () => {
                               </figure>
                               <div className="product-details">
                                 <h4 className="product-name">
-                                  <a href="#">ساعت هوشمند2 </a>
+                                  <Link href="#">ساعت هوشمند2 </Link>
                                 </h4>
                                 <div className="ratings-container">
                                   <div className="ratings-full">
@@ -1224,7 +1228,7 @@ const product = () => {
                               </figure>
                               <div className="product-details">
                                 <h4 className="product-name">
-                                  <a href="#">مرکز پزشکی آسمان</a>
+                                  <Link href="#">مرکز پزشکی آسمان</Link>
                                 </h4>
                                 <div className="ratings-container">
                                   <div className="ratings-full">
@@ -1253,7 +1257,7 @@ const product = () => {
                               </figure>
                               <div className="product-details">
                                 <h4 className="product-name">
-                                  <a href="#">موتور بدلکاری مشکی</a>
+                                  <Link href="#">موتور بدلکاری مشکی</Link>
                                 </h4>
                                 <div className="ratings-container">
                                   <div className="ratings-full">

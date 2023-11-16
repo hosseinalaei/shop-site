@@ -105,9 +105,12 @@ const ContactUs = () => {
                         <h4 className="icon-box-title">شماره تلفن </h4>
 
                         <p>
-                          <a style={{ color: "#000" }} href="tel:02188672361">
+                          <Link
+                            style={{ color: "#000" }}
+                            href="tel:02188672361"
+                          >
                             021-88672361
-                          </a>
+                          </Link>
                         </p>
                       </div>
                     </div>
@@ -147,9 +150,9 @@ const ContactUs = () => {
                     {/* <div className="accordion accordion-bg accordion-gutter-md accordion-border">
                       <div className="card">
                         <div className="card-header">
-                          <a href="#collapse1" className="collapse">
+                          <Link href="#collapse1" className="collapse">
                             چگونه می توانم سفارش خود را لغو کنم؟
-                          </a>
+                          </Link>
                         </div>
                         <div id="collapse1" className="card-body expanded">
                           <p className="mb-0">
@@ -165,9 +168,9 @@ const ContactUs = () => {
 
                       <div className="card">
                         <div className="card-header">
-                          <a href="#collapse2" className="expand">
+                          <Link href="#collapse2" className="expand">
                             چرا ثبت نام من به تاخیر افتاد؟
-                          </a>
+                          </Link>
                         </div>
                         <div id="collapse2" className="card-body collapsed">
                           <p className="mb-0">
@@ -183,9 +186,9 @@ const ContactUs = () => {
 
                       <div className="card">
                         <div className="card-header">
-                          <a href="#collapse3" className="expand">
+                          <Link href="#collapse3" className="expand">
                             برای خرید محصولات به چه چیزهایی نیاز دارم؟
-                          </a>
+                          </Link>
                         </div>
                         <div id="collapse3" className="card-body collapsed">
                           <p className="mb-0">
@@ -201,9 +204,9 @@ const ContactUs = () => {
 
                       <div className="card">
                         <div className="card-header">
-                          <a href="#collapse4" className="expand">
+                          <Link href="#collapse4" className="expand">
                             چگونه می توانم سفارش را پیگیری کنم؟
-                          </a>
+                          </Link>
                         </div>
                         <div id="collapse4" className="card-body collapsed">
                           <p className="mb-0">
@@ -219,9 +222,9 @@ const ContactUs = () => {
 
                       <div className="card">
                         <div className="card-header">
-                          <a href="#collapse5" className="expand">
+                          <Link href="#collapse5" className="expand">
                             چگونه می توانم پول را پس بگیرم؟
-                          </a>
+                          </Link>
                         </div>
                         <div id="collapse5" className="card-body collapsed">
                           <p className="mb-0">
