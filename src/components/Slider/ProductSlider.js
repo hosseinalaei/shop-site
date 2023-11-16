@@ -14,11 +14,11 @@ const ProductSlider = ({ data = [] }) => {
   const slider1 = useRef(null);
   const slider2 = useRef(null);
 
-  useLayoutEffect(() =>{
+  useLayoutEffect(() => {
     if (slider1.current !== null) {
       slider1.current.controller.control = slider2.current;
     }
-  },[])
+  }, []);
 
   useEffect(() => {
     // setNav1(slider1.current);
@@ -35,7 +35,7 @@ const ProductSlider = ({ data = [] }) => {
             mediaFieldName: "productGalleryImageName",
           }))
         );
-        
+
         setMedia(response.data.data);
       } catch (error) {
         console.error(error);
@@ -102,18 +102,17 @@ const ProductSlider = ({ data = [] }) => {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2"
       >
-        {media.map((mediaUrl) => (
-              <SwiperSlide key={mediaUrl?.id}>
-                <Image
-                  src={`data:image/jpeg;base64,${mediaUrl?.mediaFieldName}`}
-                  alt={`Image ${mediaUrl?.id}`}
-                  width="300"
-                  height="300"
-                  style={{ margin: "0 auto" }}
-                />
-              </SwiperSlide>
-          )
-        )}   
+        {media?.map((mediaUrl) => (
+          <SwiperSlide key={mediaUrl?.id}>
+            <Image
+              src={`data:image/jpeg;base64,${mediaUrl?.mediaFieldName}`}
+              alt={`Image ${mediaUrl?.id}`}
+              width="300"
+              height="300"
+              style={{ margin: "0 auto" }}
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper}
@@ -127,16 +126,16 @@ const ProductSlider = ({ data = [] }) => {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper"
       >
-        {media.map((mediaUrl) => (
-            <SwiperSlide key={mediaUrl?.id}>
-              <Image
-                src={`data:image/jpeg;base64,${mediaUrl?.mediaFieldName}`}
-                alt={`Image ${mediaUrl?.id}`}
-                width={100}
-                height={100}
-                style={{ margin: "0 auto" }}
-              />
-            </SwiperSlide>
+        {media?.map((mediaUrl) => (
+          <SwiperSlide key={mediaUrl?.id}>
+            <Image
+              src={`data:image/jpeg;base64,${mediaUrl?.mediaFieldName}`}
+              alt={`Image ${mediaUrl?.id}`}
+              width={100}
+              height={100}
+              style={{ margin: "0 auto" }}
+            />
+          </SwiperSlide>
         ))}
       </Swiper>
     </div>

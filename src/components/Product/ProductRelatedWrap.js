@@ -39,44 +39,48 @@ const ProductRelatedWrap = (props) => {
           <ProductImage src={props.item.id} />
         </Link>
         <div className="product-action-vertical">
-          <a
+          <Link
             href="#"
             className="btn-product-icon btn-cart w-icon-cart"
             title="افزودن به سبد "
-          ></a>
-          <a
+          ></Link>
+          <Link
             href="#"
             className="btn-product-icon btn-wishlist w-icon-heart"
             title="افزودن به علاقه مندیها"
-          ></a>
-          <a
+          ></Link>
+          <Link
             href="#"
             className="btn-product-icon btn-compare w-icon-compare"
             title="افزودن برای مقایسه"
-          ></a>
+          ></Link>
         </div>
         <div
           className="product-action"
-          onClick={() => props.setShowModal(true)}
+          // onClick={() => props.setShowModal(true)}
         >
-          <a className="btn-product btn-quickview" title="نمایش سریع">
+          <Link
+            className="btn-product btn-quickview"
+            title="نمایش سریع"
+            href="#"
+          >
             نمایش سریع
-          </a>
+          </Link>
         </div>
       </figure>
 
       <div className="product-details">
         <h4 className="product-name">
-          <a href="/">{props.item.productName} </a>
+          <Link href="/">{props.item.productName} </Link>
         </h4>
         <div className="ratings-container">
           <div className="ratings-full">
             <span className="ratings" style={{ width: "100%" }}></span>
             <span className="tooltiptext tooltip-top"></span>
           </div>
-          <a href="/" className="rating-reviews">
+          <Link href="/" className="rating-reviews">
             (3 نظر )
-          </a>
+          </Link>
         </div>
         <div className="product-pa-wrapper">
           <div className="product-price">{props.item.price} تومان</div>
@@ -90,38 +94,38 @@ const ProductRelatedWrap = (props) => {
     //       className="product-media"
     //       style={{ width: "250px", height: "250px" }}
     //     >
-    //       <Link href={`/product/${props.id}`}>
+    //       <Link  href={`/product/${props.id}`}>
     //         <ProductImage src={media} />
     //       </Link>
     //       <div className="product-action-horizontal">
-    //         <a
+    //         <Link
     //           href="#"
     //           className="btn-product-icon btn-cart w-icon-cart"
     //           title="افزودن به سبد "
-    //         ></a>
-    //         <a
+    //         ></Link>
+    //         <Link
     //           href="#"
     //           className="btn-product-icon btn-wishlist w-icon-heart"
     //           title="علاقه مندیها"
-    //         ></a>
-    //         <a
+    //         ></Link>
+    //         <Link
     //           href="#"
     //           className="btn-product-icon btn-compare w-icon-compare"
     //           title="مقایسه"
-    //         ></a>
-    //         <a
+    //         ></Link>
+    //         <Link
     //           href="#"
     //           className="btn-product-icon btn-quickview w-icon-search"
     //           title="نمایش سریع"
-    //         ></a>
+    //         ></Link>
     //       </div>
     //     </figure>
     //     <div className="product-details">
     //       {/* <div className="product-cat">
-    //                           <a href="shop-banner-sidebar.html">الکترونیکی </a>
+    //                           <Link href="shop-banner-sidebar.html">الکترونیکی </Link>
     //                         </div> */}
     //       <h3 className="product-name">
-    //         <Link href={`/product/${props.id}`}>{props.productName}</Link>
+    //         <Link  href={`/product/${props.id}`}>{props.productName}</Link>
     //       </h3>
     //       {/* <div className="ratings-container">
     //                           <div className="ratings-full">
@@ -131,12 +135,12 @@ const ProductRelatedWrap = (props) => {
     //                             ></span>
     //                             <span className="tooltiptext tooltip-top"></span>
     //                           </div>
-    //                           <a
+    //                           <Link
     //                             href="product-default.html"
     //                             className="rating-reviews"
     //                           >
     //                             (3 نظر )
-    //                           </a>
+    //                           </Link>
     //                         </div> */}
     //       <div className="product-pa-wrapper">
     //         <div className="product-price">{props.price} تومان</div>

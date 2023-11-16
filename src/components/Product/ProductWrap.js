@@ -14,31 +14,31 @@ const ProductWrap = ({ data }) => {
             <ProductImage src={data?.id} />
           </Link>
           <div className="product-action-horizontal">
-            <a
+            <Link
               href="#"
               className="btn-product-icon btn-cart w-icon-cart"
               title="افزودن به سبد "
-            ></a>
-            <a
+            ></Link>
+            <Link
               href="#"
               className="btn-product-icon btn-wishlist w-icon-heart"
               title="علاقه مندیها"
-            ></a>
-            <a
+            ></Link>
+            <Link
               href="#"
               className="btn-product-icon btn-compare w-icon-compare"
               title="مقایسه"
-            ></a>
-            <a
+            ></Link>
+            <Link
               href="#"
               className="btn-product-icon btn-quickview w-icon-search"
               title="نمایش سریع"
-            ></a>
+            ></Link>
           </div>
         </figure>
         <div className="product-details">
           {/* <div className="product-cat">
-                              <a href="shop-banner-sidebar.html">الکترونیکی </a>
+                              <Link href="shop-banner-sidebar.html">الکترونیکی </Link>
                             </div> */}
           <h3 className="product-name">
             <Link href={`/product/${data?.id}`}>{data?.productName}</Link>
@@ -51,12 +51,12 @@ const ProductWrap = ({ data }) => {
                                 ></span>
                                 <span className="tooltiptext tooltip-top"></span>
                               </div>
-                              <a
+                              <Link 
                                 href="product-default.html"
                                 className="rating-reviews"
                               >
                                 (3 نظر )
-                              </a>
+                              </Link>
                             </div> */}
           <div className="product-pa-wrapper">
             <div className="product-price">

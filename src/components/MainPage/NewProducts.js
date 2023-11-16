@@ -5,22 +5,22 @@ const NewProducts = () => {
         <h2 className="title font-size-xl mr-auto mb-3">آخرین محصولات</h2>
         <ul className="nav-links list-style-none d-flex align-items-center flex-wrap">
           <li>
-            <a href="demo15-shop.html">تجهیزات جانبی </a>
+            <Link href="demo15-shop.html">تجهیزات جانبی </Link>
           </li>
           <li>
-            <a href="demo15-shop.html">ساعت </a>
+            <Link href="demo15-shop.html">ساعت </Link>
           </li>
           <li>
-            <a href="demo15-shop.html">آی پد </a>
+            <Link href="demo15-shop.html">آی پد </Link>
           </li>
           <li>
-            <a href="demo15-shop.html">درون </a>
+            <Link href="demo15-shop.html">درون </Link>
           </li>
           <li>
-            <a href="demo15-shop.html">هدفون </a>
+            <Link href="demo15-shop.html">هدفون </Link>
           </li>
           <li>
-            <a href="demo15-shop.html">دوربین ها </a>
+            <Link href="demo15-shop.html">دوربین ها </Link>
           </li>
         </ul>
       </div>
@@ -48,7 +48,7 @@ const NewProducts = () => {
           <div className="swiper-slide product-wrap">
             <div className="product text-center">
               <figure className="product-media">
-                <a href="product-default.html">
+                <Link href="product-default.html">
                   <img
                     src="assets/images/demos/demo15/products/2-1-2.jpg"
                     alt="Product"
@@ -61,33 +61,33 @@ const NewProducts = () => {
                     width="300"
                     height="337"
                   />
-                </a>
+                </Link>
                 <div className="product-action-horizontal">
-                  <a
+                  <Link
                     href="#"
                     className="btn-product-icon btn-cart w-icon-cart"
                     title="افزودن به سبد "
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-wishlist w-icon-heart"
                     title="علاقه مندیها"
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-compare w-icon-compare"
                     title="مقایسه"
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-quickview w-icon-search"
                     title="نمایش سریع"
-                  ></a>
+                  ></Link>
                 </div>
               </figure>
               <div className="product-details">
                 <h4 className="product-name">
-                  <a href="product-default.html">صدا ساز </a>
+                  <Link href="product-default.html">صدا ساز </Link>
                 </h4>
                 <div className="product-price">
                   <ins className="new-price">60000 تومان</ins>
@@ -99,7 +99,7 @@ const NewProducts = () => {
           <div className="swiper-slide product-wrap">
             <div className="product text-center">
               <figure className="product-media">
-                <a href="product-default.html">
+                <Link href="product-default.html">
                   <img
                     src="assets/images/demos/demo15/products/2-3-1.jpg"
                     alt="Product"
@@ -112,33 +112,33 @@ const NewProducts = () => {
                     width="300"
                     height="337"
                   />
-                </a>
+                </Link>
                 <div className="product-action-horizontal">
-                  <a
+                  <Link
                     href="#"
                     className="btn-product-icon btn-cart w-icon-cart"
                     title="افزودن به سبد "
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-wishlist w-icon-heart"
                     title="علاقه مندیها"
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-compare w-icon-compare"
                     title="مقایسه"
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-quickview w-icon-search"
                     title="نمایش سریع"
-                  ></a>
+                  ></Link>
                 </div>
               </figure>
               <div className="product-details">
                 <h4 className="product-name">
-                  <a href="product-default.html">جام </a>
+                  <Link href="product-default.html">جام </Link>
                 </h4>
                 <div className="product-price">
                   <ins className="new-price">60000 تومان</ins>
@@ -150,7 +150,7 @@ const NewProducts = () => {
           <div className="swiper-slide product-wrap">
             <div className="product text-center">
               <figure className="product-media">
-                <a href="product-default.html">
+                <Link href="product-default.html">
                   <img
                     src="assets/images/demos/demo15/products/1-1-2.jpg"
                     alt="Product"
@@ -163,33 +163,33 @@ const NewProducts = () => {
                     width="300"
                     height="337"
                   />
-                </a>
+                </Link>
                 <div className="product-action-horizontal">
-                  <a
+                  <Link
                     href="#"
                     className="btn-product-icon btn-cart w-icon-cart"
                     title="افزودن به سبد "
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-wishlist w-icon-heart"
                     title="علاقه مندیها"
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-compare w-icon-compare"
                     title="مقایسه"
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-quickview w-icon-search"
                     title="نمایش سریع"
-                  ></a>
+                  ></Link>
                 </div>
               </figure>
               <div className="product-details">
                 <h4 className="product-name">
-                  <a href="product-default.html">ساعت طلا </a>
+                  <Link href="product-default.html">ساعت طلا </Link>
                 </h4>
                 <div className="product-price">
                   <ins className="new-price">60000 تومان</ins>
@@ -201,7 +201,7 @@ const NewProducts = () => {
           <div className="swiper-slide product-wrap">
             <div className="product text-center">
               <figure className="product-media">
-                <a href="product-default.html">
+                <Link href="product-default.html">
                   <img
                     src="assets/images/demos/demo15/products/1-3-1.jpg"
                     alt="Product"
@@ -214,33 +214,33 @@ const NewProducts = () => {
                     width="300"
                     height="337"
                   />
-                </a>
+                </Link>
                 <div className="product-action-horizontal">
-                  <a
+                  <Link
                     href="#"
                     className="btn-product-icon btn-cart w-icon-cart"
                     title="افزودن به سبد "
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-wishlist w-icon-heart"
                     title="علاقه مندیها"
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-compare w-icon-compare"
                     title="مقایسه"
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-quickview w-icon-search"
                     title="نمایش سریع"
-                  ></a>
+                  ></Link>
                 </div>
               </figure>
               <div className="product-details">
                 <h4 className="product-name">
-                  <a href="product-default.html">کمربند جیر مردانه</a>
+                  <Link href="product-default.html">کمربند جیر مردانه</Link>
                 </h4>
                 <div className="product-price">
                   <ins className="new-price">60000 تومان</ins>
@@ -252,7 +252,7 @@ const NewProducts = () => {
           <div className="swiper-slide product-wrap">
             <div className="product text-center">
               <figure className="product-media">
-                <a href="product-default.html">
+                <Link href="product-default.html">
                   <img
                     src="assets/images/demos/demo15/products/1-4-1.jpg"
                     alt="Product"
@@ -265,36 +265,36 @@ const NewProducts = () => {
                     width="300"
                     height="337"
                   />
-                </a>
+                </Link>
                 <div className="product-label-group">
                   <label className="product-label label-sale">12% تخفیف </label>
                 </div>
                 <div className="product-action-horizontal">
-                  <a
+                  <Link
                     href="#"
                     className="btn-product-icon btn-cart w-icon-cart"
                     title="افزودن به سبد "
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-wishlist w-icon-heart"
                     title="علاقه مندیها"
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-compare w-icon-compare"
                     title="مقایسه"
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-quickview w-icon-search"
                     title="نمایش سریع"
-                  ></a>
+                  ></Link>
                 </div>
               </figure>
               <div className="product-details">
                 <h4 className="product-name">
-                  <a href="product-default.html">گوشی مینی بی سیم </a>
+                  <Link href="product-default.html">گوشی مینی بی سیم </Link>
                 </h4>
                 <div className="product-price">
                   <ins className="new-price">60000 تومان</ins>
@@ -306,7 +306,7 @@ const NewProducts = () => {
           <div className="swiper-slide product-wrap">
             <div className="product text-center">
               <figure className="product-media">
-                <a href="product-default.html">
+                <Link href="product-default.html">
                   <img
                     src="assets/images/demos/demo15/products/1-5-1.jpg"
                     alt="Product"
@@ -319,33 +319,33 @@ const NewProducts = () => {
                     width="300"
                     height="337"
                   />
-                </a>
+                </Link>
                 <div className="product-action-horizontal">
-                  <a
+                  <Link
                     href="#"
                     className="btn-product-icon btn-cart w-icon-cart"
                     title="افزودن به سبد "
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-wishlist w-icon-heart"
                     title="علاقه مندیها"
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-compare w-icon-compare"
                     title="مقایسه"
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-quickview w-icon-search"
                     title="نمایش سریع"
-                  ></a>
+                  ></Link>
                 </div>
               </figure>
               <div className="product-details">
                 <h4 className="product-name">
-                  <a href="product-default.html">دستگاه هشدار شارژ</a>
+                  <Link href="product-default.html">دستگاه هشدار شارژ</Link>
                 </h4>
                 <div className="product-price">
                   <ins className="new-price">60000 تومان</ins>
@@ -357,7 +357,7 @@ const NewProducts = () => {
           <div className="swiper-slide product-wrap">
             <div className="product text-center">
               <figure className="product-media">
-                <a href="product-default.html">
+                <Link href="product-default.html">
                   <img
                     src="assets/images/demos/demo15/products/1-2-1.jpg"
                     alt="Product"
@@ -370,36 +370,36 @@ const NewProducts = () => {
                     width="300"
                     height="337"
                   />
-                </a>
+                </Link>
                 <div className="product-label-group">
                   <label className="product-label label-sale">12% تخفیف </label>
                 </div>
                 <div className="product-action-horizontal">
-                  <a
+                  <Link
                     href="#"
                     className="btn-product-icon btn-cart w-icon-cart"
                     title="افزودن به سبد "
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-wishlist w-icon-heart"
                     title="علاقه مندیها"
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-compare w-icon-compare"
                     title="مقایسه"
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-quickview w-icon-search"
                     title="نمایش سریع"
-                  ></a>
+                  ></Link>
                 </div>
               </figure>
               <div className="product-details">
                 <h4 className="product-name">
-                  <a href="product-default.html">کیف سفید مدرسه</a>
+                  <Link href="product-default.html">کیف سفید مدرسه</Link>
                 </h4>
                 <div className="product-price">
                   <ins className="new-price">60000 تومان</ins>
@@ -411,7 +411,7 @@ const NewProducts = () => {
           <div className="swiper-slide product-wrap">
             <div className="product text-center">
               <figure className="product-media">
-                <a href="product-default.html">
+                <Link href="product-default.html">
                   <img
                     src="assets/images/demos/demo15/products/2-10-2.jpg"
                     alt="Product"
@@ -424,33 +424,33 @@ const NewProducts = () => {
                     width="300"
                     height="337"
                   />
-                </a>
+                </Link>
                 <div className="product-action-horizontal">
-                  <a
+                  <Link
                     href="#"
                     className="btn-product-icon btn-cart w-icon-cart"
                     title="افزودن به سبد "
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-wishlist w-icon-heart"
                     title="علاقه مندیها"
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-compare w-icon-compare"
                     title="مقایسه"
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-quickview w-icon-search"
                     title="نمایش سریع"
-                  ></a>
+                  ></Link>
                 </div>
               </figure>
               <div className="product-details">
                 <h4 className="product-name">
-                  <a href="product-default.html">گوشی مینی بی سیم </a>
+                  <Link href="product-default.html">گوشی مینی بی سیم </Link>
                 </h4>
                 <div className="product-price">
                   <ins className="new-price">60000 تومان</ins>
@@ -462,7 +462,7 @@ const NewProducts = () => {
           <div className="swiper-slide product-wrap">
             <div className="product text-center">
               <figure className="product-media">
-                <a href="product-default.html">
+                <Link href="product-default.html">
                   <img
                     src="assets/images/demos/demo15/products/2-9-2.jpg"
                     alt="Product"
@@ -475,31 +475,31 @@ const NewProducts = () => {
                     width="300"
                     height="337"
                   />
-                </a>
+                </Link>
                 <div className="product-label-group">
                   <label className="product-label label-sale">40% تخفیف </label>
                 </div>
                 <div className="product-action-horizontal">
-                  <a
+                  <Link
                     href="#"
                     className="btn-product-icon btn-cart w-icon-cart"
                     title="افزودن به سبد "
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-wishlist w-icon-heart"
                     title="علاقه مندیها"
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-compare w-icon-compare"
                     title="مقایسه"
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-quickview w-icon-search"
                     title="نمایش سریع"
-                  ></a>
+                  ></Link>
                 </div>
                 <div className="product-countdown-container">
                   <div
@@ -515,7 +515,7 @@ const NewProducts = () => {
               </figure>
               <div className="product-details">
                 <h4 className="product-name">
-                  <a href="product-default.html">کیف اسپرت مردانه</a>
+                  <Link href="product-default.html">کیف اسپرت مردانه</Link>
                 </h4>
                 <div className="product-price">
                   <ins className="new-price">60000 تومان</ins>
@@ -527,7 +527,7 @@ const NewProducts = () => {
           <div className="swiper-slide product-wrap">
             <div className="product text-center">
               <figure className="product-media">
-                <a href="product-default.html">
+                <Link href="product-default.html">
                   <img
                     src="assets/images/demos/demo15/products/2-8-2.jpg"
                     alt="Product"
@@ -540,33 +540,33 @@ const NewProducts = () => {
                     width="300"
                     height="337"
                   />
-                </a>
+                </Link>
                 <div className="product-action-horizontal">
-                  <a
+                  <Link
                     href="#"
                     className="btn-product-icon btn-cart w-icon-cart"
                     title="افزودن به سبد "
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-wishlist w-icon-heart"
                     title="علاقه مندیها"
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-compare w-icon-compare"
                     title="مقایسه"
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-quickview w-icon-search"
                     title="نمایش سریع"
-                  ></a>
+                  ></Link>
                 </div>
               </figure>
               <div className="product-details">
                 <h4 className="product-name">
-                  <a href="product-default.html">اندازه گیری دیده بان</a>
+                  <Link href="product-default.html">اندازه گیری دیده بان</Link>
                 </h4>
                 <div className="product-price">
                   <ins className="new-price">60000 تومان</ins>
@@ -578,7 +578,7 @@ const NewProducts = () => {
           <div className="swiper-slide product-wrap">
             <div className="product text-center">
               <figure className="product-media">
-                <a href="product-default.html">
+                <Link href="product-default.html">
                   <img
                     src="assets/images/demos/demo15/products/2-7-2.jpg"
                     alt="Product"
@@ -591,33 +591,33 @@ const NewProducts = () => {
                     width="300"
                     height="337"
                   />
-                </a>
+                </Link>
                 <div className="product-action-horizontal">
-                  <a
+                  <Link
                     href="#"
                     className="btn-product-icon btn-cart w-icon-cart"
                     title="افزودن به سبد "
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-wishlist w-icon-heart"
                     title="علاقه مندیها"
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-compare w-icon-compare"
                     title="مقایسه"
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-quickview w-icon-search"
                     title="نمایش سریع"
-                  ></a>
+                  ></Link>
                 </div>
               </figure>
               <div className="product-details">
                 <h4 className="product-name">
-                  <a href="product-default.html">باتری با ظرفیت انبوه</a>
+                  <Link href="product-default.html">باتری با ظرفیت انبوه</Link>
                 </h4>
                 <div className="product-price">
                   <ins className="new-price">60000 تومان</ins>
@@ -629,7 +629,7 @@ const NewProducts = () => {
           <div className="swiper-slide product-wrap">
             <div className="product text-center">
               <figure className="product-media">
-                <a href="product-default.html">
+                <Link href="product-default.html">
                   <img
                     src="assets/images/demos/demo15/products/2-6-1.jpg"
                     alt="Product"
@@ -642,33 +642,33 @@ const NewProducts = () => {
                     width="300"
                     height="337"
                   />
-                </a>
+                </Link>
                 <div className="product-action-horizontal">
-                  <a
+                  <Link
                     href="#"
                     className="btn-product-icon btn-cart w-icon-cart"
                     title="افزودن به سبد "
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-wishlist w-icon-heart"
                     title="علاقه مندیها"
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-compare w-icon-compare"
                     title="مقایسه"
-                  ></a>
-                  <a
+                  ></Link>
+                  <Link
                     href="#"
                     className="btn-product-icon btn-quickview w-icon-search"
                     title="نمایش سریع"
-                  ></a>
+                  ></Link>
                 </div>
               </figure>
               <div className="product-details">
                 <h4 className="product-name">
-                  <a href="product-default.html">جعبه شارژر مغناطیسی</a>
+                  <Link href="product-default.html">جعبه شارژر مغناطیسی</Link>
                 </h4>
                 <div className="product-price">
                   <ins className="new-price">60000 تومان</ins>
@@ -841,18 +841,18 @@ const NewProducts = () => {
                 <div className="swiper-slide widget-col">
                   <div className="product product-widget">
                     <figure className="product-media">
-                      <a href="product-default.html">
+                      <Link href="product-default.html">
                         <img
                           src="assets/images/demos/demo15/products/2-1-1.jpg"
                           alt="Product"
                           width="300"
                           height="337"
                         />
-                      </a>
+                      </Link>
                     </figure>
                     <div className="product-details">
                       <h4 className="product-name">
-                        <a href="product-default.html">صدا ساز </a>
+                        <Link href="product-default.html">صدا ساز </Link>
                       </h4>
                       <div className="ratings-container">
                         <div className="ratings-full">
@@ -871,18 +871,20 @@ const NewProducts = () => {
                   </div>
                   <div className="product product-widget">
                     <figure className="product-media">
-                      <a href="product-default.html">
+                      <Link href="product-default.html">
                         <img
                           src="assets/images/demos/demo15/products/2-2-1.jpg"
                           alt="Product"
                           width="300"
                           height="337"
                         />
-                      </a>
+                      </Link>
                     </figure>
                     <div className="product-details">
                       <h4 className="product-name">
-                        <a href="product-default.html">تسلی دهنده زنانه</a>
+                        <Link href="product-default.html">
+                          تسلی دهنده زنانه
+                        </Link>
                       </h4>
                       <div className="ratings-container">
                         <div className="ratings-full">
@@ -901,18 +903,18 @@ const NewProducts = () => {
                   </div>
                   <div className="product product-widget">
                     <figure className="product-media">
-                      <a href="product-default.html">
+                      <Link href="product-default.html">
                         <img
                           src="assets/images/demos/demo15/products/2-3-1.jpg"
                           alt="Product"
                           width="300"
                           height="337"
                         />
-                      </a>
+                      </Link>
                     </figure>
                     <div className="product-details">
                       <h4 className="product-name">
-                        <a href="product-default.html">جام </a>
+                        <Link href="product-default.html">جام </Link>
                       </h4>
                       <div className="ratings-container">
                         <div className="ratings-full">
@@ -933,18 +935,18 @@ const NewProducts = () => {
                 <div className="swiper-slide widget-col">
                   <div className="product product-widget">
                     <figure className="product-media">
-                      <a href="product-default.html">
+                      <Link href="product-default.html">
                         <img
                           src="assets/images/demos/demo15/products/1-1-1.jpg"
                           alt="Product"
                           width="300"
                           height="337"
                         />
-                      </a>
+                      </Link>
                     </figure>
                     <div className="product-details">
                       <h4 className="product-name">
-                        <a href="product-default.html">ساعت طلا </a>
+                        <Link href="product-default.html">ساعت طلا </Link>
                       </h4>
                       <div className="ratings-container">
                         <div className="ratings-full">
@@ -963,18 +965,18 @@ const NewProducts = () => {
                   </div>
                   <div className="product product-widget">
                     <figure className="product-media">
-                      <a href="product-default.html">
+                      <Link href="product-default.html">
                         <img
                           src="assets/images/demos/demo15/products/1-2-1.jpg"
                           alt="Product"
                           width="300"
                           height="337"
                         />
-                      </a>
+                      </Link>
                     </figure>
                     <div className="product-details">
                       <h4 className="product-name">
-                        <a href="product-default.html">کیف سفید مدرسه</a>
+                        <Link href="product-default.html">کیف سفید مدرسه</Link>
                       </h4>
                       <div className="ratings-container">
                         <div className="ratings-full">
@@ -993,18 +995,20 @@ const NewProducts = () => {
                   </div>
                   <div className="product product-widget">
                     <figure className="product-media">
-                      <a href="product-default.html">
+                      <Link href="product-default.html">
                         <img
                           src="assets/images/demos/demo15/products/1-3-1.jpg"
                           alt="Product"
                           width="300"
                           height="337"
                         />
-                      </a>
+                      </Link>
                     </figure>
                     <div className="product-details">
                       <h4 className="product-name">
-                        <a href="product-default.html">کمربند جیر مردانه</a>
+                        <Link href="product-default.html">
+                          کمربند جیر مردانه
+                        </Link>
                       </h4>
                       <div className="ratings-container">
                         <div className="ratings-full">
@@ -1046,12 +1050,12 @@ const NewProducts = () => {
             </h3>
             <p className="text-dark font-weight-normal">پرفروش ترین لباس</p>
             <span className="d-block divider mb-6"></span>
-            <a
+            <Link
               href="shop-banner-sidebar.html"
               className="btn btn-dark-light btn-rounded"
             >
               مجموعه ما را مشاهده کنید
-            </a>
+            </Link>
           </div>
         </div>
         <div className="widget widget-products col-lg-3 mb-5 appear-animate">
@@ -1069,18 +1073,20 @@ const NewProducts = () => {
                 <div className="swiper-slide widget-col">
                   <div className="product product-widget">
                     <figure className="product-media">
-                      <a href="product-default.html">
+                      <Link href="product-default.html">
                         <img
                           src="assets/images/demos/demo15/products/2-4-1.jpg"
                           alt="Product"
                           width="300"
                           height="337"
                         />
-                      </a>
+                      </Link>
                     </figure>
                     <div className="product-details">
                       <h4 className="product-name">
-                        <a href="product-default.html">ضبط کننده بی سیم</a>
+                        <Link href="product-default.html">
+                          ضبط کننده بی سیم
+                        </Link>
                       </h4>
                       <div className="ratings-container">
                         <div className="ratings-full">
@@ -1099,18 +1105,18 @@ const NewProducts = () => {
                   </div>
                   <div className="product product-widget">
                     <figure className="product-media">
-                      <a href="product-default.html">
+                      <Link href="product-default.html">
                         <img
                           src="assets/images/demos/demo15/products/2-5-1.jpg"
                           alt="Product"
                           width="300"
                           height="337"
                         />
-                      </a>
+                      </Link>
                     </figure>
                     <div className="product-details">
                       <h4 className="product-name">
-                        <a href="product-default.html">ساعت طلا </a>
+                        <Link href="product-default.html">ساعت طلا </Link>
                       </h4>
                       <div className="ratings-container">
                         <div className="ratings-full">
@@ -1129,18 +1135,20 @@ const NewProducts = () => {
                   </div>
                   <div className="product product-widget">
                     <figure className="product-media">
-                      <a href="product-default.html">
+                      <Link href="product-default.html">
                         <img
                           src="assets/images/demos/demo15/products/2-6-1.jpg"
                           alt="Product"
                           width="300"
                           height="337"
                         />
-                      </a>
+                      </Link>
                     </figure>
                     <div className="product-details">
                       <h4 className="product-name">
-                        <a href="product-default.html">جعبه شارژر موبایل</a>
+                        <Link href="product-default.html">
+                          جعبه شارژر موبایل
+                        </Link>
                       </h4>
                       <div className="ratings-container">
                         <div className="ratings-full">
@@ -1161,18 +1169,20 @@ const NewProducts = () => {
                 <div className="swiper-slide widget-col">
                   <div className="product product-widget">
                     <figure className="product-media">
-                      <a href="product-default.html">
+                      <Link href="product-default.html">
                         <img
                           src="assets/images/demos/demo15/products/2-7-1.jpg"
                           alt="Product"
                           width="300"
                           height="337"
                         />
-                      </a>
+                      </Link>
                     </figure>
                     <div className="product-details">
                       <h4 className="product-name">
-                        <a href="product-default.html">باتری با ظرفیت انبوه</a>
+                        <Link href="product-default.html">
+                          باتری با ظرفیت انبوه
+                        </Link>
                       </h4>
                       <div className="ratings-container">
                         <div className="ratings-full">
@@ -1191,18 +1201,20 @@ const NewProducts = () => {
                   </div>
                   <div className="product product-widget">
                     <figure className="product-media">
-                      <a href="product-default.html">
+                      <Link href="product-default.html">
                         <img
                           src="assets/images/demos/demo15/products/2-8-1.jpg"
                           alt="Product"
                           width="300"
                           height="337"
                         />
-                      </a>
+                      </Link>
                     </figure>
                     <div className="product-details">
                       <h4 className="product-name">
-                        <a href="product-default.html">اندازه گیری دیده بان</a>
+                        <Link href="product-default.html">
+                          اندازه گیری دیده بان
+                        </Link>
                       </h4>
                       <div className="ratings-container">
                         <div className="ratings-full">
@@ -1221,18 +1233,20 @@ const NewProducts = () => {
                   </div>
                   <div className="product product-widget">
                     <figure className="product-media">
-                      <a href="product-default.html">
+                      <Link href="product-default.html">
                         <img
                           src="assets/images/demos/demo15/products/2-9-1.jpg"
                           alt="Product"
                           width="300"
                           height="337"
                         />
-                      </a>
+                      </Link>
                     </figure>
                     <div className="product-details">
                       <h4 className="product-name">
-                        <a href="product-default.html">کیف اسپرت مردانه</a>
+                        <Link href="product-default.html">
+                          کیف اسپرت مردانه
+                        </Link>
                       </h4>
                       <div className="ratings-container">
                         <div className="ratings-full">
@@ -1261,9 +1275,9 @@ const NewProducts = () => {
         <h2 className="title title-post font-size-xl mb-0 pt-2">
           از وبلاگ ما{" "}
         </h2>
-        <a href="blog-listing.html" className="mb-0 font-weight-bold ls-25">
+        <Link href="blog-listing.html" className="mb-0 font-weight-bold ls-25">
           نمایش همه مقالات <i className="w-icon-long-arrow-left"></i>
-        </a>
+        </Link>
       </div>
       <div
         className="swiper-container swiper-theme post-wrapper mb-9 appear-animate"
@@ -1289,7 +1303,7 @@ const NewProducts = () => {
         <div className="swiper-wrapper row cols-lg-4 cols-md-3 cols-sm-2">
           <div className="swiper-slide post text-center">
             <figure className="post-media br-sm">
-              <a href="post-single.html">
+              <Link href="post-single.html">
                 <img
                   src="assets/images/demos/demo15/blog/post-1.jpg"
                   alt="Post"
@@ -1297,7 +1311,7 @@ const NewProducts = () => {
                   height="278"
                   style={{ backgroundColor: "#A8A7A6" }}
                 />
-              </a>
+              </Link>
               <div className="post-calendar">
                 <span className="post-day">30</span>
                 <span className="post-month">اردیبهشت </span>
@@ -1305,22 +1319,22 @@ const NewProducts = () => {
             </figure>
             <div className="post-details">
               <h4 className="post-title">
-                <a href="post-single.html">
+                <Link href="post-single.html">
                   لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
                   استفاده از طراحان گرافیک است.
-                </a>
+                </Link>
               </h4>
-              <a
+              <Link
                 href="post-single.html"
                 className="btn btn-link btn-dark btn-underline"
               >
                 ادامه مطلب <i className="w-icon-long-arrow-left"></i>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="swiper-slide post text-center">
             <figure className="post-media br-sm">
-              <a href="post-single.html">
+              <Link href="post-single.html">
                 <img
                   src="assets/images/demos/demo15/blog/post-2.jpg"
                   alt="Post"
@@ -1328,7 +1342,7 @@ const NewProducts = () => {
                   height="278"
                   style={{ backgroundColor: "#95A0A6" }}
                 />
-              </a>
+              </Link>
               <div className="post-calendar">
                 <span className="post-day">30</span>
                 <span className="post-month">اردیبهشت </span>
@@ -1336,22 +1350,22 @@ const NewProducts = () => {
             </figure>
             <div className="post-details">
               <h4 className="post-title">
-                <a href="post-single.html">
+                <Link href="post-single.html">
                   لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
                   استفاده از طراحان گرافیک است.
-                </a>
+                </Link>
               </h4>
-              <a
+              <Link
                 href="post-single.html"
                 className="btn btn-link btn-dark btn-underline"
               >
                 ادامه مطلب <i className="w-icon-long-arrow-left"></i>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="swiper-slide post text-center">
             <figure className="post-media br-sm">
-              <a href="post-single.html">
+              <Link href="post-single.html">
                 <img
                   src="assets/images/demos/demo15/blog/post-3.jpg"
                   alt="Post"
@@ -1359,7 +1373,7 @@ const NewProducts = () => {
                   height="278"
                   style={{ backgroundColor: "#EDF1F2" }}
                 />
-              </a>
+              </Link>
               <div className="post-calendar">
                 <span className="post-day">30</span>
                 <span className="post-month">اردیبهشت </span>
@@ -1367,22 +1381,22 @@ const NewProducts = () => {
             </figure>
             <div className="post-details">
               <h4 className="post-title">
-                <a href="post-single.html">
+                <Link href="post-single.html">
                   لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
                   استفاده از طراحان گرافیک است. با تولید سادگی
-                </a>
+                </Link>
               </h4>
-              <a
+              <Link
                 href="post-single.html"
                 className="btn btn-link btn-dark btn-underline"
               >
                 ادامه مطلب <i className="w-icon-long-arrow-left"></i>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="swiper-slide post text-center">
             <figure className="post-media br-sm">
-              <a href="post-single.html">
+              <Link href="post-single.html">
                 <img
                   src="assets/images/demos/demo15/blog/post-4.jpg"
                   alt="Post"
@@ -1390,7 +1404,7 @@ const NewProducts = () => {
                   height="278"
                   style={{ backgroundColor: "#F6F6F6" }}
                 />
-              </a>
+              </Link>
               <div className="post-calendar">
                 <span className="post-day">30</span>
                 <span className="post-month">اردیبهشت </span>
@@ -1398,17 +1412,17 @@ const NewProducts = () => {
             </figure>
             <div className="post-details">
               <h4 className="post-title">
-                <a href="post-single.html">
+                <Link href="post-single.html">
                   لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
                   استفاده از طراحان گرافیک است.
-                </a>
+                </Link>
               </h4>
-              <a
+              <Link
                 href="post-single.html"
                 className="btn btn-link btn-dark btn-underline"
               >
                 ادامه مطلب <i className="w-icon-long-arrow-left"></i>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

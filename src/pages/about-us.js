@@ -16,7 +16,7 @@ const AboutUs = () => {
             <div className="container">
               <ul className="breadcrumb">
                 <li>
-                  <a href="demo1.html">خانه </a>
+                  <Link href="demo1.html">خانه </Link>
                 </li>
                 <li>درباره ما</li>
               </ul>
@@ -56,9 +56,9 @@ const AboutUs = () => {
                     <div className="accordion accordion-simple accordion-plus">
                       <div className="card border-no">
                         <div className="card-header">
-                          <a href="#collapse3-1" className="collapse">
+                          <Link href="#collapse3-1" className="collapse">
                             خدمات مشتری
-                          </a>
+                          </Link>
                         </div>
                         <div className="card-body expanded" id="collapse3-1">
                           <p className="mb-0">
@@ -73,9 +73,9 @@ const AboutUs = () => {
                       </div>
                       <div className="card">
                         <div className="card-header">
-                          <a href="#collapse3-2" className="expand">
+                          <Link href="#collapse3-2" className="expand">
                             مشاوره آنلاین
-                          </a>
+                          </Link>
                         </div>
                         <div className="card-body collapsed" id="collapse3-2">
                           <p className="mb-0">
@@ -90,9 +90,9 @@ const AboutUs = () => {
                       </div>
                       <div className="card">
                         <div className="card-header">
-                          <a href="#collapse3-3" className="expand">
+                          <Link href="#collapse3-3" className="expand">
                             مدیریت فروش
-                          </a>
+                          </Link>
                         </div>
                         <div className="card-body collapsed" id="collapse3-3">
                           <p className="mb-0">
@@ -220,9 +220,9 @@ const AboutUs = () => {
                       کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال
                       و آینده شناخت فراوان جامعه و متخصصان را می طلبد.
                     </p>
-                    <a href="#" className="btn btn-dark btn-rounded">
+                    <Link href="#" className="btn btn-dark btn-rounded">
                       بازدید فروشگاه ما{" "}
-                    </a>
+                    </Link>
                   </div>
                 </div>
 
@@ -364,18 +364,18 @@ const AboutUs = () => {
                         />
                         <div className="overlay">
                           <div className="social-icons">
-                            <a
+                            <Link
                               href="#"
                               className="social-icon social-facebook w-icon-facebook"
-                            ></a>
-                            <a
+                            ></Link>
+                            <Link
                               href="#"
                               className="social-icon social-twitter w-icon-twitter"
-                            ></a>
-                            <a
+                            ></Link>
+                            <Link
                               href="#"
                               className="social-icon social-instagram w-icon-instagram"
-                            ></a>
+                            ></Link>
                           </div>
                         </div>
                       </figure>
@@ -394,18 +394,18 @@ const AboutUs = () => {
                         />
                         <div className="overlay">
                           <div className="social-icons">
-                            <a
+                            <Link
                               href="#"
                               className="social-icon social-facebook w-icon-facebook"
-                            ></a>
-                            <a
+                            ></Link>
+                            <Link
                               href="#"
                               className="social-icon social-twitter w-icon-twitter"
-                            ></a>
-                            <a
+                            ></Link>
+                            <Link
                               href="#"
                               className="social-icon social-instagram w-icon-instagram"
-                            ></a>
+                            ></Link>
                           </div>
                         </div>
                       </figure>
@@ -424,18 +424,18 @@ const AboutUs = () => {
                         />
                         <div className="overlay">
                           <div className="social-icons">
-                            <a
+                            <Link
                               href="#"
                               className="social-icon social-facebook w-icon-facebook"
-                            ></a>
-                            <a
+                            ></Link>
+                            <Link
                               href="#"
                               className="social-icon social-twitter w-icon-twitter"
-                            ></a>
-                            <a
+                            ></Link>
+                            <Link
                               href="#"
                               className="social-icon social-instagram w-icon-instagram"
-                            ></a>
+                            ></Link>
                           </div>
                         </div>
                       </figure>
@@ -454,18 +454,18 @@ const AboutUs = () => {
                         />
                         <div className="overlay">
                           <div className="social-icons">
-                            <a
+                            <Link
                               href="#"
                               className="social-icon social-facebook w-icon-facebook"
-                            ></a>
-                            <a
+                            ></Link>
+                            <Link
                               href="#"
                               className="social-icon social-twitter w-icon-twitter"
-                            ></a>
-                            <a
+                            ></Link>
+                            <Link
                               href="#"
                               className="social-icon social-instagram w-icon-instagram"
-                            ></a>
+                            ></Link>
                           </div>
                         </div>
                       </figure>
@@ -487,7 +487,7 @@ const AboutUs = () => {
 
       <StickyFooter />
 
-      <a
+      <Link
         id="scroll-top"
         className="scroll-top"
         href="#top"
@@ -510,10 +510,10 @@ const AboutUs = () => {
             cx="35"
             cy="35"
             r="34"
-            style={{ "strokeDasharray": "16.4198, 400" }}
+            style={{ strokeDasharray: "16.4198, 400" }}
           ></circle>{" "}
         </svg>{" "}
-      </a>
+      </Link>
 
       <MobileMenu />
     </>

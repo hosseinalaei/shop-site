@@ -15,6 +15,7 @@ import prod8 from "../../assets/images/demos/demo15/products/1-4-2.jpg";
 import prod9 from "../../assets/images/demos/demo15/products/1-5-1.jpg";
 import prod10 from "../../assets/images/demos/demo15/products/1-5-2.jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Link from "next/link";
 
 const SpecialOffers = () => {
   return (
@@ -104,7 +105,7 @@ const SpecialOffers = () => {
                 >
                   <div className="product text-center">
                     <figure className="product-media">
-                      <a href="product-default.html">
+                      <Link href="product-default.html">
                         <Image
                           src={prod1}
                           alt="Product"
@@ -117,33 +118,33 @@ const SpecialOffers = () => {
                           width="300"
                           height="337"
                         />
-                      </a>
+                      </Link>
                       <div className="product-action-horizontal">
-                        <a
+                        <Link
                           href="#"
                           className="btn-product-icon btn-cart w-icon-cart"
                           title="افزودن به سبد "
-                        ></a>
-                        <a
+                        ></Link>
+                        <Link
                           href="#"
                           className="btn-product-icon btn-wishlist w-icon-heart"
                           title="علاقه مندیها"
-                        ></a>
-                        <a
+                        ></Link>
+                        <Link
                           href="#"
                           className="btn-product-icon btn-compare w-icon-compare"
                           title="مقایسه"
-                        ></a>
-                        <a
+                        ></Link>
+                        <Link
                           href="#"
                           className="btn-product-icon btn-quickview w-icon-search"
                           title="نمایش سریع"
-                        ></a>
+                        ></Link>
                       </div>
                     </figure>
                     <div className="product-details">
                       <h4 className="product-name">
-                        <a href="product-default.html">ساعت طلا </a>
+                        <Link href="product-default.html">ساعت طلا </Link>
                       </h4>
                       <div className="product-price">
                         <ins className="new-price">60000 تومان</ins>
@@ -157,7 +158,7 @@ const SpecialOffers = () => {
                 >
                   <div className="product text-center">
                     <figure className="product-media">
-                      <a href="product-default.html">
+                      <Link href="product-default.html">
                         <Image
                           src={prod3}
                           alt="Product"
@@ -170,33 +171,33 @@ const SpecialOffers = () => {
                           width="300"
                           height="337"
                         />
-                      </a>
+                      </Link>
                       <div className="product-action-horizontal">
-                        <a
+                        <Link
                           href="#"
                           className="btn-product-icon btn-cart w-icon-cart"
                           title="افزودن به سبد "
-                        ></a>
-                        <a
+                        ></Link>
+                        <Link
                           href="#"
                           className="btn-product-icon btn-wishlist w-icon-heart"
                           title="علاقه مندیها"
-                        ></a>
-                        <a
+                        ></Link>
+                        <Link
                           href="#"
                           className="btn-product-icon btn-compare w-icon-compare"
                           title="مقایسه"
-                        ></a>
-                        <a
+                        ></Link>
+                        <Link
                           href="#"
                           className="btn-product-icon btn-quickview w-icon-search"
                           title="نمایش سریع"
-                        ></a>
+                        ></Link>
                       </div>
                     </figure>
                     <div className="product-details">
                       <h4 className="product-name">
-                        <a href="product-default.html">کیف سفید مدرسه</a>
+                        <Link href="product-default.html">کیف سفید مدرسه</Link>
                       </h4>
                       <div className="product-price">
                         <ins className="new-price">22000 تومان</ins>
@@ -210,7 +211,7 @@ const SpecialOffers = () => {
                 >
                   <div className="product text-center">
                     <figure className="product-media">
-                      <a href="product-default.html">
+                      <Link href="product-default.html">
                         <Image
                           src={prod5}
                           alt="Product"
@@ -223,33 +224,35 @@ const SpecialOffers = () => {
                           width="300"
                           height="337"
                         />
-                      </a>
+                      </Link>
                       <div className="product-action-horizontal">
-                        <a
+                        <Link
                           href="#"
                           className="btn-product-icon btn-cart w-icon-cart"
                           title="افزودن به سبد "
-                        ></a>
-                        <a
+                        ></Link>
+                        <Link
                           href="#"
                           className="btn-product-icon btn-wishlist w-icon-heart"
                           title="علاقه مندیها"
-                        ></a>
-                        <a
+                        ></Link>
+                        <Link
                           href="#"
                           className="btn-product-icon btn-compare w-icon-compare"
                           title="مقایسه"
-                        ></a>
-                        <a
+                        ></Link>
+                        <Link
                           href="#"
                           className="btn-product-icon btn-quickview w-icon-search"
                           title="نمایش سریع"
-                        ></a>
+                        ></Link>
                       </div>
                     </figure>
                     <div className="product-details">
                       <h4 className="product-name">
-                        <a href="product-default.html">کمربند جیر مردانه</a>
+                        <Link href="product-default.html">
+                          کمربند جیر مردانه
+                        </Link>
                       </h4>
                       <div className="product-price">
                         <ins className="new-price">75000 تومان</ins>
@@ -263,7 +266,7 @@ const SpecialOffers = () => {
                 >
                   <div className="product text-center">
                     <figure className="product-media">
-                      <a href="product-default.html">
+                      <Link href="product-default.html">
                         <Image
                           src={prod7}
                           alt="Product"
@@ -276,33 +279,35 @@ const SpecialOffers = () => {
                           width="300"
                           height="337"
                         />
-                      </a>
+                      </Link>
                       <div className="product-action-horizontal">
-                        <a
+                        <Link
                           href="#"
                           className="btn-product-icon btn-cart w-icon-cart"
                           title="افزودن به سبد "
-                        ></a>
-                        <a
+                        ></Link>
+                        <Link
                           href="#"
                           className="btn-product-icon btn-wishlist w-icon-heart"
                           title="علاقه مندیها"
-                        ></a>
-                        <a
+                        ></Link>
+                        <Link
                           href="#"
                           className="btn-product-icon btn-compare w-icon-compare"
                           title="مقایسه"
-                        ></a>
-                        <a
+                        ></Link>
+                        <Link
                           href="#"
                           className="btn-product-icon btn-quickview w-icon-search"
                           title="نمایش سریع"
-                        ></a>
+                        ></Link>
                       </div>
                     </figure>
                     <div className="product-details">
                       <h4 className="product-name">
-                        <a href="product-default.html">گوشی مینی بی سیم </a>
+                        <Link href="product-default.html">
+                          گوشی مینی بی سیم{" "}
+                        </Link>
                       </h4>
                       <div className="product-price">
                         <ins className="new-price">85000 تومان </ins>
@@ -316,7 +321,7 @@ const SpecialOffers = () => {
                 >
                   <div className="product text-center">
                     <figure className="product-media">
-                      <a href="product-default.html">
+                      <Link href="product-default.html">
                         <Image
                           src={prod9}
                           alt="Product"
@@ -329,33 +334,35 @@ const SpecialOffers = () => {
                           width="300"
                           height="337"
                         />
-                      </a>
+                      </Link>
                       <div className="product-action-horizontal">
-                        <a
+                        <Link
                           href="#"
                           className="btn-product-icon btn-cart w-icon-cart"
                           title="افزودن به سبد "
-                        ></a>
-                        <a
+                        ></Link>
+                        <Link
                           href="#"
                           className="btn-product-icon btn-wishlist w-icon-heart"
                           title="علاقه مندیها"
-                        ></a>
-                        <a
+                        ></Link>
+                        <Link
                           href="#"
                           className="btn-product-icon btn-compare w-icon-compare"
                           title="مقایسه"
-                        ></a>
-                        <a
+                        ></Link>
+                        <Link
                           href="#"
                           className="btn-product-icon btn-quickview w-icon-search"
                           title="نمایش سریع"
-                        ></a>
+                        ></Link>
                       </div>
                     </figure>
                     <div className="product-details">
                       <h4 className="product-name">
-                        <a href="product-default.html">تغییر ماشین آلارم</a>
+                        <Link href="product-default.html">
+                          تغییر ماشین آلارم
+                        </Link>
                       </h4>
                       <div className="product-price">
                         <ins className="new-price">78000 تومان</ins>
@@ -393,12 +400,12 @@ const SpecialOffers = () => {
               امروز برنامه جدید ما را دانلود کنید! پیشنهادات ما را فقط برای
               موبایل از دست ندهید و با اندریود پلی خرید کنید.
             </p>
-            <a
+            <Link
               href="#"
               className="btn btn-white btn-outline btn-rounded btn-icon-right font-weight-bold text-capitalize ml-auto"
             >
               دانلود <i className="w-icon-long-arrow-down"></i>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

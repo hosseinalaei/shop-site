@@ -117,12 +117,12 @@ const Cart = () => {
               <h3 className="h5 mb-3 pb-1">جمع کل</h3>
               <h4 className="fw-normal">{total.toLocaleString()} تومان</h4>
             </div>
-            <a
+            <Link 
               onClick={clearCart}
               className="btn btn-primary btn-shadow d-block w-100 mt-4"
             >
               حذف همه آیتم ها
-            </a>
+            </Link>
           </div> */}
 
         <div className="col-lg-8 pr-lg-4 mb-6">
@@ -150,7 +150,7 @@ const Cart = () => {
                   <tr key={item.id}>
                     <td className="product-thumbnail">
                       <div className="p-relative">
-                        <a href="product-default.html">
+                        <Link href="product-default.html">
                           <figure>
                             <img
                               src={item.img}
@@ -159,7 +159,7 @@ const Cart = () => {
                               height="338"
                             />
                           </figure>
-                        </a>
+                        </Link>
                         <button
                           type="submit"
                           className="btn btn-close"
@@ -170,7 +170,7 @@ const Cart = () => {
                       </div>
                     </td>
                     <td className="product-name">
-                      <a href="product-default.html">{item.title}</a>
+                      <Link href="product-default.html">{item.title}</Link>
                     </td>
                     <td className="product-price">
                       <span className="amount">{item.price} تومان </span>
@@ -216,11 +216,11 @@ const Cart = () => {
                   <tr key={item.productId}>
                     <td className="product-thumbnail">
                       <div className="p-relative">
-                        <a href="product-default.html">
+                        <Link href="product-default.html">
                           <figure>
                             <ProductImage src={media} />
                           </figure>
-                        </a>
+                        </Link>
                         <button
                           // type="submit"
                           className="btn btn-close"
@@ -234,7 +234,7 @@ const Cart = () => {
                       </div>
                     </td>
                     <td className="product-name">
-                      <a href="product-default.html">{item.title}</a>
+                      <Link href="product-default.html">{item.title}</Link>
                     </td>
                     <td className="product-price">
                       <span className="amount">{item.productPrice} تومان </span>
@@ -279,12 +279,12 @@ const Cart = () => {
           </table>
 
           <div className="cart-action mb-6">
-            <a
+            <Link
               href="#"
               className="btn btn-primary btn-rounded btn-icon-left btn-shopping mr-auto"
             >
               <i className="w-icon-long-arrow-left"></i>ادامه خرید کردن{" "}
-            </a>
+            </Link>
             <button
               // onClick={clearCart}
               type="submit"
@@ -330,7 +330,7 @@ const Cart = () => {
         <div className="container">
           <ul className="breadcrumb shop-breadcrumb bb-no">
             <li className="active">
-              <a href="/cart">سبد خرید </a>
+              <Link href="/cart">سبد خرید </Link>
             </li>
             <li>
               <Link
@@ -363,12 +363,12 @@ const Cart = () => {
               <h3 className="h5 mb-3 pb-1">جمع کل</h3>
               <h4 className="fw-normal">{total.toLocaleString()} تومان</h4>
             </div>
-            <a
+            <Link 
               onClick={clearCart}
               className="btn btn-primary btn-shadow d-block w-100 mt-4"
             >
               حذف همه آیتم ها
-            </a>
+            </Link>
           </div> */}
 
             <div className="col-lg-8 pr-lg-4 mb-6">
@@ -396,7 +396,7 @@ const Cart = () => {
                   <tr key={item.id}>
                     <td className="product-thumbnail">
                       <div className="p-relative">
-                        <a href="product-default.html">
+                        <Link href="product-default.html">
                           <figure>
                             <img
                               src={item.img}
@@ -405,7 +405,7 @@ const Cart = () => {
                               height="338"
                             />
                           </figure>
-                        </a>
+                        </Link>
                         <button
                           type="submit"
                           className="btn btn-close"
@@ -416,7 +416,7 @@ const Cart = () => {
                       </div>
                     </td>
                     <td className="product-name">
-                      <a href="product-default.html">{item.title}</a>
+                      <Link href="product-default.html">{item.title}</Link>
                     </td>
                     <td className="product-price">
                       <span className="amount">{item.price} تومان </span>
@@ -477,7 +477,7 @@ const Cart = () => {
                           </div>
                         </td>
                         <td className="product-name">
-                          <a href="product-default.html">{item.title}</a>
+                          <Link href="product-default.html">{item.title}</Link>
                         </td>
                         <td className="product-price">
                           <span className="amount">

@@ -17,7 +17,7 @@ const Compare = () => {
             <div className="container">
               <ul className="breadcrumb">
                 <li>
-                  <a href="demo1.html">خانه </a>
+                  <Link href="demo1.html">خانه </Link>
                 </li>
                 <li>مقایسه کردن</li>
               </ul>
@@ -30,131 +30,137 @@ const Compare = () => {
                 <div className="compare-row cols-xl-5 cols-lg-4 cols-md-3 cols-2 compare-products">
                   <div className="compare-col compare-field">محصول</div>
                   <div className="compare-col compare-product">
-                    <a href="#" className="btn remove-product">
+                    <Link href="#" className="btn remove-product">
                       <i className="w-icon-times-solid"></i>
-                    </a>
+                    </Link>
                     <div className="product text-center">
                       <figure className="product-media">
-                        <a href="product-default.html">
+                        <Link href="product-default.html">
                           <img
                             src="assets/images/products/elements/1.jpg"
                             alt="Product"
                             width="228"
                             height="257"
                           />
-                        </a>
+                        </Link>
                         <div className="product-action-vertical">
-                          <a
+                          <Link
                             href="#"
                             className="btn-product-icon btn-cart w-icon-cart"
-                          ></a>
-                          <a
+                          ></Link>
+                          <Link
                             href="#"
                             className="btn-product-icon btn-wishlist w-icon-heart"
-                          ></a>
+                          ></Link>
                         </div>
                       </figure>
                       <div className="product-details">
                         <h3 className="product-name">
-                          <a href="product-default.html">
+                          <Link href="product-default.html">
                             ساعت مچی مشکی الکترونیکی
-                          </a>
+                          </Link>
                         </h3>
                       </div>
                     </div>
                   </div>
                   <div className="compare-col compare-product">
-                    <a href="#" className="btn remove-product">
+                    <Link href="#" className="btn remove-product">
                       <i className="w-icon-times-solid"></i>
-                    </a>
+                    </Link>
                     <div className="product text-center">
                       <figure className="product-media">
-                        <a href="product-default.html">
+                        <Link href="product-default.html">
                           <img
                             src="assets/images/products/elements/2.jpg"
                             alt="Product"
                             width="228"
                             height="257"
                           />
-                        </a>
+                        </Link>
                         <div className="product-action-vertical">
-                          <a
+                          <Link
                             href="#"
                             className="btn-product-icon btn-cart w-icon-cart"
-                          ></a>
-                          <a
+                          ></Link>
+                          <Link
                             href="#"
                             className="btn-product-icon btn-wishlist w-icon-heart"
-                          ></a>
+                          ></Link>
                         </div>
                       </figure>
                       <div className="product-details">
                         <h3 className="product-name">
-                          <a href="product-default.html">کفش ورزشی تابستانی </a>
+                          <Link href="product-default.html">
+                            کفش ورزشی تابستانی{" "}
+                          </Link>
                         </h3>
                       </div>
                     </div>
                   </div>
                   <div className="compare-col compare-product">
-                    <a href="#" className="btn remove-product">
+                    <Link href="#" className="btn remove-product">
                       <i className="w-icon-times-solid"></i>
-                    </a>
+                    </Link>
                     <div className="product text-center">
                       <figure className="product-media">
-                        <a href="product-default.html">
+                        <Link href="product-default.html">
                           <img
                             src="assets/images/products/elements/3.jpg"
                             alt="Product"
                             width="228"
                             height="257"
                           />
-                        </a>
+                        </Link>
                         <div className="product-action-vertical">
-                          <a
+                          <Link
                             href="#"
                             className="btn-product-icon btn-cart w-icon-cart"
-                          ></a>
-                          <a
+                          ></Link>
+                          <Link
                             href="#"
                             className="btn-product-icon btn-wishlist w-icon-heart"
-                          ></a>
+                          ></Link>
                         </div>
                       </figure>
                       <div className="product-details">
                         <h3 className="product-name">
-                          <a href="product-default.html">ساعت طراحی جذاب</a>
+                          <Link href="product-default.html">
+                            ساعت طراحی جذاب
+                          </Link>
                         </h3>
                       </div>
                     </div>
                   </div>
                   <div className="compare-col compare-product">
-                    <a href="#" className="btn remove-product">
+                    <Link href="#" className="btn remove-product">
                       <i className="w-icon-times-solid"></i>
-                    </a>
+                    </Link>
                     <div className="product text-center">
                       <figure className="product-media">
-                        <a href="product-default.html">
+                        <Link href="product-default.html">
                           <img
                             src="assets/images/products/elements/4-1.jpg"
                             alt="Product"
                             width="228"
                             height="257"
                           />
-                        </a>
+                        </Link>
                         <div className="product-action-vertical">
-                          <a
+                          <Link
                             href="#"
                             className="btn-product-icon btn-cart w-icon-cart"
-                          ></a>
-                          <a
+                          ></Link>
+                          <Link
                             href="#"
                             className="btn-product-icon btn-wishlist w-icon-heart"
-                          ></a>
+                          ></Link>
                         </div>
                       </figure>
                       <div className="product-details">
                         <h3 className="product-name">
-                          <a href="product-default.html">موس بازی پرجمعیت</a>
+                          <Link href="product-default.html">
+                            موس بازی پرجمعیت
+                          </Link>
                         </h3>
                       </div>
                     </div>
@@ -279,9 +285,9 @@ const Compare = () => {
                         ></span>
                         <span className="tooltiptext tooltip-top"></span>
                       </div>
-                      <a href="#" className="rating-reviews">
+                      <Link href="#" className="rating-reviews">
                         (3 نظر )
-                      </a>
+                      </Link>
                     </div>
                   </div>
                   <div className="compare-col compare-rating">
@@ -293,9 +299,9 @@ const Compare = () => {
                         ></span>
                         <span className="tooltiptext tooltip-top"></span>
                       </div>
-                      <a href="#" className="rating-reviews">
+                      <Link href="#" className="rating-reviews">
                         (5 نظر )
-                      </a>
+                      </Link>
                     </div>
                   </div>
                   <div className="compare-col compare-rating">
@@ -307,9 +313,9 @@ const Compare = () => {
                         ></span>
                         <span className="tooltiptext tooltip-top"></span>
                       </div>
-                      <a href="#" className="rating-reviews">
+                      <Link href="#" className="rating-reviews">
                         (8 نظر )
-                      </a>
+                      </Link>
                     </div>
                   </div>
                   <div className="compare-col compare-rating">
@@ -321,9 +327,9 @@ const Compare = () => {
                         ></span>
                         <span className="tooltiptext tooltip-top"></span>
                       </div>
-                      <a href="#" className="rating-reviews">
+                      <Link href="#" className="rating-reviews">
                         (3 نظر )
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -453,7 +459,7 @@ const Compare = () => {
         <Footer />
       </div>
       <StickyFooter />
-      <a
+      <Link
         id="scroll-top"
         classNameName="scroll-top"
         href="#top"
@@ -479,7 +485,7 @@ const Compare = () => {
             style={{ "stroke-dasharray": "16.4198, 400" }}
           ></circle>{" "}
         </svg>{" "}
-      </a>
+      </Link>
 
       <MobileMenu />
     </>

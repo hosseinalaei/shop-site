@@ -34,7 +34,7 @@ const LoginComponent = () => {
           theme: "colored",
         });
         setPhoneSubmitted(true);
-        setIsSending(false)
+        setIsSending(false);
       }
     } catch (error) {
       console.log(error.response);
@@ -61,7 +61,7 @@ const LoginComponent = () => {
           position: toast.POSITION.TOP_CENTER,
           theme: "colored",
         });
-    setIsSending(false);
+        setIsSending(false);
 
         console.log(resData.data);
         localStorage.setItem("user", JSON.stringify(resData.data));
@@ -82,9 +82,9 @@ const LoginComponent = () => {
             </span>
           </li>
           {/* <li className="nav-item">
-                      <a href="#sign-up" className="nav-link">
+                      <Link href="#sign-up" className="nav-link">
                         ثبت نام
-                      </a>
+                      </Link>
                     </li> */}
         </ul>
         <form
@@ -138,25 +138,25 @@ const LoginComponent = () => {
                 required=""
               />
               {/* <label htmlFor="remember1">مرا به خاطر بسپار </label>
-              <a href="#">فراموشی رمز عبور؟</a> */}
+              <Link href="#">فراموشی رمز عبور؟</Link> */}
             </div>
-            <a
+            <Link
               // onClick={!phoneSubmitted ? submitPhoneNumber : submitVerifyCode}
-              className={`btn btn-primary ${isSending ? 'button-loading' : ''}`}
+              className={`btn btn-primary ${isSending ? "button-loading" : ""}`}
               onClick={!phoneSubmitted ? submitPhoneNumber : submitVerifyCode}
             >
               ارسال
-            </a>
+            </Link>
           </div>
         </form>
         {/* <p className="text-center">ورود با حساب اجتماعی</p>
         <div className="social-icons social-icon-border-color d-flex justify-content-center">
-          <a
+          <Link 
             href="#"
             className="social-icon social-facebook w-icon-facebook"
-          ></a>
-          <a href="#" className="social-icon social-twitter w-icon-twitter"></a>
-          <a href="#" className="social-icon social-google fab fa-google"></a>
+          ></Link>
+          <Link href="#" className="social-icon social-twitter w-icon-twitter"></Link>
+          <Link href="#" className="social-icon social-google fab fa-google"></Link>
         </div> */}
       </div>
       <ToastContainer />

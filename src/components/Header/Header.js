@@ -16,51 +16,51 @@ const Header = () => {
       <div className="header-middle">
         <div className="container">
           <div className="header-left mr-md-4">
-            <a
+            <Link
               href="#"
               className="mobile-menu-toggle  w-icon-hamburger"
               onClick={() => {
                 setMobileMenu(true);
               }}
-            ></a>
-            <a href="/" className="logo ml-lg-0">
+            ></Link>
+            <Link href="/" className="logo ml-lg-0">
               <Image src={logo} alt="logo" width="144" height="45" />
-            </a>
+            </Link>
             <Search />
           </div>
           {/* <div className="header-right ml-4">
             <div className="header-call d-xs-show d-lg-flex align-items-center">
-              <a href="tel:#" className="w-icon-call"></a>
+              <Link href="tel:#" className="w-icon-call"></Link>
               <div className="call-info d-lg-show">
                 <h4 className="chat font-weight-normal font-size-md text-normal text-light mb-0">
-                  <a href="mailto:#">
+                  <Link href="mailto:#">
                     پشتیبانی
                     <span className="ls-normal">:</span>
-                  </a>
+                  </Link>
                 </h4>
-                <a
+                <Link 
                   href="tel:#"
                   className="phone-number font-weight-bolder ls-50"
                 >
                   021-43000470
-                </a>
+                </Link>
               </div>
             </div>
-            <a
+            <Link 
               className="compare label-down link d-xs-show"
               href="compare.html"
             >
               <i className="w-icon-compare"></i>
-            </a>
-            <a
+            </Link>
+            <Link 
               className="wishlist label-down link d-xs-show"
               href="wishlist.html"
             >
               <i className="w-icon-heart"></i>
-            </a>
+            </Link>
             <div className="dropdown cart-dropdown cart-offcanvas d-flex mr-0 mr-lg-2">
               <div className="cart-overlay"></div>
-              <Link href="/cart" className="cart-toggle label-down link">
+              <Link  href="/cart" className="cart-toggle label-down link">
                 <span className="cart-label d-flex flex-column justify-content-center text-right d-lg-show">
                   سبد خرید
                   <b className="cart-price d-block font-weight-bolder">
@@ -75,32 +75,29 @@ const Header = () => {
           </div> */}
           <div className="header-right ml-4">
             <div className="header-call d-xs-show d-lg-flex align-items-center">
-              <a href="tel:#" className="w-icon-call"></a>
+              <Link href="tel:#" className="w-icon-call"></Link>
               <div className="call-info d-lg-show">
                 <h4 className="chat font-weight-normal font-size-md text-normal ls-normal text-light mb-0">
-                  <a href="tel:+982143000470" className="text-capitalize">
+                  <Link href="tel:+982143000470" className="text-capitalize">
                     تماس با شاپ آی‌آر:
-                  </a>
+                  </Link>
                 </h4>
-                <a
+                <Link
                   href="tel:#"
                   className="phone-number font-weight-bolder ls-50"
                 >
                   021-43000470
-                </a>
+                </Link>
               </div>
             </div>
-            {/* <a className="wishlist label-down link d-xs-show" href="/wishlist">
+            {/* <Link className="wishlist label-down link d-xs-show" href="/wishlist">
               <i className="w-icon-heart"></i>
               <span className="wishlist-label d-lg-show">علاقه مندیها </span>
-            </a> */}
-            <a
-              className="compare label-down link d-xs-show"
-              href="compare.html"
-            >
+            </Link> */}
+            <Link className="compare label-down link d-xs-show" href="#">
               <i className="w-icon-compare"></i>
               <span className="compare-label d-lg-show">مقایسه کردن </span>
-            </a>
+            </Link>
             <div className="dropdown cart-dropdown cart-offcanvas mr-0 mr-lg-2">
               <div className="cart-overlay"></div>
               <Link
@@ -116,33 +113,33 @@ const Header = () => {
               <div className="dropdown-box">
                 <div className="cart-header">
                   <span>سبد خرید </span>
-                  <a href="#" className="btn-close">
+                  <Link href="#" className="btn-close">
                     بستن <i className="w-icon-long-arrow-left"></i>
-                  </a>
+                  </Link>
                 </div>
 
                 {/* <div className="products">
                   <div className="product product-cart">
                     <div className="product-detail">
-                      <a href="product-default.html" className="product-name">
+                      <Link href="product-default.html" className="product-name">
                         الیس بافتنی بژ
                         <br />
                         کفش دونده تیک
-                      </a>
+                      </Link>
                       <div className="price-box">
                         <span className="product-quantity">1</span>
                         <span className="product-price">25600 تومان</span>
                       </div>
                     </div>
                     <figure className="product-media">
-                      <a href="product-default.html">
+                      <Link href="product-default.html">
                         <img
                           src="assets/images/cart/product-1.jpg"
                           alt="product"
                           height="84"
                           width="94"
                         />
-                      </a>
+                      </Link>
                     </figure>
                     <button
                       className="btn btn-link btn-close"
@@ -154,25 +151,25 @@ const Header = () => {
 
                   <div className="product product-cart">
                     <div className="product-detail">
-                      <a href="product-default.html" className="product-name">
+                      <Link href="product-default.html" className="product-name">
                         پینا کاربردی آبی
                         <br />
                         لباس جین جلویی پینا
-                      </a>
+                      </Link>
                       <div className="price-box">
                         <span className="product-quantity">1</span>
                         <span className="product-price">32000 تومان</span>
                       </div>
                     </div>
                     <figure className="product-media">
-                      <a href="product-default.html">
+                      <Link href="product-default.html">
                         <img
                           src="assets/images/cart/product-2.jpg"
                           alt="product"
                           width="84"
                           height="94"
                         />
-                      </a>
+                      </Link>
                     </figure>
                     <button
                       className="btn btn-link btn-close"
@@ -189,18 +186,15 @@ const Header = () => {
                 </div>
 
                 <div className="cart-action">
-                  <a
-                    href="cart.html"
+                  <Link
+                    href="#"
                     className="btn btn-dark btn-outline btn-rounded"
                   >
                     سبد خرید{" "}
-                  </a>
-                  <a
-                    href="checkout.html"
-                    className="btn btn-primary  btn-rounded"
-                  >
+                  </Link>
+                  <Link href="#" className="btn btn-primary  btn-rounded">
                     پرداخت{" "}
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -213,7 +207,7 @@ const Header = () => {
           <div className="inner-wrap">
             <div className="header-left">
               <div className="dropdown category-dropdown">
-                <a
+                <Link
                   href="#"
                   className="category-toggle text-capitalize pl-0"
                   role="button"
@@ -225,7 +219,7 @@ const Header = () => {
                 >
                   <i className="w-icon-category"></i>
                   <span>همه بخش ها</span>
-                </a>
+                </Link>
 
                 <DropdownBox />
               </div>
@@ -240,238 +234,20 @@ const Header = () => {
                     <Link prefetch={false} href="/shop">
                       فروشگاه{" "}
                     </Link>
-                    {/* <ul className="megamenu">
-                      <li>
-                        <h4 className="menu-title">صفحات فروشگاه </h4>
-                        <ul>
-                          <li>
-                            <a href="shop-banner-sidebar.html">
-                              بنر با نوار کناری
-                            </a>
-                          </li>
-                          <li>
-                            <a href="shop-boxed-banner.html">بنر باکسی </a>
-                          </li>
-                          <li>
-                            <a href="shop-fullwidth-banner.html">
-                              بنر تمام عرض{" "}
-                            </a>
-                          </li>
-                          <li>
-                            <a href="shop-horizontal-filter.html">
-                              فیلتر افقی{" "}
-                              <span className="tip tip-hot">داغ </span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="shop-off-canvas.html">
-                              بدون نوار کناری{" "}
-                              <span className="tip tip-new">جدید </span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="shop-infinite-scroll.html">
-                              {" "}
-                              اسکرول بی نهایت آژاکس
-                            </a>
-                          </li>
-                          <li>
-                            <a href="shop-right-sidebar.html">سایدبار چپ </a>
-                          </li>
-                          <li>
-                            <a href="shop-both-sidebar.html">
-                              هر دو نوار کناری{" "}
-                            </a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <h4 className="menu-title">چیدمان فروشگاه </h4>
-                        <ul>
-                          <li>
-                            <a href="shop-grid-3cols.html">3 حالت ستون ها </a>
-                          </li>
-                          <li>
-                            <a href="shop-grid-4cols.html">4 حالت ستون ها </a>
-                          </li>
-                          <li>
-                            <a href="shop-grid-5cols.html">5 حالت ستون ها </a>
-                          </li>
-                          <li>
-                            <a href="shop-grid-6cols.html">6 حالت ستون ها </a>
-                          </li>
-                          <li>
-                            <a href="shop-grid-7cols.html">7 حالت ستون ها </a>
-                          </li>
-                          <li>
-                            <a href="shop-grid-8cols.html">8 حالت ستون ها </a>
-                          </li>
-                          <li>
-                            <a href="shop-list.html">حالت فهرست</a>
-                          </li>
-                          <li>
-                            <a href="shop-list-sidebar.html">
-                              حالت فهرست با نوار کناری
-                            </a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <h4 className="menu-title">صفحات محصول </h4>
-                        <ul>
-                          <li>
-                            <a href="product-variable.html">محصول متغیر </a>
-                          </li>
-                          <li>
-                            <a href="product-featured.html">ویژه و جذاب </a>
-                          </li>
-                          <li>
-                            <a href="product-accordion.html">
-                              داده ها در آکاردئون
-                            </a>
-                          </li>
-                          <li>
-                            <a href="product-section.html">
-                              داده ها در بخش ها{" "}
-                            </a>
-                          </li>
-                          <li>
-                            <a href="product-swatch.html">نمونه تصویر </a>
-                          </li>
-                          <li>
-                            <a href="product-extended.html">اطلاعات گسترده </a>
-                          </li>
-                          <li>
-                            <a href="product-without-sidebar.html">
-                              بدون نوار کناری{" "}
-                            </a>
-                          </li>
-                          <li>
-                            <a href="product-video.html">
-                              360<sup>درجه </sup> ویدئو{" "}
-                              <span className="tip tip-new">جدید </span>
-                            </a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <h4 className="menu-title">چیدمان محصولات </h4>
-                        <ul>
-                          <li>
-                            <a href="product-default.html">
-                              پیشفرض <span className="tip tip-hot">داغ </span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="product-vertical.html">شست عمودی </a>
-                          </li>
-                          <li>
-                            <a href="product-grid.html">تصاویر شبکه ای </a>
-                          </li>
-                          <li>
-                            <a href="product-masonry.html">ساختمانی </a>
-                          </li>
-                          <li>
-                            <a href="product-gallery.html">گالری </a>
-                          </li>
-                          <li>
-                            <a href="product-sticky-info.html">
-                              اطلاعات چسبناک{" "}
-                            </a>
-                          </li>
-                          <li>
-                            <a href="product-sticky-thumb.html">
-                              تصویر چسبناک{" "}
-                            </a>
-                          </li>
-                          <li>
-                            <a href="product-sticky-both.html">هردو چسبناک </a>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul> */}
                   </li>
                   <li>
                     <Link prefetch={false} href="/blog">
                       بلاگ{" "}
                     </Link>
-                    {/* <ul>
-                      <li>
-                        <a href="blog.html">کلاسیک </a>
-                      </li>
-                      <li>
-                        <a href="blog-listing.html">لیستی </a>
-                      </li>
-                      <li>
-                        <a href="blog-grid-3cols.html">گرید </a>
-                        <ul>
-                          <li>
-                            <a href="blog-grid-2cols.html">شبکه 2 ستون</a>
-                          </li>
-                          <li>
-                            <a href="blog-grid-3cols.html">شبکه 3 ستون</a>
-                          </li>
-                          <li>
-                            <a href="blog-grid-4cols.html">شبکه 4ستون</a>
-                          </li>
-                          <li>
-                            <a href="blog-grid-sidebar.html">
-                              سایدبار شبکه ای{" "}
-                            </a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a href="blog-masonry-3cols.html">ساختمانی </a>
-                        <ul>
-                          <li>
-                            <a href="blog-masonry-2cols.html">
-                              ساختمانی 2 ستون{" "}
-                            </a>
-                          </li>
-                          <li>
-                            <a href="blog-masonry-3cols.html">
-                              ساختمانی 3 ستون{" "}
-                            </a>
-                          </li>
-                          <li>
-                            <a href="blog-masonry-4cols.html">
-                              ساختمانی 4ستون{" "}
-                            </a>
-                          </li>
-                          <li>
-                            <a href="blog-masonry-sidebar.html">
-                              نوار کناری ساختمانی{" "}
-                            </a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a href="blog-mask-grid.html">ماسک </a>
-                        <ul>
-                          <li>
-                            <a href="blog-mask-grid.html">ماسک وبلاگ گرید </a>
-                          </li>
-                          <li>
-                            <a href="blog-mask-masonry.html">
-                              ماسک وبلاگ ساختمانی{" "}
-                            </a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a href="post-single.html">تک نوشته </a>
-                      </li>
-                    </ul> */}
                   </li>
                 </ul>
               </nav>
             </div>
             <div className="header-right pr-0">
-              <a href="#">
+              <Link href="#">
                 <i className="w-icon-sale"></i>
                 <span>پیشنهادهای ویژه</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

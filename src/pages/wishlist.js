@@ -29,7 +29,7 @@ const WishList = () => {
               <tr>
                 <td calssName="product-thumbnail">
                   <div calssName="p-relative">
-                    <a href="product-default.html">
+                    <Link href="product-default.html">
                       <figure>
                         <img
                           src="assets/images/shop/7-1.jpg"
@@ -38,14 +38,14 @@ const WishList = () => {
                           height="338"
                         />
                       </figure>
-                    </a>
+                    </Link>
                     <button type="submit" calssName="btn btn-close">
                       <i calssName="fas fa-times"></i>
                     </button>
                   </div>
                 </td>
                 <td calssName="product-name">
-                  <a href="product-default.html">تنه آسمان آبی</a>
+                  <Link href="product-default.html">تنه آسمان آبی</Link>
                 </td>
                 <td calssName="product-price">
                   <ins calssName="new-price">85000 تومان</ins>
@@ -55,25 +55,25 @@ const WishList = () => {
                 </td>
                 <td calssName="wishlist-action">
                   <div calssName="d-lg-flex">
-                    <a
+                    <Link 
                       href="#"
                       calssName="btn btn-quickview btn-outline btn-default btn-rounded btn-sm mb-2 mb-lg-0"
                     >
                       نمایش سریع
-                    </a>
-                    <a
+                    </Link>
+                    <Link 
                       href="#"
                       calssName="btn btn-dark btn-rounded btn-sm ml-lg-2 btn-cart"
                     >
                       افزودن به سبد
-                    </a>
+                    </Link>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td calssName="product-thumbnail">
                   <div calssName="p-relative">
-                    <a href="product-default.html">
+                    <Link href="product-default.html">
                       <figure>
                         <img
                           src="assets/images/shop/19-1.jpg"
@@ -82,14 +82,14 @@ const WishList = () => {
                           height="338"
                         />
                       </figure>
-                    </a>
+                    </Link>
                     <button type="submit" calssName="btn btn-close">
                       <i calssName="fas fa-times"></i>
                     </button>
                   </div>
                 </td>
                 <td calssName="product-name">
-                  <a href="product-default.html">انگشتر دست ساز</a>
+                  <Link href="product-default.html">انگشتر دست ساز</Link>
                 </td>
                 <td calssName="product-price">
                   <ins calssName="new-price">78000 تومان</ins>
@@ -99,25 +99,25 @@ const WishList = () => {
                 </td>
                 <td calssName="wishlist-action">
                   <div calssName="d-lg-flex">
-                    <a
+                    <Link 
                       href="#"
                       calssName="btn btn-quickview btn-outline btn-default btn-rounded btn-sm mb-2 mb-lg-0"
                     >
                       نمایش سریع
-                    </a>
-                    <a
+                    </Link>
+                    <Link 
                       href="#"
                       calssName="btn btn-dark btn-rounded btn-sm ml-lg-2 btn-cart"
                     >
                       افزودن به سبد
-                    </a>
+                    </Link>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td calssName="product-thumbnail">
                   <div calssName="p-relative">
-                    <a href="product-default.html">
+                    <Link href="product-default.html">
                       <figure>
                         <img
                           src="assets/images/shop/20.jpg"
@@ -126,14 +126,14 @@ const WishList = () => {
                           height="338"
                         />
                       </figure>
-                    </a>
+                    </Link>
                     <button type="submit" calssName="btn btn-close">
                       <i calssName="fas fa-times"></i>
                     </button>
                   </div>
                 </td>
                 <td calssName="product-name">
-                  <a href="product-default.html">جا مدادی</a>
+                  <Link href="product-default.html">جا مدادی</Link>
                 </td>
                 <td calssName="product-price">
                   <ins calssName="new-price">118000 تومان</ins>
@@ -143,18 +143,18 @@ const WishList = () => {
                 </td>
                 <td calssName="wishlist-action">
                   <div calssName="d-lg-flex">
-                    <a
+                    <Link 
                       href="#"
                       calssName="btn btn-quickview btn-outline btn-default btn-rounded btn-sm mb-2 mb-lg-0"
                     >
                       نمایش سریع
-                    </a>
-                    <a
+                    </Link>
+                    <Link 
                       href="#"
                       calssName="btn btn-dark btn-rounded btn-sm ml-lg-2 btn-cart"
                     >
                       افزودن به سبد
-                    </a>
+                    </Link>
                   </div>
                 </td>
               </tr>
@@ -163,26 +163,26 @@ const WishList = () => {
           <div calssName="social-links">
             <label>اشتراک در:</label>
             <div calssName="social-icons social-no-color border-thin">
-              <a
+              <Link 
                 href="#"
                 calssName="social-icon social-facebook w-icon-facebook"
-              ></a>
-              <a
+              ></Link>
+              <Link 
                 href="#"
                 calssName="social-icon social-twitter w-icon-twitter"
-              ></a>
-              <a
+              ></Link>
+              <Link 
                 href="#"
                 calssName="social-icon social-pinterest w-icon-pinterest"
-              ></a>
-              <a
+              ></Link>
+              <Link 
                 href="#"
                 calssName="social-icon social-email far fa-envelope"
-              ></a>
-              <a
+              ></Link>
+              <Link 
                 href="#"
                 calssName="social-icon social-whatsapp fab fa-whatsapp"
-              ></a>
+              ></Link>
             </div>
           </div> */}
         </div>

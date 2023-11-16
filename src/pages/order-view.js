@@ -16,10 +16,10 @@ const OrderView = () => {
             <div className="container">
               <ul className="breadcrumb">
                 <li>
-                  <a href="demo1.html">خانه </a>
+                  <Link href="demo1.html">خانه </Link>
                 </li>
                 <li>
-                  <a href="my-account.html">حساب من </a>
+                  <Link href="my-account.html">حساب من </Link>
                 </li>
                 <li>سفارش #962</li>
               </ul>
@@ -31,35 +31,35 @@ const OrderView = () => {
               <div className="tab tab-vertical row gutter-lg">
                 <ul className="nav nav-tabs mb-6" role="tablist">
                   <li className="nav-item">
-                    <a href="#account-dashboard" className="nav-link">
+                    <Link href="#account-dashboard" className="nav-link">
                       داشبرد
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a href="#account-orders" className="nav-link">
+                    <Link href="#account-orders" className="nav-link">
                       سفارشات{" "}
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a href="#account-downloads" className="nav-link">
+                    <Link href="#account-downloads" className="nav-link">
                       دانلودها{" "}
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a href="#account-addresses" className="nav-link">
+                    <Link href="#account-addresses" className="nav-link">
                       آدرس ها{" "}
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a href="#account-details" className="nav-link">
+                    <Link href="#account-details" className="nav-link">
                       جزئیات حساب{" "}
-                    </a>
+                    </Link>
                   </li>
                   <li className="link-item">
-                    <a href="wishlist.html">علاقه مندیها </a>
+                    <Link href="wishlist.html">علاقه مندیها </Link>
                   </li>
                   <li className="link-item">
-                    <a href="login.html">خروج </a>
+                    <Link href="login.html">خروج </Link>
                   </li>
                 </ul>
 
@@ -75,39 +75,39 @@ const OrderView = () => {
                         جعفر عباسی{" "}
                       </span>
                       ?
-                      <a href="#" className="text-primary">
+                      <Link href="#" className="text-primary">
                         خروج{" "}
-                      </a>
+                      </Link>
                       )
                     </p>
 
                     <p className="mb-4">
                       از داشبورد حساب خود می توانید خود را مشاهده کنید{" "}
-                      <a
+                      <Link
                         href="#account-orders"
                         className="text-primary link-to-tab"
                       >
                         سفارشات اخیر{" "}
-                      </a>
+                      </Link>
                       , مدیریت شما روی{" "}
-                      <a
+                      <Link
                         href="#account-addresses"
                         className="text-primary link-to-tab"
                       >
                         آدرس حمل و نقلها{" "}
-                      </a>
+                      </Link>
                       , و
-                      <a
+                      <Link
                         href="#account-details"
                         className="text-primary link-to-tab"
                       >
                         رمز عبور و جزئیات حساب خود را ویرایش کنید.
-                      </a>
+                      </Link>
                     </p>
 
                     <div className="row">
                       <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
-                        <a href="#account-orders" className="link-to-tab">
+                        <Link href="#account-orders" className="link-to-tab">
                           <div className="icon-box text-center">
                             <span className="icon-box-icon icon-orders">
                               <i className="w-icon-orders"></i>
@@ -116,10 +116,10 @@ const OrderView = () => {
                               <p className="text-uppercase mb-0">سفارشات </p>
                             </div>
                           </div>
-                        </a>
+                        </Link>
                       </div>
                       <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
-                        <a href="#account-downloads" className="link-to-tab">
+                        <Link href="#account-downloads" className="link-to-tab">
                           <div className="icon-box text-center">
                             <span className="icon-box-icon icon-download">
                               <i className="w-icon-download"></i>
@@ -128,10 +128,10 @@ const OrderView = () => {
                               <p className="text-uppercase mb-0">دانلود ها </p>
                             </div>
                           </div>
-                        </a>
+                        </Link>
                       </div>
                       <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
-                        <a href="#account-addresses" className="link-to-tab">
+                        <Link href="#account-addresses" className="link-to-tab">
                           <div className="icon-box text-center">
                             <span className="icon-box-icon icon-address">
                               <i className="w-icon-map-marker"></i>
@@ -140,34 +140,38 @@ const OrderView = () => {
                               <p className="text-uppercase mb-0">آدرس ها </p>
                             </div>
                           </div>
-                        </a>
+                        </Link>
                       </div>
                       <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
-                        <a href="#account-details" className="link-to-tab">
+                        <Link href="#account-details" className="link-to-tab">
                           <div className="icon-box text-center">
                             <span className="icon-box-icon icon-account">
                               <i className="w-icon-user"></i>
                             </span>
                             <div className="icon-box-content">
-                              <p className="text-uppercase mb-0">جزئیات حساب </p>
+                              <p className="text-uppercase mb-0">
+                                جزئیات حساب{" "}
+                              </p>
                             </div>
                           </div>
-                        </a>
+                        </Link>
                       </div>
                       <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
-                        <a href="wishlist.html" className="link-to-tab">
+                        <Link href="wishlist.html" className="link-to-tab">
                           <div className="icon-box text-center">
                             <span className="icon-box-icon icon-wishlist">
                               <i className="w-icon-heart"></i>
                             </span>
                             <div className="icon-box-content">
-                              <p className="text-uppercase mb-0">علاقه مندیها </p>
+                              <p className="text-uppercase mb-0">
+                                علاقه مندیها{" "}
+                              </p>
                             </div>
                           </div>
-                        </a>
+                        </Link>
                       </div>
                       <div className="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
-                        <a href="#">
+                        <Link href="#">
                           <div className="icon-box text-center">
                             <span className="icon-box-icon icon-logout">
                               <i className="w-icon-logout"></i>
@@ -176,7 +180,7 @@ const OrderView = () => {
                               <p className="text-uppercase mb-0">خروج </p>
                             </div>
                           </div>
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -209,16 +213,17 @@ const OrderView = () => {
                           <td className="order-date">خرداد 5</td>
                           <td className="order-status">در حال پردازش </td>
                           <td className="order-total">
-                            <span className="order-price">780000 تومان</span> برای
+                            <span className="order-price">780000 تومان</span>{" "}
+                            برای
                             <span className="order-quantity"> 1</span> آیتم
                           </td>
                           <td className="order-action">
-                            <a
+                            <Link
                               href="#"
                               className="btn btn-outline btn-default btn-block btn-sm btn-rounded"
                             >
                               نمایش{" "}
-                            </a>
+                            </Link>
                           </td>
                         </tr>
                         <tr>
@@ -226,16 +231,17 @@ const OrderView = () => {
                           <td className="order-date">خرداد 5</td>
                           <td className="order-status">در حال پردازش </td>
                           <td className="order-total">
-                            <span className="order-price">15000 تومان</span> برای
+                            <span className="order-price">15000 تومان</span>{" "}
+                            برای
                             <span className="order-quantity"> 1</span> آیتم
                           </td>
                           <td className="order-action">
-                            <a
+                            <Link
                               href="#"
                               className="btn btn-outline btn-default btn-block btn-sm btn-rounded"
                             >
                               نمایش{" "}
-                            </a>
+                            </Link>
                           </td>
                         </tr>
                         <tr>
@@ -243,16 +249,17 @@ const OrderView = () => {
                           <td className="order-date">خرداد 5</td>
                           <td className="order-status">در حال پردازش </td>
                           <td className="order-total">
-                            <span className="order-price">450000 تومان</span> برای
+                            <span className="order-price">450000 تومان</span>{" "}
+                            برای
                             <span className="order-quantity"> 1</span> آیتم
                           </td>
                           <td className="order-action">
-                            <a
+                            <Link
                               href="#"
                               className="btn btn-outline btn-default btn-block btn-sm btn-rounded"
                             >
                               نمایش{" "}
-                            </a>
+                            </Link>
                           </td>
                         </tr>
                         <tr>
@@ -260,27 +267,28 @@ const OrderView = () => {
                           <td className="order-date">خرداد 5</td>
                           <td className="order-status">در حال پردازش </td>
                           <td className="order-total">
-                            <span className="order-price">720000 تومان</span> برای
+                            <span className="order-price">720000 تومان</span>{" "}
+                            برای
                             <span className="order-quantity"> 1</span> آیتم
                           </td>
                           <td className="order-action">
-                            <a
+                            <Link
                               href="#"
                               className="btn btn-outline btn-default btn-block btn-sm btn-rounded"
                             >
                               نمایش{" "}
-                            </a>
+                            </Link>
                           </td>
                         </tr>
                       </tbody>
                     </table>
 
-                    <a
+                    <Link
                       href="shop-banner-sidebar.html"
                       className="btn btn-dark btn-rounded btn-icon-right"
                     >
                       برو فروشگاه <i className="w-icon-long-arrow-left"></i>
-                    </a>
+                    </Link>
                   </div>
 
                   <div className="tab-pane" id="account-downloads">
@@ -293,12 +301,12 @@ const OrderView = () => {
                       </div>
                     </div>
                     <p className="mb-4">هنوز دانلودی در دسترس نیست.</p>
-                    <a
+                    <Link
                       href="shop-banner-sidebar.html"
                       className="btn btn-dark btn-rounded btn-icon-right"
                     >
                       برو فروشگاه <i className="w-icon-long-arrow-left"></i>
-                    </a>
+                    </Link>
                   </div>
 
                   <div className="tab-pane" id="account-addresses">
@@ -307,7 +315,9 @@ const OrderView = () => {
                         <i className="w-icon-map-marker"></i>
                       </span>
                       <div className="icon-box-content">
-                        <h4 className="icon-box-title mb-0 ls-normal">آدرس ها </h4>
+                        <h4 className="icon-box-title mb-0 ls-normal">
+                          آدرس ها{" "}
+                        </h4>
                       </div>
                     </div>
                     <p>
@@ -353,13 +363,13 @@ const OrderView = () => {
                               </tbody>
                             </table>
                           </address>
-                          <a
+                          <Link
                             href="#"
                             className="btn btn-link btn-underline btn-icon-right text-primary"
                           >
                             آدرس صورتحساب خود را ویرایش کنید
                             <i className="w-icon-long-arrow-left"></i>
-                          </a>
+                          </Link>
                         </div>
                       </div>
                       <div className="col-sm-6 mb-6">
@@ -397,13 +407,13 @@ const OrderView = () => {
                               </tbody>
                             </table>
                           </address>
-                          <a
+                          <Link
                             href="#"
                             className="btn btn-link btn-underline btn-icon-right text-primary"
                           >
                             آدرس حمل و نقل خود را ویرایش کنید
                             <i className="w-icon-long-arrow-left"></i>
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -537,19 +547,19 @@ const OrderView = () => {
                         <tbody>
                           <tr>
                             <td>
-                              <a href="#">کت چاپ نخل </a>&nbsp;
+                              <Link href="#">کت چاپ نخل </Link>&nbsp;
                               <strong>x 1</strong>
                               <br />
-                              فروشنده : <a href="#"> فروشنده 1</a>
+                              فروشنده : <Link href="#"> فروشنده 1</Link>
                             </td>
                             <td>80000 تومان </td>
                           </tr>
                           <tr>
                             <td>
-                              <a href="#">کوله پشتی قهوه ای</a>&nbsp;
+                              <Link href="#">کوله پشتی قهوه ای</Link>&nbsp;
                               <strong>x 1</strong>
                               <br />
-                              فروشنده : <a href="#"> فروشنده 1</a>
+                              فروشنده : <Link href="#"> فروشنده 1</Link>
                             </td>
                             <td>50000 تومان</td>
                           </tr>
@@ -603,9 +613,12 @@ const OrderView = () => {
                             <td className="status">در انتظار </td>
                             <td className="total">80000 تومان برای 1 آیتم</td>
                             <td className="action">
-                              <a href="order-view.html" className="btn btn-rounded">
+                              <Link
+                                href="order-view.html"
+                                className="btn btn-rounded"
+                              >
                                 نمایش{" "}
-                              </a>
+                              </Link>
                             </td>
                           </tr>
                           <tr>
@@ -614,9 +627,12 @@ const OrderView = () => {
                             <td className="status">در انتظار </td>
                             <td className="total">50000 تومان برای 1 آیتم</td>
                             <td className="action">
-                              <a href="order-view.html" className="btn btn-rounded">
+                              <Link
+                                href="order-view.html"
+                                className="btn btn-rounded"
+                              >
                                 نمایش{" "}
-                              </a>
+                              </Link>
                             </td>
                           </tr>
                         </tbody>
@@ -696,12 +712,12 @@ const OrderView = () => {
                       </div>
                     </div>
 
-                    <a
+                    <Link
                       href="#"
                       className="btn btn-dark btn-rounded btn-icon-left btn-back mt-6 mb-6"
                     >
                       <i className="w-icon-long-arrow-left"></i>بازگشت به فهرست
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

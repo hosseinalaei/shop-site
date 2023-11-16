@@ -41,7 +41,7 @@ const TopCategories = () => {
           },
         }}
       > */}
-        <div className="icon-box-wrapper">
+      <div className="icon-box-wrapper">
         <Swiper
           loop={true}
           spaceBetween={0}
@@ -109,7 +109,7 @@ const TopCategories = () => {
             </div>
           </SwiperSlide>
         </Swiper>
-        </div>
+      </div>
       {/* </Swiper> */}
 
       <div className="top-categories-wrapper ">
@@ -178,7 +178,7 @@ const TopCategories = () => {
               })}
               {/* <div className="swiper-slide category category-ellipse">
                 <figure className="category-media">
-                  <a href="demo15-shop.html">
+                  <Link href="demo15-shop.html">
                     <Image
                       src={cat1}
                       alt="Categroy"
@@ -186,17 +186,17 @@ const TopCategories = () => {
                       height="190"
                       style={{ backgroundColor: "#C1C6CC" }}
                     />
-                  </a>
+                  </Link>
                 </figure>
                 <div className="category-content">
                   <h4 className="category-name">
-                    <a href="demo15-shop.html">مد </a>
+                    <Link href="demo15-shop.html">مد </Link>
                   </h4>
                 </div>
               </div>
               <div className="swiper-slide category category-ellipse">
                 <figure className="category-media">
-                  <a href="demo15-shop.html">
+                  <Link href="demo15-shop.html">
                     <Image
                       src={cat2}
                       alt="Categroy"
@@ -204,17 +204,17 @@ const TopCategories = () => {
                       height="190"
                       style={{ backgroundColor: "#9BC4CA" }}
                     />
-                  </a>
+                  </Link>
                 </figure>
                 <div className="category-content">
                   <h4 className="category-name">
-                    <a href="demo15-shop.html">کفش </a>
+                    <Link href="demo15-shop.html">کفش </Link>
                   </h4>
                 </div>
               </div>
               <div className="swiper-slide category category-ellipse">
                 <figure className="category-media">
-                  <a href="demo15-shop.html">
+                  <Link href="demo15-shop.html">
                     <Image
                       src={cat3}
                       alt="Categroy"
@@ -222,17 +222,17 @@ const TopCategories = () => {
                       height="190"
                       style={{ backgroundColor: "#5D6A73" }}
                     />
-                  </a>
+                  </Link>
                 </figure>
                 <div className="category-content">
                   <h4 className="category-name">
-                    <a href="demo15-shop.html">آشپزخانه </a>
+                    <Link href="demo15-shop.html">آشپزخانه </Link>
                   </h4>
                 </div>
               </div>
               <div className="swiper-slide category category-ellipse">
                 <figure className="category-media">
-                  <a href="demo15-shop.html">
+                  <Link href="demo15-shop.html">
                     <Image
                       src={cat4}
                       alt="Categroy"
@@ -240,17 +240,17 @@ const TopCategories = () => {
                       height="190"
                       style={{ backgroundColor: "#8692A0" }}
                     />
-                  </a>
+                  </Link>
                 </figure>
                 <div className="category-content">
                   <h4 className="category-name">
-                    <a href="demo15-shop.html">گوشی </a>
+                    <Link href="demo15-shop.html">گوشی </Link>
                   </h4>
                 </div>
               </div>
               <div className="swiper-slide category category-ellipse">
                 <figure className="category-media">
-                  <a href="demo15-shop.html">
+                  <Link href="demo15-shop.html">
                     <Image
                       src={cat5}
                       alt="Categroy"
@@ -258,17 +258,17 @@ const TopCategories = () => {
                       height="190"
                       style={{ backgroundColor: "#E2E2E2" }}
                     />
-                  </a>
+                  </Link>
                 </figure>
                 <div className="category-content">
                   <h4 className="category-name">
-                    <a href="demo15-shop.html">لوازم آرایشی </a>
+                    <Link href="demo15-shop.html">لوازم آرایشی </Link>
                   </h4>
                 </div>
               </div>
               <div className="swiper-slide category category-ellipse">
                 <figure className="category-media">
-                  <a href="demo15-shop.html">
+                  <Link href="demo15-shop.html">
                     <Image
                       src={cat6}
                       alt="Categroy"
@@ -276,17 +276,17 @@ const TopCategories = () => {
                       height="190"
                       style={{ backgroundColor: "#596F7C" }}
                     />
-                  </a>
+                  </Link>
                 </figure>
                 <div className="category-content">
                   <h4 className="category-name">
-                    <a href="demo15-shop.html">دوربین ها </a>
+                    <Link href="demo15-shop.html">دوربین ها </Link>
                   </h4>
                 </div>
               </div>
               <div className="swiper-slide category category-ellipse">
                 <figure className="category-media">
-                  <a href="demo15-shop.html">
+                  <Link href="demo15-shop.html">
                     <Image
                       src={cat7}
                       alt="Categroy"
@@ -294,17 +294,17 @@ const TopCategories = () => {
                       height="190"
                       style={{ backgroundColor: "#B8BCBF" }}
                     />
-                  </a>
+                  </Link>
                 </figure>
                 <div className="category-content">
                   <h4 className="category-name">
-                    <a href="demo15-shop.html">ساعت </a>
+                    <Link href="demo15-shop.html">ساعت </Link>
                   </h4>
                 </div>
               </div>
               <div className="swiper-slide category category-ellipse">
                 <figure className="category-media">
-                  <a href="demo15-shop.html">
+                  <Link href="demo15-shop.html">
                     <Image
                       src={cat8}
                       alt="Categroy"
@@ -312,11 +312,11 @@ const TopCategories = () => {
                       height="190"
                       style={{ backgroundColor: "#65737C" }}
                     />
-                  </a>
+                  </Link>
                 </figure>
                 <div className="category-content">
                   <h4 className="category-name">
-                    <a href="demo15-shop.html">بچه ها </a>
+                    <Link href="demo15-shop.html">بچه ها </Link>
                   </h4>
                 </div>
               </div> */}

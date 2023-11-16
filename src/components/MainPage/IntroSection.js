@@ -14,6 +14,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import "swiper/css/autoplay";
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 
 const IntroSection = () => {
   const swiperRef = useRef(null);
@@ -61,12 +62,12 @@ const IntroSection = () => {
                       <br />
                       مجموعه سبک زندگی مد
                     </h3>
-                    <a
+                    <Link 
                       href="demo9-shop.html"
                       className="btn btn-dark btn-outline btn-rounded btn-icon-right"
                     >
                       اکنون بخرید <i className="w-icon-long-arrow-left"></i>
-                    </a> */}
+                    </Link> */}
                   </div>
                 </div>
                 {/* <figure
@@ -115,12 +116,12 @@ const IntroSection = () => {
                     <p className="text-dark">
                       ارسال رایگان تمامی سفارشات <strong>80000 تومان</strong>
                     </p>
-                    <a
+                    <Link 
                       href="demo9-shop.html"
                       className="btn btn-dark btn-outline btn-rounded btn-icon-right"
                     >
                       اکنون بخرید <i className="w-icon-long-arrow-left"></i>
-                    </a> */}
+                    </Link> */}
                   </div>
                 </div>
                 {/* <figure
@@ -185,12 +186,12 @@ const IntroSection = () => {
                     {/* <h4 className="text-white text-uppercase ls-25">
                       راحتی بیشتر در اطراف را انتخاب می کند
                     </h4>
-                    <a
+                    <Link 
                       href="demo9-shop.html"
                       className="btn btn-dark btn-rounded btn-icon-right"
                     >
                       اکنون بخرید <i className="w-icon-long-arrow-left"></i>
-                    </a> */}
+                    </Link> */}
                   </div>
                 </div>
                 {/* <figure className="slide-image skrollable slide-animate">
@@ -231,12 +232,12 @@ const IntroSection = () => {
                     <br />
                     مجموعه سبک زندگی مد
                   </h3>
-                  <a
+                  <Link 
                     href="demo9-shop.html"
                     className="btn btn-dark btn-outline btn-rounded btn-icon-right"
                   >
                     اکنون بخرید <i className="w-icon-long-arrow-left"></i>
-                  </a>
+                  </Link>
                 </div>
               </div>
               <figure className="slide-image skrollable slide-animate">
@@ -278,12 +279,12 @@ const IntroSection = () => {
                   <p className="text-dark">
                     ارسال رایگان تمامی سفارشات <strong>80000 تومان</strong>
                   </p>
-                  <a
+                  <Link 
                     href="demo9-shop.html"
                     className="btn btn-dark btn-outline btn-rounded btn-icon-right"
                   >
                     اکنون بخرید <i className="w-icon-long-arrow-left"></i>
-                  </a>
+                  </Link>
                 </div>
               </div>
               <figure
@@ -305,7 +306,7 @@ const IntroSection = () => {
           </SwiperSlide> */}
         </div>
         <div className="custom-dots swiper-img-dots">
-          <a
+          <Link
             href="#"
             className="active"
             onClick={() => {
@@ -313,29 +314,29 @@ const IntroSection = () => {
             }}
           >
             <Image src={dot1} alt="Dot" width="70" height="70" />
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             onClick={() => {
               handleSlideChange(1);
             }}
           >
             <Image src={dot2} alt="Dot" width="70" height="70" />
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             onClick={() => {
               handleSlideChange(2);
             }}
           >
             <Image src={dot3} alt="Dot" width="70" height="70" />
-          </a>
-          {/* <a href="#">
+          </Link>
+          {/* <Link href="#">
             <Image src={dot1} alt="Dot" width="70" height="70" />
-          </a>
-          <a href="#">
+          </Link>
+          <Link href="#">
             <Image src={dot2} alt="Dot" width="70" height="70" />
-          </a> */}
+          </Link> */}
         </div>
       </Swiper>
       {/* <Swiper
@@ -391,7 +392,7 @@ const IntroSection = () => {
                 استفاده از طراحان گرافیک است. با تولید سادگی نامفهوم از صنعت چاپ
                 و با استفاده از طراحان گرافیک است..
               </p>
-              <a
+              <Link 
                 href="demo15-shop.html"
                 className="btn btn-dark btn-rounded slide-animate"
                 data-animation-options="{
@@ -401,7 +402,7 @@ const IntroSection = () => {
                         }"
               >
                 مجموعه فروشگاه
-              </a>
+              </Link>
             </div>
           </div>
         </SwiperSlide>
@@ -448,7 +449,7 @@ const IntroSection = () => {
               >
                 ارسال رایگان برای تمامی سفارشات بالای 180.00 تومان
               </h5>
-              <a
+              <Link 
                 href="demo15-shop.html"
                 className="btn btn-dark btn-rounded btn-icon-right mb-1 slide-animate"
                 data-animation-options="{
@@ -459,7 +460,7 @@ const IntroSection = () => {
               >
                 اکنون بخرید
                 <i className="w-icon-long-arrow-left ml-1"></i>
-              </a>
+              </Link>
             </div>
           </div>
         </SwiperSlide>
@@ -520,7 +521,7 @@ const IntroSection = () => {
                     با استفاده از طراحان گرافیک است. با تولید سادگی نامفهوم از
                     صنعت چاپ و با استفاده از طراحان گرافیک است..
                   </p>
-                  <a
+                  <Link 
                     href="demo15-shop.html"
                     className="btn btn-dark btn-rounded slide-animate"
                     data-animation-options="{
@@ -530,7 +531,7 @@ const IntroSection = () => {
                         }"
                   >
                     مجموعه فروشگاه
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="swiper-slide banner banner-fixed intro-slide2">
@@ -575,7 +576,7 @@ const IntroSection = () => {
                   >
                     ارسال رایگان برای تمامی سفارشات بالای 180.00 تومان
                   </h5>
-                  <a
+                  <Link 
                     href="demo15-shop.html"
                     className="btn btn-dark btn-rounded btn-icon-right mb-1 slide-animate"
                     data-animation-options="{
@@ -586,7 +587,7 @@ const IntroSection = () => {
                   >
                     اکنون بخرید
                     <i className="w-icon-long-arrow-left ml-1"></i>
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="swiper-slide banner banner-fixed intro-slide3">
@@ -624,7 +625,7 @@ const IntroSection = () => {
                     <br />
                     مجموعه
                   </h3>
-                  <a
+                  <Link 
                     href="demo15-shop.html"
                     className="btn btn-dark btn-outline btn-rounded btn-icon-right mb-1 slide-animate"
                     data-animation-options="{
@@ -635,7 +636,7 @@ const IntroSection = () => {
                   >
                     اکنون بخرید
                     <i className="w-icon-long-arrow-left"></i>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

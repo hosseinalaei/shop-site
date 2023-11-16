@@ -81,7 +81,7 @@ const categoryProducts = () => {
               <Link href="/">خانه </Link>
             </li>
             {/* <li>
-              <a href="/">فروشگاه </a>
+              <Link href="/">فروشگاه </Link>
             </li> */}
           </ul>
         </div>
@@ -108,12 +108,12 @@ const categoryProducts = () => {
           <h3 className="banner-title text-white text-uppercase font-weight-bolder ls-10">
             ساعت هوشمند
           </h3>
-          <a
+          <Link 
             href="shop-banner-sidebar.html"
             className="btn btn-dark btn-rounded btn-icon-right"
           >
             کاووش کنید<i className="w-icon-long-arrow-left"></i>
-          </a>
+          </Link>
         </div> */}
           </div>
 
@@ -162,18 +162,18 @@ const categoryProducts = () => {
                     </select>
                   </div>
                   <div className="toolbox-item toolbox-layout">
-                    <a
+                    <Link
                       href="shop-fullwidth-banner.html"
                       className="icon-mode-grid btn-layout active"
                     >
                       <i className="w-icon-grid"></i>
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       href="shop-list.html"
                       className="icon-mode-list btn-layout"
                     >
                       <i className="w-icon-list"></i>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </nav>
@@ -201,29 +201,29 @@ const categoryProducts = () => {
                 </p>
                 <ul className="pagination">
                   <li className="prev disabled">
-                    <a
+                    <Link
                       href="#"
                       aria-label="Previous"
                       tabindex="-1"
                       aria-disabled="true"
                     >
                       <i className="w-icon-long-arrow-right"></i>قبلی
-                    </a>
+                    </Link>
                   </li>
                   <li className="page-item active">
-                    <a className="page-link" href="#">
+                    <Link className="page-link" href="#">
                       1
-                    </a>
+                    </Link>
                   </li>
                   <li className="page-item">
-                    <a className="page-link" href="#">
+                    <Link className="page-link" href="#">
                       2
-                    </a>
+                    </Link>
                   </li>
                   <li className="next">
-                    <a href="#" aria-label="Next">
+                    <Link href="#" aria-label="Next">
                       بعدی <i className="w-icon-long-arrow-left"></i>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>

@@ -2,878 +2,959 @@ import { useCartContext } from "@/contexts/contex";
 import Link from "next/link";
 import { useState } from "react";
 
-const MobileMenu = ({mobileMenu}) => {
+const MobileMenu = ({ mobileMenu }) => {
+  const { setMobileMenu, subMenu, catMenu } = useCartContext();
 
-  const {setMobileMenu, subMenu, catMenu} = useCartContext();
-
-  const [menuState, setMenuState] = useState('main')
+  const [menuState, setMenuState] = useState("main");
 
   let drawerClasses = "mobile-side-drawer";
   if (mobileMenu) {
     drawerClasses = "mobile-side-drawer open";
   }
-    return ( 
-        <div className={`sidebar shop-sidebar left-sidebar sticky-sidebar-wrapper ${drawerClasses}`}>
-
-        { <a href="#" className={!mobileMenu ? "mobile-menu-close": 'mmenu-active'} onClick={() =>{setMobileMenu(false)}}>
+  return (
+    <div
+      className={`sidebar shop-sidebar left-sidebar sticky-sidebar-wrapper ${drawerClasses}`}
+    >
+      {
+        <Link
+          href="#"
+          className={!mobileMenu ? "mobile-menu-close" : "mmenu-active"}
+          onClick={() => {
+            setMobileMenu(false);
+          }}
+        >
           <i className="close-icon"></i>
-        </a>}
+        </Link>
+      }
 
-        <div className="mobile-menu-container scrollable">
-          <form action="#" method="get" className="input-wrapper">
-            <input
-              type="text"
-              className="form-control"
-              name="search"
-              autoComplete="off"
-              placeholder="جستجو"
-              required
-            />
-            <button className="btn btn-search" type="submit">
-              <i className="w-icon-search"></i>
-            </button>
-          </form>
+      <div className="mobile-menu-container scrollable">
+        <form action="#" method="get" className="input-wrapper">
+          <input
+            type="text"
+            className="form-control"
+            name="search"
+            autoComplete="off"
+            placeholder="جستجو"
+            required
+          />
+          <button className="btn btn-search" type="submit">
+            <i className="w-icon-search"></i>
+          </button>
+        </form>
 
-          <div className="tab">
-            <ul className="nav nav-tabs" role="tablist">
-              <li className="nav-item" >
-                <a href="#main-menu" className={`nav-link ${menuState === 'main' ? 'active' : ''}`} onClick={() =>{setMenuState('main')}}>
-                  منوی اصلی{" "}
-                </a>
+        <div className="tab">
+          <ul className="nav nav-tabs" role="tablist">
+            <li className="nav-item">
+              <Link
+                href="#main-menu"
+                className={`nav-link ${menuState === "main" ? "active" : ""}`}
+                onClick={() => {
+                  setMenuState("main");
+                }}
+              >
+                منوی اصلی{" "}
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                href="#categories"
+                className={`nav-link ${menuState === "cat" ? "active" : ""}`}
+                onClick={() => {
+                  setMenuState("cat");
+                }}
+              >
+                دسته بندیها{" "}
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className="tab-content">
+          <div
+            className={`tab-pane ${menuState === "main" ? "active" : ""}`}
+            id="main-menu"
+          >
+            <ul className="mobile-menu">
+              <li>
+                <Link
+                  href={`/`}
+                  onClick={() => {
+                    setMobileMenu(false);
+                  }}
+                >
+                  خانه{" "}
+                </Link>
               </li>
-              <li className="nav-item">
-                <a href="#categories" className={`nav-link ${menuState === 'cat' ? 'active' : ''}`} onClick={() =>{setMenuState('cat')}}>
-                  دسته بندیها{" "}
-                </a>
+              <li>
+                <Link
+                  href={`/shop`}
+                  onClick={() => {
+                    setMobileMenu(false);
+                  }}
+                >
+                  فروشگاه{" "}
+                </Link>
+                <ul>
+                  <li>
+                    <Link href="#">صفحات فروشگاه </Link>
+                    <ul>
+                      <li>
+                        <Link href="shop-banner-sidebar.html">
+                          بنر با نوار کناری
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="shop-boxed-banner.html">بنر باکسی </Link>
+                      </li>
+                      <li>
+                        <Link href="shop-fullwidth-banner.html">
+                          بنر تمام عرض{" "}
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="shop-horizontal-filter.html">
+                          فیلتر افقی <span className="tip tip-hot">داغ </span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="shop-off-canvas.html">
+                          بدون نوار کناری{" "}
+                          <span className="tip tip-new">جدید </span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="shop-infinite-scroll.html">
+                          {" "}
+                          اسکرول بی نهایت آژاکس
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="shop-right-sidebar.html">سایدبار چپ </Link>
+                      </li>
+                      <li>
+                        <Link href="shop-both-sidebar.html">
+                          هر دو نوار کناری{" "}
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <Link href="#">چیدمان فروشگاه </Link>
+                    <ul>
+                      <li>
+                        <Link href="shop-grid-3cols.html">3 حالت ستون ها </Link>
+                      </li>
+                      <li>
+                        <Link href="shop-grid-4cols.html">4 حالت ستون ها </Link>
+                      </li>
+                      <li>
+                        <Link href="shop-grid-5cols.html">5 حالت ستون ها </Link>
+                      </li>
+                      <li>
+                        <Link href="shop-grid-6cols.html">6 حالت ستون ها </Link>
+                      </li>
+                      <li>
+                        <Link href="shop-grid-7cols.html">7 حالت ستون ها </Link>
+                      </li>
+                      <li>
+                        <Link href="shop-grid-8cols.html">8 حالت ستون ها </Link>
+                      </li>
+                      <li>
+                        <Link href="shop-list.html">حالت فهرست</Link>
+                      </li>
+                      <li>
+                        <Link href="shop-list-sidebar.html">
+                          حالت فهرست با نوار کناری
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <Link href="#">صفحات محصول </Link>
+                    <ul>
+                      <li>
+                        <Link href="product-variable.html">محصول متغیر </Link>
+                      </li>
+                      <li>
+                        <Link href="product-featured.html">ویژه و جذاب </Link>
+                      </li>
+                      <li>
+                        <Link href="product-accordion.html">
+                          داده ها در آکاردئون
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="product-section.html">
+                          داده ها در بخش ها{" "}
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="product-swatch.html">نمونه تصویر </Link>
+                      </li>
+                      <li>
+                        <Link href="product-extended.html">
+                          اطلاعات گسترده{" "}
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="product-without-sidebar.html">
+                          بدون نوار کناری{" "}
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="product-video.html">
+                          360<sup>درجه </sup> ویدئو{" "}
+                          <span className="tip tip-new">جدید </span>
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <Link href="#">چیدمان محصول </Link>
+                    <ul>
+                      <li>
+                        <Link href="product-default.html">
+                          پیشفرض <span className="tip tip-hot">داغ </span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="product-vertical.html">شست عمودی </Link>
+                      </li>
+                      <li>
+                        <Link href="product-grid.html">تصاویر شبکه ای </Link>
+                      </li>
+                      <li>
+                        <Link href="product-masonry.html">ساختمانی </Link>
+                      </li>
+                      <li>
+                        <Link href="product-gallery.html">گالری </Link>
+                      </li>
+                      <li>
+                        <Link href="product-sticky-info.html">
+                          اطلاعات چسبناک{" "}
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="product-sticky-thumb.html">
+                          تصویر چسبناک{" "}
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="product-sticky-both.html">
+                          هردو چسبناک{" "}
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              {/* <li>
+                  <Link href="vendor-dokan-store.html">فروشنده </Link>
+                  <ul>
+                    <li>
+                      <Link href="#">لیست فروشگاه </Link>
+                      <ul>
+                        <li>
+                          <Link href="vendor-dokan-store-list.html">
+                            فهرست فروشگاه 1
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="vendor-wcfm-store-list.html">
+                            فهرست فروشگاه 2
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="vendor-wcmp-store-list.html">
+                            فهرست فروشگاه 3
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="vendor-wc-store-list.html">
+                            فهرست فروشگاه 4
+                          </Link>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <Link href="#">فروشگاه فروشنده </Link>
+                      <ul>
+                        <li>
+                          <Link href="vendor-dokan-store.html">
+                            فروشگاه فروشنده 1
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="vendor-wcfm-store-product-grid.html">
+                            فروشگاه فروشنده 2
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="vendor-wcmp-store-product-grid.html">
+                            فروشگاه فروشنده 3
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="vendor-wc-store-product-grid.html">
+                            فروشگاه فروشنده 4
+                          </Link>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li> */}
+              <li>
+                <Link
+                  href={`/blog`}
+                  onClick={() => {
+                    setMobileMenu(false);
+                  }}
+                >
+                  بلاگ{" "}
+                </Link>
+                <ul>
+                  <li>
+                    <Link href="blog.html">کلاسیک </Link>
+                  </li>
+                  <li>
+                    <Link href="blog-listing.html">لیستی </Link>
+                  </li>
+                  <li>
+                    <Link href="#">گرید </Link>
+                    <ul>
+                      <li>
+                        <Link href="blog-grid-2cols.html">شبکه 2 ستون</Link>
+                      </li>
+                      <li>
+                        <Link href="blog-grid-3cols.html">شبکه 3 ستون</Link>
+                      </li>
+                      <li>
+                        <Link href="blog-grid-4cols.html">شبکه 4ستون</Link>
+                      </li>
+                      <li>
+                        <Link href="blog-grid-sidebar.html">
+                          سایدبار شبکه ای{" "}
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <Link href="#">ساختمانی </Link>
+                    <ul>
+                      <li>
+                        <Link href="blog-masonry-2cols.html">
+                          ساختمانی 2 ستون{" "}
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="blog-masonry-3cols.html">
+                          ساختمانی 3 ستون{" "}
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="blog-masonry-4cols.html">
+                          ساختمانی 4ستون{" "}
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="blog-masonry-sidebar.html">
+                          نوار کناری ساختمانی{" "}
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <Link href="#">ماسک </Link>
+                    <ul>
+                      <li>
+                        <Link href="blog-mask-grid.html">ماسک وبلاگ گرید </Link>
+                      </li>
+                      <li>
+                        <Link href="blog-mask-masonry.html">
+                          ماسک وبلاگ ساختمانی{" "}
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <Link href="post-single.html">تک نوشته </Link>
+                  </li>
+                </ul>
+              </li>
+              {/* <li>
+                  <Link href="about-us.html">صفحات </Link>
+                  <ul>
+                    <li>
+                      <Link href="about-us.html">درباره ما </Link>
+                    </li>
+                    <li>
+                      <Link href="become-a-vendor.html">فروشنده شوید </Link>
+                    </li>
+                    <li>
+                      <Link href="contact-us.html">تماس با ما </Link>
+                    </li>
+                    <li>
+                      <Link href="login.html">ورود </Link>
+                    </li>
+                    <li>
+                      <Link href="faq.html">نقل و قل </Link>
+                    </li>
+                    <li>
+                      <Link href="error-404.html">ارور 404</Link>
+                    </li>
+                    <li>
+                      <Link href="coming-soon.html">به زودی </Link>
+                    </li>
+                    <li>
+                      <Link href="wishlist.html">علاقه مندیها </Link>
+                    </li>
+                    <li>
+                      <Link href="cart.html">سبد خرید </Link>
+                    </li>
+                    <li>
+                      <Link href="checkout.html">پرداخت </Link>
+                    </li>
+                    <li>
+                      <Link href="my-account.html">حساب من </Link>
+                    </li>
+                  </ul>
+                </li> */}
+              <li>
+                <Link
+                  href={`/cart`}
+                  onClick={() => {
+                    setMobileMenu(false);
+                  }}
+                >
+                  سبد خرید
+                </Link>
+                <ul>
+                  <li>
+                    <Link href="element-products.html">محصولات </Link>
+                  </li>
+                  <li>
+                    <Link href="element-titles.html">عناوین </Link>
+                  </li>
+                  <li>
+                    <Link href="element-typography.html">تایپوگرافی </Link>
+                  </li>
+                  <li>
+                    <Link href="element-categories.html">دسته بندی محصول </Link>
+                  </li>
+                  <li>
+                    <Link href="element-buttons.html">دکمه ها </Link>
+                  </li>
+                  <li>
+                    <Link href="element-accordions.html">آکاردئون </Link>
+                  </li>
+                  <li>
+                    <Link href="element-alerts.html">هشدار و اعلان</Link>
+                  </li>
+                  <li>
+                    <Link href="element-tabs.html">زبانه ها </Link>
+                  </li>
+                  <li>
+                    <Link href="element-testimonials.html">مشتریان </Link>
+                  </li>
+                  <li>
+                    <Link href="element-blog-posts.html">پست های وبلاگ </Link>
+                  </li>
+                  <li>
+                    <Link href="element-instagrams.html">اینستاگرام </Link>
+                  </li>
+                  <li>
+                    <Link href="element-cta.html">دکمه اقدام تماس</Link>
+                  </li>
+                  <li>
+                    <Link href="element-vendors.html">فروشندگان </Link>
+                  </li>
+                  <li>
+                    <Link href="element-icon-boxes.html">آیکن باکس </Link>
+                  </li>
+                  <li>
+                    <Link href="element-icons.html">آیکن ها </Link>
+                  </li>
+                </ul>
               </li>
             </ul>
           </div>
-          <div className="tab-content">
-            <div className={`tab-pane ${menuState === 'main' ? 'active' : ''}`} id="main-menu">
-              <ul className="mobile-menu">
+          <div
+            className={`tab-pane ${menuState === "cat" ? "active" : ""}`}
+            id="categories"
+          >
+            <ul className="mobile-menu">
+              {catMenu?.map((item) => (
                 <li>
-                  <Link href={`/`} onClick={() =>{setMobileMenu(false)}}>خانه </Link>
+                  <Link
+                    href={`/category/${item.id}`}
+                    onClick={() => {
+                      setMobileMenu(false);
+                    }}
+                  >
+                    <i className="w-icon-electronics"></i>
+                    {item.title} <span class="toggle-btn"></span>
+                  </Link>
                 </li>
-                <li>
-                  <Link href={`/shop`} onClick={() =>{setMobileMenu(false)}}>فروشگاه </Link>
-                  <ul>
-                    <li>
-                      <a href="#">صفحات فروشگاه </a>
-                      <ul>
-                        <li>
-                          <a href="shop-banner-sidebar.html">
-                            بنر با نوار کناری
-                          </a>
-                        </li>
-                        <li>
-                          <a href="shop-boxed-banner.html">بنر باکسی </a>
-                        </li>
-                        <li>
-                          <a href="shop-fullwidth-banner.html">بنر تمام عرض </a>
-                        </li>
-                        <li>
-                          <a href="shop-horizontal-filter.html">
-                            فیلتر افقی <span className="tip tip-hot">داغ </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="shop-off-canvas.html">
-                            بدون نوار کناری{" "}
-                            <span className="tip tip-new">جدید </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="shop-infinite-scroll.html">
-                            {" "}
-                            اسکرول بی نهایت آژاکس
-                          </a>
-                        </li>
-                        <li>
-                          <a href="shop-right-sidebar.html">سایدبار چپ </a>
-                        </li>
-                        <li>
-                          <a href="shop-both-sidebar.html">هر دو نوار کناری </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="#">چیدمان فروشگاه </a>
-                      <ul>
-                        <li>
-                          <a href="shop-grid-3cols.html">3 حالت ستون ها </a>
-                        </li>
-                        <li>
-                          <a href="shop-grid-4cols.html">4 حالت ستون ها </a>
-                        </li>
-                        <li>
-                          <a href="shop-grid-5cols.html">5 حالت ستون ها </a>
-                        </li>
-                        <li>
-                          <a href="shop-grid-6cols.html">6 حالت ستون ها </a>
-                        </li>
-                        <li>
-                          <a href="shop-grid-7cols.html">7 حالت ستون ها </a>
-                        </li>
-                        <li>
-                          <a href="shop-grid-8cols.html">8 حالت ستون ها </a>
-                        </li>
-                        <li>
-                          <a href="shop-list.html">حالت فهرست</a>
-                        </li>
-                        <li>
-                          <a href="shop-list-sidebar.html">
-                            حالت فهرست با نوار کناری
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="#">صفحات محصول </a>
-                      <ul>
-                        <li>
-                          <a href="product-variable.html">محصول متغیر </a>
-                        </li>
-                        <li>
-                          <a href="product-featured.html">ویژه و جذاب </a>
-                        </li>
-                        <li>
-                          <a href="product-accordion.html">
-                            داده ها در آکاردئون
-                          </a>
-                        </li>
-                        <li>
-                          <a href="product-section.html">داده ها در بخش ها </a>
-                        </li>
-                        <li>
-                          <a href="product-swatch.html">نمونه تصویر </a>
-                        </li>
-                        <li>
-                          <a href="product-extended.html">اطلاعات گسترده </a>
-                        </li>
-                        <li>
-                          <a href="product-without-sidebar.html">
-                            بدون نوار کناری{" "}
-                          </a>
-                        </li>
-                        <li>
-                          <a href="product-video.html">
-                            360<sup>درجه </sup> ویدئو{" "}
-                            <span className="tip tip-new">جدید </span>
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="#">چیدمان محصول </a>
-                      <ul>
-                        <li>
-                          <a href="product-default.html">
-                            پیشفرض <span className="tip tip-hot">داغ </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="product-vertical.html">شست عمودی </a>
-                        </li>
-                        <li>
-                          <a href="product-grid.html">تصاویر شبکه ای </a>
-                        </li>
-                        <li>
-                          <a href="product-masonry.html">ساختمانی </a>
-                        </li>
-                        <li>
-                          <a href="product-gallery.html">گالری </a>
-                        </li>
-                        <li>
-                          <a href="product-sticky-info.html">اطلاعات چسبناک </a>
-                        </li>
-                        <li>
-                          <a href="product-sticky-thumb.html">تصویر چسبناک </a>
-                        </li>
-                        <li>
-                          <a href="product-sticky-both.html">هردو چسبناک </a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                {/* <li>
-                  <a href="vendor-dokan-store.html">فروشنده </a>
-                  <ul>
-                    <li>
-                      <a href="#">لیست فروشگاه </a>
-                      <ul>
-                        <li>
-                          <a href="vendor-dokan-store-list.html">
-                            فهرست فروشگاه 1
-                          </a>
-                        </li>
-                        <li>
-                          <a href="vendor-wcfm-store-list.html">
-                            فهرست فروشگاه 2
-                          </a>
-                        </li>
-                        <li>
-                          <a href="vendor-wcmp-store-list.html">
-                            فهرست فروشگاه 3
-                          </a>
-                        </li>
-                        <li>
-                          <a href="vendor-wc-store-list.html">
-                            فهرست فروشگاه 4
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="#">فروشگاه فروشنده </a>
-                      <ul>
-                        <li>
-                          <a href="vendor-dokan-store.html">
-                            فروشگاه فروشنده 1
-                          </a>
-                        </li>
-                        <li>
-                          <a href="vendor-wcfm-store-product-grid.html">
-                            فروشگاه فروشنده 2
-                          </a>
-                        </li>
-                        <li>
-                          <a href="vendor-wcmp-store-product-grid.html">
-                            فروشگاه فروشنده 3
-                          </a>
-                        </li>
-                        <li>
-                          <a href="vendor-wc-store-product-grid.html">
-                            فروشگاه فروشنده 4
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li> */}
-                <li>
-                  <Link href={`/blog`} onClick={() =>{setMobileMenu(false)}}>بلاگ </Link>
-                  <ul>
-                    <li>
-                      <a href="blog.html">کلاسیک </a>
-                    </li>
-                    <li>
-                      <a href="blog-listing.html">لیستی </a>
-                    </li>
-                    <li>
-                      <a href="#">گرید </a>
-                      <ul>
-                        <li>
-                          <a href="blog-grid-2cols.html">شبکه 2 ستون</a>
-                        </li>
-                        <li>
-                          <a href="blog-grid-3cols.html">شبکه 3 ستون</a>
-                        </li>
-                        <li>
-                          <a href="blog-grid-4cols.html">شبکه 4ستون</a>
-                        </li>
-                        <li>
-                          <a href="blog-grid-sidebar.html">سایدبار شبکه ای </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="#">ساختمانی </a>
-                      <ul>
-                        <li>
-                          <a href="blog-masonry-2cols.html">ساختمانی 2 ستون </a>
-                        </li>
-                        <li>
-                          <a href="blog-masonry-3cols.html">ساختمانی 3 ستون </a>
-                        </li>
-                        <li>
-                          <a href="blog-masonry-4cols.html">ساختمانی 4ستون </a>
-                        </li>
-                        <li>
-                          <a href="blog-masonry-sidebar.html">
-                            نوار کناری ساختمانی{" "}
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="#">ماسک </a>
-                      <ul>
-                        <li>
-                          <a href="blog-mask-grid.html">ماسک وبلاگ گرید </a>
-                        </li>
-                        <li>
-                          <a href="blog-mask-masonry.html">
-                            ماسک وبلاگ ساختمانی{" "}
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="post-single.html">تک نوشته </a>
-                    </li>
-                  </ul>
-                </li>
-                {/* <li>
-                  <a href="about-us.html">صفحات </a>
-                  <ul>
-                    <li>
-                      <a href="about-us.html">درباره ما </a>
-                    </li>
-                    <li>
-                      <a href="become-a-vendor.html">فروشنده شوید </a>
-                    </li>
-                    <li>
-                      <a href="contact-us.html">تماس با ما </a>
-                    </li>
-                    <li>
-                      <a href="login.html">ورود </a>
-                    </li>
-                    <li>
-                      <a href="faq.html">نقل و قل </a>
-                    </li>
-                    <li>
-                      <a href="error-404.html">ارور 404</a>
-                    </li>
-                    <li>
-                      <a href="coming-soon.html">به زودی </a>
-                    </li>
-                    <li>
-                      <a href="wishlist.html">علاقه مندیها </a>
-                    </li>
-                    <li>
-                      <a href="cart.html">سبد خرید </a>
-                    </li>
-                    <li>
-                      <a href="checkout.html">پرداخت </a>
-                    </li>
-                    <li>
-                      <a href="my-account.html">حساب من </a>
-                    </li>
-                  </ul>
-                </li> */}
-                <li>
-                  <Link href={`/cart`} onClick={() =>{setMobileMenu(false)}}>سبد خرید</Link>
-                  <ul>
-                    <li>
-                      <a href="element-products.html">محصولات </a>
-                    </li>
-                    <li>
-                      <a href="element-titles.html">عناوین </a>
-                    </li>
-                    <li>
-                      <a href="element-typography.html">تایپوگرافی </a>
-                    </li>
-                    <li>
-                      <a href="element-categories.html">دسته بندی محصول </a>
-                    </li>
-                    <li>
-                      <a href="element-buttons.html">دکمه ها </a>
-                    </li>
-                    <li>
-                      <a href="element-accordions.html">آکاردئون </a>
-                    </li>
-                    <li>
-                      <a href="element-alerts.html">هشدار و اعلان</a>
-                    </li>
-                    <li>
-                      <a href="element-tabs.html">زبانه ها </a>
-                    </li>
-                    <li>
-                      <a href="element-testimonials.html">مشتریان </a>
-                    </li>
-                    <li>
-                      <a href="element-blog-posts.html">پست های وبلاگ </a>
-                    </li>
-                    <li>
-                      <a href="element-instagrams.html">اینستاگرام </a>
-                    </li>
-                    <li>
-                      <a href="element-cta.html">دکمه اقدام تماس</a>
-                    </li>
-                    <li>
-                      <a href="element-vendors.html">فروشندگان </a>
-                    </li>
-                    <li>
-                      <a href="element-icon-boxes.html">آیکن باکس </a>
-                    </li>
-                    <li>
-                      <a href="element-icons.html">آیکن ها </a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-            <div className={`tab-pane ${menuState === 'cat' ? 'active' : ''}`} id="categories">
-              <ul className="mobile-menu">
-                {catMenu?.map(item =>(
-                  <li>
-                  <Link href={`/category/${item.id}`} onClick={() =>{setMobileMenu(false)}}>
-                  <i className="w-icon-electronics"></i>
-                    {item.title} <span class="toggle-btn"></span></Link>
-                    
-                  </li>
-                ))}
-                {/* <li>
-                  <a href="shop-fullwidth-banner.html">
+              ))}
+              {/* <li>
+                  <Link href="shop-fullwidth-banner.html">
                     <i className="w-icon-tshirt2"></i>مدل
-                  </a>
+                  </Link>
                   <ul>
                     <li>
-                      <a href="#">زنانه </a>
+                      <Link href="#">زنانه </Link>
                       <ul>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             تازه رسیده ها{" "}
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             پرفروش ترین ها{" "}
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">پر طرفدار </a>
+                          <Link href="shop-fullwidth-banner.html">پر طرفدار </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">تن پوش </a>
+                          <Link href="shop-fullwidth-banner.html">تن پوش </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">کفش ها </a>
+                          <Link href="shop-fullwidth-banner.html">کفش ها </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">کیسه ها </a>
+                          <Link href="shop-fullwidth-banner.html">کیسه ها </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             تجهیزات جانبی{" "}
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">جواهر و ساعت </a>
+                          <Link href="shop-fullwidth-banner.html">جواهر و ساعت </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">ویژه </a>
+                          <Link href="shop-fullwidth-banner.html">ویژه </Link>
                         </li>
                       </ul>
                     </li>
                     <li>
-                      <a href="#">زنانه </a>
+                      <Link href="#">زنانه </Link>
                       <ul>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             تازه رسیده ها{" "}
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             پرفروش ترین ها{" "}
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">پر طرفدار </a>
+                          <Link href="shop-fullwidth-banner.html">پر طرفدار </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">تن پوش </a>
+                          <Link href="shop-fullwidth-banner.html">تن پوش </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">کفش ها </a>
+                          <Link href="shop-fullwidth-banner.html">کفش ها </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">کیسه ها </a>
+                          <Link href="shop-fullwidth-banner.html">کیسه ها </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             تجهیزات جانبی{" "}
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">جواهر و ساعت </a>
+                          <Link href="shop-fullwidth-banner.html">جواهر و ساعت </Link>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="shop-fullwidth-banner.html">
+                  <Link href="shop-fullwidth-banner.html">
                     <i className="w-icon-home"></i>خانه و باغ
-                  </a>
+                  </Link>
                   <ul>
                     <li>
-                      <a href="#">اتاق خواب </a>
+                      <Link href="#">اتاق خواب </Link>
                       <ul>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             تخت، قاب و پایه
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">کمد </a>
+                          <Link href="shop-fullwidth-banner.html">کمد </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html"> میزهای خواب </a>
+                          <Link href="shop-fullwidth-banner.html"> میزهای خواب </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             تخت و تخت کودک
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">اسلحه </a>
+                          <Link href="shop-fullwidth-banner.html">اسلحه </Link>
                         </li>
                       </ul>
                     </li>
                     <li>
-                      <a href="#">هال </a>
+                      <Link href="#">هال </Link>
                       <ul>
                         <li>
-                          <a href="shop-fullwidth-banner.html">میز های قهوه </a>
+                          <Link href="shop-fullwidth-banner.html">میز های قهوه </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">صندلی </a>
+                          <Link href="shop-fullwidth-banner.html">صندلی </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">جداول </a>
+                          <Link href="shop-fullwidth-banner.html">جداول </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             فوتون و مبل تختخواب شو
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             کابینت و صندوقچه
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </li>
                     <li>
-                      <a href="#">دفتر </a>
+                      <Link href="#">دفتر </Link>
                       <ul>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             صندلی های اداری{" "}
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">میز </a>
+                          <Link href="shop-fullwidth-banner.html">میز </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             قفسه های کتاب{" "}
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">قفسه پوشه ها </a>
+                          <Link href="shop-fullwidth-banner.html">قفسه پوشه ها </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             {" "}
                             اتاق استراحت جداول{" "}
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </li>
                     <li>
-                      <a href="#">آشپزخانه و غذاخوری</a>
+                      <Link href="#">آشپزخانه و غذاخوری</Link>
                       <ul>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             ست های غذاخوری{" "}
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             کابینت های نگهداری آشپزخانه
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             قفسه های بشرز{" "}
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             صندلی های غذاخوری{" "}
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             اتاق غذاخوری جداول{" "}
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">چهارپایه بار </a>
+                          <Link href="shop-fullwidth-banner.html">چهارپایه بار </Link>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="shop-fullwidth-banner.html">
+                  <Link href="shop-fullwidth-banner.html">
                     <i className="w-icon-electronics"></i>الکترونیک
-                  </a>
+                  </Link>
                   <ul>
                     <li>
-                      <a href="#">لپ تاپ و کامپیوتر</a>
+                      <Link href="#">لپ تاپ و کامپیوتر</Link>
                       <ul>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             کامپیوترهای رومیزی
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">مانیتور </a>
+                          <Link href="shop-fullwidth-banner.html">مانیتور </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">لپ تاپ </a>
+                          <Link href="shop-fullwidth-banner.html">لپ تاپ </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             هارد دیسک و فضای ذخیره سازی
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             کامپیوتر تجهیزات جانبی{" "}
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </li>
                     <li>
-                      <a href="#">تلویزیون و ویدئو</a>
+                      <Link href="#">تلویزیون و ویدئو</Link>
                       <ul>
                         <li>
-                          <a href="shop-fullwidth-banner.html">تلویزیون ها </a>
+                          <Link href="shop-fullwidth-banner.html">تلویزیون ها </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             بلندگوهای صوتی خانگی
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">پروژکتورها </a>
+                          <Link href="shop-fullwidth-banner.html">پروژکتورها </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             دستگاه های پخش رسانه
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </li>
                     <li>
-                      <a href="#">دوربین های دیجیتال</a>
+                      <Link href="#">دوربین های دیجیتال</Link>
                       <ul>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             دوربین های دیجیتال SLR
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             دوربین های ورزشی و اکشن
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             لنزهای دوربین{" "}
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">چاپگر عکس </a>
+                          <Link href="shop-fullwidth-banner.html">چاپگر عکس </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             کارت های حافظه دیجیتال
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </li>
                     <li>
-                      <a href="#">تلفن های همراه </a>
+                      <Link href="#">تلفن های همراه </Link>
                       <ul>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             تلفن های حامل{" "}
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             گوشی های قفل نشده{" "}
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             قاب های گوشی و موبایل
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             شارژر تلفن همراه
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="shop-fullwidth-banner.html">
+                  <Link href="shop-fullwidth-banner.html">
                     <i className="w-icon-furniture"></i> مبلمان
-                  </a>
+                  </Link>
                   <ul>
                     <li>
-                      <a href="#">مبلمان </a>
+                      <Link href="#">مبلمان </Link>
                       <ul>
                         <li>
-                          <a href="shop-fullwidth-banner.html">مبل و کاناپه</a>
+                          <Link href="shop-fullwidth-banner.html">مبل و کاناپه</Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">صندلی </a>
+                          <Link href="shop-fullwidth-banner.html">صندلی </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             چارچوب های تخت{" "}
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             میزهای کنار تخت{" "}
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">میز آرایش</a>
+                          <Link href="shop-fullwidth-banner.html">میز آرایش</Link>
                         </li>
                       </ul>
                     </li>
                     <li>
-                      <a href="#">نورپردازی </a>
+                      <Link href="#">نورپردازی </Link>
                       <ul>
                         <li>
-                          <a href="shop-fullwidth-banner.html">لامپ </a>
+                          <Link href="shop-fullwidth-banner.html">لامپ </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">لامپ ها </a>
+                          <Link href="shop-fullwidth-banner.html">لامپ ها </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             چراغ های سقفی{" "}
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             چراغ های دیواری{" "}
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             حمام نورپردازی{" "}
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </li>
                     <li>
-                      <a href="#">خانه تجهیزات جانبی </a>
+                      <Link href="#">خانه تجهیزات جانبی </Link>
                       <ul>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             تجهیزات جانبی تزئینی{" "}
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             شمع و نگهدارنده
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">عطر خانگی </a>
+                          <Link href="shop-fullwidth-banner.html">عطر خانگی </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">آینه </a>
+                          <Link href="shop-fullwidth-banner.html">آینه </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">ساعت ها </a>
+                          <Link href="shop-fullwidth-banner.html">ساعت ها </Link>
                         </li>
                       </ul>
                     </li>
                     <li>
-                      <a href="#">باغ و فضای باز</a>
+                      <Link href="#">باغ و فضای باز</Link>
                       <ul>
                         <li>
-                          <a href="shop-fullwidth-banner.html">مبلمان باغ </a>
+                          <Link href="shop-fullwidth-banner.html">مبلمان باغ </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             ماشین های چمن زنی{" "}
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             واشرهای تحت فشار
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             تمام ابزار باغبانی
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="shop-fullwidth-banner.html">
+                          <Link href="shop-fullwidth-banner.html">
                             غذاخوری در فضای باز
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="shop-fullwidth-banner.html">
+                  <Link href="shop-fullwidth-banner.html">
                     <i className="w-icon-heartbeat"></i>سلامت و زیبایی
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="shop-fullwidth-banner.html">
+                  <Link href="shop-fullwidth-banner.html">
                     <i className="w-icon-gift"></i>ایده های هدیه
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="shop-fullwidth-banner.html">
+                  <Link href="shop-fullwidth-banner.html">
                     <i className="w-icon-gamepad"></i>اسباب بازی و بازی
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="shop-fullwidth-banner.html">
+                  <Link href="shop-fullwidth-banner.html">
                     <i className="w-icon-ice-cream"></i>آشپزی
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="shop-fullwidth-banner.html">
+                  <Link href="shop-fullwidth-banner.html">
                     <i className="w-icon-ios"></i>گوشی های هوشمند
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="shop-fullwidth-banner.html">
+                  <Link href="shop-fullwidth-banner.html">
                     <i className="w-icon-camera"></i>دوربین و عکس
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="shop-fullwidth-banner.html">
+                  <Link href="shop-fullwidth-banner.html">
                     <i className="w-icon-ruby"></i>تجهیزات جانبی
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link 
                     href="shop-banner-sidebar.html"
                     className="font-weight-bold text-primary text-uppercase ls-25"
                   >
                     نمایش همه دسته بندیها <i className="w-icon-angle-left"></i>
-                  </a>
+                  </Link>
                 </li> */}
-              </ul>
-            </div>
+            </ul>
           </div>
         </div>
       </div>
-     );
-}
- 
+    </div>
+  );
+};
+
 export default MobileMenu;
