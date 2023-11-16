@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer/Footer";
 import StickyFooter from "@/components/Footer/StickyFooter";
 import MobileMenu from "@/components/Menu/MobileMenu";
+import Image from "next/image";
 
 const AboutUs = () => {
   return (
@@ -36,15 +37,15 @@ const AboutUs = () => {
                   استفاده از طراحان گرافیک است. با تولید سادگی, مشاورانی که به
                   رشد کسب و کار شما کمک می کنند
                 </p>
-                <figure className="br-lg">
-                  <img
+                {/* <figure className="br-lg">
+                  <Image
                     src="assets/images/pages/about_us/1.jpg"
                     alt="Banner"
                     width="1240"
                     height="540"
                     style={{ backgroundColor: "#D0C1AE" }}
                   />
-                </figure>
+                </figure> */}
               </section>
 
               <section className="customer-service mb-7">
@@ -108,15 +109,15 @@ const AboutUs = () => {
                     </div>
                   </div>
                   <div className="col-md-6 mb-8">
-                    <figure className="br-lg">
-                      <img
+                    {/* <figure className="br-lg">
+                      <Image
                         src="assets/images/pages/about_us/2.jpg"
                         alt="Banner"
                         width="610"
                         height="500"
                         style={{ backgroundColor: "#CECECC" }}
                       />
-                    </figure>
+                    </figure> */}
                   </div>
                 </div>
               </section>
@@ -195,15 +196,15 @@ const AboutUs = () => {
               <div className="container mt-10 mb-9">
                 <div className="row align-items-center mb-10">
                   <div className="col-md-6 mb-8">
-                    <figure className="br-lg">
-                      <img
+                    {/* <figure className="br-lg">
+                      <Image
                         src="assets/images/pages/about_us/3.jpg"
                         alt="Banner"
                         width="610"
                         height="450"
                         style={{ backgroundColor: "#9E9DA2" }}
                       />
-                    </figure>
+                    </figure> */}
                   </div>
                   <div className="col-md-6 pl-lg-8 mb-8">
                     <h4 className="title text-left">
@@ -251,14 +252,14 @@ const AboutUs = () => {
                     <div className="swiper-wrapper row cols-xl-4 cols-lg-3 cols-md-2 cols-1">
                       <div className="swiper-slide image-box-wrapper">
                         <div className="image-box text-center">
-                          <figure>
-                            <img
+                          {/* <figure>
+                            <Image
                               src="assets/images/pages/about_us/1.png"
                               alt="Award Image"
                               width="109"
                               height="105"
                             />
-                          </figure>
+                          </figure> */}
                           <p>
                             برنده سئو اقای راجرر
                             <br />
@@ -268,14 +269,14 @@ const AboutUs = () => {
                       </div>
                       <div className="swiper-slide image-box-wrapper">
                         <div className="image-box text-center">
-                          <figure>
-                            <img
+                          {/* <figure>
+                            <Image
                               src="assets/images/pages/about_us/2.png"
                               alt="Award Image"
                               width="109"
                               height="105"
                             />
-                          </figure>
+                          </figure> */}
                           <p>
                             برترین نمایندگی های سوشیال مدیا
                             <br />
@@ -285,14 +286,14 @@ const AboutUs = () => {
                       </div>
                       <div className="swiper-slide image-box-wrapper mt-3">
                         <div className="image-box text-center">
-                          <figure>
-                            <img
+                          {/* <figure>
+                            <Image
                               src="assets/images/pages/about_us/3.png"
                               alt="Award Image"
                               width="109"
                               height="105"
                             />
-                          </figure>
+                          </figure> */}
                           <p>
                             5 سریعترین رشد چکیده
                             <br />
@@ -302,14 +303,14 @@ const AboutUs = () => {
                       </div>
                       <div className="swiper-slide image-box-wrapper">
                         <div className="image-box text-center">
-                          <figure>
-                            <img
+                          {/* <figure>
+                            <Image
                               src="assets/images/pages/about_us/4.png"
                               alt="Award Image"
                               width="109"
                               height="105"
                             />
-                          </figure>
+                          </figure> */}
                           <p>
                             آژانس تعالی ملی
                             <br />
@@ -356,12 +357,12 @@ const AboutUs = () => {
                   <div className="swiper-wrapper row cols-xl-4 cols-lg-3 cols-sm-2 cols-1">
                     <div className="swiper-slide member-wrap">
                       <figure className="br-lg">
-                        <img
+                        {/* <Image
                           src="assets/images/pages/about_us/4.jpg"
                           alt="Member"
                           width="295"
                           height="332"
-                        />
+                        /> */}
                         <div className="overlay">
                           <div className="social-icons">
                             <Link
@@ -386,12 +387,12 @@ const AboutUs = () => {
                     </div>
                     <div className="swiper-slide member-wrap">
                       <figure className="br-lg">
-                        <img
+                        {/* <Image
                           src="assets/images/pages/about_us/5.jpg"
                           alt="Member"
                           width="295"
                           height="332"
-                        />
+                        /> */}
                         <div className="overlay">
                           <div className="social-icons">
                             <Link
@@ -416,12 +417,12 @@ const AboutUs = () => {
                     </div>
                     <div className="swiper-slide member-wrap">
                       <figure className="br-lg">
-                        <img
+                        {/* <Image
                           src="assets/images/pages/about_us/6.jpg"
                           alt="Member"
                           width="295"
                           height="332"
-                        />
+                        /> */}
                         <div className="overlay">
                           <div className="social-icons">
                             <Link
@@ -446,12 +447,12 @@ const AboutUs = () => {
                     </div>
                     <div className="swiper-slide member-wrap">
                       <figure className="br-lg">
-                        <img
+                        {/* <Image
                           src="assets/images/pages/about_us/7.jpg"
                           alt="Member"
                           width="295"
                           height="332"
-                        />
+                        /> */}
                         <div className="overlay">
                           <div className="social-icons">
                             <Link

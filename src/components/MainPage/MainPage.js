@@ -1,7 +1,6 @@
 import useToken from "@/hooks/useToken";
 import IntroSection from "./IntroSection";
 import MiddleBanner from "./MiddleBanner";
-import NewProducts from "./NewProducts";
 import SpecialOffers from "./SpecialOffers";
 import SpecialProducts from "./SpecialProducts";
 import TopCategories from "./TopCategories";

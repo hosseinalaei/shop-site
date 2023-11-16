@@ -842,20 +842,20 @@ const SpecialProducts = () => {
                 <div className="product-wrap">
                   <div className="product text-center">
                     <figure className="product-media">
-                      <Link href="product-default.html">
-                        <img
+                      {/* <Link href="product-default.html">
+                        <Image
                           src="assets/images/demos/demo15/products/2-11-1.jpg"
                           alt="Product"
                           width="300"
                           height="337"
                         />
-                        <img
+                        <Image
                           src="assets/images/demos/demo15/products/2-11-2.jpg"
                           alt="Product"
                           width="300"
                           height="337"
                         />
-                      </Link>
+                      </Link> */}
                       <div className="product-action-horizontal">
                         <Link
                           href="#"
@@ -895,20 +895,20 @@ const SpecialProducts = () => {
                 <div className="product-wrap">
                   <div className="product text-center">
                     <figure className="product-media">
-                      <Link href="product-default.html">
-                        <img
+                      {/* <Link href="product-default.html">
+                        <Image
                           src="assets/images/demos/demo15/products/2-12-1.jpg"
                           alt="Product"
                           width="300"
                           height="337"
                         />
-                        <img
+                        <Image
                           src="assets/images/demos/demo15/products/2-12-2.jpg"
                           alt="Product"
                           width="300"
                           height="337"
                         />
-                      </Link>
+                      </Link> */}
                       <div className="product-action-horizontal">
                         <Link
                           href="#"
@@ -1086,13 +1086,13 @@ const SpecialProducts = () => {
                       <div className="product text-center">
                         <figure className="product-media">
                           <Link href="product-default.html">
-                            <img
+                            <Image 
                               src="assets/images/demos/demo15/products/2-9-1.jpg"
                               alt="Product"
                               width="300"
                               height="337"
                             />
-                            <img
+                            <Image 
                               src="assets/images/demos/demo15/products/2-9-2.jpg"
                               alt="Product"
                               width="300"
@@ -1137,13 +1137,13 @@ const SpecialProducts = () => {
                       <div className="product text-center">
                         <figure className="product-media">
                           <Link href="product-default.html">
-                            <img
+                            <Image 
                               src="assets/images/demos/demo15/products/2-10-1.jpg"
                               alt="Product"
                               width="300"
                               height="337"
                             />
-                            <img
+                            <Image 
                               src="assets/images/demos/demo15/products/2-10-2.jpg"
                               alt="Product"
                               width="300"
@@ -1190,13 +1190,13 @@ const SpecialProducts = () => {
                       <div className="product text-center">
                         <figure className="product-media">
                           <Link href="product-default.html">
-                            <img
+                            <Image 
                               src="assets/images/demos/demo15/products/2-11-1.jpg"
                               alt="Product"
                               width="300"
                               height="337"
                             />
-                            <img
+                            <Image 
                               src="assets/images/demos/demo15/products/2-11-2.jpg"
                               alt="Product"
                               width="300"
@@ -1243,13 +1243,13 @@ const SpecialProducts = () => {
                       <div className="product text-center">
                         <figure className="product-media">
                           <Link href="product-default.html">
-                            <img
+                            <Image 
                               src="assets/images/demos/demo15/products/2-12-1.jpg"
                               alt="Product"
                               width="300"
                               height="337"
                             />
-                            <img
+                            <Image 
                               src="assets/images/demos/demo15/products/2-12-2.jpg"
                               alt="Product"
                               width="300"
@@ -1296,13 +1296,13 @@ const SpecialProducts = () => {
                       <div className="product text-center">
                         <figure className="product-media">
                           <Link href="product-default.html">
-                            <img
+                            <Image 
                               src="assets/images/demos/demo15/products/2-1-1.jpg"
                               alt="Product"
                               width="300"
                               height="337"
                             />
-                            <img
+                            <Image 
                               src="assets/images/demos/demo15/products/2-1-2.jpg"
                               alt="Product"
                               width="300"
@@ -1347,13 +1347,13 @@ const SpecialProducts = () => {
                       <div className="product text-center">
                         <figure className="product-media">
                           <Link href="product-default.html">
-                            <img
+                            <Image 
                               src="assets/images/demos/demo15/products/2-2-1.jpg"
                               alt="Product"
                               width="300"
                               height="337"
                             />
-                            <img
+                            <Image 
                               src="assets/images/demos/demo15/products/2-2-2.jpg"
                               alt="Product"
                               width="300"
@@ -1400,13 +1400,13 @@ const SpecialProducts = () => {
                       <div className="product text-center">
                         <figure className="product-media">
                           <Link href="product-default.html">
-                            <img
+                            <Image 
                               src="assets/images/demos/demo15/products/2-3-1.jpg"
                               alt="Product"
                               width="300"
                               height="337"
                             />
-                            <img
+                            <Image 
                               src="assets/images/demos/demo15/products/2-3-2.jpg"
                               alt="Product"
                               width="300"
@@ -1467,13 +1467,13 @@ const SpecialProducts = () => {
                       <div className="product text-center">
                         <figure className="product-media">
                           <Link href="product-default.html">
-                            <img
+                            <Image 
                               src="assets/images/demos/demo15/products/2-4-1.jpg"
                               alt="Product"
                               width="300"
                               height="337"
                             />
-                            <img
+                            <Image 
                               src="assets/images/demos/demo15/products/2-4-2.jpg"
                               alt="Product"
                               width="300"
@@ -1520,13 +1520,13 @@ const SpecialProducts = () => {
                       <div className="product text-center">
                         <figure className="product-media">
                           <Link href="product-default.html">
-                            <img
+                            <Image 
                               src="assets/images/demos/demo15/products/2-5-1.jpg"
                               alt="Product"
                               width="300"
                               height="337"
                             />
-                            <img
+                            <Image 
                               src="assets/images/demos/demo15/products/2-5-2.jpg"
                               alt="Product"
                               width="300"
@@ -1631,13 +1631,13 @@ const SpecialProducts = () => {
                       <div className="product text-center">
                         <figure className="product-media">
                           <Link href="product-default.html">
-                            <img
+                            <Image 
                               src="assets/images/demos/demo15/products/2-7-1.jpg"
                               alt="Product"
                               width="300"
                               height="337"
                             />
-                            <img
+                            <Image 
                               src="assets/images/demos/demo15/products/2-7-2.jpg"
                               alt="Product"
                               width="300"
@@ -1689,13 +1689,13 @@ const SpecialProducts = () => {
                       <div className="product text-center">
                         <figure className="product-media">
                           <Link href="product-default.html">
-                            <img
+                            <Image 
                               src="assets/images/demos/demo15/products/2-8-1.jpg"
                               alt="Product"
                               width="300"
                               height="337"
                             />
-                            <img
+                            <Image 
                               src="assets/images/demos/demo15/products/2-8-2.jpg"
                               alt="Product"
                               width="300"
