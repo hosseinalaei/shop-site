@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer/Footer";
 import StickyFooter from "@/components/Footer/StickyFooter";
 import MobileMenu from "@/components/Menu/MobileMenu";
+import Image from "next/image";
 
 const Compare = () => {
   return (
@@ -35,14 +36,14 @@ const Compare = () => {
                     </Link>
                     <div className="product text-center">
                       <figure className="product-media">
-                        <Link href="product-default.html">
-                          <img
+                        {/* <Link href="product-default.html">
+                          <Image
                             src="assets/images/products/elements/1.jpg"
                             alt="Product"
                             width="228"
                             height="257"
                           />
-                        </Link>
+                        </Link> */}
                         <div className="product-action-vertical">
                           <Link
                             href="#"
@@ -69,14 +70,14 @@ const Compare = () => {
                     </Link>
                     <div className="product text-center">
                       <figure className="product-media">
-                        <Link href="product-default.html">
-                          <img
+                        {/* <Link href="product-default.html">
+                          <Image
                             src="assets/images/products/elements/2.jpg"
                             alt="Product"
                             width="228"
                             height="257"
                           />
-                        </Link>
+                        </Link> */}
                         <div className="product-action-vertical">
                           <Link
                             href="#"
@@ -103,14 +104,14 @@ const Compare = () => {
                     </Link>
                     <div className="product text-center">
                       <figure className="product-media">
-                        <Link href="product-default.html">
-                          <img
+                        {/* <Link href="product-default.html">
+                          <Image
                             src="assets/images/products/elements/3.jpg"
                             alt="Product"
                             width="228"
                             height="257"
                           />
-                        </Link>
+                        </Link> */}
                         <div className="product-action-vertical">
                           <Link
                             href="#"
@@ -137,14 +138,14 @@ const Compare = () => {
                     </Link>
                     <div className="product text-center">
                       <figure className="product-media">
-                        <Link href="product-default.html">
-                          <img
+                        {/* <Link href="product-default.html">
+                          <Image
                             src="assets/images/products/elements/4-1.jpg"
                             alt="Product"
                             width="228"
                             height="257"
                           />
-                        </Link>
+                        </Link> */}
                         <div className="product-action-vertical">
                           <Link
                             href="#"

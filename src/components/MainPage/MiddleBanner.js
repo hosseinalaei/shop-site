@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const MiddleBanner = () => {
   return (
     <div
@@ -34,8 +36,8 @@ const MiddleBanner = () => {
           </Link>
         </div>
       </div>
-      <figure className="banner-media skrollable">
-        <img
+      {/* <figure className="banner-media skrollable">
+        <Image
           src="assets/images/demos/demo15/banner/floating.png"
           alt="Banner"
           width="431"
@@ -44,7 +46,7 @@ const MiddleBanner = () => {
           data-bottom-top="transform: translateY(4vh);"
           data-top-bottom="transform: translateY(-4vh);"
         />
-      </figure>
+      </figure> */}
     </div>
   );
 };
