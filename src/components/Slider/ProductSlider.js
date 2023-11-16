@@ -14,7 +14,7 @@ const ProductSlider = ({ data = [] }) => {
   const slider1 = useRef(null);
   const slider2 = useRef(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (slider1.current !== null) {
       slider1.current.controller.control = slider2.current;
     }
