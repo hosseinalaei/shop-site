@@ -14,6 +14,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 // import "swiper/css";
 import "swiper/swiper-bundle.css";
+// import React from "react";
 // import "swiper/css/free-mode";
 // import "swiper/css/navigation";
 // import "swiper/css/thumbs";
@@ -22,11 +23,13 @@ import "swiper/swiper-bundle.css";
 export default function App({ Component, pageProps }) {
   return (
     // <Providers>
+    // <React.StrictMode>
     <CartProvider>
       <Layout>
         <Component {...pageProps} />
       </Layout>
     </CartProvider>
+    // </React.StrictMode>
     // </Providers>
   );
 }
