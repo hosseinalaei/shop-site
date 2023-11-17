@@ -6,8 +6,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 
 const ProductSlider = ({ data = [] }) => {
-  // const [nav1, setNav1] = useState(null);
-  // const [nav2, setNav2] = useState(null);
   const [media, setMedia] = useState([]);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
@@ -19,76 +17,30 @@ const ProductSlider = ({ data = [] }) => {
       slider1.current.controller.control = slider2.current;
     }
   }, []);
+  const fetchData = async () => {
+    try {
+      const response = await axios.post(
+        "https://138.201.167.230:5050/media/GetMedia",
+        data.map((item) => ({
+          id: item.imageuniqueId,
+          mediaFieldName: "productGalleryImageName",
+        }))
+      );
+
+      setMedia(response.data.data);
+    } catch (error) {
+      console.error(error);
+      return "";
+    }
+  };
 
   useEffect(() => {
-    // setNav1(slider1.current);
-    // setNav2(slider2.current);
-
-    const fetchData = async () => {
-      // const mediaData = await Promise.all(
-      // data?.map(async (item) => {
-      try {
-        const response = await axios.post(
-          "https://138.201.167.230:5050/media/GetMedia",
-          data.map((item) => ({
-            id: item.imageuniqueId,
-            mediaFieldName: "productGalleryImageName",
-          }))
-        );
-
-        setMedia(response.data.data);
-      } catch (error) {
-        console.error(error);
-        return "";
-      }
-      // })
-      // );
-    };
-
-    fetchData();
+    data?.length > 0 && fetchData();
   }, [data]);
+
   return (
     <div style={{ alignItems: "center" }}>
-      {/* <Slider {...settings1} asNavFor={nav2} ref={slider1}>
-        {media?.map((mediaUrl, index) => {
-          return (
-            <div key={index}>
-              <Image
-                src={`data:image/jpeg;base64,${mediaUrl}`}
-                alt={`Image ${index}`}
-                width="300"
-                height="300"
-                style={{ margin: "0 auto" }}
-              />
-            </div>
-          );
-        })}
-      </Slider> */}
-      {/* <Slider
-        asNavFor={nav1}
-        ref={slider2}
-        slidesToShow={4}
-        swipeToSlide={true}
-        focusOnSelect={true}
-      >
-        {media?.map((mediaUrl, index) => (
-          <div key={index}>
-            <Image
-              src={`data:image/jpeg;base64,${mediaUrl}`}
-              alt={`Image ${index}`}
-              width={100}
-              height={100}
-              style={{ margin: "0 auto" }}
-            />
-          </div>
-        ))}
-      </Slider> */}
-
       <Swiper
-        // style={{
-        //   "--swiper-navigation-color": "#fff",
-        //   "--swiper-pagination-color": "#fff",
-        // }}
         onSwiper={(swiper) => {
           if (slider1.current !== null) {
             slider1.current = swiper;
@@ -98,7 +50,10 @@ const ProductSlider = ({ data = [] }) => {
         loop={true}
         spaceBetween={10}
         // navigation={true}
-        thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined}
+        // thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined}
+        thumbs={{
+          swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+        }}
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2"
       >
