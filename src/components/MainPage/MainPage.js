@@ -14,7 +14,7 @@ import { useCartContext } from "@/contexts/contex";
 const MainPage = () => {
   const { cartUpdate } = useCartContext();
   const [storedValue, setToken] = useToken();
-  console.log("storedValue", storedValue.token);
+
   const getOrderDetail = async () => {
     try {
       const response = await axios.post(
@@ -39,7 +39,7 @@ const MainPage = () => {
   };
 
   useEffect(() => {
-    getOrderDetail();
+    storedValue && getOrderDetail();
   }, []);
   return (
     <div className="page-wrapper">

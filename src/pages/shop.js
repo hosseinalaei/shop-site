@@ -56,9 +56,7 @@ const shop = ({ pageData: data }) => {
                 <div className="toolbox-item toolbox-sort select-box text-dark">
                   <label>مرتب سازی با اساس :</label>
                   <select name="orderby" className="form-control">
-                    <option value="default" selected="selected">
-                      مرتب سازی پیش فرض{" "}
-                    </option>
+                    <option value="default">مرتب سازی پیش فرض </option>
                     <option value="popularity">
                       مرتب سازی با اساس محبوبیت{" "}
                     </option>
@@ -75,7 +73,7 @@ const shop = ({ pageData: data }) => {
                   </select>
                 </div>
               </div>
-              <div className="toolbox-right">
+              {/* <div className="toolbox-right">
                 <div className="toolbox-item toolbox-show select-box">
                   <select name="count" className="form-control">
                     <option value="9">نمایش 9</option>
@@ -100,17 +98,16 @@ const shop = ({ pageData: data }) => {
                     <i className="w-icon-list"></i>
                   </Link>
                 </div>
-              </div>
+              </div> */}
             </nav>
             <div className="product-wrapper row cols-xl-5 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
-              {data &&
-                data.length > 0 &&
+              {data?.length > 0 &&
                 data.map((item) => {
                   return <ProductWrap data={item} />;
                 })}
             </div>
 
-            <div className="toolbox toolbox-pagination justify-content-between">
+            {/* <div className="toolbox toolbox-pagination justify-content-between">
               <p className="showing-info mb-2 mb-sm-0">
                 نمایش <span>1-12 از 60</span>محصولات
               </p>
@@ -119,7 +116,7 @@ const shop = ({ pageData: data }) => {
                   <Link
                     href="#"
                     aria-label="Previous"
-                    tabindex="-1"
+                    tabIndex="-1"
                     aria-disabled="true"
                   >
                     <i className="w-icon-long-arrow-right"></i>قبلی
@@ -141,7 +138,7 @@ const shop = ({ pageData: data }) => {
                   </Link>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </div>
           <FiltersDrawer showFilters={showFilters} />
           {showFilters && (

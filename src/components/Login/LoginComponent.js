@@ -1,18 +1,20 @@
 import useToken from "@/hooks/useToken";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import Button from "../../components/shared/Button";
 
 const LoginComponent = () => {
-  const [phoneNumber, setPhoneNumber] = useState(null);
+  const [phoneNumber, setPhoneNumber] = useState();
   const [phoneSubmitted, setPhoneSubmitted] = useState(false);
   const [verifyCode, setVerifyCode] = useState("");
-  const [isSending, setIsSending] = useState(false);
+  const [loading, setLoading] = useState(false);
   // const [storedValue, setToken] = useToken();
   const router = useRouter();
 
   const submitPhoneNumber = async (e) => {
-    setIsSending(true);
+    setLoading(true);
     e.preventDefault();
     try {
       const response = await fetch(
@@ -27,6 +29,7 @@ const LoginComponent = () => {
           }),
         }
       );
+
       const resData = await response.json();
       if (response.status === 200) {
         toast.success(resData.data.message, {
@@ -34,14 +37,14 @@ const LoginComponent = () => {
           theme: "colored",
         });
         setPhoneSubmitted(true);
-        setIsSending(false);
+        setLoading(false);
       }
     } catch (error) {
       console.log(error.response);
     }
   };
   const submitVerifyCode = async (e) => {
-    setIsSending(true);
+    setLoading(true);
 
     e.preventDefault();
     try {
@@ -61,7 +64,7 @@ const LoginComponent = () => {
           position: toast.POSITION.TOP_CENTER,
           theme: "colored",
         });
-        setIsSending(false);
+        setLoading(false);
 
         console.log(resData.data);
         localStorage.setItem("user", JSON.stringify(resData.data));
@@ -72,6 +75,7 @@ const LoginComponent = () => {
       console.log(error.response);
     }
   };
+
   return (
     <div className="login-popup" style={{ margin: "0 auto" }}>
       <div className="tab tab-nav-boxed tab-nav-center tab-nav-underline">
@@ -81,11 +85,6 @@ const LoginComponent = () => {
               ورود{" "}
             </span>
           </li>
-          {/* <li className="nav-item">
-                      <Link href="#sign-up" className="nav-link">
-                        ثبت نام
-                      </Link>
-                    </li> */}
         </ul>
         <form
           className="tab-content"
@@ -141,12 +140,14 @@ const LoginComponent = () => {
               <Link href="#">فراموشی رمز عبور؟</Link> */}
             </div>
             <Link
+              href="#"
               // onClick={!phoneSubmitted ? submitPhoneNumber : submitVerifyCode}
-              className={`btn btn-primary ${isSending ? "button-loading" : ""}`}
+              className={`btn btn-primary ${loading ? "button-loading" : ""}`}
               onClick={!phoneSubmitted ? submitPhoneNumber : submitVerifyCode}
             >
               ارسال
             </Link>
+            {/* <Button isLoading={true}>ارسال</Button> */}
           </div>
         </form>
         {/* <p className="text-center">ورود با حساب اجتماعی</p>

@@ -33,6 +33,7 @@ const categoryProducts = () => {
       );
 
       if (response.status === 200) {
+        console.log("pppppppp", response.data);
         setData(response.data);
       }
     } catch (error) {
@@ -179,17 +180,19 @@ const categoryProducts = () => {
               </nav>
               <div className="product-wrapper row cols-xl-5 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
                 {data.status === "Success" ? (
-                  data.data.map((item) => {
-                    return (
-                      <ProductWrap
-                        data={item}
-                        key={item.id}
-                        id={item.id}
-                        productName={item.productName}
-                        price={item.productColor[0]?.price}
-                      />
-                    );
-                  })
+                  data.data
+                    .filter((item) => !item.isDelete)
+                    .map((item) => {
+                      return (
+                        <ProductWrap
+                          data={item}
+                          key={item.id}
+                          id={item.id}
+                          productName={item.productName}
+                          price={item.productColor[0]?.price}
+                        />
+                      );
+                    })
                 ) : (
                   <div className="text-center">محصولی یافت نشد</div>
                 )}
