@@ -2,9 +2,8 @@ import Link from "next/link";
 import ProductImage from "./ProductImage";
 
 const ProductWrap = ({ data }) => {
-  console.log("props", data);
   return (
-    <div className="product-wrap" key={data?.key}>
+    <div className="product-wrap" key={data?.id}>
       <div className="product text-center">
         <figure
           className="product-media"

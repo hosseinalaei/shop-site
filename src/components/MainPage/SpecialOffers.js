@@ -40,22 +40,22 @@ const SpecialOffers = () => {
                   // data-compact="false"
                   // data-labels-short="true"
                 >
-                  <span class="countdown-row countdown-show4">
-                    <span class="countdown-section">
-                      <span class="countdown-amount">00</span>
-                      <span class="countdown-period">روز</span>
+                  <span className="countdown-row countdown-show4">
+                    <span className="countdown-section">
+                      <span className="countdown-amount">00</span>
+                      <span className="countdown-period">روز</span>
                     </span>
-                    <span class="countdown-section">
-                      <span class="countdown-amount">00</span>
-                      <span class="countdown-period">ساعت</span>
+                    <span className="countdown-section">
+                      <span className="countdown-amount">00</span>
+                      <span className="countdown-period">ساعت</span>
                     </span>
-                    <span class="countdown-section">
-                      <span class="countdown-amount">00</span>
-                      <span class="countdown-period">دقیقه</span>
+                    <span className="countdown-section">
+                      <span className="countdown-amount">00</span>
+                      <span className="countdown-period">دقیقه</span>
                     </span>
-                    <span class="countdown-section">
-                      <span class="countdown-amount">00</span>
-                      <span class="countdown-period">ثانیه</span>
+                    <span className="countdown-section">
+                      <span className="countdown-amount">00</span>
+                      <span className="countdown-period">ثانیه</span>
                     </span>
                   </span>
                 </div>

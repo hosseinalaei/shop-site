@@ -133,15 +133,15 @@ const FiltersDrawer = ({ showFilters }) => {
                             value={attValue.id}
                             type="checkbox"
                             className=" checkbox-round mr-1"
-                            // onChange={() =>
-                            //   setProductspecs([
-                            //     ...productspecs,
-                            //     {
-                            //       specName: attValue.name,
-                            //       specValue: attValue.id,
-                            //     },
-                            //   ])
-                            // }
+                            onChange={() =>
+                              setProductspecs([
+                                ...productspecs,
+                                {
+                                  specName: attValue.name,
+                                  specValue: attValue.id,
+                                },
+                              ])
+                            }
                           />
                           {attValue.name}
                         </div>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import blog1 from "../assets/images/blog/1.jpg";
 import blog2 from "../assets/images/blog/2.jpg";
 import blog3 from "../assets/images/blog/3.jpg";
