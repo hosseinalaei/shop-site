@@ -178,10 +178,14 @@ const categoryProducts = () => {
                   </div>
                 </div>
               </nav>
-              <div className="product-wrapper row cols-xl-5 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
+              <div
+                className="product-wrapper row product-wrap-row"
+                style={{ justifyContent: "flex-start" }}
+              >
                 {data.status === "Success" ? (
                   data.data
                     .filter((item) => !item.isDelete)
+                    .reverse()
                     .map((item) => {
                       return (
                         <ProductWrap

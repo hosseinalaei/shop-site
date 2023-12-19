@@ -13,12 +13,12 @@ const reducer = (state, action) => {
       // console.log(state.cart);
       return {
         ...state,
-        cart: state.cart.filter((item) => item.productId !== action.payload),
+        cart: state?.cart?.filter((item) => item.productId !== action.payload),
       };
     }
     case "CHANGE_QUANTITY": {
       // console.log(state.cart);
-      const tempCart = state.cart.map((item) => {
+      const tempCart = state?.cart?.map((item) => {
         if (item.id === action.payload.id && action.payload.quantity > 0) {
           return { ...item, count: action.payload.quantity };
         }
@@ -29,7 +29,7 @@ const reducer = (state, action) => {
     }
     case "GET_TOTALS": {
       // console.log(state.cart);
-      let { totalPrice, count } = state.cart.reduce(
+      let { totalPrice, count } = state?.cart?.reduce(
         (cartTotal, cartItem) => {
           // console.log("cart item", cartItem);
           const { productPrice, count } = cartItem;
@@ -79,7 +79,7 @@ const reducer = (state, action) => {
           ),
         };
       } else {
-        const tempCart = state.cart.map((item) => {
+        const tempCart = state?.cart?.map((item) => {
           if (
             item.productId === action.payload.productId &&
             action.payload.count > 0

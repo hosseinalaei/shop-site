@@ -21,6 +21,7 @@ const Cart = () => {
     // const userOrder = JSON.parse(localStorage.getItem("order"));
     const userName = JSON.parse(localStorage.getItem("user"));
     setUser(userName);
+    userName && getOrderDetail();
   }, []);
 
   const {
@@ -33,6 +34,7 @@ const Cart = () => {
     deduction,
     cartUpdate,
   } = useCartContext();
+
   console.log("cart", cart);
   // const httpRequest = useAxios()
 
@@ -83,11 +85,12 @@ const Cart = () => {
       // console.log(error);
     }
   };
-  useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    user ? getOrderDetail() : setIsLoading(false);
-    // getTotalPrice();
-  }, []);
+
+  // useEffect(() => {
+  //   const user = JSON.parse(localStorage.getItem("user"));
+  //   user && getOrderDetail();
+  //   // getTotalPrice();
+  // }, []);
 
   // const getTotalPrice = () =>{
   //   let total = 0
@@ -575,7 +578,7 @@ const Cart = () => {
                   <h3 className="cart-title text-uppercase">مجموع سبد </h3>
                   <div className="cart-subtotal d-flex align-items-center justify-content-between">
                     <label className="ls-25">جمع فرعی </label>
-                    {cart.length && <span>{totalPrice} تومان</span>}
+                    {cart?.length && <span>{totalPrice} تومان</span>}
                   </div>
 
                   <hr className="divider" />
