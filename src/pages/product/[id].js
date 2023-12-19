@@ -911,76 +911,79 @@ const product = () => {
                         }"
                 >
                   <div className="swiper-wrapper row cols-lg-3 cols-md-4 cols-sm-3 cols-2">
-                    {relatedData.slice(0, 3).map((item, index) => {
-                      return (
-                        <ProductRelatedWrap
-                          id={id}
-                          item={item}
-                          key={index}
-                          setShowModal={setShowModal}
-                        />
-                        // <div className="swiper-slide product">
-                        //   <figure className="product-media">
-                        //     <Link href="/">
-                        //       <Image
-                        //         src={item.imgSrc}
-                        //         alt="Product"
-                        //         width="300"
-                        //         height="338"
-                        //       <Link
-                        //     </Link>
-                        //     <div className="product-action-vertical">
-                        //       <a
-                        //         href="#"
-                        //       <Link className="btn-product-icon btn-cart w-icon-cart"
-                        //         title="افزودن به سبد "
-                        //       ></Link>
-                        //       <a
-                        //         href="#"
-                        //       <Link className="btn-product-icon btn-wishlist w-icon-heart"
-                        //         title="افزودن به علاقه مندیها"
-                        //       ></Link>
-                        //       <a
-                        //         href="#"
-                        //         className="btn-product-icon btn-compare w-icon-compare"
-                        //         title="افزودن برای مقایسه"
-                        //       <Link /Link>
-                        //     </div>
-                        //     <div className="product-action">
-                        //       <a
-                        //         href="#"
-                        //         className="btn-product btn-quickview"
-                        //         title="نمایش سریع"
-                        //       >
-                        //         نمایش سریع
-                        //       </Link>
-                        //     </div>
-                        //   </figure>
-                        //   <div className="product-details">
-                        //     <h4 className="product-name">
-                        //       <Link href="/">{item.productName} </Link>
-                        //     </h4>
-                        //     <div className="ratings-container">
-                        //       <div className="ratings-full">
-                        //         <span
-                        //           className="ratings"
-                        //           style={{ width: "100%" }}
-                        //         ></span>
-                        //         <span className="tooltiptext tooltip-top"></span>
-                        //       </div>
-                        //       <Link href="/" className="rating-reviews">
-                        //         (3 نظر )
-                        //       </Link>
-                        //     </div>
-                        //     <div className="product-pa-wrapper">
-                        //       <div className="product-price">
-                        //         {item.price} تومان
-                        //       </div>
-                        //     </div>
-                        //   </div>
-                        // </div>
-                      );
-                    })}
+                    {relatedData
+                      .filter((item) => !item.isDelete)
+                      .slice(0, 3)
+                      .map((item, index) => {
+                        return (
+                          <ProductRelatedWrap
+                            id={id}
+                            item={item}
+                            key={index}
+                            setShowModal={setShowModal}
+                          />
+                          // <div className="swiper-slide product">
+                          //   <figure className="product-media">
+                          //     <Link href="/">
+                          //       <Image
+                          //         src={item.imgSrc}
+                          //         alt="Product"
+                          //         width="300"
+                          //         height="338"
+                          //       <Link
+                          //     </Link>
+                          //     <div className="product-action-vertical">
+                          //       <a
+                          //         href="#"
+                          //       <Link className="btn-product-icon btn-cart w-icon-cart"
+                          //         title="افزودن به سبد "
+                          //       ></Link>
+                          //       <a
+                          //         href="#"
+                          //       <Link className="btn-product-icon btn-wishlist w-icon-heart"
+                          //         title="افزودن به علاقه مندیها"
+                          //       ></Link>
+                          //       <a
+                          //         href="#"
+                          //         className="btn-product-icon btn-compare w-icon-compare"
+                          //         title="افزودن برای مقایسه"
+                          //       <Link /Link>
+                          //     </div>
+                          //     <div className="product-action">
+                          //       <a
+                          //         href="#"
+                          //         className="btn-product btn-quickview"
+                          //         title="نمایش سریع"
+                          //       >
+                          //         نمایش سریع
+                          //       </Link>
+                          //     </div>
+                          //   </figure>
+                          //   <div className="product-details">
+                          //     <h4 className="product-name">
+                          //       <Link href="/">{item.productName} </Link>
+                          //     </h4>
+                          //     <div className="ratings-container">
+                          //       <div className="ratings-full">
+                          //         <span
+                          //           className="ratings"
+                          //           style={{ width: "100%" }}
+                          //         ></span>
+                          //         <span className="tooltiptext tooltip-top"></span>
+                          //       </div>
+                          //       <Link href="/" className="rating-reviews">
+                          //         (3 نظر )
+                          //       </Link>
+                          //     </div>
+                          //     <div className="product-pa-wrapper">
+                          //       <div className="product-price">
+                          //         {item.price} تومان
+                          //       </div>
+                          //     </div>
+                          //   </div>
+                          // </div>
+                        );
+                      })}
                   </div>
                 </div>
               </section>
