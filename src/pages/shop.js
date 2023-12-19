@@ -11,13 +11,7 @@ const shop = ({ pageData: data }) => {
   const [showFilters, setShowFilters] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  console.log(
-    "aaaaAAaAA",
-    data.map((item) => ({
-      id: item.id,
-      mediaFieldName: "productImageName",
-    }))
-  );
+  console.log("aaaaAAaAA", data);
   return (
     <div className="page-content mb-10">
       <div className="container">
@@ -100,7 +94,10 @@ const shop = ({ pageData: data }) => {
                 </div>
               </div> */}
             </nav>
-            <div className="product-wrapper row cols-xl-5 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
+            <div
+              className="product-wrapper row product-wrap-row"
+              style={{ justifyContent: "flex-start" }}
+            >
               {data?.length > 0 &&
                 data.map((item) => {
                   return <ProductWrap data={item} />;
@@ -174,8 +171,7 @@ export const getServerSideProps = async () => {
   }
 
   const data = await res.json();
-  const pageData = data.data;
+  const pageData = data.data.reverse();
 
-  // Pass data to the page via props
   return { props: { pageData, errorCode } };
 };

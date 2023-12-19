@@ -7,10 +7,13 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useCartContext } from "@/contexts/contex";
 import Inquiry from "@/components/Inquiry/Inquiry";
+import Link from "next/link";
 
 const Checkout = () => {
-  const { cart } = useCartContext();
   const [showModal, setShowModal] = useState(false);
+  const [phoneNumber, setPhoneNumber] = useState(0);
+  const [nationalCode, setNationalCode] = useState(0);
+  const { cart } = useCartContext();
   const router = useRouter();
   const data = router.query;
 
@@ -30,7 +33,7 @@ const Checkout = () => {
                   <Link href="/cart"> سبد خرید </Link>
                 </li>
                 <li class="active">
-                  <Link href="٫">پرداخت </Link>
+                  <Link href="#">پرداخت </Link>
                 </li>
                 <li>
                   <Link href="#">سفارش کامل شد</Link>

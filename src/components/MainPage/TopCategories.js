@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import cat1 from "../../assets/images/mob.jpeg";
-import cat2 from "../../assets/images/laptop.png";
-import cat3 from "../../assets/images/watch.jpeg";
-import cat4 from "../../assets/images/tab.jpeg";
-import cat5 from "../../assets/images/play.jpeg";
-import cat6 from "../../assets/images/demos/demo15/categories/cat-6.jpg";
+import cat1 from "../../assets/images/mob.webp";
+import cat2 from "../../assets/images/laptop.webp";
+import cat3 from "../../assets/images/watches.webp";
+import cat4 from "../../assets/images/tablet.webp";
+import cat5 from "../../assets/images/gaming.webp";
+import cat6 from "../../assets/images/accessories.webp";
 import cat7 from "../../assets/images/demos/demo15/categories/cat-7.jpg";
 import cat8 from "../../assets/images/demos/demo15/categories/cat-8.jpg";
 import Link from "next/link";
