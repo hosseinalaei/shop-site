@@ -16,16 +16,19 @@ import onePlus from "../../assets/images/Oneplus-logo.webp";
 import nokia from "../../assets/images/nokia-logo.webp";
 import FiltersDrawer from "@/components/FiltersDrawer/FiltersDrawer";
 import Backdrop from "@/components/FiltersDrawer/Backdrop";
+import PageLoader from "@/components/PageLoader/PageLoader";
 
-const categoryProducts = () => {
+const categoryProducts = ({ pageData: Sdata }) => {
   const [data, setData] = useState([]);
   const [showFilters, setShowFilters] = useState(false);
   const [banner, setBanner] = useState(null);
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const { id } = router.query;
-
+  console.log("Sdata", Sdata);
   const getProdcts = async () => {
     try {
+      setLoading(true);
       setData([]);
       const response = await axios.post(
         "https://138.201.167.230:5050/Products/product-by-categories",
@@ -33,11 +36,12 @@ const categoryProducts = () => {
       );
 
       if (response.status === 200) {
-        console.log("pppppppp", response.data);
         setData(response.data);
+        setLoading(false);
       }
     } catch (error) {
       console.log(error.response);
+      setLoading(false);
     }
   };
 
@@ -75,6 +79,7 @@ const categoryProducts = () => {
   ];
   return (
     <main className="main">
+      {loading && <PageLoader />}
       <nav className="breadcrumb-nav">
         <div className="container">
           <ul className="breadcrumb bb-no">
@@ -129,7 +134,7 @@ const categoryProducts = () => {
                     <i className="w-icon-category"></i>
                     <span>فیلتر ها </span>
                   </div>
-                  <div className="toolbox-item toolbox-sort select-box text-dark">
+                  {/* <div className="toolbox-item toolbox-sort select-box text-dark">
                     <label>مرتب سازی با اساس :</label>
                     <select name="orderby" className="form-control">
                       <option value="default" selected="selected">
@@ -149,9 +154,9 @@ const categoryProducts = () => {
                         مرتب سازی با اساس قیمت بالا به پایین
                       </option>
                     </select>
-                  </div>
+                  </div> */}
                 </div>
-                <div className="toolbox-right">
+                {/* <div className="toolbox-right">
                   <div className="toolbox-item toolbox-show select-box">
                     <select name="count" className="form-control">
                       <option value="9">نمایش 9</option>
@@ -176,7 +181,7 @@ const categoryProducts = () => {
                       <i className="w-icon-list"></i>
                     </Link>
                   </div>
-                </div>
+                </div> */}
               </nav>
               <div
                 className="product-wrapper row product-wrap-row"
@@ -185,7 +190,6 @@ const categoryProducts = () => {
                 {data.status === "Success" ? (
                   data.data
                     .filter((item) => !item.isDelete)
-                    .reverse()
                     .map((item) => {
                       return (
                         <ProductWrap
@@ -202,7 +206,7 @@ const categoryProducts = () => {
                 )}
               </div>
 
-              <div className="toolbox toolbox-pagination justify-content-between">
+              {/* <div className="toolbox toolbox-pagination justify-content-between">
                 <p className="showing-info mb-2 mb-sm-0">
                   نمایش <span>1-12 از 60</span>محصولات
                 </p>
@@ -233,7 +237,7 @@ const categoryProducts = () => {
                     </Link>
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </div>
             <FiltersDrawer showFilters={showFilters} />
             {showFilters && (
@@ -249,3 +253,30 @@ const categoryProducts = () => {
 };
 
 export default categoryProducts;
+
+// export const getServerSideProps = async (context) => {
+//   process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+//   // Fetch data from external API
+//   const { id } = context.params;
+
+//   const res = await fetch(
+//     "https://138.201.167.230:5050/Products/product-by-categories",
+//     { id: id[1] ? id[1] : id[0] }
+//   );
+//   const errorCode = res.status === 200 ? false : res.status;
+
+//   //handling redirect
+//   if (errorCode === 301) {
+//     const data = await res.json();
+//     return {
+//       redirect: {
+//         destination: data.payload.to,
+//       },
+//     };
+//   }
+
+//   const data = await res.json();
+//   const pageData = data.data;
+
+//   return { props: { pageData, errorCode } };
+// };
