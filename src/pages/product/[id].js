@@ -7,7 +7,7 @@ import { useCartContext } from "@/contexts/contex";
 import Image from "next/image";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import Link from "next/link";
-import banner from "../../assets/images/banner3.jpeg";
+import banner from "../../assets/images/banner_ProductListPageBanner_bGm6F9.webp";
 import { ToastContainer, toast } from "react-toastify";
 import defaultAvatar from "../../assets/images/default-avatar.webp";
 import defaultImage from "../../assets/images/defaultImage.png";
@@ -329,7 +329,7 @@ const product = () => {
                               />
                               <label
                                 htmlFor={`radio ${index}`}
-                                style={{ backgroundColor: item.colorName }}
+                                style={{ backgroundColor: item.colorCode }}
                               ></label>
                             </div>
                             // <Link
@@ -481,11 +481,22 @@ const product = () => {
               <Tabs>
                 <TabList>
                   <Tab>توضیحات</Tab>
+                  {data?.product?.productSpecific?.spec?.length > 0 && (
+                    <Tab>ویژگی ها</Tab>
+                  )}
                   <Tab>نظرات مشتریان</Tab>
                 </TabList>
 
                 <TabPanel>
                   <p>{parse(data?.product?.description)}</p>
+                </TabPanel>
+                <TabPanel>
+                  {data?.product?.productSpecific?.spec.map((item) => (
+                    <div key={item.value}>
+                      <h4>{item.groupName}:</h4>
+                      <p>{item.valueName}</p>
+                    </div>
+                  ))}
                 </TabPanel>
                 <TabPanel style={{ display: "flex" }}>
                   {/* <div className="col-xl-4 col-lg-5 mb-4">
