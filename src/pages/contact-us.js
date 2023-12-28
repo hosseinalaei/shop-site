@@ -3,6 +3,7 @@ import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer/Footer";
 import StickyFooter from "@/components/Footer/StickyFooter";
 import { useState } from "react";
+import Link from "next/link";
 
 const ContactUs = () => {
   const [faqs, setFaqs] = useState([

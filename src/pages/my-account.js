@@ -193,7 +193,7 @@ const MyAccount = () => {
             <TabPanel>
               <h3>آدرسها</h3>
             </TabPanel>
-            <TabPanel className="w-100" id="user-detail">
+            <TabPanel>
               <h3>جزئیات حساب</h3>
               {userInfo && (
                 <div className="tab-pane" id="account-details">

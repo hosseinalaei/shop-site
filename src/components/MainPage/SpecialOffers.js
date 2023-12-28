@@ -19,364 +19,367 @@ import Link from "next/link";
 
 const SpecialOffers = () => {
   return (
-    <div className="grey-section">
-      <div className="container-fluid">
-        <div className="special-offers-wrapper d-flex d-sm-flex bg-white pt-6 pb-1">
-          <div className="col-xxl-2 col-xl-3 col-lg-4 col-md-5 d-flex align-items-center justify-content-center product-lg br-sm">
-            <div>
-              <h2 className="title">پیشنهادهای ویژه!</h2>
-              <h4 className="price-info">
-                تا
-                <span className="text-primary ls-25">50% تخفیف</span>
-              </h4>
-              <div className="product-countdown-container text-white align-items-center ">
-                <label className="d-block text-default">
-                  عجله کن! پایان پیشنهاد در:
-                </label>
-                <div
-                  className="product-countdown countdown-compact font-weight-bold"
-                  // data-until="+10d"
-                  // data-relative="true"
-                  // data-compact="false"
-                  // data-labels-short="true"
-                >
-                  <span className="countdown-row countdown-show4">
-                    <span className="countdown-section">
-                      <span className="countdown-amount">00</span>
-                      <span className="countdown-period">روز</span>
+    <div className="container" style={{ marginBottom: "2rem" }}>
+      <div className="grey-section">
+        <div className="container-fluid">
+          <div className="special-offers-wrapper d-flex d-sm-flex bg-white pt-6 pb-1">
+            <div className="col-xxl-2 col-xl-3 col-lg-4 col-md-5 d-flex align-items-center justify-content-center product-lg br-sm">
+              <div>
+                <h2 className="title">پیشنهادهای ویژه!</h2>
+                <h4 className="price-info">
+                  تا
+                  <span className="text-primary ls-25">50% تخفیف</span>
+                </h4>
+                <div className="product-countdown-container text-white align-items-center ">
+                  <label className="d-block text-default">
+                    عجله کن! پایان پیشنهاد در:
+                  </label>
+                  <div
+                    className="product-countdown countdown-compact font-weight-bold"
+                    // data-until="+10d"
+                    // data-relative="true"
+                    // data-compact="false"
+                    // data-labels-short="true"
+                  >
+                    <span className="countdown-row countdown-show4">
+                      <span className="countdown-section">
+                        <span className="countdown-amount">00</span>
+                        <span className="countdown-period">روز</span>
+                      </span>
+                      <span className="countdown-section">
+                        <span className="countdown-amount">00</span>
+                        <span className="countdown-period">ساعت</span>
+                      </span>
+                      <span className="countdown-section">
+                        <span className="countdown-amount">00</span>
+                        <span className="countdown-period">دقیقه</span>
+                      </span>
+                      <span className="countdown-section">
+                        <span className="countdown-amount">00</span>
+                        <span className="countdown-period">ثانیه</span>
+                      </span>
                     </span>
-                    <span className="countdown-section">
-                      <span className="countdown-amount">00</span>
-                      <span className="countdown-period">ساعت</span>
-                    </span>
-                    <span className="countdown-section">
-                      <span className="countdown-amount">00</span>
-                      <span className="countdown-period">دقیقه</span>
-                    </span>
-                    <span className="countdown-section">
-                      <span className="countdown-amount">00</span>
-                      <span className="countdown-period">ثانیه</span>
-                    </span>
-                  </span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="col-xxl-10 col-xl-9 col-lg-8 col-md-7">
-            <Swiper
-              spaceBetween={20}
-              breakpoints={{
-                0: {
-                  slidesPerView: 2,
-                },
-                768: {
-                  slidesPerView: 3,
-                },
-                992: {
-                  slidesPerView: 4,
-                },
-                1200: {
-                  slidesPerView: 5,
-                },
-              }}
+            <div className="col-xxl-10 col-xl-9 col-lg-8 col-md-7">
+              <Swiper
+                spaceBetween={20}
+                breakpoints={{
+                  0: {
+                    slidesPerView: 2,
+                  },
+                  768: {
+                    slidesPerView: 3,
+                  },
+                  992: {
+                    slidesPerView: 4,
+                  },
+                  1200: {
+                    slidesPerView: 5,
+                  },
+                }}
 
-              // className="swiper-container swiper-theme"
-              // data-swiper-options="{
-              //   'spaceBetween': 20,
-              //   'breakpoints': {
-              //       '0': {
-              //           'slidesPerView': 2
-              //       },
-              //       '768': {
-              //           'slidesPerView': 3
-              //       },
-              //       '992': {
-              //           'slidesPerView': 4
-              //       },
-              //       '1200': {
-              //           'slidesPerView': 5
-              //       }
-              //   }
-              //   }"
-            >
-              <div className="swiper-wrapper row cols-lg-5 cols-md-4 cols-sm-3 cols-2">
-                <SwiperSlide
-                // className="swiper-slide product-wrap"
-                >
-                  <div className="product text-center">
-                    <figure className="product-media">
-                      <Link href="product-default.html">
-                        <Image
-                          src={prod1}
-                          alt="Product"
-                          width="300"
-                          height="337"
-                        />
-                        <Image
-                          src={prod2}
-                          alt="Product"
-                          width="300"
-                          height="337"
-                        />
-                      </Link>
-                      <div className="product-action-horizontal">
-                        <Link
-                          href="#"
-                          className="btn-product-icon btn-cart w-icon-cart"
-                          title="افزودن به سبد "
-                        ></Link>
-                        <Link
-                          href="#"
-                          className="btn-product-icon btn-wishlist w-icon-heart"
-                          title="علاقه مندیها"
-                        ></Link>
-                        <Link
-                          href="#"
-                          className="btn-product-icon btn-compare w-icon-compare"
-                          title="مقایسه"
-                        ></Link>
-                        <Link
-                          href="#"
-                          className="btn-product-icon btn-quickview w-icon-search"
-                          title="نمایش سریع"
-                        ></Link>
-                      </div>
-                    </figure>
-                    <div className="product-details">
-                      <h4 className="product-name">
-                        <Link href="product-default.html">ساعت طلا </Link>
-                      </h4>
-                      <div className="product-price">
-                        <ins className="new-price">60000 تومان</ins>
-                        <del className="old-price">64000 تومان</del>
-                      </div>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide
-                // className="swiper-slide product-wrap"
-                >
-                  <div className="product text-center">
-                    <figure className="product-media">
-                      <Link href="product-default.html">
-                        <Image
-                          src={prod3}
-                          alt="Product"
-                          width="300"
-                          height="337"
-                        />
-                        <Image
-                          src={prod4}
-                          alt="Product"
-                          width="300"
-                          height="337"
-                        />
-                      </Link>
-                      <div className="product-action-horizontal">
-                        <Link
-                          href="#"
-                          className="btn-product-icon btn-cart w-icon-cart"
-                          title="افزودن به سبد "
-                        ></Link>
-                        <Link
-                          href="#"
-                          className="btn-product-icon btn-wishlist w-icon-heart"
-                          title="علاقه مندیها"
-                        ></Link>
-                        <Link
-                          href="#"
-                          className="btn-product-icon btn-compare w-icon-compare"
-                          title="مقایسه"
-                        ></Link>
-                        <Link
-                          href="#"
-                          className="btn-product-icon btn-quickview w-icon-search"
-                          title="نمایش سریع"
-                        ></Link>
-                      </div>
-                    </figure>
-                    <div className="product-details">
-                      <h4 className="product-name">
-                        <Link href="product-default.html">کیف سفید مدرسه</Link>
-                      </h4>
-                      <div className="product-price">
-                        <ins className="new-price">22000 تومان</ins>
-                        <del className="old-price">28000 تومان </del>
-                      </div>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide
-                // className="swiper-slide product-wrap"
-                >
-                  <div className="product text-center">
-                    <figure className="product-media">
-                      <Link href="product-default.html">
-                        <Image
-                          src={prod5}
-                          alt="Product"
-                          width="300"
-                          height="337"
-                        />
-                        <Image
-                          src={prod6}
-                          alt="Product"
-                          width="300"
-                          height="337"
-                        />
-                      </Link>
-                      <div className="product-action-horizontal">
-                        <Link
-                          href="#"
-                          className="btn-product-icon btn-cart w-icon-cart"
-                          title="افزودن به سبد "
-                        ></Link>
-                        <Link
-                          href="#"
-                          className="btn-product-icon btn-wishlist w-icon-heart"
-                          title="علاقه مندیها"
-                        ></Link>
-                        <Link
-                          href="#"
-                          className="btn-product-icon btn-compare w-icon-compare"
-                          title="مقایسه"
-                        ></Link>
-                        <Link
-                          href="#"
-                          className="btn-product-icon btn-quickview w-icon-search"
-                          title="نمایش سریع"
-                        ></Link>
-                      </div>
-                    </figure>
-                    <div className="product-details">
-                      <h4 className="product-name">
+                // className="swiper-container swiper-theme"
+                // data-swiper-options="{
+                //   'spaceBetween': 20,
+                //   'breakpoints': {
+                //       '0': {
+                //           'slidesPerView': 2
+                //       },
+                //       '768': {
+                //           'slidesPerView': 3
+                //       },
+                //       '992': {
+                //           'slidesPerView': 4
+                //       },
+                //       '1200': {
+                //           'slidesPerView': 5
+                //       }
+                //   }
+                //   }"
+              >
+                <div className="swiper-wrapper row cols-lg-5 cols-md-4 cols-sm-3 cols-2">
+                  <SwiperSlide
+                  // className="swiper-slide product-wrap"
+                  >
+                    <div className="product text-center">
+                      <figure className="product-media">
                         <Link href="product-default.html">
-                          کمربند جیر مردانه
+                          <Image
+                            src={prod1}
+                            alt="Product"
+                            width="300"
+                            height="337"
+                          />
+                          <Image
+                            src={prod2}
+                            alt="Product"
+                            width="300"
+                            height="337"
+                          />
                         </Link>
-                      </h4>
-                      <div className="product-price">
-                        <ins className="new-price">75000 تومان</ins>
-                        <del className="old-price">79000 تومان</del>
+                        <div className="product-action-horizontal">
+                          <Link
+                            href="#"
+                            className="btn-product-icon btn-cart w-icon-cart"
+                            title="افزودن به سبد "
+                          ></Link>
+                          <Link
+                            href="#"
+                            className="btn-product-icon btn-wishlist w-icon-heart"
+                            title="علاقه مندیها"
+                          ></Link>
+                          <Link
+                            href="#"
+                            className="btn-product-icon btn-compare w-icon-compare"
+                            title="مقایسه"
+                          ></Link>
+                          <Link
+                            href="#"
+                            className="btn-product-icon btn-quickview w-icon-search"
+                            title="نمایش سریع"
+                          ></Link>
+                        </div>
+                      </figure>
+                      <div className="product-details">
+                        <h4 className="product-name">
+                          <Link href="product-default.html">ساعت طلا </Link>
+                        </h4>
+                        <div className="product-price">
+                          <ins className="new-price">60000 تومان</ins>
+                          <del className="old-price">64000 تومان</del>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide
-                // className="swiper-slide product-wrap"
-                >
-                  <div className="product text-center">
-                    <figure className="product-media">
-                      <Link href="product-default.html">
-                        <Image
-                          src={prod7}
-                          alt="Product"
-                          width="300"
-                          height="337"
-                        />
-                        <Image
-                          src={prod8}
-                          alt="Product"
-                          width="300"
-                          height="337"
-                        />
-                      </Link>
-                      <div className="product-action-horizontal">
-                        <Link
-                          href="#"
-                          className="btn-product-icon btn-cart w-icon-cart"
-                          title="افزودن به سبد "
-                        ></Link>
-                        <Link
-                          href="#"
-                          className="btn-product-icon btn-wishlist w-icon-heart"
-                          title="علاقه مندیها"
-                        ></Link>
-                        <Link
-                          href="#"
-                          className="btn-product-icon btn-compare w-icon-compare"
-                          title="مقایسه"
-                        ></Link>
-                        <Link
-                          href="#"
-                          className="btn-product-icon btn-quickview w-icon-search"
-                          title="نمایش سریع"
-                        ></Link>
-                      </div>
-                    </figure>
-                    <div className="product-details">
-                      <h4 className="product-name">
+                  </SwiperSlide>
+                  <SwiperSlide
+                  // className="swiper-slide product-wrap"
+                  >
+                    <div className="product text-center">
+                      <figure className="product-media">
                         <Link href="product-default.html">
-                          گوشی مینی بی سیم{" "}
+                          <Image
+                            src={prod3}
+                            alt="Product"
+                            width="300"
+                            height="337"
+                          />
+                          <Image
+                            src={prod4}
+                            alt="Product"
+                            width="300"
+                            height="337"
+                          />
                         </Link>
-                      </h4>
-                      <div className="product-price">
-                        <ins className="new-price">85000 تومان </ins>
-                        <del className="old-price">125000 تومان </del>
+                        <div className="product-action-horizontal">
+                          <Link
+                            href="#"
+                            className="btn-product-icon btn-cart w-icon-cart"
+                            title="افزودن به سبد "
+                          ></Link>
+                          <Link
+                            href="#"
+                            className="btn-product-icon btn-wishlist w-icon-heart"
+                            title="علاقه مندیها"
+                          ></Link>
+                          <Link
+                            href="#"
+                            className="btn-product-icon btn-compare w-icon-compare"
+                            title="مقایسه"
+                          ></Link>
+                          <Link
+                            href="#"
+                            className="btn-product-icon btn-quickview w-icon-search"
+                            title="نمایش سریع"
+                          ></Link>
+                        </div>
+                      </figure>
+                      <div className="product-details">
+                        <h4 className="product-name">
+                          <Link href="product-default.html">
+                            کیف سفید مدرسه
+                          </Link>
+                        </h4>
+                        <div className="product-price">
+                          <ins className="new-price">22000 تومان</ins>
+                          <del className="old-price">28000 تومان </del>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide
-                // className="swiper-slide product-wrap"
-                >
-                  <div className="product text-center">
-                    <figure className="product-media">
-                      <Link href="product-default.html">
-                        <Image
-                          src={prod9}
-                          alt="Product"
-                          width="300"
-                          height="337"
-                        />
-                        <Image
-                          src={prod10}
-                          alt="Product"
-                          width="300"
-                          height="337"
-                        />
-                      </Link>
-                      <div className="product-action-horizontal">
-                        <Link
-                          href="#"
-                          className="btn-product-icon btn-cart w-icon-cart"
-                          title="افزودن به سبد "
-                        ></Link>
-                        <Link
-                          href="#"
-                          className="btn-product-icon btn-wishlist w-icon-heart"
-                          title="علاقه مندیها"
-                        ></Link>
-                        <Link
-                          href="#"
-                          className="btn-product-icon btn-compare w-icon-compare"
-                          title="مقایسه"
-                        ></Link>
-                        <Link
-                          href="#"
-                          className="btn-product-icon btn-quickview w-icon-search"
-                          title="نمایش سریع"
-                        ></Link>
-                      </div>
-                    </figure>
-                    <div className="product-details">
-                      <h4 className="product-name">
+                  </SwiperSlide>
+                  <SwiperSlide
+                  // className="swiper-slide product-wrap"
+                  >
+                    <div className="product text-center">
+                      <figure className="product-media">
                         <Link href="product-default.html">
-                          تغییر ماشین آلارم
+                          <Image
+                            src={prod5}
+                            alt="Product"
+                            width="300"
+                            height="337"
+                          />
+                          <Image
+                            src={prod6}
+                            alt="Product"
+                            width="300"
+                            height="337"
+                          />
                         </Link>
-                      </h4>
-                      <div className="product-price">
-                        <ins className="new-price">78000 تومان</ins>
-                        <del className="old-price">88000 تومان</del>
+                        <div className="product-action-horizontal">
+                          <Link
+                            href="#"
+                            className="btn-product-icon btn-cart w-icon-cart"
+                            title="افزودن به سبد "
+                          ></Link>
+                          <Link
+                            href="#"
+                            className="btn-product-icon btn-wishlist w-icon-heart"
+                            title="علاقه مندیها"
+                          ></Link>
+                          <Link
+                            href="#"
+                            className="btn-product-icon btn-compare w-icon-compare"
+                            title="مقایسه"
+                          ></Link>
+                          <Link
+                            href="#"
+                            className="btn-product-icon btn-quickview w-icon-search"
+                            title="نمایش سریع"
+                          ></Link>
+                        </div>
+                      </figure>
+                      <div className="product-details">
+                        <h4 className="product-name">
+                          <Link href="product-default.html">
+                            کمربند جیر مردانه
+                          </Link>
+                        </h4>
+                        <div className="product-price">
+                          <ins className="new-price">75000 تومان</ins>
+                          <del className="old-price">79000 تومان</del>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </SwiperSlide>
-              </div>
-            </Swiper>
+                  </SwiperSlide>
+                  <SwiperSlide
+                  // className="swiper-slide product-wrap"
+                  >
+                    <div className="product text-center">
+                      <figure className="product-media">
+                        <Link href="product-default.html">
+                          <Image
+                            src={prod7}
+                            alt="Product"
+                            width="300"
+                            height="337"
+                          />
+                          <Image
+                            src={prod8}
+                            alt="Product"
+                            width="300"
+                            height="337"
+                          />
+                        </Link>
+                        <div className="product-action-horizontal">
+                          <Link
+                            href="#"
+                            className="btn-product-icon btn-cart w-icon-cart"
+                            title="افزودن به سبد "
+                          ></Link>
+                          <Link
+                            href="#"
+                            className="btn-product-icon btn-wishlist w-icon-heart"
+                            title="علاقه مندیها"
+                          ></Link>
+                          <Link
+                            href="#"
+                            className="btn-product-icon btn-compare w-icon-compare"
+                            title="مقایسه"
+                          ></Link>
+                          <Link
+                            href="#"
+                            className="btn-product-icon btn-quickview w-icon-search"
+                            title="نمایش سریع"
+                          ></Link>
+                        </div>
+                      </figure>
+                      <div className="product-details">
+                        <h4 className="product-name">
+                          <Link href="product-default.html">
+                            گوشی مینی بی سیم{" "}
+                          </Link>
+                        </h4>
+                        <div className="product-price">
+                          <ins className="new-price">85000 تومان </ins>
+                          <del className="old-price">125000 تومان </del>
+                        </div>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide
+                  // className="swiper-slide product-wrap"
+                  >
+                    <div className="product text-center">
+                      <figure className="product-media">
+                        <Link href="product-default.html">
+                          <Image
+                            src={prod9}
+                            alt="Product"
+                            width="300"
+                            height="337"
+                          />
+                          <Image
+                            src={prod10}
+                            alt="Product"
+                            width="300"
+                            height="337"
+                          />
+                        </Link>
+                        <div className="product-action-horizontal">
+                          <Link
+                            href="#"
+                            className="btn-product-icon btn-cart w-icon-cart"
+                            title="افزودن به سبد "
+                          ></Link>
+                          <Link
+                            href="#"
+                            className="btn-product-icon btn-wishlist w-icon-heart"
+                            title="علاقه مندیها"
+                          ></Link>
+                          <Link
+                            href="#"
+                            className="btn-product-icon btn-compare w-icon-compare"
+                            title="مقایسه"
+                          ></Link>
+                          <Link
+                            href="#"
+                            className="btn-product-icon btn-quickview w-icon-search"
+                            title="نمایش سریع"
+                          ></Link>
+                        </div>
+                      </figure>
+                      <div className="product-details">
+                        <h4 className="product-name">
+                          <Link href="product-default.html">
+                            تغییر ماشین آلارم
+                          </Link>
+                        </h4>
+                        <div className="product-price">
+                          <ins className="new-price">78000 تومان</ins>
+                          <del className="old-price">88000 تومان</del>
+                        </div>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                </div>
+              </Swiper>
+            </div>
           </div>
-        </div>
 
-        <div
+          {/* <div
           className="notification-wrapper d-flex bg-dark br-sm mb-10 justify-content-center"
           style={{ animationDuration: "1.2s" }}
         >
@@ -407,6 +410,7 @@ const SpecialOffers = () => {
               دانلود <i className="w-icon-long-arrow-down"></i>
             </Link>
           </div>
+        </div> */}
         </div>
       </div>
     </div>

@@ -53,7 +53,7 @@ const search = () => {
         className="header-search hs-expanded hs-round d-none d-md-flex input-wrapper"
         ref={searchRef}
       >
-        <div className="select-box">
+        {/* <div className="select-box">
           <select id="category" name="category" className="pb-0">
             <option value="">دسته بندیها </option>
             <option value="4">مدل </option>
@@ -66,7 +66,7 @@ const search = () => {
             <option value="11">آشپرخانه </option>
             <option value="12">لباس </option>
           </select>
-        </div>
+        </div> */}
         <input
           type="text"
           className="form-control"

@@ -2,14 +2,14 @@ import { separate } from "@/utils/helper";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const FiltersDrawer = ({ showFilters }) => {
+const FiltersDrawer = ({ showFilters, setShowFilters, setFilteredData }) => {
   const [startPrice, setStartPrice] = useState(0);
   const [endPrice, setEndPrice] = useState(0);
   const [attributes, setAttributes] = useState([]);
   const [productspecs, setProductspecs] = useState([
     {
-      specName: "string",
-      specValue: "string",
+      specName: "",
+      specValue: "",
     },
   ]);
 
@@ -19,7 +19,6 @@ const FiltersDrawer = ({ showFilters }) => {
         "https://138.201.167.230:5050/Specification/getActiveAttributes"
       );
       setAttributes(response.data.data);
-      console.log(response.data.data);
     } catch (error) {
       console.log("get att error", error);
     }
@@ -40,7 +39,10 @@ const FiltersDrawer = ({ showFilters }) => {
           productspecs: productspecs,
         }
       );
-      console.log("response filter", response);
+      if (response.status === 200) {
+        setFilteredData(response.data.data.filter((item) => !item.isDelete));
+        setShowFilters(!showFilters);
+      }
     } catch (error) {
       console.log("filter submit error", error);
     }

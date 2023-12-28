@@ -243,7 +243,7 @@ const product = () => {
                       <ins className="new-price">
                         {data?.product?.isExists ? (
                           `${separate(
-                            data?.product?.productColor[0].price
+                            price ?? data?.product?.productColor[0].price
                           )} تومان`
                         ) : (
                           <span className="text-error">ناموجود</span>
@@ -319,11 +319,7 @@ const product = () => {
                                 value={item.colorName}
                                 onChange={(e) => {
                                   setColor(e.target.value);
-                                  const productColorPrice =
-                                    data.product.productColor.filter(
-                                      (item) => item.colorName === color
-                                    );
-                                  setPrice(productColorPrice[0].price);
+                                  setPrice(item.price);
                                 }}
                                 defaultChecked={index === 0 && true}
                               />
@@ -361,10 +357,12 @@ const product = () => {
                             <button
                               className="quantity-plus w-icon-plus"
                               onClick={() => setCount(count + 1)}
+                              disabled={count === data.product.productCount}
                             ></button>
                             <button
                               className="quantity-minus w-icon-minus"
                               onClick={() => setCount(count - 1)}
+                              disabled={count <= 1}
                             ></button>
                           </div>
                         </div>
@@ -923,7 +921,7 @@ const product = () => {
                 >
                   <div className="swiper-wrapper row cols-lg-3 cols-md-4 cols-sm-3 cols-2">
                     {relatedData
-                      .filter((item) => !item.isDelete)
+                      ?.filter((item) => !item.isDelete)
                       .slice(0, 3)
                       .map((item, index) => {
                         return (

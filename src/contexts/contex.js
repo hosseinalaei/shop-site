@@ -33,7 +33,6 @@ const CartProvider = ({ children }) => {
   const initialState = {
     loading: false,
     cart: [],
-    total: 0,
     amount: 0,
     color: "black",
   };
@@ -44,11 +43,10 @@ const CartProvider = ({ children }) => {
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
-
-  const cartUpdate = (cart) =>{
+  const cartUpdate = (cart) => {
     // console.log(cart);
-    dispatch({type: 'UPDATE_CART', payload: cart})
-  }
+    dispatch({ type: "UPDATE_CART", payload: cart });
+  };
   const addToCart = (newItem) => {
     dispatch({ type: "ADD_TO_CART", payload: newItem });
   };
@@ -71,7 +69,7 @@ const CartProvider = ({ children }) => {
 
   useEffect(() => {
     dispatch({ type: "GET_TOTALS" });
-    console.log(state);
+    console.log("state", state);
   }, [state.cart]);
   return (
     <CartContext.Provider
@@ -84,11 +82,11 @@ const CartProvider = ({ children }) => {
         deduction,
         mobileMenu,
         setMobileMenu,
-        cartUpdate, 
+        cartUpdate,
         catMenu,
         setCatMenu,
         subMenu,
-        setSubMenu
+        setSubMenu,
       }}
     >
       {children}

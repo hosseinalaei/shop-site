@@ -21,6 +21,7 @@ import PageLoader from "@/components/PageLoader/PageLoader";
 const categoryProducts = ({ pageData: Sdata }) => {
   const [data, setData] = useState([]);
   const [showFilters, setShowFilters] = useState(false);
+  const [filteredData, setFilteredData] = useState([]);
   const [banner, setBanner] = useState(null);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -187,7 +188,19 @@ const categoryProducts = ({ pageData: Sdata }) => {
                 className="product-wrapper row product-wrap-row"
                 style={{ justifyContent: "flex-start" }}
               >
-                {data.status === "Success" ? (
+                {filteredData?.length > 0 ? (
+                  filteredData.map((item) => {
+                    return (
+                      <ProductWrap
+                        data={item}
+                        key={item.id}
+                        id={item.id}
+                        productName={item.productName}
+                        price={item.productColor[0]?.price}
+                      />
+                    );
+                  })
+                ) : data.status === "Success" ? (
                   data.data
                     .filter((item) => !item.isDelete)
                     .map((item) => {
@@ -239,7 +252,11 @@ const categoryProducts = ({ pageData: Sdata }) => {
                 </ul>
               </div> */}
             </div>
-            <FiltersDrawer showFilters={showFilters} />
+            <FiltersDrawer
+              showFilters={showFilters}
+              setFilteredData={setFilteredData}
+              setShowFilters={setShowFilters}
+            />
             {showFilters && (
               <>
                 <Backdrop close={() => setShowFilters(false)} />

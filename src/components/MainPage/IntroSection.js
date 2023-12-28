@@ -1,13 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import dot1 from "../../assets/images/demos/demo9/slides/1.jpeg";
-import dot2 from "../../assets/images/demos/demo9/slides/2.jpeg";
-import dot3 from "../../assets/images/demos/demo9/slides/3.png";
+import dot1 from "../../assets/images/s3.jpg";
+import dot2 from "../../assets/images/b1.jpg";
+import dot3 from "../../assets/images/b2.jpg";
+import dot4 from "../../assets/images/banner_SlideBanner_bDQ85G_2a1aa76a-70c1-42b6-84bb-684726c5b51c.webp";
+import dot5 from "../../assets/images/banner_SlideBanner_OG2q61_14533bbf-5c31-4609-9075-28f4b2a1be52.webp";
 
 import bg1 from "../../assets/images/s3.jpg";
-import bg2 from "../../assets/images/sl2.webp";
-import bg3 from "../../assets/images/sl1.jpeg";
+import bg2 from "../../assets/images/b1.jpg";
+import bg3 from "../../assets/images/b2.jpg";
+import bg4 from "../../assets/images/banner_SlideBanner_bDQ85G_2a1aa76a-70c1-42b6-84bb-684726c5b51c.webp";
+import bg5 from "../../assets/images/banner_SlideBanner_OG2q61_14533bbf-5c31-4609-9075-28f4b2a1be52.webp";
 
 import slide1 from "../../assets/images/demos/demo9/slides/1.jpeg";
 import slide2 from "../../assets/images/demos/demo9/slides/2.jpeg";
@@ -88,6 +92,34 @@ const IntroSection = () => {
               }}
             ></div>
           </SwiperSlide>
+          <SwiperSlide
+            style={{
+              backgroundImage: `url(${bg4.src})`,
+              backgroundColor: "#D4D6D5",
+            }}
+          >
+            <div
+              className="banner banner-fixed intro-slide intro-slide1 content-center"
+              style={{
+                backgroundImage: `url(${bg4.src})`,
+                backgroundColor: "#D4D6D5",
+              }}
+            ></div>
+          </SwiperSlide>
+          <SwiperSlide
+            style={{
+              backgroundImage: `url(${bg5.src})`,
+              backgroundColor: "#D4D6D5",
+            }}
+          >
+            <div
+              className="banner banner-fixed intro-slide intro-slide1 content-center"
+              style={{
+                backgroundImage: `url(${bg5.src})`,
+                backgroundColor: "#D4D6D5",
+              }}
+            ></div>
+          </SwiperSlide>
         </div>
         <div className="custom-dots swiper-img-dots">
           {/* {sliders.length > 0 && (
@@ -120,6 +152,22 @@ const IntroSection = () => {
             }}
           >
             <Image src={dot3} alt="Dot" width="70" height="70" />
+          </Link>
+          <Link
+            href="#"
+            onClick={() => {
+              handleSlideChange(3);
+            }}
+          >
+            <Image src={dot4} alt="Dot" width="70" height="70" />
+          </Link>
+          <Link
+            href="#"
+            onClick={() => {
+              handleSlideChange(4);
+            }}
+          >
+            <Image src={dot5} alt="Dot" width="70" height="70" />
           </Link>
         </div>
       </Swiper>
