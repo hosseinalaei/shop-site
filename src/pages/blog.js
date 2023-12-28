@@ -361,25 +361,19 @@ const Blog = () => {
                     <h3 className="widget-title bb-no mb-0">دسته بندیها </h3>
                     <ul className="widget-body filter-items search-ul">
                       <li>
-                        <Link href="blog.html">لباس ها </Link>
+                        <Link href="/">موبایل </Link>
                       </li>
                       <li>
-                        <Link href="blog.html">سرگرمی </Link>
+                        <Link href="/">لپ تاپ </Link>
                       </li>
                       <li>
-                        <Link href="blog.html">مد </Link>
+                        <Link href="/">ساعت هوشمند </Link>
                       </li>
                       <li>
-                        <Link href="blog.html">سبک زندگی </Link>
+                        <Link href="/">کنسول بازی </Link>
                       </li>
                       <li>
-                        <Link href="blog.html">بیشتر </Link>
-                      </li>
-                      <li>
-                        <Link href="blog.html">کفش ها </Link>
-                      </li>
-                      <li>
-                        <Link href="blog.html">تکتولوژی </Link>
+                        <Link href="/">تبلت </Link>
                       </li>
                     </ul>
                   </div>

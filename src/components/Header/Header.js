@@ -209,7 +209,7 @@ const Header = () => {
               <div className="dropdown category-dropdown">
                 <Link
                   href="#"
-                  className="category-toggle text-capitalize pl-0"
+                  className="category-toggle text-capitalize"
                   role="button"
                   data-toggle="dropdown"
                   aria-haspopup="true"

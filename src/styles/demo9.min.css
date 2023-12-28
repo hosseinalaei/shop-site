@@ -14496,7 +14496,7 @@ body .product-popup {
 .header-search.hs-expanded input.form-control {
   color: #666;
   border-left: none;
-  border-right: none;
+  /* border-right: none; */
 }
 .header-search.hs-expanded .btn-search {
   display: -webkit-box;
@@ -15881,7 +15881,7 @@ body .product-popup {
   left: 0.5rem;
 }
 .category-menu .megamenu {
-  min-width: 68.5rem;
+  min-width: 23rem;
 }
 .category-menu .megamenu > li:not(:last-child) {
   padding: 2.8rem 0rem 0 2rem;

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import shopBanner from "../assets/images/shop-banner.jpeg";
+import shopBanner from "../assets/images/17030857725319.jpeg";
 import { useState } from "react";
 import ProductWrap from "@/components/Product/ProductWrap";
 import FiltersDrawer from "@/components/FiltersDrawer/FiltersDrawer";
@@ -8,10 +8,16 @@ import Backdrop from "@/components/FiltersDrawer/Backdrop";
 // import PageLoader from "@/components/PageLoader/PageLoader";
 
 const shop = ({ pageData: data }) => {
+  const [filteredData, setFilteredData] = useState([]);
   const [showFilters, setShowFilters] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  //   const ids = filteredData.map(({ title }) => title);
+  // const filtered = books.filter(({ title }, index) =>
+  //     !ids.includes(title, index + 1));
+
   console.log("aaaaAAaAA", data);
+  console.log("shop filteredData", filteredData);
   return (
     <div className="page-content mb-10">
       <div className="container">
@@ -98,10 +104,14 @@ const shop = ({ pageData: data }) => {
               className="product-wrapper row product-wrap-row"
               style={{ justifyContent: "flex-start" }}
             >
-              {data?.length > 0 &&
-                data.map((item) => {
-                  return <ProductWrap data={item} />;
-                })}
+              {filteredData?.length > 0
+                ? filteredData.map((item) => {
+                    return <ProductWrap data={item} />;
+                  })
+                : data?.length > 0 &&
+                  data.map((item) => {
+                    return <ProductWrap data={item} />;
+                  })}
             </div>
 
             {/* <div className="toolbox toolbox-pagination justify-content-between">
@@ -137,7 +147,11 @@ const shop = ({ pageData: data }) => {
               </ul>
             </div> */}
           </div>
-          <FiltersDrawer showFilters={showFilters} />
+          <FiltersDrawer
+            showFilters={showFilters}
+            setFilteredData={setFilteredData}
+            setShowFilters={setShowFilters}
+          />
           {showFilters && (
             <>
               <Backdrop close={() => setShowFilters(false)} />

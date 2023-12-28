@@ -39,8 +39,8 @@ const DropdownBox = () => {
               {sub.length !== 0 && (
                 <ul className="megamenu">
                   <li>
-                    <h4 className="menu-title">براساس برند </h4>
-                    <hr className="divider" />
+                    {/* <h4 className="menu-title">براساس برند </h4> */}
+                    {/* <hr className="divider" /> */}
                     <ul>
                       {sub.map((item) => {
                         return (

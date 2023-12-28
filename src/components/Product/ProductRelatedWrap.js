@@ -3,6 +3,7 @@ import Link from "next/link";
 import ProductImage from "./ProductImage";
 
 const ProductRelatedWrap = (props) => {
+  console.log("propsprops", props);
   // const [media, setMedia] = useState(null);
 
   // const getMedia = async () => {
@@ -55,7 +56,7 @@ const ProductRelatedWrap = (props) => {
             title="افزودن برای مقایسه"
           ></Link>
         </div>
-        <div
+        {/* <div
           className="product-action"
           // onClick={() => props.setShowModal(true)}
         >
@@ -66,7 +67,7 @@ const ProductRelatedWrap = (props) => {
           >
             نمایش سریع
           </Link>
-        </div>
+        </div> */}
       </figure>
 
       <div className="product-details">
@@ -83,7 +84,9 @@ const ProductRelatedWrap = (props) => {
           </Link>
         </div>
         <div className="product-pa-wrapper">
-          <div className="product-price">{props.item.price} تومان</div>
+          <div className="product-price">
+            {props.item.productColor[0]?.price} تومان
+          </div>
         </div>
       </div>
     </div>

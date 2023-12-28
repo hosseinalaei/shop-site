@@ -38,151 +38,77 @@ import prod9s from "../../assets/images/demos/demo15/products/2-9-2.jpg";
 import prod10 from "../../assets/images/demos/demo15/products/2-10-1.jpg";
 import prod10s from "../../assets/images/demos/demo15/products/2-10-2.jpg";
 
-import special1 from "../../assets/images/special-offer-1.png";
-import special2 from "../../assets/images/special-offer-2.png";
-import special3 from "../../assets/images/special-offer-3.png";
+import special1 from "../../assets/images/1Jadidtarin-636x254.png";
+import special2 from "../../assets/images/1Porforoshtarin-636x254.png";
+import special3 from "../../assets/images/1Samsung-636x254.png";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
+import SpecialOffers from "./SpecialOffers";
 
 const SpecialProducts = () => {
   return (
-    <div className="container">
-      <Swiper
-        spaceBetween={20}
-        slidesPerView={3}
-        breakpoints={{
-          0: {
-            slidesPerView: 1,
-          },
-          768: {
-            slidesPerView: 2,
-          },
-          1200: {
-            slidesPerView: 3,
-          },
-        }}
+    <>
+      <div className="container " style={{ marginTop: "2rem" }}>
+        <Swiper
+          spaceBetween={20}
+          slidesPerView={3}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1200: {
+              slidesPerView: 3,
+            },
+          }}
+        >
+          <div className="swiper-wrapper row cols-md-3 cols-sm-2 cols-1">
+            <SwiperSlide
+            // className="swiper-slide banner banner-1 banner-fixed br-sm"
+            >
+              <figure className="banner-media">
+                <Image
+                  src={special3}
+                  alt="Category Banner01"
+                  width="580"
+                  height="300"
+                  style={{ backgroundColor: "#EAEAEA" }}
+                />
+              </figure>
+            </SwiperSlide>
+            <SwiperSlide
+            // className="swiper-slide banner banner-2 banner-fixed br-sm"
+            >
+              <figure className="banner-media">
+                <Image
+                  src={special2}
+                  alt="Category Banner"
+                  width="580"
+                  height="300"
+                  style={{ bacgroundColor: "#EAEAEA" }}
+                />
+              </figure>
+            </SwiperSlide>
+            <SwiperSlide
+            // className="swiper-slide banner banner-3 banner-fixed br-sm"
+            >
+              <figure className="banner-media">
+                <Image
+                  src={special1}
+                  alt="Category Banner"
+                  width="580"
+                  height="300"
+                  style={{ bacgroundColor: "#EAEAEA" }}
+                />
+              </figure>
+            </SwiperSlide>
+          </div>
+        </Swiper>
 
-        // className="swiper-container swiper-theme category-banner-wrapper pt-2 pb-2 mt-10 mb-10"
-        // data-swiper-options="{
-        // 'spaceBetween': 20,
-        // 'slidesPerView': 3,
-        // 'breakpoints': {
-        //     '0': {
-        //         'slidesPerView': 1
-        //     },
-        //     '768': {
-        //         'slidesPerView': 2
-        //     },
-        //     '1200': {
-        //         'slidesPerView': 3
-        //     }
-        // }
-        // }"
-      >
-        <div className="swiper-wrapper row cols-md-3 cols-sm-2 cols-1">
-          <SwiperSlide
-          // className="swiper-slide banner banner-1 banner-fixed br-sm"
-          >
-            <figure className="banner-media">
-              <Image
-                src={special3}
-                alt="Category Banner"
-                width="580"
-                height="300"
-                style={{ backgroundColor: "#EAEAEA" }}
-              />
-            </figure>
-            {/* <div className="banner-content y-50 text-right">
-              <h4 className="banner-subtitle text-capitalize font-weight-normal">
-                مجموعه جدید
-              </h4>
-              <h3 className="banner-title text-capitalize mb-0">
-                فروش تابستانی
-              </h3>
-              <h5 className="banner-price-info font-weight-normal ls-25">
-                تا{" "}
-                <span className="text-primary font-weight-bolder">
-                  30% تخفیف
-                </span>
-              </h5>
-              <Link 
-                href="demo15-shop.html"
-                className="btn btn-dark btn-outline btn-rounded btn-icon-right"
-              >
-                اکنون بخرید <i className="w-icon-long-arrow-left"></i>
-              </Link>
-            </div> */}
-          </SwiperSlide>
-          <SwiperSlide
-          // className="swiper-slide banner banner-2 banner-fixed br-sm"
-          >
-            <figure className="banner-media">
-              <Image
-                src={special2}
-                alt="Category Banner"
-                width="580"
-                height="300"
-                style={{ bacgroundColor: "#EAEAEA" }}
-              />
-            </figure>
-            {/* <div className="banner-content x-50 y-50 text-center">
-              <h5 className="banner-price-info text-primary text-capitalize font-secondary">
-                30% تخفیف کل سفارش خود را دریافت کنید!
-              </h5>
-              <h3 className="banner-title text-uppercase text-white ls-25">
-                فروش جمعه سیاه
-              </h3>
-              <h4 className="banner-subtitle font-weight-normal">
-                استفاده از کد{" "}
-                <span className="text-white font-weight-bolder">BLKFRl40 </span>{" "}
-                در پرداخت.
-              </h4>
-              <Link 
-                href="shop-banner-sidebar.html"
-                className="btn btn-primary btn-rounded"
-              >
-                اکنون کشف کنید
-              </Link>
-            </div> */}
-          </SwiperSlide>
-          <SwiperSlide
-          // className="swiper-slide banner banner-3 banner-fixed br-sm"
-          >
-            <figure className="banner-media">
-              <Image
-                src={special1}
-                alt="Category Banner"
-                width="580"
-                height="300"
-                style={{ bacgroundColor: "#EAEAEA" }}
-              />
-            </figure>
-            {/* <div className="banner-content y-50">
-              <h4 className="banner-subtitle text-capitalize font-weight-normal">
-                تازه رسیده ها{" "}
-              </h4>
-              <h3 className="banner-title text-capitalize ls-25 mb-0">
-                مردانه زنانه{" "}
-              </h3>
-              <h5 className="banner-price-info font-weight-normal ls-25">
-                تا{" "}
-                <span className="text-primary font-weight-bolder">
-                  50% تخفیف
-                </span>
-              </h5>
-              <Link 
-                href="demo15-shop.html"
-                className="btn btn-dark btn-outline btn-rounded btn-icon-right"
-              >
-                اکنون بخرید <i className="w-icon-long-arrow-left"></i>
-              </Link>
-            </div> */}
-          </SwiperSlide>
-        </div>
-      </Swiper>
-
-      <div className="row banner-product-wrapper pb-1 mb-10">
+        {/* <div className="row banner-product-wrapper pb-1 mb-10">
         <div className="banner-product col-xl-3 col-md-4 mb-4 mb-md-0">
           <h2 className="title pt-3 mb-5">محصولات ویژه</h2>
           <div className="banner banner-fixed overlay-zoom br-xs">
@@ -256,7 +182,7 @@ const SpecialProducts = () => {
           >
             <div className="swiper-wrapper row cols-xl-4 cols-lg-3 cols-2">
               <SwiperSlide
-              // className="swiper-slide product-col"
+
               >
                 <div className="product-wrap">
                   <div className="product text-center">
@@ -365,7 +291,7 @@ const SpecialProducts = () => {
               </SwiperSlide>
 
               <SwiperSlide
-              // className="swiper-slide product-col"
+
               >
                 <div className="product-wrap">
                   <div className="product text-center">
@@ -474,7 +400,7 @@ const SpecialProducts = () => {
               </SwiperSlide>
 
               <SwiperSlide
-              // className="swiper-slide product-col"
+
               >
                 <div className="product-wrap">
                   <div className="product text-center">
@@ -599,7 +525,7 @@ const SpecialProducts = () => {
               </SwiperSlide>
 
               <SwiperSlide
-              // className="swiper-slide product-col"
+
               >
                 <div className="product-wrap">
                   <div className="product text-center">
@@ -726,7 +652,7 @@ const SpecialProducts = () => {
               </SwiperSlide>
 
               <SwiperSlide
-              // className="swiper-slide product-col"
+
               >
                 <div className="product-wrap">
                   <div className="product text-center">
@@ -837,25 +763,12 @@ const SpecialProducts = () => {
               </SwiperSlide>
 
               <SwiperSlide
-              // className="swiper-slide product-col"
+
               >
                 <div className="product-wrap">
                   <div className="product text-center">
                     <figure className="product-media">
-                      {/* <Link href="product-default.html">
-                        <Image
-                          src="assets/images/demos/demo15/products/2-11-1.jpg"
-                          alt="Product"
-                          width="300"
-                          height="337"
-                        />
-                        <Image
-                          src="assets/images/demos/demo15/products/2-11-2.jpg"
-                          alt="Product"
-                          width="300"
-                          height="337"
-                        />
-                      </Link> */}
+                     
                       <div className="product-action-horizontal">
                         <Link
                           href="#"
@@ -895,20 +808,7 @@ const SpecialProducts = () => {
                 <div className="product-wrap">
                   <div className="product text-center">
                     <figure className="product-media">
-                      {/* <Link href="product-default.html">
-                        <Image
-                          src="assets/images/demos/demo15/products/2-12-1.jpg"
-                          alt="Product"
-                          width="300"
-                          height="337"
-                        />
-                        <Image
-                          src="assets/images/demos/demo15/products/2-12-2.jpg"
-                          alt="Product"
-                          width="300"
-                          height="337"
-                        />
-                      </Link> */}
+                   
                       <div className="product-action-horizontal">
                         <Link
                           href="#"
@@ -949,8 +849,8 @@ const SpecialProducts = () => {
             </div>
           </Swiper>
         </div>
-      </div>
-      <div className="category-banner-wrapper2 row cols-md-2">
+      </div> */}
+        {/* <div className="category-banner-wrapper2 row cols-md-2">
         <div className="banner banner-1 banner-fixed br-sm mb-4">
           <figure className="banner-media br-sm">
             <Image
@@ -1007,8 +907,8 @@ const SpecialProducts = () => {
             </Link>
           </div>
         </div>
-      </div>
-      {/* <div className="row banner-product-wrapper banner-product-wrapper2 pb-1 mb-10">
+      </div> */}
+        {/* <div className="row banner-product-wrapper banner-product-wrapper2 pb-1 mb-10">
             <div className="banner-product col-xl-3 col-md-4 mb-4 mb-md-0">
               <h2 className="title pt-3 mb-5">محصولات پرفروش</h2>
               <div className="banner banner-fixed overlay-zoom br-xs">
@@ -1743,7 +1643,9 @@ const SpecialProducts = () => {
               </div>
             </div>
           </div> */}
-    </div>
+      </div>
+      <SpecialOffers />
+    </>
   );
 };
 
