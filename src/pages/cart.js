@@ -63,6 +63,7 @@ const Cart = () => {
         // setTotalPrice(total)
       } else {
         setData([]);
+        setIsLoading(false);
       }
     } catch (error) {
       console.log("eror cart", error);
