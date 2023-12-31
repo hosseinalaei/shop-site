@@ -22,16 +22,20 @@ const HomeSlider = ({ data }) => {
       return "";
     }
   };
+  console.log("slides", slides);
 
   useEffect(() => {
     getSlides();
   }, [data]);
+
   return (
     <>
-      {slides?.map((item) => (
+      {slides?.map((item, index) => (
         <SwiperSlide key={item?.id}>
           <div
-            className="banner banner-fixed content-center intro-slide intro-slide1"
+            className={`banner banner-fixed content-center intro-slide intro-slide${
+              index + 1
+            }`}
             style={{
               backgroundImage: `url(data:image/jpeg;base64,${item?.mediaFieldName})`,
               backgroundColor: "#EEF4F4",

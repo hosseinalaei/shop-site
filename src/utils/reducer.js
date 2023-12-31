@@ -29,24 +29,30 @@ const reducer = (state, action) => {
     }
     case "GET_TOTALS": {
       // console.log(state.cart);
-      let { totalPrice, count } = state?.cart?.reduce(
-        (cartTotal, cartItem) => {
-          // console.log("cart item", cartItem);
-          const { productPrice, count } = cartItem;
-          // console.log(productPrice, count);
-          const itemTotal = productPrice * count;
-          cartTotal.totalPrice += itemTotal;
-          cartTotal.count += count;
-          // console.log(cartTotal);
-          return cartTotal;
-        },
-        {
-          totalPrice: 0,
-          count: 0,
-        }
-      );
-
-      return { ...state, totalPrice, count };
+      if (state.cart) {
+        console.log(state.cart);
+        let { totalPrice, count } = state?.cart?.reduce(
+          (cartTotal, cartItem) => {
+            // console.log("cart item", cartItem);
+            const { productPrice, count } = cartItem;
+            // console.log(productPrice, count);
+            const itemTotal = productPrice * count;
+            cartTotal.totalPrice += itemTotal;
+            cartTotal.count += count;
+            // console.log(cartTotal);
+            return cartTotal;
+          },
+          {
+            totalPrice: 0,
+            count: 0,
+          }
+        );
+        return { ...state, totalPrice, count };
+      } else {
+        let totalPrice = 0;
+        let count = 0;
+        return { ...state, totalPrice, count };
+      }
     }
     case "ADD_TO_CART": {
       // console.log(state.cart);
